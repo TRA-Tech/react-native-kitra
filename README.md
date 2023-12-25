@@ -1,2 +1,8 @@
-# react-native-kitra
-UI kit for React Native
+# Kitra
+ 
+## Installation
+
+```sh
+npm install react-native-kitra
+```
+

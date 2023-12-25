@@ -1,0 +1,198 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckBox renders with different props renders checked 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": undefined,
+      "borderColor": undefined,
+      "borderRadius": 4,
+      "borderWidth": 1,
+      "height": 20,
+      "justifyContent": "center",
+      "opacity": 1,
+      "width": 20,
+    }
+  }
+  testID="checkbox"
+>
+  <View
+    entering={BaseAnimationMock {}}
+    exiting={BaseAnimationMock {}}
+  >
+    <Text
+      accessibilityElementsHidden={true}
+      allowFontScaling={false}
+      importantForAccessibility="no-hide-descendants"
+      pointerEvents="none"
+      selectable={false}
+      style={
+        [
+          {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          [
+            {
+              "lineHeight": 12,
+            },
+            {
+              "backgroundColor": "transparent",
+            },
+            undefined,
+          ],
+          {
+            "fontFamily": "Octicons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`CheckBox renders with different props renders custom icon color 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": undefined,
+      "borderColor": undefined,
+      "borderRadius": 4,
+      "borderWidth": 1,
+      "height": 20,
+      "justifyContent": "center",
+      "opacity": 1,
+      "width": 20,
+    }
+  }
+  testID="checkbox"
+>
+  <View
+    entering={BaseAnimationMock {}}
+    exiting={BaseAnimationMock {}}
+  >
+    <Text
+      accessibilityElementsHidden={true}
+      allowFontScaling={false}
+      importantForAccessibility="no-hide-descendants"
+      pointerEvents="none"
+      selectable={false}
+      style={
+        [
+          {
+            "color": "red",
+            "fontSize": 12,
+          },
+          [
+            {
+              "lineHeight": 12,
+            },
+            {
+              "backgroundColor": "transparent",
+            },
+            undefined,
+          ],
+          {
+            "fontFamily": "Octicons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`CheckBox renders with different props renders disabled 1`] = `
+<View
+  accessibilityState={
+    {
+      "disabled": true,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": undefined,
+      "borderColor": undefined,
+      "borderRadius": 4,
+      "borderWidth": 1,
+      "height": 20,
+      "justifyContent": "center",
+      "opacity": 1,
+      "width": 20,
+    }
+  }
+  testID="checkbox"
+/>
+`;
+
+exports[`CheckBox renders with different props renders unchecked 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": undefined,
+      "borderColor": undefined,
+      "borderRadius": 4,
+      "borderWidth": 1,
+      "height": 20,
+      "justifyContent": "center",
+      "opacity": 1,
+      "width": 20,
+    }
+  }
+  testID="checkbox"
+/>
+`;

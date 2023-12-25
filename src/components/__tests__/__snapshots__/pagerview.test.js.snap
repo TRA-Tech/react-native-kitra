@@ -1,0 +1,494 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PagerView renders PagerView 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      [
+        {
+          "flex": 1,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#FFFFFF",
+          },
+          {
+            "borderRadius": 10,
+            "flexDirection": "row",
+            "height": 50,
+            "marginLeft": "auto",
+            "marginRight": "auto",
+            "padding": 5,
+            "width": 315,
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "borderRadius": 8,
+              "margin": 5,
+              "position": "absolute",
+            },
+            {
+              "backgroundColor": "#654FA6",
+              "height": 0,
+              "width": 0,
+              "zIndex": 100,
+            },
+            {
+              "left": 0,
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "justifyContent": "center",
+            },
+            {
+              "width": "100%",
+            },
+            [
+              {
+                "bottom": 0,
+                "height": 4,
+                "margin": 5,
+                "position": "absolute",
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        <View
+          style={
+            {
+              "borderColor": "#DCD5F0",
+              "borderStyle": "solid",
+              "borderWidth": 0.5,
+              "width": "100%",
+            }
+          }
+        />
+      </View>
+    </View>
+    <RNCViewPager
+      entering={BaseAnimationMock {}}
+      initialPage={0}
+      layoutDirection="ltr"
+      onMoveShouldSetResponderCapture={[Function]}
+      onPageScroll={[Function]}
+      onPageScrollStateChanged={[Function]}
+      onPageSelected={[Function]}
+      overScrollMode="never"
+      overdrag={false}
+      style={
+        [
+          {
+            "flex": 1,
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <View
+    entering={BaseAnimationMock {}}
+    exiting={BaseAnimationMock {}}
+    layout={BaseAnimationMock {}}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 10,
+          "height": 100,
+          "paddingHorizontal": 24,
+          "width": "100%",
+          "zIndex": 100,
+        },
+        {
+          "alignSelf": "center",
+          "top": 150,
+        },
+        undefined,
+        {
+          "backgroundColor": "transparent",
+          "marginTop": -110,
+          "position": "absolute",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "flex": 1,
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "borderRadius": 100,
+            "height": 28,
+            "justifyContent": "center",
+            "marginLeft": 18,
+            "marginTop": 21,
+            "width": 28,
+            "zIndex": 100,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flex": 1,
+            "zIndex": 100,
+          }
+        }
+      >
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "500",
+                "marginTop": 17,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "400",
+                "marginTop": 6,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`PagerView renders PagerView with not react element 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      [
+        {
+          "flex": 1,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#FFFFFF",
+          },
+          {
+            "borderRadius": 10,
+            "flexDirection": "row",
+            "height": 50,
+            "marginLeft": "auto",
+            "marginRight": "auto",
+            "padding": 5,
+            "width": 315,
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onLayout={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "alignItems": "center",
+            "flex": 1,
+            "justifyContent": "center",
+            "opacity": 1,
+          }
+        }
+        testID="tab_button_0"
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "fontSize": 14,
+                  "lineHeight": 21,
+                },
+                {
+                  "flexDirection": "row",
+                  "fontSize": 12,
+                  "fontWeight": "500",
+                  "margin": 10,
+                  "textAlign": "center",
+                },
+                {
+                  "color": "#FFFFFF",
+                },
+                undefined,
+              ]
+            }
+          />
+        </View>
+      </View>
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "borderRadius": 8,
+              "margin": 5,
+              "position": "absolute",
+            },
+            {
+              "backgroundColor": "#654FA6",
+              "height": 0,
+              "width": 0,
+              "zIndex": 100,
+            },
+            {
+              "left": 0,
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "justifyContent": "center",
+            },
+            {
+              "width": "100%",
+            },
+            [
+              {
+                "bottom": 0,
+                "height": 4,
+                "margin": 5,
+                "position": "absolute",
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        <View
+          style={
+            {
+              "borderColor": "#DCD5F0",
+              "borderStyle": "solid",
+              "borderWidth": 0.5,
+              "width": "100%",
+            }
+          }
+        />
+      </View>
+    </View>
+    <RNCViewPager
+      entering={BaseAnimationMock {}}
+      initialPage={0}
+      layoutDirection="ltr"
+      onMoveShouldSetResponderCapture={[Function]}
+      onPageScroll={[Function]}
+      onPageScrollStateChanged={[Function]}
+      onPageSelected={[Function]}
+      overScrollMode="never"
+      overdrag={false}
+      style={
+        [
+          {
+            "flex": 1,
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <View
+    entering={BaseAnimationMock {}}
+    exiting={BaseAnimationMock {}}
+    layout={BaseAnimationMock {}}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 10,
+          "height": 100,
+          "paddingHorizontal": 24,
+          "width": "100%",
+          "zIndex": 100,
+        },
+        {
+          "alignSelf": "center",
+          "top": 150,
+        },
+        undefined,
+        {
+          "backgroundColor": "transparent",
+          "marginTop": -110,
+          "position": "absolute",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "flex": 1,
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "borderRadius": 100,
+            "height": 28,
+            "justifyContent": "center",
+            "marginLeft": 18,
+            "marginTop": 21,
+            "width": 28,
+            "zIndex": 100,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flex": 1,
+            "zIndex": 100,
+          }
+        }
+      >
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "500",
+                "marginTop": 17,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "400",
+                "marginTop": 6,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;

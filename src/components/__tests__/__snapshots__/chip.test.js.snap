@@ -1,0 +1,476 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chip Rendering renders chip with disable 1`] = `
+<View
+  accessibilityState={
+    {
+      "disabled": true,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": undefined,
+      "borderColor": undefined,
+      "borderRadius": 40,
+      "borderWidth": 1,
+      "height": 24,
+      "justifyContent": "center",
+      "opacity": 0.7,
+      "width": 57,
+    }
+  }
+  testID="chip"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row-reverse",
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "color": undefined,
+          },
+          {
+            "fontSize": undefined,
+            "fontWeight": "500",
+            "lineHeight": undefined,
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Chip Rendering renders chip with label 1`] = `
+<View
+  accessibilityState={
+    {
+      "disabled": false,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": undefined,
+      "borderColor": undefined,
+      "borderRadius": 40,
+      "borderWidth": 1,
+      "height": 24,
+      "justifyContent": "center",
+      "opacity": 1,
+      "width": 57,
+    }
+  }
+  testID="chip"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row-reverse",
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "color": undefined,
+          },
+          {
+            "fontSize": undefined,
+            "fontWeight": "500",
+            "lineHeight": undefined,
+          },
+          undefined,
+        ]
+      }
+    >
+      Test label
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Chip Rendering renders small size check icon to left 1`] = `
+<View
+  accessibilityState={
+    {
+      "disabled": false,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": undefined,
+      "borderColor": undefined,
+      "borderRadius": 40,
+      "borderWidth": 1,
+      "height": 24,
+      "justifyContent": "center",
+      "opacity": 1,
+      "width": 71.54,
+    }
+  }
+  testID="chip"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row-reverse",
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "color": undefined,
+          },
+          {
+            "fontSize": undefined,
+            "fontWeight": "500",
+            "lineHeight": undefined,
+          },
+          undefined,
+        ]
+      }
+    />
+    <Text
+      allowFontScaling={false}
+      animatedProps={
+        {
+          "color": undefined,
+        }
+      }
+      selectable={false}
+      style={
+        [
+          {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          [
+            {
+              "marginRight": 6,
+            },
+          ],
+          {
+            "fontFamily": "anticon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Chip Rendering renders small size check icon to right 1`] = `
+<View
+  accessibilityState={
+    {
+      "disabled": false,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": undefined,
+      "borderColor": undefined,
+      "borderRadius": 40,
+      "borderWidth": 1,
+      "height": 24,
+      "justifyContent": "center",
+      "opacity": 1,
+      "width": 71.54,
+    }
+  }
+  testID="chip"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "color": undefined,
+          },
+          {
+            "fontSize": undefined,
+            "fontWeight": "500",
+            "lineHeight": undefined,
+          },
+          undefined,
+        ]
+      }
+    />
+    <Text
+      allowFontScaling={false}
+      animatedProps={
+        {
+          "color": undefined,
+        }
+      }
+      selectable={false}
+      style={
+        [
+          {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          [
+            {
+              "marginLeft": 6,
+            },
+          ],
+          {
+            "fontFamily": "anticon",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          {},
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Chip renders badge with different sizes renders badge with large sizes 1`] = `
+<View
+  accessibilityState={
+    {
+      "disabled": false,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": undefined,
+      "borderColor": undefined,
+      "borderRadius": 40,
+      "borderWidth": 1,
+      "height": 33,
+      "justifyContent": "center",
+      "opacity": 1,
+      "width": 73,
+    }
+  }
+  testID="chip"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row-reverse",
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "color": undefined,
+          },
+          {
+            "fontSize": undefined,
+            "fontWeight": "500",
+            "lineHeight": undefined,
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Chip renders badge with different sizes renders badge with medium sizes 1`] = `
+<View
+  accessibilityState={
+    {
+      "disabled": false,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": undefined,
+      "borderColor": undefined,
+      "borderRadius": 40,
+      "borderWidth": 1,
+      "height": 30,
+      "justifyContent": "center",
+      "opacity": 1,
+      "width": 65,
+    }
+  }
+  testID="chip"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row-reverse",
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "color": undefined,
+          },
+          {
+            "fontSize": undefined,
+            "fontWeight": "500",
+            "lineHeight": undefined,
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Chip renders badge with different sizes renders badge with small sizes 1`] = `
+<View
+  accessibilityState={
+    {
+      "disabled": false,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": undefined,
+      "borderColor": undefined,
+      "borderRadius": 40,
+      "borderWidth": 1,
+      "height": 24,
+      "justifyContent": "center",
+      "opacity": 1,
+      "width": 57,
+    }
+  }
+  testID="chip"
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row-reverse",
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "color": undefined,
+          },
+          {
+            "fontSize": undefined,
+            "fontWeight": "500",
+            "lineHeight": undefined,
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+</View>
+`;

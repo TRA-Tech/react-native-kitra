@@ -1,0 +1,93 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 13,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "react-hooks"
+    ],
+    "rules": {
+        "max-len": 0,
+        "arrow-parens": [
+            "error",
+            "as-needed"
+        ],
+        "no-unused-expressions":"off",
+        "no-use-before-define": "off",
+        "import/no-named-default": 0,
+        "no-nested-ternary":"off",
+        "import/extensions": [
+            "error",
+            {
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
+            }
+        ],
+        "no-param-reassign": 0,
+        "no-confusing-arrow": [
+            "error",
+            {
+                "allowParens": true
+            }
+        ],
+        "object-curly-newline": [
+            "error",
+            {
+                "consistent": true
+            }
+        ],
+        "implicit-arrow-linebreak": 0,
+        "operator-linebreak": 0,
+        "linebreak-style": 0,
+        "import/no-extraneous-dependencies": 0,
+        "import/prefer-default-export": 0,
+        "react/prop-types": 0,
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+                ]
+            }
+        ],
+        "global-require": 0,
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "react/jsx-props-no-spreading": 0,
+        "react/react-in-jsx-scope": 0,
+        "react/style-prop-object": 0,
+        "import/no-unresolved": 0,
+        "react/require-default-props": 0,
+        "react/jsx-runtime": 0,
+        "react/jsx-curly-newline": 0,
+        "react/static-property-placement": 0,
+        "react/state-in-constructor": 0,
+        "react/no-array-index-key": 0,
+        "react/jsx-indent-props": "error",
+        "jsx-a11y/label-has-associated-control": 0,
+        "jsx-a11y/control-has-associated-label": 0,
+        "react/function-component-definition": 0,
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn" 
+    }
+}

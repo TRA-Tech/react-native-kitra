@@ -1,0 +1,5254 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccordionList renders with different data types renders default 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "opacity": 1,
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#F9F8FD",
+          },
+          {
+            "alignItems": "center",
+            "borderRadius": 3,
+            "flexDirection": "row",
+            "padding": 10,
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "color": "#404040",
+            },
+            {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 14,
+              "lineHeight": 21,
+            },
+            {
+              "flex": 1,
+              "marginHorizontal": 10,
+              "textAlign": "left",
+            },
+            undefined,
+          ]
+        }
+      >
+        title
+      </Text>
+      <View
+        style={
+          [
+            {
+              "backgroundColor": "#F5F4F6",
+            },
+            {
+              "borderRadius": 3,
+              "paddingHorizontal": 10,
+              "paddingVertical": 6,
+            },
+          ]
+        }
+      >
+        <Text
+          accessibilityElementsHidden={true}
+          allowFontScaling={false}
+          importantForAccessibility="no-hide-descendants"
+          pointerEvents="none"
+          selectable={false}
+          style={
+            [
+              {
+                "color": "#D7D1E9",
+                "fontSize": 20,
+              },
+              [
+                {
+                  "lineHeight": 20,
+                },
+                {
+                  "backgroundColor": "transparent",
+                },
+                {
+                  "transform": [
+                    {
+                      "rotateZ": "0deg",
+                    },
+                  ],
+                },
+              ],
+              {
+                "fontFamily": "Octicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      [
+        {
+          "height": 0,
+        },
+        {
+          "overflow": "hidden",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        {
+          "flex": 1,
+          "overflow": "hidden",
+        }
+      }
+    >
+      <RCTScrollView
+        applyWindowCorrection={[Function]}
+        bounces={false}
+        canChangeSize={true}
+        contentContainerStyle={
+          {
+            "backgroundColor": undefined,
+            "minHeight": 1,
+            "minWidth": 1,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+          }
+        }
+        contentHeight={63}
+        contentWidth={400}
+        data={
+          [
+            {
+              "content": "content1",
+              "title": "title1",
+            },
+            {
+              "content": "content2",
+              "title": "title2",
+            },
+            {
+              "content": "content3",
+              "title": "title3",
+            },
+          ]
+        }
+        dataProvider={
+          DataProvider {
+            "_data": [
+              {
+                "content": "content1",
+                "title": "title1",
+              },
+              {
+                "content": "content2",
+                "title": "title2",
+              },
+              {
+                "content": "content3",
+                "title": "title3",
+              },
+            ],
+            "_firstIndexToProcess": 0,
+            "_hasStableIds": false,
+            "_requiresDataChangeHandling": false,
+            "_size": 3,
+            "getStableId": [Function],
+            "rowHasChanged": [Function],
+          }
+        }
+        disableRecycling={false}
+        estimatedItemSize={21}
+        extendedState={{}}
+        externalScrollView={[Function]}
+        finalRenderAheadOffset={250}
+        forceNonDeterministicRendering={true}
+        horizontal={false}
+        initialOffset={0}
+        initialRenderIndex={0}
+        isHorizontal={false}
+        layoutProvider={
+          GridLayoutProviderWithProps {
+            "_acceptableRelayoutDelta": 1,
+            "_getHeightOrWidth": [Function],
+            "_getLayoutTypeForIndex": [Function],
+            "_getSpan": [Function],
+            "_hasExpired": false,
+            "_isHorizontal": false,
+            "_lastLayoutManager": GridLayoutManager {
+              "_acceptableRelayoutDelta": 1,
+              "_getSpan": [Function],
+              "_isGridHorizontal": false,
+              "_isHorizontal": false,
+              "_layoutProvider": [Circular],
+              "_layouts": [
+                {
+                  "height": 21,
+                  "type": 0,
+                  "width": 400,
+                  "x": 0,
+                  "y": 0,
+                },
+                {
+                  "height": 21,
+                  "type": 0,
+                  "width": 400,
+                  "x": 0,
+                  "y": 21,
+                },
+                {
+                  "height": 21,
+                  "type": 0,
+                  "width": 400,
+                  "x": 0,
+                  "y": 42,
+                },
+              ],
+              "_maxSpan": 1,
+              "_renderWindowSize": {
+                "height": 900,
+                "width": 400,
+              },
+              "_totalHeight": 63,
+              "_totalWidth": 400,
+              "_window": {
+                "height": 900,
+                "width": 400,
+              },
+            },
+            "_maxSpan": 1,
+            "_renderWindowSize": {
+              "height": 900,
+              "width": 400,
+            },
+            "_setLayoutForType": [Function],
+            "_tempDim": {
+              "height": 0,
+              "width": 0,
+            },
+            "averageWindow": AverageWindow {
+              "currentAverage": 21,
+              "currentCount": 1,
+              "inputValues": [
+                21,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+              ],
+              "nextIndex": 1,
+            },
+            "defaultEstimatedItemSize": 100,
+            "layoutObject": {
+              "size": undefined,
+              "span": undefined,
+            },
+            "props": {
+              "bounces": false,
+              "data": [
+                {
+                  "content": "content1",
+                  "title": "title1",
+                },
+                {
+                  "content": "content2",
+                  "title": "title2",
+                },
+                {
+                  "content": "content3",
+                  "title": "title3",
+                },
+              ],
+              "estimatedItemSize": 21,
+              "numColumns": 1,
+              "onContentSizeChange": [Function],
+              "renderItem": [Function],
+            },
+            "renderWindowInsets": {
+              "height": 0,
+              "width": 0,
+            },
+            "shouldRefreshWithAnchoring": true,
+          }
+        }
+        maxRenderAhead={750}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReached={[Function]}
+        onEndReachedThreshold={0}
+        onEndReachedThresholdRelative={0}
+        onItemLayout={[Function]}
+        onLayout={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onSizeChanged={[Function]}
+        onVisibleIndicesChanged={[Function]}
+        removeClippedSubviews={false}
+        renderAheadOffset={0}
+        renderAheadStep={250}
+        renderContentContainer={[Function]}
+        renderItem={[Function]}
+        renderItemContainer={[Function]}
+        rowRenderer={[Function]}
+        scrollEventThrottle={16}
+        scrollThrottle={16}
+        scrollViewProps={
+          {
+            "contentContainerStyle": {
+              "backgroundColor": undefined,
+              "minHeight": 1,
+              "minWidth": 1,
+              "paddingLeft": 0,
+              "paddingRight": 0,
+            },
+            "onLayout": [Function],
+            "onScrollBeginDrag": [Function],
+            "refreshControl": undefined,
+            "style": {
+              "minHeight": 1,
+              "minWidth": 1,
+            },
+          }
+        }
+        style={
+          {
+            "minHeight": 1,
+            "minWidth": 1,
+          }
+        }
+        suppressBoundedSizeException={true}
+        windowCorrectionConfig={
+          {
+            "applyToInitialOffset": true,
+            "applyToItemScroll": true,
+            "value": {
+              "endCorrection": 0,
+              "startCorrection": 0,
+              "windowShift": -0,
+            },
+          }
+        }
+      >
+        <View>
+          <View
+            style={
+              {
+                "flexDirection": "column",
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "paddingLeft": 0,
+                  "paddingTop": 0,
+                }
+              }
+            />
+            <View
+              style={
+                [
+                  undefined,
+                  undefined,
+                ]
+              }
+            />
+            <AutoLayoutView
+              enableInstrumentation={false}
+              horizontal={false}
+              onBlankAreaEvent={[Function]}
+              onLayout={[Function]}
+              renderAheadOffset={0}
+              scrollOffset={0}
+              style={
+                {
+                  "height": 63,
+                  "width": 400,
+                }
+              }
+              windowSize={900}
+            >
+              <CellContainer
+                index={0}
+                onLayout={[Function]}
+                style={
+                  {
+                    "alignItems": "stretch",
+                    "flexDirection": "column",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": 400,
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "flexDirection": "column",
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      entering={BaseAnimationMock {}}
+                      exiting={BaseAnimationMock {}}
+                      style={
+                        [
+                          {
+                            "padding": 10,
+                          },
+                          {
+                            "backgroundColor": "#F9F8FD",
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          [
+                            {
+                              "color": "#9A9A9A",
+                              "textAlign": "center",
+                            },
+                            {
+                              "fontFamily": "Poppins-Medium",
+                              "fontSize": 12,
+                              "lineHeight": 18,
+                            },
+                            undefined,
+                          ]
+                        }
+                      >
+                        title1
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </CellContainer>
+              <CellContainer
+                index={1}
+                onLayout={[Function]}
+                style={
+                  {
+                    "alignItems": "stretch",
+                    "flexDirection": "column",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 21,
+                    "width": 400,
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "flexDirection": "column",
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      entering={BaseAnimationMock {}}
+                      exiting={BaseAnimationMock {}}
+                      style={
+                        [
+                          {
+                            "padding": 10,
+                          },
+                          {
+                            "backgroundColor": "#F9F8FD",
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          [
+                            {
+                              "color": "#9A9A9A",
+                              "textAlign": "center",
+                            },
+                            {
+                              "fontFamily": "Poppins-Medium",
+                              "fontSize": 12,
+                              "lineHeight": 18,
+                            },
+                            undefined,
+                          ]
+                        }
+                      >
+                        title2
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </CellContainer>
+              <CellContainer
+                index={2}
+                onLayout={[Function]}
+                style={
+                  {
+                    "alignItems": "stretch",
+                    "flexDirection": "column",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 42,
+                    "width": 400,
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "flexDirection": "column",
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      entering={BaseAnimationMock {}}
+                      exiting={BaseAnimationMock {}}
+                      style={
+                        [
+                          {
+                            "padding": 10,
+                          },
+                          {
+                            "backgroundColor": "#F9F8FD",
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          [
+                            {
+                              "color": "#9A9A9A",
+                              "textAlign": "center",
+                            },
+                            {
+                              "fontFamily": "Poppins-Medium",
+                              "fontSize": 12,
+                              "lineHeight": 18,
+                            },
+                            undefined,
+                          ]
+                        }
+                      >
+                        title3
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </CellContainer>
+            </AutoLayoutView>
+            <CellContainer
+              index={-1}
+              style={
+                [
+                  undefined,
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                {
+                  "paddingBottom": 0,
+                  "paddingRight": 0,
+                }
+              }
+            />
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>
+  <View
+    entering={BaseAnimationMock {}}
+    exiting={BaseAnimationMock {}}
+    layout={BaseAnimationMock {}}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 10,
+          "height": 100,
+          "paddingHorizontal": 24,
+          "width": "100%",
+          "zIndex": 100,
+        },
+        {
+          "alignSelf": "center",
+          "top": 150,
+        },
+        undefined,
+        {
+          "backgroundColor": "transparent",
+          "marginTop": -110,
+          "position": "absolute",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "flex": 1,
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "borderRadius": 100,
+            "height": 28,
+            "justifyContent": "center",
+            "marginLeft": 18,
+            "marginTop": 21,
+            "width": 28,
+            "zIndex": 100,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flex": 1,
+            "zIndex": 100,
+          }
+        }
+      >
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "500",
+                "marginTop": 17,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "400",
+                "marginTop": 6,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`AccordionList renders with different data types renders with string array data 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "opacity": 1,
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#F9F8FD",
+          },
+          {
+            "alignItems": "center",
+            "borderRadius": 3,
+            "flexDirection": "row",
+            "padding": 10,
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "color": "#404040",
+            },
+            {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 14,
+              "lineHeight": 21,
+            },
+            {
+              "flex": 1,
+              "marginHorizontal": 10,
+              "textAlign": "left",
+            },
+            undefined,
+          ]
+        }
+      >
+        title
+      </Text>
+      <View
+        style={
+          [
+            {
+              "backgroundColor": "#F5F4F6",
+            },
+            {
+              "borderRadius": 3,
+              "paddingHorizontal": 10,
+              "paddingVertical": 6,
+            },
+          ]
+        }
+      >
+        <Text
+          accessibilityElementsHidden={true}
+          allowFontScaling={false}
+          importantForAccessibility="no-hide-descendants"
+          pointerEvents="none"
+          selectable={false}
+          style={
+            [
+              {
+                "color": "#D7D1E9",
+                "fontSize": 20,
+              },
+              [
+                {
+                  "lineHeight": 20,
+                },
+                {
+                  "backgroundColor": "transparent",
+                },
+                {
+                  "transform": [
+                    {
+                      "rotateZ": "0deg",
+                    },
+                  ],
+                },
+              ],
+              {
+                "fontFamily": "Octicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      [
+        {
+          "height": 0,
+        },
+        {
+          "overflow": "hidden",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        {
+          "flex": 1,
+          "overflow": "hidden",
+        }
+      }
+    >
+      <RCTScrollView
+        applyWindowCorrection={[Function]}
+        bounces={false}
+        canChangeSize={true}
+        contentContainerStyle={
+          {
+            "backgroundColor": undefined,
+            "minHeight": 1,
+            "minWidth": 1,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+          }
+        }
+        contentHeight={63}
+        contentWidth={400}
+        data={
+          [
+            "title1",
+            "title2",
+            "title3",
+          ]
+        }
+        dataProvider={
+          DataProvider {
+            "_data": [
+              "title1",
+              "title2",
+              "title3",
+            ],
+            "_firstIndexToProcess": 0,
+            "_hasStableIds": false,
+            "_requiresDataChangeHandling": false,
+            "_size": 3,
+            "getStableId": [Function],
+            "rowHasChanged": [Function],
+          }
+        }
+        disableRecycling={false}
+        estimatedItemSize={21}
+        extendedState={{}}
+        externalScrollView={[Function]}
+        finalRenderAheadOffset={250}
+        forceNonDeterministicRendering={true}
+        horizontal={false}
+        initialOffset={0}
+        initialRenderIndex={0}
+        isHorizontal={false}
+        layoutProvider={
+          GridLayoutProviderWithProps {
+            "_acceptableRelayoutDelta": 1,
+            "_getHeightOrWidth": [Function],
+            "_getLayoutTypeForIndex": [Function],
+            "_getSpan": [Function],
+            "_hasExpired": false,
+            "_isHorizontal": false,
+            "_lastLayoutManager": GridLayoutManager {
+              "_acceptableRelayoutDelta": 1,
+              "_getSpan": [Function],
+              "_isGridHorizontal": false,
+              "_isHorizontal": false,
+              "_layoutProvider": [Circular],
+              "_layouts": [
+                {
+                  "height": 21,
+                  "type": 0,
+                  "width": 400,
+                  "x": 0,
+                  "y": 0,
+                },
+                {
+                  "height": 21,
+                  "type": 0,
+                  "width": 400,
+                  "x": 0,
+                  "y": 21,
+                },
+                {
+                  "height": 21,
+                  "type": 0,
+                  "width": 400,
+                  "x": 0,
+                  "y": 42,
+                },
+              ],
+              "_maxSpan": 1,
+              "_renderWindowSize": {
+                "height": 900,
+                "width": 400,
+              },
+              "_totalHeight": 63,
+              "_totalWidth": 400,
+              "_window": {
+                "height": 900,
+                "width": 400,
+              },
+            },
+            "_maxSpan": 1,
+            "_renderWindowSize": {
+              "height": 900,
+              "width": 400,
+            },
+            "_setLayoutForType": [Function],
+            "_tempDim": {
+              "height": 0,
+              "width": 0,
+            },
+            "averageWindow": AverageWindow {
+              "currentAverage": 21,
+              "currentCount": 1,
+              "inputValues": [
+                21,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+              ],
+              "nextIndex": 1,
+            },
+            "defaultEstimatedItemSize": 100,
+            "layoutObject": {
+              "size": undefined,
+              "span": undefined,
+            },
+            "props": {
+              "bounces": false,
+              "data": [
+                "title1",
+                "title2",
+                "title3",
+              ],
+              "estimatedItemSize": 21,
+              "numColumns": 1,
+              "onContentSizeChange": [Function],
+              "renderItem": [Function],
+            },
+            "renderWindowInsets": {
+              "height": 0,
+              "width": 0,
+            },
+            "shouldRefreshWithAnchoring": true,
+          }
+        }
+        maxRenderAhead={750}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReached={[Function]}
+        onEndReachedThreshold={0}
+        onEndReachedThresholdRelative={0}
+        onItemLayout={[Function]}
+        onLayout={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onSizeChanged={[Function]}
+        onVisibleIndicesChanged={[Function]}
+        removeClippedSubviews={false}
+        renderAheadOffset={0}
+        renderAheadStep={250}
+        renderContentContainer={[Function]}
+        renderItem={[Function]}
+        renderItemContainer={[Function]}
+        rowRenderer={[Function]}
+        scrollEventThrottle={16}
+        scrollThrottle={16}
+        scrollViewProps={
+          {
+            "contentContainerStyle": {
+              "backgroundColor": undefined,
+              "minHeight": 1,
+              "minWidth": 1,
+              "paddingLeft": 0,
+              "paddingRight": 0,
+            },
+            "onLayout": [Function],
+            "onScrollBeginDrag": [Function],
+            "refreshControl": undefined,
+            "style": {
+              "minHeight": 1,
+              "minWidth": 1,
+            },
+          }
+        }
+        style={
+          {
+            "minHeight": 1,
+            "minWidth": 1,
+          }
+        }
+        suppressBoundedSizeException={true}
+        windowCorrectionConfig={
+          {
+            "applyToInitialOffset": true,
+            "applyToItemScroll": true,
+            "value": {
+              "endCorrection": 0,
+              "startCorrection": 0,
+              "windowShift": -0,
+            },
+          }
+        }
+      >
+        <View>
+          <View
+            style={
+              {
+                "flexDirection": "column",
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "paddingLeft": 0,
+                  "paddingTop": 0,
+                }
+              }
+            />
+            <View
+              style={
+                [
+                  undefined,
+                  undefined,
+                ]
+              }
+            />
+            <AutoLayoutView
+              enableInstrumentation={false}
+              horizontal={false}
+              onBlankAreaEvent={[Function]}
+              onLayout={[Function]}
+              renderAheadOffset={0}
+              scrollOffset={0}
+              style={
+                {
+                  "height": 63,
+                  "width": 400,
+                }
+              }
+              windowSize={900}
+            >
+              <CellContainer
+                index={0}
+                onLayout={[Function]}
+                style={
+                  {
+                    "alignItems": "stretch",
+                    "flexDirection": "column",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": 400,
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "flexDirection": "column",
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      entering={BaseAnimationMock {}}
+                      exiting={BaseAnimationMock {}}
+                      style={
+                        [
+                          {
+                            "padding": 10,
+                          },
+                          {
+                            "backgroundColor": "#F9F8FD",
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          [
+                            {
+                              "color": "#9A9A9A",
+                              "textAlign": "center",
+                            },
+                            {
+                              "fontFamily": "Poppins-Medium",
+                              "fontSize": 12,
+                              "lineHeight": 18,
+                            },
+                            undefined,
+                          ]
+                        }
+                      />
+                    </View>
+                  </View>
+                </View>
+              </CellContainer>
+              <CellContainer
+                index={1}
+                onLayout={[Function]}
+                style={
+                  {
+                    "alignItems": "stretch",
+                    "flexDirection": "column",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 21,
+                    "width": 400,
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "flexDirection": "column",
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      entering={BaseAnimationMock {}}
+                      exiting={BaseAnimationMock {}}
+                      style={
+                        [
+                          {
+                            "padding": 10,
+                          },
+                          {
+                            "backgroundColor": "#F9F8FD",
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          [
+                            {
+                              "color": "#9A9A9A",
+                              "textAlign": "center",
+                            },
+                            {
+                              "fontFamily": "Poppins-Medium",
+                              "fontSize": 12,
+                              "lineHeight": 18,
+                            },
+                            undefined,
+                          ]
+                        }
+                      />
+                    </View>
+                  </View>
+                </View>
+              </CellContainer>
+              <CellContainer
+                index={2}
+                onLayout={[Function]}
+                style={
+                  {
+                    "alignItems": "stretch",
+                    "flexDirection": "column",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 42,
+                    "width": 400,
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "flexDirection": "column",
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      entering={BaseAnimationMock {}}
+                      exiting={BaseAnimationMock {}}
+                      style={
+                        [
+                          {
+                            "padding": 10,
+                          },
+                          {
+                            "backgroundColor": "#F9F8FD",
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          [
+                            {
+                              "color": "#9A9A9A",
+                              "textAlign": "center",
+                            },
+                            {
+                              "fontFamily": "Poppins-Medium",
+                              "fontSize": 12,
+                              "lineHeight": 18,
+                            },
+                            undefined,
+                          ]
+                        }
+                      />
+                    </View>
+                  </View>
+                </View>
+              </CellContainer>
+            </AutoLayoutView>
+            <CellContainer
+              index={-1}
+              style={
+                [
+                  undefined,
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                {
+                  "paddingBottom": 0,
+                  "paddingRight": 0,
+                }
+              }
+            />
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>
+  <View
+    entering={BaseAnimationMock {}}
+    exiting={BaseAnimationMock {}}
+    layout={BaseAnimationMock {}}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 10,
+          "height": 100,
+          "paddingHorizontal": 24,
+          "width": "100%",
+          "zIndex": 100,
+        },
+        {
+          "alignSelf": "center",
+          "top": 150,
+        },
+        undefined,
+        {
+          "backgroundColor": "transparent",
+          "marginTop": -110,
+          "position": "absolute",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "flex": 1,
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "borderRadius": 100,
+            "height": 28,
+            "justifyContent": "center",
+            "marginLeft": 18,
+            "marginTop": 21,
+            "width": 28,
+            "zIndex": 100,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flex": 1,
+            "zIndex": 100,
+          }
+        }
+      >
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "500",
+                "marginTop": 17,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "400",
+                "marginTop": 6,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`AccordionList renders with different styles renders with custom style 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "opacity": 1,
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#F9F8FD",
+          },
+          {
+            "alignItems": "center",
+            "borderRadius": 3,
+            "flexDirection": "row",
+            "padding": 10,
+          },
+          {
+            "backgroundColor": "green",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "color": "#404040",
+            },
+            {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 14,
+              "lineHeight": 21,
+            },
+            {
+              "flex": 1,
+              "marginHorizontal": 10,
+              "textAlign": "left",
+            },
+            {
+              "color": "blue",
+              "fontSize": 20,
+            },
+          ]
+        }
+      >
+        title
+      </Text>
+      <View
+        style={
+          [
+            {
+              "backgroundColor": "#F5F4F6",
+            },
+            {
+              "borderRadius": 3,
+              "paddingHorizontal": 10,
+              "paddingVertical": 6,
+            },
+          ]
+        }
+      >
+        <Text
+          accessibilityElementsHidden={true}
+          allowFontScaling={false}
+          importantForAccessibility="no-hide-descendants"
+          pointerEvents="none"
+          selectable={false}
+          style={
+            [
+              {
+                "color": "#D7D1E9",
+                "fontSize": 20,
+              },
+              [
+                {
+                  "lineHeight": 20,
+                },
+                {
+                  "backgroundColor": "transparent",
+                },
+                {
+                  "transform": [
+                    {
+                      "rotateZ": "0deg",
+                    },
+                  ],
+                },
+              ],
+              {
+                "fontFamily": "Octicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      [
+        {
+          "height": 0,
+        },
+        {
+          "overflow": "hidden",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        {
+          "flex": 1,
+          "overflow": "hidden",
+        }
+      }
+    >
+      <RCTScrollView
+        applyWindowCorrection={[Function]}
+        bounces={false}
+        canChangeSize={true}
+        contentContainerStyle={
+          {
+            "backgroundColor": undefined,
+            "minHeight": 1,
+            "minWidth": 1,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+          }
+        }
+        contentHeight={63}
+        contentWidth={400}
+        data={
+          [
+            {
+              "content": "content1",
+              "title": "title1",
+            },
+            {
+              "content": "content2",
+              "title": "title2",
+            },
+            {
+              "content": "content3",
+              "title": "title3",
+            },
+          ]
+        }
+        dataProvider={
+          DataProvider {
+            "_data": [
+              {
+                "content": "content1",
+                "title": "title1",
+              },
+              {
+                "content": "content2",
+                "title": "title2",
+              },
+              {
+                "content": "content3",
+                "title": "title3",
+              },
+            ],
+            "_firstIndexToProcess": 0,
+            "_hasStableIds": false,
+            "_requiresDataChangeHandling": false,
+            "_size": 3,
+            "getStableId": [Function],
+            "rowHasChanged": [Function],
+          }
+        }
+        disableRecycling={false}
+        estimatedItemSize={21}
+        extendedState={{}}
+        externalScrollView={[Function]}
+        finalRenderAheadOffset={250}
+        forceNonDeterministicRendering={true}
+        horizontal={false}
+        initialOffset={0}
+        initialRenderIndex={0}
+        isHorizontal={false}
+        layoutProvider={
+          GridLayoutProviderWithProps {
+            "_acceptableRelayoutDelta": 1,
+            "_getHeightOrWidth": [Function],
+            "_getLayoutTypeForIndex": [Function],
+            "_getSpan": [Function],
+            "_hasExpired": false,
+            "_isHorizontal": false,
+            "_lastLayoutManager": GridLayoutManager {
+              "_acceptableRelayoutDelta": 1,
+              "_getSpan": [Function],
+              "_isGridHorizontal": false,
+              "_isHorizontal": false,
+              "_layoutProvider": [Circular],
+              "_layouts": [
+                {
+                  "height": 21,
+                  "type": 0,
+                  "width": 400,
+                  "x": 0,
+                  "y": 0,
+                },
+                {
+                  "height": 21,
+                  "type": 0,
+                  "width": 400,
+                  "x": 0,
+                  "y": 21,
+                },
+                {
+                  "height": 21,
+                  "type": 0,
+                  "width": 400,
+                  "x": 0,
+                  "y": 42,
+                },
+              ],
+              "_maxSpan": 1,
+              "_renderWindowSize": {
+                "height": 900,
+                "width": 400,
+              },
+              "_totalHeight": 63,
+              "_totalWidth": 400,
+              "_window": {
+                "height": 900,
+                "width": 400,
+              },
+            },
+            "_maxSpan": 1,
+            "_renderWindowSize": {
+              "height": 900,
+              "width": 400,
+            },
+            "_setLayoutForType": [Function],
+            "_tempDim": {
+              "height": 0,
+              "width": 0,
+            },
+            "averageWindow": AverageWindow {
+              "currentAverage": 21,
+              "currentCount": 1,
+              "inputValues": [
+                21,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+              ],
+              "nextIndex": 1,
+            },
+            "defaultEstimatedItemSize": 100,
+            "layoutObject": {
+              "size": undefined,
+              "span": undefined,
+            },
+            "props": {
+              "bounces": false,
+              "data": [
+                {
+                  "content": "content1",
+                  "title": "title1",
+                },
+                {
+                  "content": "content2",
+                  "title": "title2",
+                },
+                {
+                  "content": "content3",
+                  "title": "title3",
+                },
+              ],
+              "estimatedItemSize": 21,
+              "numColumns": 1,
+              "onContentSizeChange": [Function],
+              "renderItem": [Function],
+            },
+            "renderWindowInsets": {
+              "height": 0,
+              "width": 0,
+            },
+            "shouldRefreshWithAnchoring": true,
+          }
+        }
+        maxRenderAhead={750}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReached={[Function]}
+        onEndReachedThreshold={0}
+        onEndReachedThresholdRelative={0}
+        onItemLayout={[Function]}
+        onLayout={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onSizeChanged={[Function]}
+        onVisibleIndicesChanged={[Function]}
+        removeClippedSubviews={false}
+        renderAheadOffset={0}
+        renderAheadStep={250}
+        renderContentContainer={[Function]}
+        renderItem={[Function]}
+        renderItemContainer={[Function]}
+        rowRenderer={[Function]}
+        scrollEventThrottle={16}
+        scrollThrottle={16}
+        scrollViewProps={
+          {
+            "contentContainerStyle": {
+              "backgroundColor": undefined,
+              "minHeight": 1,
+              "minWidth": 1,
+              "paddingLeft": 0,
+              "paddingRight": 0,
+            },
+            "onLayout": [Function],
+            "onScrollBeginDrag": [Function],
+            "refreshControl": undefined,
+            "style": {
+              "minHeight": 1,
+              "minWidth": 1,
+            },
+          }
+        }
+        style={
+          {
+            "minHeight": 1,
+            "minWidth": 1,
+          }
+        }
+        suppressBoundedSizeException={true}
+        windowCorrectionConfig={
+          {
+            "applyToInitialOffset": true,
+            "applyToItemScroll": true,
+            "value": {
+              "endCorrection": 0,
+              "startCorrection": 0,
+              "windowShift": -0,
+            },
+          }
+        }
+      >
+        <View>
+          <View
+            style={
+              {
+                "flexDirection": "column",
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "paddingLeft": 0,
+                  "paddingTop": 0,
+                }
+              }
+            />
+            <View
+              style={
+                [
+                  undefined,
+                  undefined,
+                ]
+              }
+            />
+            <AutoLayoutView
+              enableInstrumentation={false}
+              horizontal={false}
+              onBlankAreaEvent={[Function]}
+              onLayout={[Function]}
+              renderAheadOffset={0}
+              scrollOffset={0}
+              style={
+                {
+                  "height": 63,
+                  "width": 400,
+                }
+              }
+              windowSize={900}
+            >
+              <CellContainer
+                index={0}
+                onLayout={[Function]}
+                style={
+                  {
+                    "alignItems": "stretch",
+                    "flexDirection": "column",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": 400,
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "flexDirection": "column",
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      entering={BaseAnimationMock {}}
+                      exiting={BaseAnimationMock {}}
+                      style={
+                        [
+                          {
+                            "padding": 10,
+                          },
+                          {
+                            "backgroundColor": "#F9F8FD",
+                          },
+                          {
+                            "backgroundColor": "red",
+                          },
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          [
+                            {
+                              "color": "#9A9A9A",
+                              "textAlign": "center",
+                            },
+                            {
+                              "fontFamily": "Poppins-Medium",
+                              "fontSize": 12,
+                              "lineHeight": 18,
+                            },
+                            {
+                              "color": "yellow",
+                              "fontSize": 15,
+                            },
+                          ]
+                        }
+                      >
+                        title1
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </CellContainer>
+              <CellContainer
+                index={1}
+                onLayout={[Function]}
+                style={
+                  {
+                    "alignItems": "stretch",
+                    "flexDirection": "column",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 21,
+                    "width": 400,
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "flexDirection": "column",
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      entering={BaseAnimationMock {}}
+                      exiting={BaseAnimationMock {}}
+                      style={
+                        [
+                          {
+                            "padding": 10,
+                          },
+                          {
+                            "backgroundColor": "#F9F8FD",
+                          },
+                          {
+                            "backgroundColor": "red",
+                          },
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          [
+                            {
+                              "color": "#9A9A9A",
+                              "textAlign": "center",
+                            },
+                            {
+                              "fontFamily": "Poppins-Medium",
+                              "fontSize": 12,
+                              "lineHeight": 18,
+                            },
+                            {
+                              "color": "yellow",
+                              "fontSize": 15,
+                            },
+                          ]
+                        }
+                      >
+                        title2
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </CellContainer>
+              <CellContainer
+                index={2}
+                onLayout={[Function]}
+                style={
+                  {
+                    "alignItems": "stretch",
+                    "flexDirection": "column",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 42,
+                    "width": 400,
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "flexDirection": "column",
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      entering={BaseAnimationMock {}}
+                      exiting={BaseAnimationMock {}}
+                      style={
+                        [
+                          {
+                            "padding": 10,
+                          },
+                          {
+                            "backgroundColor": "#F9F8FD",
+                          },
+                          {
+                            "backgroundColor": "red",
+                          },
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          [
+                            {
+                              "color": "#9A9A9A",
+                              "textAlign": "center",
+                            },
+                            {
+                              "fontFamily": "Poppins-Medium",
+                              "fontSize": 12,
+                              "lineHeight": 18,
+                            },
+                            {
+                              "color": "yellow",
+                              "fontSize": 15,
+                            },
+                          ]
+                        }
+                      >
+                        title3
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </CellContainer>
+            </AutoLayoutView>
+            <CellContainer
+              index={-1}
+              style={
+                [
+                  undefined,
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                {
+                  "paddingBottom": 0,
+                  "paddingRight": 0,
+                }
+              }
+            />
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>
+  <View
+    entering={BaseAnimationMock {}}
+    exiting={BaseAnimationMock {}}
+    layout={BaseAnimationMock {}}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 10,
+          "height": 100,
+          "paddingHorizontal": 24,
+          "width": "100%",
+          "zIndex": 100,
+        },
+        {
+          "alignSelf": "center",
+          "top": 150,
+        },
+        undefined,
+        {
+          "backgroundColor": "transparent",
+          "marginTop": -110,
+          "position": "absolute",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "flex": 1,
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "borderRadius": 100,
+            "height": 28,
+            "justifyContent": "center",
+            "marginLeft": 18,
+            "marginTop": 21,
+            "width": 28,
+            "zIndex": 100,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flex": 1,
+            "zIndex": 100,
+          }
+        }
+      >
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "500",
+                "marginTop": 17,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "400",
+                "marginTop": 6,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`AccordionList renders with different styles renders with default style 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "opacity": 1,
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#F9F8FD",
+          },
+          {
+            "alignItems": "center",
+            "borderRadius": 3,
+            "flexDirection": "row",
+            "padding": 10,
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "color": "#404040",
+            },
+            {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 14,
+              "lineHeight": 21,
+            },
+            {
+              "flex": 1,
+              "marginHorizontal": 10,
+              "textAlign": "left",
+            },
+            undefined,
+          ]
+        }
+      >
+        title
+      </Text>
+      <View
+        style={
+          [
+            {
+              "backgroundColor": "#F5F4F6",
+            },
+            {
+              "borderRadius": 3,
+              "paddingHorizontal": 10,
+              "paddingVertical": 6,
+            },
+          ]
+        }
+      >
+        <Text
+          accessibilityElementsHidden={true}
+          allowFontScaling={false}
+          importantForAccessibility="no-hide-descendants"
+          pointerEvents="none"
+          selectable={false}
+          style={
+            [
+              {
+                "color": "#D7D1E9",
+                "fontSize": 20,
+              },
+              [
+                {
+                  "lineHeight": 20,
+                },
+                {
+                  "backgroundColor": "transparent",
+                },
+                {
+                  "transform": [
+                    {
+                      "rotateZ": "0deg",
+                    },
+                  ],
+                },
+              ],
+              {
+                "fontFamily": "Octicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      [
+        {
+          "height": 0,
+        },
+        {
+          "overflow": "hidden",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        {
+          "flex": 1,
+          "overflow": "hidden",
+        }
+      }
+    >
+      <RCTScrollView
+        applyWindowCorrection={[Function]}
+        bounces={false}
+        canChangeSize={true}
+        contentContainerStyle={
+          {
+            "backgroundColor": undefined,
+            "minHeight": 1,
+            "minWidth": 1,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+          }
+        }
+        contentHeight={63}
+        contentWidth={400}
+        data={
+          [
+            {
+              "content": "content1",
+              "title": "title1",
+            },
+            {
+              "content": "content2",
+              "title": "title2",
+            },
+            {
+              "content": "content3",
+              "title": "title3",
+            },
+          ]
+        }
+        dataProvider={
+          DataProvider {
+            "_data": [
+              {
+                "content": "content1",
+                "title": "title1",
+              },
+              {
+                "content": "content2",
+                "title": "title2",
+              },
+              {
+                "content": "content3",
+                "title": "title3",
+              },
+            ],
+            "_firstIndexToProcess": 0,
+            "_hasStableIds": false,
+            "_requiresDataChangeHandling": false,
+            "_size": 3,
+            "getStableId": [Function],
+            "rowHasChanged": [Function],
+          }
+        }
+        disableRecycling={false}
+        estimatedItemSize={21}
+        extendedState={{}}
+        externalScrollView={[Function]}
+        finalRenderAheadOffset={250}
+        forceNonDeterministicRendering={true}
+        horizontal={false}
+        initialOffset={0}
+        initialRenderIndex={0}
+        isHorizontal={false}
+        layoutProvider={
+          GridLayoutProviderWithProps {
+            "_acceptableRelayoutDelta": 1,
+            "_getHeightOrWidth": [Function],
+            "_getLayoutTypeForIndex": [Function],
+            "_getSpan": [Function],
+            "_hasExpired": false,
+            "_isHorizontal": false,
+            "_lastLayoutManager": GridLayoutManager {
+              "_acceptableRelayoutDelta": 1,
+              "_getSpan": [Function],
+              "_isGridHorizontal": false,
+              "_isHorizontal": false,
+              "_layoutProvider": [Circular],
+              "_layouts": [
+                {
+                  "height": 21,
+                  "type": 0,
+                  "width": 400,
+                  "x": 0,
+                  "y": 0,
+                },
+                {
+                  "height": 21,
+                  "type": 0,
+                  "width": 400,
+                  "x": 0,
+                  "y": 21,
+                },
+                {
+                  "height": 21,
+                  "type": 0,
+                  "width": 400,
+                  "x": 0,
+                  "y": 42,
+                },
+              ],
+              "_maxSpan": 1,
+              "_renderWindowSize": {
+                "height": 900,
+                "width": 400,
+              },
+              "_totalHeight": 63,
+              "_totalWidth": 400,
+              "_window": {
+                "height": 900,
+                "width": 400,
+              },
+            },
+            "_maxSpan": 1,
+            "_renderWindowSize": {
+              "height": 900,
+              "width": 400,
+            },
+            "_setLayoutForType": [Function],
+            "_tempDim": {
+              "height": 0,
+              "width": 0,
+            },
+            "averageWindow": AverageWindow {
+              "currentAverage": 21,
+              "currentCount": 1,
+              "inputValues": [
+                21,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+              ],
+              "nextIndex": 1,
+            },
+            "defaultEstimatedItemSize": 100,
+            "layoutObject": {
+              "size": undefined,
+              "span": undefined,
+            },
+            "props": {
+              "bounces": false,
+              "data": [
+                {
+                  "content": "content1",
+                  "title": "title1",
+                },
+                {
+                  "content": "content2",
+                  "title": "title2",
+                },
+                {
+                  "content": "content3",
+                  "title": "title3",
+                },
+              ],
+              "estimatedItemSize": 21,
+              "numColumns": 1,
+              "onContentSizeChange": [Function],
+              "renderItem": [Function],
+            },
+            "renderWindowInsets": {
+              "height": 0,
+              "width": 0,
+            },
+            "shouldRefreshWithAnchoring": true,
+          }
+        }
+        maxRenderAhead={750}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReached={[Function]}
+        onEndReachedThreshold={0}
+        onEndReachedThresholdRelative={0}
+        onItemLayout={[Function]}
+        onLayout={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onSizeChanged={[Function]}
+        onVisibleIndicesChanged={[Function]}
+        removeClippedSubviews={false}
+        renderAheadOffset={0}
+        renderAheadStep={250}
+        renderContentContainer={[Function]}
+        renderItem={[Function]}
+        renderItemContainer={[Function]}
+        rowRenderer={[Function]}
+        scrollEventThrottle={16}
+        scrollThrottle={16}
+        scrollViewProps={
+          {
+            "contentContainerStyle": {
+              "backgroundColor": undefined,
+              "minHeight": 1,
+              "minWidth": 1,
+              "paddingLeft": 0,
+              "paddingRight": 0,
+            },
+            "onLayout": [Function],
+            "onScrollBeginDrag": [Function],
+            "refreshControl": undefined,
+            "style": {
+              "minHeight": 1,
+              "minWidth": 1,
+            },
+          }
+        }
+        style={
+          {
+            "minHeight": 1,
+            "minWidth": 1,
+          }
+        }
+        suppressBoundedSizeException={true}
+        windowCorrectionConfig={
+          {
+            "applyToInitialOffset": true,
+            "applyToItemScroll": true,
+            "value": {
+              "endCorrection": 0,
+              "startCorrection": 0,
+              "windowShift": -0,
+            },
+          }
+        }
+      >
+        <View>
+          <View
+            style={
+              {
+                "flexDirection": "column",
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "paddingLeft": 0,
+                  "paddingTop": 0,
+                }
+              }
+            />
+            <View
+              style={
+                [
+                  undefined,
+                  undefined,
+                ]
+              }
+            />
+            <AutoLayoutView
+              enableInstrumentation={false}
+              horizontal={false}
+              onBlankAreaEvent={[Function]}
+              onLayout={[Function]}
+              renderAheadOffset={0}
+              scrollOffset={0}
+              style={
+                {
+                  "height": 63,
+                  "width": 400,
+                }
+              }
+              windowSize={900}
+            >
+              <CellContainer
+                index={0}
+                onLayout={[Function]}
+                style={
+                  {
+                    "alignItems": "stretch",
+                    "flexDirection": "column",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": 400,
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "flexDirection": "column",
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      entering={BaseAnimationMock {}}
+                      exiting={BaseAnimationMock {}}
+                      style={
+                        [
+                          {
+                            "padding": 10,
+                          },
+                          {
+                            "backgroundColor": "#F9F8FD",
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          [
+                            {
+                              "color": "#9A9A9A",
+                              "textAlign": "center",
+                            },
+                            {
+                              "fontFamily": "Poppins-Medium",
+                              "fontSize": 12,
+                              "lineHeight": 18,
+                            },
+                            undefined,
+                          ]
+                        }
+                      >
+                        title1
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </CellContainer>
+              <CellContainer
+                index={1}
+                onLayout={[Function]}
+                style={
+                  {
+                    "alignItems": "stretch",
+                    "flexDirection": "column",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 21,
+                    "width": 400,
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "flexDirection": "column",
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      entering={BaseAnimationMock {}}
+                      exiting={BaseAnimationMock {}}
+                      style={
+                        [
+                          {
+                            "padding": 10,
+                          },
+                          {
+                            "backgroundColor": "#F9F8FD",
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          [
+                            {
+                              "color": "#9A9A9A",
+                              "textAlign": "center",
+                            },
+                            {
+                              "fontFamily": "Poppins-Medium",
+                              "fontSize": 12,
+                              "lineHeight": 18,
+                            },
+                            undefined,
+                          ]
+                        }
+                      >
+                        title2
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </CellContainer>
+              <CellContainer
+                index={2}
+                onLayout={[Function]}
+                style={
+                  {
+                    "alignItems": "stretch",
+                    "flexDirection": "column",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 42,
+                    "width": 400,
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "flexDirection": "column",
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      entering={BaseAnimationMock {}}
+                      exiting={BaseAnimationMock {}}
+                      style={
+                        [
+                          {
+                            "padding": 10,
+                          },
+                          {
+                            "backgroundColor": "#F9F8FD",
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          [
+                            {
+                              "color": "#9A9A9A",
+                              "textAlign": "center",
+                            },
+                            {
+                              "fontFamily": "Poppins-Medium",
+                              "fontSize": 12,
+                              "lineHeight": 18,
+                            },
+                            undefined,
+                          ]
+                        }
+                      >
+                        title3
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </CellContainer>
+            </AutoLayoutView>
+            <CellContainer
+              index={-1}
+              style={
+                [
+                  undefined,
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                {
+                  "paddingBottom": 0,
+                  "paddingRight": 0,
+                }
+              }
+            />
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>
+  <View
+    entering={BaseAnimationMock {}}
+    exiting={BaseAnimationMock {}}
+    layout={BaseAnimationMock {}}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 10,
+          "height": 100,
+          "paddingHorizontal": 24,
+          "width": "100%",
+          "zIndex": 100,
+        },
+        {
+          "alignSelf": "center",
+          "top": 150,
+        },
+        undefined,
+        {
+          "backgroundColor": "transparent",
+          "marginTop": -110,
+          "position": "absolute",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "flex": 1,
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "borderRadius": 100,
+            "height": 28,
+            "justifyContent": "center",
+            "marginLeft": 18,
+            "marginTop": 21,
+            "width": 28,
+            "zIndex": 100,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flex": 1,
+            "zIndex": 100,
+          }
+        }
+      >
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "500",
+                "marginTop": 17,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "400",
+                "marginTop": 6,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`AccordionList renders with icons renders with left icon prop 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "opacity": 1,
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#F9F8FD",
+          },
+          {
+            "alignItems": "center",
+            "borderRadius": 3,
+            "flexDirection": "row",
+            "padding": 10,
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        allowFontScaling={false}
+        selectable={false}
+        style={
+          [
+            {
+              "color": "dimgrey",
+              "fontSize": 24,
+            },
+            undefined,
+            {
+              "fontFamily": "Material Design Icons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            {},
+          ]
+        }
+        theme={
+          {
+            "black": "#000000",
+            "darkWhite": "#FDFCFF",
+            "disabledDark": "#BDBCBF",
+            "disabledLight": "#D7D1E9",
+            "disabledLightDark": "#F6F6F6",
+            "error": "#FF3434",
+            "focused": "#654FA6",
+            "grey": "#9A9A9A",
+            "lightBlack": "#404040",
+            "lightGrey": "#F5F4F6",
+            "primary": "#8973CD",
+            "primary15": "#EDEAF8",
+            "primary30": "#DCD5F0",
+            "primary5": "#F9F8FD",
+            "secondary": "#82B98E",
+            "succes": "#09CE63",
+            "tertiary": "#67A7C1",
+            "white": "#FFFFFF",
+          }
+        }
+        typography={
+          {
+            "body": {
+              "medium": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 14,
+                "lineHeight": 21,
+              },
+              "regular": {
+                "fontFamily": "Poppins-Regular",
+                "fontSize": 14,
+                "lineHeight": 16,
+              },
+              "smedium": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 12,
+                "lineHeight": 18,
+              },
+              "sregular": {
+                "fontFamily": "Poppins-Regular",
+                "fontSize": 12,
+                "lineHeight": 16,
+              },
+              "xsmedium": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 10,
+                "lineHeight": 16,
+              },
+              "xsregular": {
+                "fontFamily": "Poppins-Regular",
+                "fontSize": 10,
+                "lineHeight": 14,
+              },
+              "xxsmedium": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 8,
+                "lineHeight": 12,
+              },
+              "xxsregular": {
+                "fontFamily": "Poppins-Regular",
+                "fontSize": 8,
+                "lineHeight": 12,
+              },
+            },
+            "heading": {
+              "h1": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 30,
+                "lineHeight": 45,
+              },
+              "h2": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 28,
+                "lineHeight": 42,
+              },
+              "h3": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 23,
+                "lineHeight": 35,
+              },
+              "h4": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 19,
+                "lineHeight": 29,
+              },
+              "h5": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 16,
+                "lineHeight": 25,
+              },
+            },
+          }
+        }
+      >
+        󰧱
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "#404040",
+            },
+            {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 14,
+              "lineHeight": 21,
+            },
+            {
+              "flex": 1,
+              "marginHorizontal": 10,
+              "textAlign": "left",
+            },
+            undefined,
+          ]
+        }
+      >
+        title
+      </Text>
+      <View
+        style={
+          [
+            {
+              "backgroundColor": "#F5F4F6",
+            },
+            {
+              "borderRadius": 3,
+              "paddingHorizontal": 10,
+              "paddingVertical": 6,
+            },
+          ]
+        }
+      >
+        <Text
+          accessibilityElementsHidden={true}
+          allowFontScaling={false}
+          importantForAccessibility="no-hide-descendants"
+          pointerEvents="none"
+          selectable={false}
+          style={
+            [
+              {
+                "color": "#D7D1E9",
+                "fontSize": 20,
+              },
+              [
+                {
+                  "lineHeight": 20,
+                },
+                {
+                  "backgroundColor": "transparent",
+                },
+                {
+                  "transform": [
+                    {
+                      "rotateZ": "0deg",
+                    },
+                  ],
+                },
+              ],
+              {
+                "fontFamily": "Octicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      [
+        {
+          "height": 0,
+        },
+        {
+          "overflow": "hidden",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        {
+          "flex": 1,
+          "overflow": "hidden",
+        }
+      }
+    >
+      <RCTScrollView
+        applyWindowCorrection={[Function]}
+        bounces={false}
+        canChangeSize={true}
+        contentContainerStyle={
+          {
+            "backgroundColor": undefined,
+            "minHeight": 1,
+            "minWidth": 1,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+          }
+        }
+        contentHeight={63}
+        contentWidth={400}
+        data={
+          [
+            {
+              "content": "content1",
+              "title": "title1",
+            },
+            {
+              "content": "content2",
+              "title": "title2",
+            },
+            {
+              "content": "content3",
+              "title": "title3",
+            },
+          ]
+        }
+        dataProvider={
+          DataProvider {
+            "_data": [
+              {
+                "content": "content1",
+                "title": "title1",
+              },
+              {
+                "content": "content2",
+                "title": "title2",
+              },
+              {
+                "content": "content3",
+                "title": "title3",
+              },
+            ],
+            "_firstIndexToProcess": 0,
+            "_hasStableIds": false,
+            "_requiresDataChangeHandling": false,
+            "_size": 3,
+            "getStableId": [Function],
+            "rowHasChanged": [Function],
+          }
+        }
+        disableRecycling={false}
+        estimatedItemSize={21}
+        extendedState={{}}
+        externalScrollView={[Function]}
+        finalRenderAheadOffset={250}
+        forceNonDeterministicRendering={true}
+        horizontal={false}
+        initialOffset={0}
+        initialRenderIndex={0}
+        isHorizontal={false}
+        layoutProvider={
+          GridLayoutProviderWithProps {
+            "_acceptableRelayoutDelta": 1,
+            "_getHeightOrWidth": [Function],
+            "_getLayoutTypeForIndex": [Function],
+            "_getSpan": [Function],
+            "_hasExpired": false,
+            "_isHorizontal": false,
+            "_lastLayoutManager": GridLayoutManager {
+              "_acceptableRelayoutDelta": 1,
+              "_getSpan": [Function],
+              "_isGridHorizontal": false,
+              "_isHorizontal": false,
+              "_layoutProvider": [Circular],
+              "_layouts": [
+                {
+                  "height": 21,
+                  "type": 0,
+                  "width": 400,
+                  "x": 0,
+                  "y": 0,
+                },
+                {
+                  "height": 21,
+                  "type": 0,
+                  "width": 400,
+                  "x": 0,
+                  "y": 21,
+                },
+                {
+                  "height": 21,
+                  "type": 0,
+                  "width": 400,
+                  "x": 0,
+                  "y": 42,
+                },
+              ],
+              "_maxSpan": 1,
+              "_renderWindowSize": {
+                "height": 900,
+                "width": 400,
+              },
+              "_totalHeight": 63,
+              "_totalWidth": 400,
+              "_window": {
+                "height": 900,
+                "width": 400,
+              },
+            },
+            "_maxSpan": 1,
+            "_renderWindowSize": {
+              "height": 900,
+              "width": 400,
+            },
+            "_setLayoutForType": [Function],
+            "_tempDim": {
+              "height": 0,
+              "width": 0,
+            },
+            "averageWindow": AverageWindow {
+              "currentAverage": 21,
+              "currentCount": 1,
+              "inputValues": [
+                21,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+              ],
+              "nextIndex": 1,
+            },
+            "defaultEstimatedItemSize": 100,
+            "layoutObject": {
+              "size": undefined,
+              "span": undefined,
+            },
+            "props": {
+              "bounces": false,
+              "data": [
+                {
+                  "content": "content1",
+                  "title": "title1",
+                },
+                {
+                  "content": "content2",
+                  "title": "title2",
+                },
+                {
+                  "content": "content3",
+                  "title": "title3",
+                },
+              ],
+              "estimatedItemSize": 21,
+              "numColumns": 1,
+              "onContentSizeChange": [Function],
+              "renderItem": [Function],
+            },
+            "renderWindowInsets": {
+              "height": 0,
+              "width": 0,
+            },
+            "shouldRefreshWithAnchoring": true,
+          }
+        }
+        maxRenderAhead={750}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReached={[Function]}
+        onEndReachedThreshold={0}
+        onEndReachedThresholdRelative={0}
+        onItemLayout={[Function]}
+        onLayout={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onSizeChanged={[Function]}
+        onVisibleIndicesChanged={[Function]}
+        removeClippedSubviews={false}
+        renderAheadOffset={0}
+        renderAheadStep={250}
+        renderContentContainer={[Function]}
+        renderItem={[Function]}
+        renderItemContainer={[Function]}
+        rowRenderer={[Function]}
+        scrollEventThrottle={16}
+        scrollThrottle={16}
+        scrollViewProps={
+          {
+            "contentContainerStyle": {
+              "backgroundColor": undefined,
+              "minHeight": 1,
+              "minWidth": 1,
+              "paddingLeft": 0,
+              "paddingRight": 0,
+            },
+            "onLayout": [Function],
+            "onScrollBeginDrag": [Function],
+            "refreshControl": undefined,
+            "style": {
+              "minHeight": 1,
+              "minWidth": 1,
+            },
+          }
+        }
+        style={
+          {
+            "minHeight": 1,
+            "minWidth": 1,
+          }
+        }
+        suppressBoundedSizeException={true}
+        windowCorrectionConfig={
+          {
+            "applyToInitialOffset": true,
+            "applyToItemScroll": true,
+            "value": {
+              "endCorrection": 0,
+              "startCorrection": 0,
+              "windowShift": -0,
+            },
+          }
+        }
+      >
+        <View>
+          <View
+            style={
+              {
+                "flexDirection": "column",
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "paddingLeft": 0,
+                  "paddingTop": 0,
+                }
+              }
+            />
+            <View
+              style={
+                [
+                  undefined,
+                  undefined,
+                ]
+              }
+            />
+            <AutoLayoutView
+              enableInstrumentation={false}
+              horizontal={false}
+              onBlankAreaEvent={[Function]}
+              onLayout={[Function]}
+              renderAheadOffset={0}
+              scrollOffset={0}
+              style={
+                {
+                  "height": 63,
+                  "width": 400,
+                }
+              }
+              windowSize={900}
+            >
+              <CellContainer
+                index={0}
+                onLayout={[Function]}
+                style={
+                  {
+                    "alignItems": "stretch",
+                    "flexDirection": "column",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": 400,
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "flexDirection": "column",
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      entering={BaseAnimationMock {}}
+                      exiting={BaseAnimationMock {}}
+                      style={
+                        [
+                          {
+                            "padding": 10,
+                          },
+                          {
+                            "backgroundColor": "#F9F8FD",
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          [
+                            {
+                              "color": "#9A9A9A",
+                              "textAlign": "center",
+                            },
+                            {
+                              "fontFamily": "Poppins-Medium",
+                              "fontSize": 12,
+                              "lineHeight": 18,
+                            },
+                            undefined,
+                          ]
+                        }
+                      >
+                        title1
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </CellContainer>
+              <CellContainer
+                index={1}
+                onLayout={[Function]}
+                style={
+                  {
+                    "alignItems": "stretch",
+                    "flexDirection": "column",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 21,
+                    "width": 400,
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "flexDirection": "column",
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      entering={BaseAnimationMock {}}
+                      exiting={BaseAnimationMock {}}
+                      style={
+                        [
+                          {
+                            "padding": 10,
+                          },
+                          {
+                            "backgroundColor": "#F9F8FD",
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          [
+                            {
+                              "color": "#9A9A9A",
+                              "textAlign": "center",
+                            },
+                            {
+                              "fontFamily": "Poppins-Medium",
+                              "fontSize": 12,
+                              "lineHeight": 18,
+                            },
+                            undefined,
+                          ]
+                        }
+                      >
+                        title2
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </CellContainer>
+              <CellContainer
+                index={2}
+                onLayout={[Function]}
+                style={
+                  {
+                    "alignItems": "stretch",
+                    "flexDirection": "column",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 42,
+                    "width": 400,
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "flexDirection": "column",
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      entering={BaseAnimationMock {}}
+                      exiting={BaseAnimationMock {}}
+                      style={
+                        [
+                          {
+                            "padding": 10,
+                          },
+                          {
+                            "backgroundColor": "#F9F8FD",
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          [
+                            {
+                              "color": "#9A9A9A",
+                              "textAlign": "center",
+                            },
+                            {
+                              "fontFamily": "Poppins-Medium",
+                              "fontSize": 12,
+                              "lineHeight": 18,
+                            },
+                            undefined,
+                          ]
+                        }
+                      >
+                        title3
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </CellContainer>
+            </AutoLayoutView>
+            <CellContainer
+              index={-1}
+              style={
+                [
+                  undefined,
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                {
+                  "paddingBottom": 0,
+                  "paddingRight": 0,
+                }
+              }
+            />
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>
+  <View
+    entering={BaseAnimationMock {}}
+    exiting={BaseAnimationMock {}}
+    layout={BaseAnimationMock {}}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 10,
+          "height": 100,
+          "paddingHorizontal": 24,
+          "width": "100%",
+          "zIndex": 100,
+        },
+        {
+          "alignSelf": "center",
+          "top": 150,
+        },
+        undefined,
+        {
+          "backgroundColor": "transparent",
+          "marginTop": -110,
+          "position": "absolute",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "flex": 1,
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "borderRadius": 100,
+            "height": 28,
+            "justifyContent": "center",
+            "marginLeft": 18,
+            "marginTop": 21,
+            "width": 28,
+            "zIndex": 100,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flex": 1,
+            "zIndex": 100,
+          }
+        }
+      >
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "500",
+                "marginTop": 17,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "400",
+                "marginTop": 6,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`AccordionList renders with icons renders with right icon prop 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "opacity": 1,
+      }
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "backgroundColor": "#F9F8FD",
+          },
+          {
+            "alignItems": "center",
+            "borderRadius": 3,
+            "flexDirection": "row",
+            "padding": 10,
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "color": "#404040",
+            },
+            {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 14,
+              "lineHeight": 21,
+            },
+            {
+              "flex": 1,
+              "marginHorizontal": 10,
+              "textAlign": "left",
+            },
+            undefined,
+          ]
+        }
+      >
+        title
+      </Text>
+      <Text
+        allowFontScaling={false}
+        selectable={false}
+        style={
+          [
+            {
+              "color": "dimgrey",
+              "fontSize": 24,
+            },
+            undefined,
+            {
+              "fontFamily": "Material Design Icons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            {},
+          ]
+        }
+        theme={
+          {
+            "black": "#000000",
+            "darkWhite": "#FDFCFF",
+            "disabledDark": "#BDBCBF",
+            "disabledLight": "#D7D1E9",
+            "disabledLightDark": "#F6F6F6",
+            "error": "#FF3434",
+            "focused": "#654FA6",
+            "grey": "#9A9A9A",
+            "lightBlack": "#404040",
+            "lightGrey": "#F5F4F6",
+            "primary": "#8973CD",
+            "primary15": "#EDEAF8",
+            "primary30": "#DCD5F0",
+            "primary5": "#F9F8FD",
+            "secondary": "#82B98E",
+            "succes": "#09CE63",
+            "tertiary": "#67A7C1",
+            "white": "#FFFFFF",
+          }
+        }
+        typography={
+          {
+            "body": {
+              "medium": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 14,
+                "lineHeight": 21,
+              },
+              "regular": {
+                "fontFamily": "Poppins-Regular",
+                "fontSize": 14,
+                "lineHeight": 16,
+              },
+              "smedium": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 12,
+                "lineHeight": 18,
+              },
+              "sregular": {
+                "fontFamily": "Poppins-Regular",
+                "fontSize": 12,
+                "lineHeight": 16,
+              },
+              "xsmedium": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 10,
+                "lineHeight": 16,
+              },
+              "xsregular": {
+                "fontFamily": "Poppins-Regular",
+                "fontSize": 10,
+                "lineHeight": 14,
+              },
+              "xxsmedium": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 8,
+                "lineHeight": 12,
+              },
+              "xxsregular": {
+                "fontFamily": "Poppins-Regular",
+                "fontSize": 8,
+                "lineHeight": 12,
+              },
+            },
+            "heading": {
+              "h1": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 30,
+                "lineHeight": 45,
+              },
+              "h2": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 28,
+                "lineHeight": 42,
+              },
+              "h3": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 23,
+                "lineHeight": 35,
+              },
+              "h4": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 19,
+                "lineHeight": 29,
+              },
+              "h5": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 16,
+                "lineHeight": 25,
+              },
+            },
+          }
+        }
+      >
+        󰧱
+      </Text>
+      <View
+        style={
+          [
+            {
+              "backgroundColor": "#F5F4F6",
+            },
+            {
+              "borderRadius": 3,
+              "paddingHorizontal": 10,
+              "paddingVertical": 6,
+            },
+          ]
+        }
+      >
+        <Text
+          accessibilityElementsHidden={true}
+          allowFontScaling={false}
+          importantForAccessibility="no-hide-descendants"
+          pointerEvents="none"
+          selectable={false}
+          style={
+            [
+              {
+                "color": "#D7D1E9",
+                "fontSize": 20,
+              },
+              [
+                {
+                  "lineHeight": 20,
+                },
+                {
+                  "backgroundColor": "transparent",
+                },
+                {
+                  "transform": [
+                    {
+                      "rotateZ": "0deg",
+                    },
+                  ],
+                },
+              ],
+              {
+                "fontFamily": "Octicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      [
+        {
+          "height": 0,
+        },
+        {
+          "overflow": "hidden",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        {
+          "flex": 1,
+          "overflow": "hidden",
+        }
+      }
+    >
+      <RCTScrollView
+        applyWindowCorrection={[Function]}
+        bounces={false}
+        canChangeSize={true}
+        contentContainerStyle={
+          {
+            "backgroundColor": undefined,
+            "minHeight": 1,
+            "minWidth": 1,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+          }
+        }
+        contentHeight={63}
+        contentWidth={400}
+        data={
+          [
+            {
+              "content": "content1",
+              "title": "title1",
+            },
+            {
+              "content": "content2",
+              "title": "title2",
+            },
+            {
+              "content": "content3",
+              "title": "title3",
+            },
+          ]
+        }
+        dataProvider={
+          DataProvider {
+            "_data": [
+              {
+                "content": "content1",
+                "title": "title1",
+              },
+              {
+                "content": "content2",
+                "title": "title2",
+              },
+              {
+                "content": "content3",
+                "title": "title3",
+              },
+            ],
+            "_firstIndexToProcess": 0,
+            "_hasStableIds": false,
+            "_requiresDataChangeHandling": false,
+            "_size": 3,
+            "getStableId": [Function],
+            "rowHasChanged": [Function],
+          }
+        }
+        disableRecycling={false}
+        estimatedItemSize={21}
+        extendedState={{}}
+        externalScrollView={[Function]}
+        finalRenderAheadOffset={250}
+        forceNonDeterministicRendering={true}
+        horizontal={false}
+        initialOffset={0}
+        initialRenderIndex={0}
+        isHorizontal={false}
+        layoutProvider={
+          GridLayoutProviderWithProps {
+            "_acceptableRelayoutDelta": 1,
+            "_getHeightOrWidth": [Function],
+            "_getLayoutTypeForIndex": [Function],
+            "_getSpan": [Function],
+            "_hasExpired": false,
+            "_isHorizontal": false,
+            "_lastLayoutManager": GridLayoutManager {
+              "_acceptableRelayoutDelta": 1,
+              "_getSpan": [Function],
+              "_isGridHorizontal": false,
+              "_isHorizontal": false,
+              "_layoutProvider": [Circular],
+              "_layouts": [
+                {
+                  "height": 21,
+                  "type": 0,
+                  "width": 400,
+                  "x": 0,
+                  "y": 0,
+                },
+                {
+                  "height": 21,
+                  "type": 0,
+                  "width": 400,
+                  "x": 0,
+                  "y": 21,
+                },
+                {
+                  "height": 21,
+                  "type": 0,
+                  "width": 400,
+                  "x": 0,
+                  "y": 42,
+                },
+              ],
+              "_maxSpan": 1,
+              "_renderWindowSize": {
+                "height": 900,
+                "width": 400,
+              },
+              "_totalHeight": 63,
+              "_totalWidth": 400,
+              "_window": {
+                "height": 900,
+                "width": 400,
+              },
+            },
+            "_maxSpan": 1,
+            "_renderWindowSize": {
+              "height": 900,
+              "width": 400,
+            },
+            "_setLayoutForType": [Function],
+            "_tempDim": {
+              "height": 0,
+              "width": 0,
+            },
+            "averageWindow": AverageWindow {
+              "currentAverage": 21,
+              "currentCount": 1,
+              "inputValues": [
+                21,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+                ,
+              ],
+              "nextIndex": 1,
+            },
+            "defaultEstimatedItemSize": 100,
+            "layoutObject": {
+              "size": undefined,
+              "span": undefined,
+            },
+            "props": {
+              "bounces": false,
+              "data": [
+                {
+                  "content": "content1",
+                  "title": "title1",
+                },
+                {
+                  "content": "content2",
+                  "title": "title2",
+                },
+                {
+                  "content": "content3",
+                  "title": "title3",
+                },
+              ],
+              "estimatedItemSize": 21,
+              "numColumns": 1,
+              "onContentSizeChange": [Function],
+              "renderItem": [Function],
+            },
+            "renderWindowInsets": {
+              "height": 0,
+              "width": 0,
+            },
+            "shouldRefreshWithAnchoring": true,
+          }
+        }
+        maxRenderAhead={750}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReached={[Function]}
+        onEndReachedThreshold={0}
+        onEndReachedThresholdRelative={0}
+        onItemLayout={[Function]}
+        onLayout={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onSizeChanged={[Function]}
+        onVisibleIndicesChanged={[Function]}
+        removeClippedSubviews={false}
+        renderAheadOffset={0}
+        renderAheadStep={250}
+        renderContentContainer={[Function]}
+        renderItem={[Function]}
+        renderItemContainer={[Function]}
+        rowRenderer={[Function]}
+        scrollEventThrottle={16}
+        scrollThrottle={16}
+        scrollViewProps={
+          {
+            "contentContainerStyle": {
+              "backgroundColor": undefined,
+              "minHeight": 1,
+              "minWidth": 1,
+              "paddingLeft": 0,
+              "paddingRight": 0,
+            },
+            "onLayout": [Function],
+            "onScrollBeginDrag": [Function],
+            "refreshControl": undefined,
+            "style": {
+              "minHeight": 1,
+              "minWidth": 1,
+            },
+          }
+        }
+        style={
+          {
+            "minHeight": 1,
+            "minWidth": 1,
+          }
+        }
+        suppressBoundedSizeException={true}
+        windowCorrectionConfig={
+          {
+            "applyToInitialOffset": true,
+            "applyToItemScroll": true,
+            "value": {
+              "endCorrection": 0,
+              "startCorrection": 0,
+              "windowShift": -0,
+            },
+          }
+        }
+      >
+        <View>
+          <View
+            style={
+              {
+                "flexDirection": "column",
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "paddingLeft": 0,
+                  "paddingTop": 0,
+                }
+              }
+            />
+            <View
+              style={
+                [
+                  undefined,
+                  undefined,
+                ]
+              }
+            />
+            <AutoLayoutView
+              enableInstrumentation={false}
+              horizontal={false}
+              onBlankAreaEvent={[Function]}
+              onLayout={[Function]}
+              renderAheadOffset={0}
+              scrollOffset={0}
+              style={
+                {
+                  "height": 63,
+                  "width": 400,
+                }
+              }
+              windowSize={900}
+            >
+              <CellContainer
+                index={0}
+                onLayout={[Function]}
+                style={
+                  {
+                    "alignItems": "stretch",
+                    "flexDirection": "column",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 0,
+                    "width": 400,
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "flexDirection": "column",
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      entering={BaseAnimationMock {}}
+                      exiting={BaseAnimationMock {}}
+                      style={
+                        [
+                          {
+                            "padding": 10,
+                          },
+                          {
+                            "backgroundColor": "#F9F8FD",
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          [
+                            {
+                              "color": "#9A9A9A",
+                              "textAlign": "center",
+                            },
+                            {
+                              "fontFamily": "Poppins-Medium",
+                              "fontSize": 12,
+                              "lineHeight": 18,
+                            },
+                            undefined,
+                          ]
+                        }
+                      >
+                        title1
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </CellContainer>
+              <CellContainer
+                index={1}
+                onLayout={[Function]}
+                style={
+                  {
+                    "alignItems": "stretch",
+                    "flexDirection": "column",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 21,
+                    "width": 400,
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "flexDirection": "column",
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      entering={BaseAnimationMock {}}
+                      exiting={BaseAnimationMock {}}
+                      style={
+                        [
+                          {
+                            "padding": 10,
+                          },
+                          {
+                            "backgroundColor": "#F9F8FD",
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          [
+                            {
+                              "color": "#9A9A9A",
+                              "textAlign": "center",
+                            },
+                            {
+                              "fontFamily": "Poppins-Medium",
+                              "fontSize": 12,
+                              "lineHeight": 18,
+                            },
+                            undefined,
+                          ]
+                        }
+                      >
+                        title2
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </CellContainer>
+              <CellContainer
+                index={2}
+                onLayout={[Function]}
+                style={
+                  {
+                    "alignItems": "stretch",
+                    "flexDirection": "column",
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 42,
+                    "width": 400,
+                  }
+                }
+              >
+                <View
+                  style={
+                    {
+                      "flexDirection": "column",
+                    }
+                  }
+                >
+                  <View
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      {
+                        "opacity": 1,
+                      }
+                    }
+                  >
+                    <View
+                      entering={BaseAnimationMock {}}
+                      exiting={BaseAnimationMock {}}
+                      style={
+                        [
+                          {
+                            "padding": 10,
+                          },
+                          {
+                            "backgroundColor": "#F9F8FD",
+                          },
+                          undefined,
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          [
+                            {
+                              "color": "#9A9A9A",
+                              "textAlign": "center",
+                            },
+                            {
+                              "fontFamily": "Poppins-Medium",
+                              "fontSize": 12,
+                              "lineHeight": 18,
+                            },
+                            undefined,
+                          ]
+                        }
+                      >
+                        title3
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </CellContainer>
+            </AutoLayoutView>
+            <CellContainer
+              index={-1}
+              style={
+                [
+                  undefined,
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                {
+                  "paddingBottom": 0,
+                  "paddingRight": 0,
+                }
+              }
+            />
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>
+  <View
+    entering={BaseAnimationMock {}}
+    exiting={BaseAnimationMock {}}
+    layout={BaseAnimationMock {}}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 10,
+          "height": 100,
+          "paddingHorizontal": 24,
+          "width": "100%",
+          "zIndex": 100,
+        },
+        {
+          "alignSelf": "center",
+          "top": 150,
+        },
+        undefined,
+        {
+          "backgroundColor": "transparent",
+          "marginTop": -110,
+          "position": "absolute",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "flex": 1,
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "borderRadius": 100,
+            "height": 28,
+            "justifyContent": "center",
+            "marginLeft": 18,
+            "marginTop": 21,
+            "width": 28,
+            "zIndex": 100,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flex": 1,
+            "zIndex": 100,
+          }
+        }
+      >
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "500",
+                "marginTop": 17,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "400",
+                "marginTop": 6,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;

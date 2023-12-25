@@ -1,0 +1,1305 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders small size heart icon to different positions renders small size heart icon to left 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    accessibilityState={
+      {
+        "disabled": false,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 5,
+          "justifyContent": "center",
+          "width": "100%",
+        },
+        {
+          "flexDirection": "row",
+        },
+        {
+          "paddingHorizontal": 30,
+          "paddingVertical": 15,
+        },
+        {
+          "backgroundColor": "#8973CD",
+        },
+        null,
+        undefined,
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      selectable={false}
+      style={
+        [
+          {
+            "color": "#FFFFFF",
+            "fontSize": 10,
+          },
+          [
+            {
+              "marginRight": 10,
+            },
+            undefined,
+          ],
+          {
+            "fontFamily": "Material Design Icons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          {},
+        ]
+      }
+      theme={
+        {
+          "black": "#000000",
+          "darkWhite": "#FDFCFF",
+          "disabledDark": "#BDBCBF",
+          "disabledLight": "#D7D1E9",
+          "disabledLightDark": "#F6F6F6",
+          "error": "#FF3434",
+          "focused": "#654FA6",
+          "grey": "#9A9A9A",
+          "lightBlack": "#404040",
+          "lightGrey": "#F5F4F6",
+          "primary": "#8973CD",
+          "primary15": "#EDEAF8",
+          "primary30": "#DCD5F0",
+          "primary5": "#F9F8FD",
+          "secondary": "#82B98E",
+          "succes": "#09CE63",
+          "tertiary": "#67A7C1",
+          "white": "#FFFFFF",
+        }
+      }
+      typography={
+        {
+          "body": {
+            "medium": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 14,
+              "lineHeight": 21,
+            },
+            "regular": {
+              "fontFamily": "Poppins-Regular",
+              "fontSize": 14,
+              "lineHeight": 16,
+            },
+            "smedium": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 12,
+              "lineHeight": 18,
+            },
+            "sregular": {
+              "fontFamily": "Poppins-Regular",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+            "xsmedium": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 10,
+              "lineHeight": 16,
+            },
+            "xsregular": {
+              "fontFamily": "Poppins-Regular",
+              "fontSize": 10,
+              "lineHeight": 14,
+            },
+            "xxsmedium": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 8,
+              "lineHeight": 12,
+            },
+            "xxsregular": {
+              "fontFamily": "Poppins-Regular",
+              "fontSize": 8,
+              "lineHeight": 12,
+            },
+          },
+          "heading": {
+            "h1": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 30,
+              "lineHeight": 45,
+            },
+            "h2": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 28,
+              "lineHeight": 42,
+            },
+            "h3": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 23,
+              "lineHeight": 35,
+            },
+            "h4": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 19,
+              "lineHeight": 29,
+            },
+            "h5": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 16,
+              "lineHeight": 25,
+            },
+          },
+        }
+      }
+    >
+      󰻀
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#FFFFFF",
+          },
+          {
+            "fontWeight": "500",
+          },
+          {
+            "fontFamily": "Poppins-Medium",
+            "fontSize": 10,
+            "lineHeight": 16,
+          },
+          undefined,
+        ]
+      }
+      testID="button_text"
+    >
+      Button Text
+    </Text>
+  </View>
+  <View
+    entering={BaseAnimationMock {}}
+    exiting={BaseAnimationMock {}}
+    layout={BaseAnimationMock {}}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 10,
+          "height": 100,
+          "paddingHorizontal": 24,
+          "width": "100%",
+          "zIndex": 100,
+        },
+        {
+          "alignSelf": "center",
+          "top": 150,
+        },
+        undefined,
+        {
+          "backgroundColor": "transparent",
+          "marginTop": -110,
+          "position": "absolute",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "flex": 1,
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "borderRadius": 100,
+            "height": 28,
+            "justifyContent": "center",
+            "marginLeft": 18,
+            "marginTop": 21,
+            "width": 28,
+            "zIndex": 100,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flex": 1,
+            "zIndex": 100,
+          }
+        }
+      >
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "500",
+                "marginTop": 17,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "400",
+                "marginTop": 6,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Button renders small size heart icon to different positions renders small size heart icon to right 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    accessibilityState={
+      {
+        "disabled": false,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 5,
+          "justifyContent": "center",
+          "width": "100%",
+        },
+        {
+          "flexDirection": "row-reverse",
+        },
+        {
+          "paddingHorizontal": 30,
+          "paddingVertical": 15,
+        },
+        {
+          "backgroundColor": "#8973CD",
+        },
+        null,
+        undefined,
+      ]
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      selectable={false}
+      style={
+        [
+          {
+            "color": "#FFFFFF",
+            "fontSize": 10,
+          },
+          [
+            {
+              "marginLeft": 10,
+            },
+            undefined,
+          ],
+          {
+            "fontFamily": "Material Design Icons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+          {},
+        ]
+      }
+      theme={
+        {
+          "black": "#000000",
+          "darkWhite": "#FDFCFF",
+          "disabledDark": "#BDBCBF",
+          "disabledLight": "#D7D1E9",
+          "disabledLightDark": "#F6F6F6",
+          "error": "#FF3434",
+          "focused": "#654FA6",
+          "grey": "#9A9A9A",
+          "lightBlack": "#404040",
+          "lightGrey": "#F5F4F6",
+          "primary": "#8973CD",
+          "primary15": "#EDEAF8",
+          "primary30": "#DCD5F0",
+          "primary5": "#F9F8FD",
+          "secondary": "#82B98E",
+          "succes": "#09CE63",
+          "tertiary": "#67A7C1",
+          "white": "#FFFFFF",
+        }
+      }
+      typography={
+        {
+          "body": {
+            "medium": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 14,
+              "lineHeight": 21,
+            },
+            "regular": {
+              "fontFamily": "Poppins-Regular",
+              "fontSize": 14,
+              "lineHeight": 16,
+            },
+            "smedium": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 12,
+              "lineHeight": 18,
+            },
+            "sregular": {
+              "fontFamily": "Poppins-Regular",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+            "xsmedium": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 10,
+              "lineHeight": 16,
+            },
+            "xsregular": {
+              "fontFamily": "Poppins-Regular",
+              "fontSize": 10,
+              "lineHeight": 14,
+            },
+            "xxsmedium": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 8,
+              "lineHeight": 12,
+            },
+            "xxsregular": {
+              "fontFamily": "Poppins-Regular",
+              "fontSize": 8,
+              "lineHeight": 12,
+            },
+          },
+          "heading": {
+            "h1": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 30,
+              "lineHeight": 45,
+            },
+            "h2": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 28,
+              "lineHeight": 42,
+            },
+            "h3": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 23,
+              "lineHeight": 35,
+            },
+            "h4": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 19,
+              "lineHeight": 29,
+            },
+            "h5": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 16,
+              "lineHeight": 25,
+            },
+          },
+        }
+      }
+    >
+      󰻀
+    </Text>
+    <Text
+      style={
+        [
+          {
+            "color": "#FFFFFF",
+          },
+          {
+            "fontWeight": "500",
+          },
+          {
+            "fontFamily": "Poppins-Medium",
+            "fontSize": 10,
+            "lineHeight": 16,
+          },
+          undefined,
+        ]
+      }
+      testID="button_text"
+    >
+      Button Text
+    </Text>
+  </View>
+  <View
+    entering={BaseAnimationMock {}}
+    exiting={BaseAnimationMock {}}
+    layout={BaseAnimationMock {}}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 10,
+          "height": 100,
+          "paddingHorizontal": 24,
+          "width": "100%",
+          "zIndex": 100,
+        },
+        {
+          "alignSelf": "center",
+          "top": 150,
+        },
+        undefined,
+        {
+          "backgroundColor": "transparent",
+          "marginTop": -110,
+          "position": "absolute",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "flex": 1,
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "borderRadius": 100,
+            "height": 28,
+            "justifyContent": "center",
+            "marginLeft": 18,
+            "marginTop": 21,
+            "width": 28,
+            "zIndex": 100,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flex": 1,
+            "zIndex": 100,
+          }
+        }
+      >
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "500",
+                "marginTop": 17,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "400",
+                "marginTop": 6,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Button renders text button with different sizes renders text button  1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    accessibilityState={
+      {
+        "disabled": false,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 5,
+          "justifyContent": "center",
+          "width": "100%",
+        },
+        {
+          "flexDirection": "row",
+        },
+        {
+          "paddingHorizontal": 30,
+          "paddingVertical": 15,
+        },
+        {
+          "backgroundColor": "#8973CD",
+        },
+        null,
+        undefined,
+      ]
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "color": "#FFFFFF",
+          },
+          {
+            "fontWeight": "500",
+          },
+          {
+            "fontFamily": "Poppins-Medium",
+            "fontSize": 12,
+            "lineHeight": 18,
+          },
+          undefined,
+        ]
+      }
+      testID="button_text"
+    >
+      Button Text
+    </Text>
+  </View>
+  <View
+    entering={BaseAnimationMock {}}
+    exiting={BaseAnimationMock {}}
+    layout={BaseAnimationMock {}}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 10,
+          "height": 100,
+          "paddingHorizontal": 24,
+          "width": "100%",
+          "zIndex": 100,
+        },
+        {
+          "alignSelf": "center",
+          "top": 150,
+        },
+        undefined,
+        {
+          "backgroundColor": "transparent",
+          "marginTop": -110,
+          "position": "absolute",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "flex": 1,
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "borderRadius": 100,
+            "height": 28,
+            "justifyContent": "center",
+            "marginLeft": 18,
+            "marginTop": 21,
+            "width": 28,
+            "zIndex": 100,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flex": 1,
+            "zIndex": 100,
+          }
+        }
+      >
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "500",
+                "marginTop": 17,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "400",
+                "marginTop": 6,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Button renders text button with different sizes renders text button with large size  1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    accessibilityState={
+      {
+        "disabled": false,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 5,
+          "justifyContent": "center",
+          "width": "100%",
+        },
+        {
+          "flexDirection": "row",
+        },
+        {
+          "paddingHorizontal": 30,
+          "paddingVertical": 15,
+        },
+        {
+          "backgroundColor": "#8973CD",
+        },
+        null,
+        undefined,
+      ]
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "color": "#FFFFFF",
+          },
+          {
+            "fontWeight": "500",
+          },
+          {
+            "fontFamily": "Poppins-Medium",
+            "fontSize": 14,
+            "lineHeight": 21,
+          },
+          undefined,
+        ]
+      }
+      testID="button_text"
+    >
+      Button Text
+    </Text>
+  </View>
+  <View
+    entering={BaseAnimationMock {}}
+    exiting={BaseAnimationMock {}}
+    layout={BaseAnimationMock {}}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 10,
+          "height": 100,
+          "paddingHorizontal": 24,
+          "width": "100%",
+          "zIndex": 100,
+        },
+        {
+          "alignSelf": "center",
+          "top": 150,
+        },
+        undefined,
+        {
+          "backgroundColor": "transparent",
+          "marginTop": -110,
+          "position": "absolute",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "flex": 1,
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "borderRadius": 100,
+            "height": 28,
+            "justifyContent": "center",
+            "marginLeft": 18,
+            "marginTop": 21,
+            "width": 28,
+            "zIndex": 100,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flex": 1,
+            "zIndex": 100,
+          }
+        }
+      >
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "500",
+                "marginTop": 17,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "400",
+                "marginTop": 6,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Button renders text button with different sizes renders text button with medium size  1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    accessibilityState={
+      {
+        "disabled": false,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 5,
+          "justifyContent": "center",
+          "width": "100%",
+        },
+        {
+          "flexDirection": "row",
+        },
+        {
+          "paddingHorizontal": 30,
+          "paddingVertical": 15,
+        },
+        {
+          "backgroundColor": "#8973CD",
+        },
+        null,
+        undefined,
+      ]
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "color": "#FFFFFF",
+          },
+          {
+            "fontWeight": "500",
+          },
+          {
+            "fontFamily": "Poppins-Medium",
+            "fontSize": 12,
+            "lineHeight": 18,
+          },
+          undefined,
+        ]
+      }
+      testID="button_text"
+    >
+      Button Text
+    </Text>
+  </View>
+  <View
+    entering={BaseAnimationMock {}}
+    exiting={BaseAnimationMock {}}
+    layout={BaseAnimationMock {}}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 10,
+          "height": 100,
+          "paddingHorizontal": 24,
+          "width": "100%",
+          "zIndex": 100,
+        },
+        {
+          "alignSelf": "center",
+          "top": 150,
+        },
+        undefined,
+        {
+          "backgroundColor": "transparent",
+          "marginTop": -110,
+          "position": "absolute",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "flex": 1,
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "borderRadius": 100,
+            "height": 28,
+            "justifyContent": "center",
+            "marginLeft": 18,
+            "marginTop": 21,
+            "width": 28,
+            "zIndex": 100,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flex": 1,
+            "zIndex": 100,
+          }
+        }
+      >
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "500",
+                "marginTop": 17,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "400",
+                "marginTop": 6,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Button renders text button with different sizes renders text button with small size  1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    accessibilityState={
+      {
+        "disabled": false,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 5,
+          "justifyContent": "center",
+          "width": "100%",
+        },
+        {
+          "flexDirection": "row",
+        },
+        {
+          "paddingHorizontal": 30,
+          "paddingVertical": 15,
+        },
+        {
+          "backgroundColor": "#8973CD",
+        },
+        null,
+        undefined,
+      ]
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "color": "#FFFFFF",
+          },
+          {
+            "fontWeight": "500",
+          },
+          {
+            "fontFamily": "Poppins-Medium",
+            "fontSize": 10,
+            "lineHeight": 16,
+          },
+          undefined,
+        ]
+      }
+      testID="button_text"
+    >
+      Button Text
+    </Text>
+  </View>
+  <View
+    entering={BaseAnimationMock {}}
+    exiting={BaseAnimationMock {}}
+    layout={BaseAnimationMock {}}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 10,
+          "height": 100,
+          "paddingHorizontal": 24,
+          "width": "100%",
+          "zIndex": 100,
+        },
+        {
+          "alignSelf": "center",
+          "top": 150,
+        },
+        undefined,
+        {
+          "backgroundColor": "transparent",
+          "marginTop": -110,
+          "position": "absolute",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "flex": 1,
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "borderRadius": 100,
+            "height": 28,
+            "justifyContent": "center",
+            "marginLeft": 18,
+            "marginTop": 21,
+            "width": 28,
+            "zIndex": 100,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flex": 1,
+            "zIndex": 100,
+          }
+        }
+      >
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "500",
+                "marginTop": 17,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "400",
+                "marginTop": 6,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;

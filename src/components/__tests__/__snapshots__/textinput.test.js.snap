@@ -1,0 +1,761 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextInput renders  with variant="filled" 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      [
+        {
+          "flexGrow": 1,
+          "maxHeight": 42,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "borderRadius": 5,
+            "borderWidth": 1,
+            "height": 42,
+            "opacity": 1,
+          },
+          {
+            "borderColor": undefined,
+          },
+          undefined,
+          {
+            "backgroundColor": "transparent",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          {
+            "flex": 1,
+            "flexDirection": "row",
+            "height": 42,
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "alignSelf": "center",
+              "marginLeft": 12,
+              "marginRight": 5,
+            }
+          }
+        />
+        <View
+          style={
+            {
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <TextInput
+            editable={true}
+            onChangeText={[Function]}
+            onEndEditing={[Function]}
+            onFocus={[Function]}
+            style={
+              [
+                {
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "fontFamily": "Poppins-Regular",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                  "marginTop": 8,
+                },
+                undefined,
+              ]
+            }
+            testID="textInput"
+          />
+        </View>
+        <View
+          style={
+            {
+              "alignSelf": "center",
+              "marginLeft": 5,
+              "marginRight": 12,
+            }
+          }
+        />
+      </View>
+    </View>
+    <View
+      style={
+        [
+          {
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "paddingHorizontal": 5,
+          },
+          {
+            "alignSelf": "stretch",
+            "display": "none",
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "fontFamily": "Poppins-Regular",
+              "fontSize": 10,
+              "lineHeight": 14,
+            },
+            undefined,
+            {
+              "color": "#9A9A9A",
+            },
+          ]
+        }
+      />
+    </View>
+  </View>
+  <View
+    entering={BaseAnimationMock {}}
+    exiting={BaseAnimationMock {}}
+    layout={BaseAnimationMock {}}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 10,
+          "height": 100,
+          "paddingHorizontal": 24,
+          "width": "100%",
+          "zIndex": 100,
+        },
+        {
+          "alignSelf": "center",
+          "top": 150,
+        },
+        undefined,
+        {
+          "backgroundColor": "transparent",
+          "marginTop": -110,
+          "position": "absolute",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "flex": 1,
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "borderRadius": 100,
+            "height": 28,
+            "justifyContent": "center",
+            "marginLeft": 18,
+            "marginTop": 21,
+            "width": 28,
+            "zIndex": 100,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flex": 1,
+            "zIndex": 100,
+          }
+        }
+      >
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "500",
+                "marginTop": 17,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "400",
+                "marginTop": 6,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`TextInput renders  with variant="outlined" 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      [
+        {
+          "flexGrow": 1,
+          "maxHeight": 42,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "borderRadius": 5,
+            "borderWidth": 1,
+            "height": 42,
+            "opacity": 1,
+          },
+          {
+            "borderColor": undefined,
+          },
+          undefined,
+          {
+            "backgroundColor": "transparent",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          {
+            "flex": 1,
+            "flexDirection": "row",
+            "height": 42,
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "alignSelf": "center",
+              "marginLeft": 12,
+              "marginRight": 5,
+            }
+          }
+        />
+        <View
+          style={
+            {
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <TextInput
+            editable={true}
+            onChangeText={[Function]}
+            onEndEditing={[Function]}
+            onFocus={[Function]}
+            style={
+              [
+                {
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "fontFamily": "Poppins-Regular",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                  "marginTop": 8,
+                },
+                undefined,
+              ]
+            }
+            testID="textInput"
+          />
+        </View>
+        <View
+          style={
+            {
+              "alignSelf": "center",
+              "marginLeft": 5,
+              "marginRight": 12,
+            }
+          }
+        />
+      </View>
+    </View>
+    <View
+      style={
+        [
+          {
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "paddingHorizontal": 5,
+          },
+          {
+            "alignSelf": "stretch",
+            "display": "none",
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "fontFamily": "Poppins-Regular",
+              "fontSize": 10,
+              "lineHeight": 14,
+            },
+            undefined,
+            {
+              "color": "#9A9A9A",
+            },
+          ]
+        }
+      />
+    </View>
+  </View>
+  <View
+    entering={BaseAnimationMock {}}
+    exiting={BaseAnimationMock {}}
+    layout={BaseAnimationMock {}}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 10,
+          "height": 100,
+          "paddingHorizontal": 24,
+          "width": "100%",
+          "zIndex": 100,
+        },
+        {
+          "alignSelf": "center",
+          "top": 150,
+        },
+        undefined,
+        {
+          "backgroundColor": "transparent",
+          "marginTop": -110,
+          "position": "absolute",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "flex": 1,
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "borderRadius": 100,
+            "height": 28,
+            "justifyContent": "center",
+            "marginLeft": 18,
+            "marginTop": 21,
+            "width": 28,
+            "zIndex": 100,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flex": 1,
+            "zIndex": 100,
+          }
+        }
+      >
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "500",
+                "marginTop": 17,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "400",
+                "marginTop": 6,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`TextInput renders default 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      [
+        {
+          "flexGrow": 1,
+          "maxHeight": 42,
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "borderRadius": 5,
+            "borderWidth": 1,
+            "height": 42,
+            "opacity": 1,
+          },
+          {
+            "borderColor": undefined,
+          },
+          undefined,
+          {
+            "backgroundColor": "transparent",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          {
+            "flex": 1,
+            "flexDirection": "row",
+            "height": 42,
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "alignSelf": "center",
+              "marginLeft": 12,
+              "marginRight": 5,
+            }
+          }
+        />
+        <View
+          style={
+            {
+              "flex": 1,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <TextInput
+            editable={true}
+            onChangeText={[Function]}
+            onEndEditing={[Function]}
+            onFocus={[Function]}
+            style={
+              [
+                {
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "fontFamily": "Poppins-Regular",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                  "marginTop": 8,
+                },
+                undefined,
+              ]
+            }
+            testID="textInput"
+            value="value"
+          />
+          <View
+            style={
+              [
+                {
+                  "paddingHorizontal": 4,
+                  "position": "absolute",
+                },
+                undefined,
+                {
+                  "top": undefined,
+                },
+                {
+                  "backgroundColor": "white",
+                },
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                {
+                  "opacity": 1,
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#8973CD",
+                      "fontFamily": "Poppins-Regular",
+                    },
+                    undefined,
+                    {
+                      "color": undefined,
+                      "fontSize": undefined,
+                      "lineHeight": undefined,
+                    },
+                  ]
+                }
+              >
+                label
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            {
+              "alignSelf": "center",
+              "marginLeft": 5,
+              "marginRight": 12,
+            }
+          }
+        />
+      </View>
+    </View>
+    <View
+      style={
+        [
+          {
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "paddingHorizontal": 5,
+          },
+          {
+            "alignSelf": "stretch",
+            "display": "none",
+            "flexDirection": "row",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "fontFamily": "Poppins-Regular",
+              "fontSize": 10,
+              "lineHeight": 14,
+            },
+            undefined,
+            {
+              "color": "#9A9A9A",
+            },
+          ]
+        }
+      />
+    </View>
+  </View>
+  <View
+    entering={BaseAnimationMock {}}
+    exiting={BaseAnimationMock {}}
+    layout={BaseAnimationMock {}}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 10,
+          "height": 100,
+          "paddingHorizontal": 24,
+          "width": "100%",
+          "zIndex": 100,
+        },
+        {
+          "alignSelf": "center",
+          "top": 150,
+        },
+        undefined,
+        {
+          "backgroundColor": "transparent",
+          "marginTop": -110,
+          "position": "absolute",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "flex": 1,
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "borderRadius": 100,
+            "height": 28,
+            "justifyContent": "center",
+            "marginLeft": 18,
+            "marginTop": 21,
+            "width": 28,
+            "zIndex": 100,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flex": 1,
+            "zIndex": 100,
+          }
+        }
+      >
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "500",
+                "marginTop": 17,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "400",
+                "marginTop": 6,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;

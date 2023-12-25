@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      [
+        {
+          "zIndex": 1,
+        },
+        {
+          "width": 200,
+        },
+        undefined,
+      ]
+    }
+  >
+    <RNGestureHandlerButton
+      collapsable={false}
+      delayLongPress={600}
+      enabled={true}
+      exclusive={true}
+      handlerTag={1}
+      handlerType="NativeViewGestureHandler"
+      onGestureEvent={[Function]}
+      onGestureHandlerEvent={[Function]}
+      onGestureHandlerStateChange={[Function]}
+      onHandlerStateChange={[Function]}
+      rippleColor={0}
+      testID="open_button"
+      touchSoundDisabled={false}
+    >
+      <View
+        accessible={true}
+        collapsable={false}
+        style={
+          {
+            "alignItems": "flex-end",
+            "marginRight": 10,
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            {
+              "bottom": 5,
+              "color": "#8973CD",
+              "fontSize": 20,
+            }
+          }
+        >
+          ...
+        </Text>
+      </View>
+    </RNGestureHandlerButton>
+  </View>
+  <View
+    entering={BaseAnimationMock {}}
+    exiting={BaseAnimationMock {}}
+    layout={BaseAnimationMock {}}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 10,
+          "height": 100,
+          "paddingHorizontal": 24,
+          "width": "100%",
+          "zIndex": 100,
+        },
+        {
+          "alignSelf": "center",
+          "top": 150,
+        },
+        undefined,
+        {
+          "backgroundColor": "transparent",
+          "marginTop": -110,
+          "position": "absolute",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "flex": 1,
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "borderRadius": 100,
+            "height": 28,
+            "justifyContent": "center",
+            "marginLeft": 18,
+            "marginTop": 21,
+            "width": 28,
+            "zIndex": 100,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flex": 1,
+            "zIndex": 100,
+          }
+        }
+      >
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "500",
+                "marginTop": 17,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "400",
+                "marginTop": 6,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;

@@ -1,0 +1,427 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal renders Modal visible is false 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "flex": 1,
+      }
+    }
+  >
+    <Modal
+      animationType="slide"
+      hardwareAccelerated={false}
+      transparent={true}
+      typography={
+        {
+          "body": {
+            "medium": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 14,
+              "lineHeight": 21,
+            },
+            "regular": {
+              "fontFamily": "Poppins-Regular",
+              "fontSize": 14,
+              "lineHeight": 16,
+            },
+            "smedium": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 12,
+              "lineHeight": 18,
+            },
+            "sregular": {
+              "fontFamily": "Poppins-Regular",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+            "xsmedium": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 10,
+              "lineHeight": 16,
+            },
+            "xsregular": {
+              "fontFamily": "Poppins-Regular",
+              "fontSize": 10,
+              "lineHeight": 14,
+            },
+            "xxsmedium": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 8,
+              "lineHeight": 12,
+            },
+            "xxsregular": {
+              "fontFamily": "Poppins-Regular",
+              "fontSize": 8,
+              "lineHeight": 12,
+            },
+          },
+          "heading": {
+            "h1": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 30,
+              "lineHeight": 45,
+            },
+            "h2": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 28,
+              "lineHeight": 42,
+            },
+            "h3": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 23,
+              "lineHeight": 35,
+            },
+            "h4": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 19,
+              "lineHeight": 29,
+            },
+            "h5": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 16,
+              "lineHeight": 25,
+            },
+          },
+        }
+      }
+      visible={false}
+    />
+  </View>
+  <View
+    entering={BaseAnimationMock {}}
+    exiting={BaseAnimationMock {}}
+    layout={BaseAnimationMock {}}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 10,
+          "height": 100,
+          "paddingHorizontal": 24,
+          "width": "100%",
+          "zIndex": 100,
+        },
+        {
+          "alignSelf": "center",
+          "top": 150,
+        },
+        undefined,
+        {
+          "backgroundColor": "transparent",
+          "marginTop": -110,
+          "position": "absolute",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "flex": 1,
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "borderRadius": 100,
+            "height": 28,
+            "justifyContent": "center",
+            "marginLeft": 18,
+            "marginTop": 21,
+            "width": 28,
+            "zIndex": 100,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flex": 1,
+            "zIndex": 100,
+          }
+        }
+      >
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "500",
+                "marginTop": 17,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "400",
+                "marginTop": 6,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Modal renders Modal visible is true 1`] = `
+<View
+  style={
+    {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "flex": 1,
+      }
+    }
+  >
+    <Modal
+      animationType="slide"
+      hardwareAccelerated={false}
+      transparent={true}
+      typography={
+        {
+          "body": {
+            "medium": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 14,
+              "lineHeight": 21,
+            },
+            "regular": {
+              "fontFamily": "Poppins-Regular",
+              "fontSize": 14,
+              "lineHeight": 16,
+            },
+            "smedium": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 12,
+              "lineHeight": 18,
+            },
+            "sregular": {
+              "fontFamily": "Poppins-Regular",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+            "xsmedium": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 10,
+              "lineHeight": 16,
+            },
+            "xsregular": {
+              "fontFamily": "Poppins-Regular",
+              "fontSize": 10,
+              "lineHeight": 14,
+            },
+            "xxsmedium": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 8,
+              "lineHeight": 12,
+            },
+            "xxsregular": {
+              "fontFamily": "Poppins-Regular",
+              "fontSize": 8,
+              "lineHeight": 12,
+            },
+          },
+          "heading": {
+            "h1": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 30,
+              "lineHeight": 45,
+            },
+            "h2": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 28,
+              "lineHeight": 42,
+            },
+            "h3": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 23,
+              "lineHeight": 35,
+            },
+            "h4": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 19,
+              "lineHeight": 29,
+            },
+            "h5": {
+              "fontFamily": "Poppins-Medium",
+              "fontSize": 16,
+              "lineHeight": 25,
+            },
+          },
+        }
+      }
+      visible={true}
+    >
+      <View
+        style={
+          [
+            {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            {
+              "backgroundColor": "rgba(64,64,64,0.8)",
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          style={
+            [
+              {},
+              undefined,
+            ]
+          }
+        />
+      </View>
+    </Modal>
+  </View>
+  <View
+    entering={BaseAnimationMock {}}
+    exiting={BaseAnimationMock {}}
+    layout={BaseAnimationMock {}}
+    style={
+      [
+        {
+          "alignItems": "center",
+          "borderRadius": 10,
+          "height": 100,
+          "paddingHorizontal": 24,
+          "width": "100%",
+          "zIndex": 100,
+        },
+        {
+          "alignSelf": "center",
+          "top": 150,
+        },
+        undefined,
+        {
+          "backgroundColor": "transparent",
+          "marginTop": -110,
+          "position": "absolute",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "flex": 1,
+          "flexDirection": "row",
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "borderRadius": 100,
+            "height": 28,
+            "justifyContent": "center",
+            "marginLeft": 18,
+            "marginTop": 21,
+            "width": 28,
+            "zIndex": 100,
+          }
+        }
+      />
+      <View
+        style={
+          {
+            "flex": 1,
+            "zIndex": 100,
+          }
+        }
+      >
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "500",
+                "marginTop": 17,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+        <Text
+          ellipsizeMode="middle"
+          numberOfLines={3}
+          style={
+            [
+              {
+                "fontWeight": "400",
+                "marginTop": 6,
+                "paddingHorizontal": 20,
+              },
+              {
+                "color": "#FFFFFF",
+              },
+            ]
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;
