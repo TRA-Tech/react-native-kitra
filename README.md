@@ -3,11 +3,11 @@
 ## Installation
 
 ```sh
-npm install react-native-kitra
+npm install @tra-tech/react-native-kitra
 ```
 or
 
 ```sh
-yarn add react-native-kitra
+yarn add @tra-tech/react-native-kitra
 ```
 
