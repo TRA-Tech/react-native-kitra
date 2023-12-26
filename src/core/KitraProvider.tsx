@@ -1,5 +1,6 @@
+/* eslint-disable react/prefer-stateless-function */
 import type { ComponentType } from 'react';
-import type React from 'react';
+import React from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { ThemeContext, ThemeProvider } from './theme/theme';
 import { TypographyContext, TypographyProvider } from './typography/typography';
@@ -41,15 +42,21 @@ export const KitraProvider = ({ children, messageType, linearMessageType, limit 
 );
 
 export function applyDefaults<T>(Component: ComponentType<T>) {
-  return (props: T) => (
-    <ThemeContext.Consumer>
-      {theme => (
-        <TypographyContext.Consumer>
-          {typography =>
-            <Component theme={theme?.theme} typography={typography?.typography} {...props} />
-          }
-        </TypographyContext.Consumer>
-      )}
-    </ThemeContext.Consumer>
-  );
+  class Forwarded extends React.Component {
+    render() {
+      return (
+        <ThemeContext.Consumer>
+          {theme => (
+            <TypographyContext.Consumer>
+              {typography =>
+                <Component theme={theme?.theme} typography={typography?.typography} {...this.props as T} />
+              }
+            </TypographyContext.Consumer>
+          )}
+        </ThemeContext.Consumer>
+      );
+    }
+  }
+
+  return Forwarded;
 }

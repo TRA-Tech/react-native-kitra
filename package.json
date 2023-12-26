@@ -1,12 +1,13 @@
 {
-  "name": "react-native-kitra",
-  "version": "0.1.0",
+  "name": "@tra-tech/react-native-kitra",
+  "version": "1.0.1",
   "description": "UI kit for React Native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
   "react-native": "src/index",
   "source": "src/index",
+
   "files": [
     "src",
     "lib",
@@ -30,16 +31,17 @@
   },
   "keywords": [
     "react-native",
+    "ui-kit",
+    "kitra",
     "ios",
     "android"
   ],
-  "repository": "https://git.trabilisim.tech/",
-  "author": "Ahmet Kağan Yörük <ayoruk@trabilisim.com> (https://git.trabilisim.tech/)",
+  "repository": "https://github.com/TRA-Tech/react-native-kitra",
   "license": "MIT",
   "bugs": {
     "url": "https://git.trabilisim.tech//issues"
   },
-  "homepage": "https://git.trabilisim.tech/#readme",
+  "homepage": "https://github.com/TRA-Tech/react-native-kitra/blob/main/README.md",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -128,8 +130,8 @@
   },
   "dependencies": {
     "expo-linear-gradient": "^12.3.0",
-    "react-native-vector-icons": "^9.2.0",
-    "ts-jest": "^29.1.1"
+    "react-native-vector-icons": "^9.2.0"
+
   },
   "jest": {
     "preset": "react-native",

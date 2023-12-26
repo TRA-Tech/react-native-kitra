@@ -81,6 +81,79 @@ exports[`PagerView renders PagerView 1`] = `
             ],
           ]
         }
+        typography={
+          {
+            "body": {
+              "medium": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 14,
+                "lineHeight": 21,
+              },
+              "regular": {
+                "fontFamily": "Poppins-Regular",
+                "fontSize": 14,
+                "lineHeight": 16,
+              },
+              "smedium": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 12,
+                "lineHeight": 18,
+              },
+              "sregular": {
+                "fontFamily": "Poppins-Regular",
+                "fontSize": 12,
+                "lineHeight": 16,
+              },
+              "xsmedium": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 10,
+                "lineHeight": 16,
+              },
+              "xsregular": {
+                "fontFamily": "Poppins-Regular",
+                "fontSize": 10,
+                "lineHeight": 14,
+              },
+              "xxsmedium": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 8,
+                "lineHeight": 12,
+              },
+              "xxsregular": {
+                "fontFamily": "Poppins-Regular",
+                "fontSize": 8,
+                "lineHeight": 12,
+              },
+            },
+            "heading": {
+              "h1": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 30,
+                "lineHeight": 45,
+              },
+              "h2": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 28,
+                "lineHeight": 42,
+              },
+              "h3": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 23,
+                "lineHeight": 35,
+              },
+              "h4": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 19,
+                "lineHeight": 29,
+              },
+              "h5": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 16,
+                "lineHeight": 25,
+              },
+            },
+          }
+        }
       >
         <View
           style={
@@ -353,6 +426,79 @@ exports[`PagerView renders PagerView with not react element 1`] = `
               undefined,
             ],
           ]
+        }
+        typography={
+          {
+            "body": {
+              "medium": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 14,
+                "lineHeight": 21,
+              },
+              "regular": {
+                "fontFamily": "Poppins-Regular",
+                "fontSize": 14,
+                "lineHeight": 16,
+              },
+              "smedium": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 12,
+                "lineHeight": 18,
+              },
+              "sregular": {
+                "fontFamily": "Poppins-Regular",
+                "fontSize": 12,
+                "lineHeight": 16,
+              },
+              "xsmedium": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 10,
+                "lineHeight": 16,
+              },
+              "xsregular": {
+                "fontFamily": "Poppins-Regular",
+                "fontSize": 10,
+                "lineHeight": 14,
+              },
+              "xxsmedium": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 8,
+                "lineHeight": 12,
+              },
+              "xxsregular": {
+                "fontFamily": "Poppins-Regular",
+                "fontSize": 8,
+                "lineHeight": 12,
+              },
+            },
+            "heading": {
+              "h1": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 30,
+                "lineHeight": 45,
+              },
+              "h2": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 28,
+                "lineHeight": 42,
+              },
+              "h3": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 23,
+                "lineHeight": 35,
+              },
+              "h4": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 19,
+                "lineHeight": 29,
+              },
+              "h5": {
+                "fontFamily": "Poppins-Medium",
+                "fontSize": 16,
+                "lineHeight": 25,
+              },
+            },
+          }
         }
       >
         <View
