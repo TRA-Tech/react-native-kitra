@@ -40,6 +40,6 @@ const ProgressBar: FCCWD<ProgressBarProps> = ({ theme, progress = 0, barColor, p
 export default applyDefaults(ProgressBar);
 
 export const Style = StyleSheet.create({
-  container: { flex: 1, backgroundColor: 'transparent', height: 2, width: '100%', overflow: 'visible', justifyContent: 'center' },
+  container: { backgroundColor: 'transparent', height: 2, width: '100%', overflow: 'visible', justifyContent: 'center' },
   progressStyle: { borderRadius: 14, position: 'absolute', height: 4 },
 });
