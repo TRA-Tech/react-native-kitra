@@ -10,7 +10,7 @@ import type Icon from '../Icons/Icon';
 const style = StyleSheet.create({
   container: { flex: 1 },
   headersContainer: { flexDirection: 'row', padding: 5, borderRadius: 10, marginLeft: 'auto', marginRight: 'auto', width: 315, height: 50 },
-  headerContainer: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  headerContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', zIndex: 101 },
   headerText: { margin: 10, textAlign: 'center', fontSize: 12, fontWeight: '500', flexDirection: 'row' },
   slider: { position: 'absolute', borderRadius: 8, margin: 5, alignItems: 'center' },
   pageContainer: { height: '100%', width: '100%', flex: 1 },
