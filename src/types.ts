@@ -44,7 +44,7 @@ export type AccordionListProps = {
 }
 
 export type AvatarGroupProps = {
-    avatarsType: [AvatarProps],
+    avatarsType: Array<AvatarProps>,
     avatarLimit?: number,
     limitContainerStyle?: { style: StyleProp<TextStyle>, backgroundColor: string }
 }
