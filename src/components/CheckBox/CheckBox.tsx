@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { StyleSheet, TouchableOpacity, ViewProps } from 'react-native';
+import { StyleSheet, TouchableOpacity, TouchableOpacityProps } from 'react-native';
 import Animated, { FadeIn, FadeOut, interpolateColor, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import type { CheckBoxProps, FCCWD } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
@@ -7,7 +7,7 @@ import Octicons from '../Icons/Octicons';
 
 const AnimatedTouchableOpacity = Animated.createAnimatedComponent(TouchableOpacity);
 
-export const CheckBox: FCCWD<CheckBoxProps & ViewProps> = (
+export const CheckBox: FCCWD<CheckBoxProps & TouchableOpacityProps> = (
   { theme,
     value,
     onChange,
