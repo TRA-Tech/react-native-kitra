@@ -56,6 +56,7 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
     } else {
       selectedObjectsTemp.push(value);
     }
+    onSelect(selectedObjectsTemp);
     setSelectedObjects(selectedObjectsTemp);
   };
 
@@ -147,7 +148,6 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
                   onPress={() => {
                     setSelectedObjects(item);
                     toggleCheckBox(item);
-                    onSelect({ ...selectedObjects, item });
                   }}
                   style={[
                     Style.row, {
