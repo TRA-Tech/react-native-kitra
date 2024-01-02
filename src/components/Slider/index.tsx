@@ -72,7 +72,7 @@ const Slider: FCCWD<SliderProps> = (
           onLayout={() => containerRef.current?.measure((x, y, width, height, pageX, pageY) => { setMeasure({ x, y, pageX, pageY, width, height }); })}
           style={[{ backgroundColor: theme?.primary15 }, Style.barStyle, barStyle]}
         >
-          <Animated.View style={[{ position: 'absolute', borderRadius: 14, backgroundColor: theme?.primary, width: progress.value, height: 6 }, progressStyle, percentageStyle]} />
+          <Animated.View style={[{ position: 'absolute', borderRadius: 14, backgroundColor: theme?.primary, width: progress, height: 6 }, progressStyle, percentageStyle]} />
           <PanGestureHandler onGestureEvent={handler}>
             <Animated.View hitSlop={{ top: 25, bottom: 25, left: 25, right: 25 }} style={[{ backgroundColor: theme?.white }, Style.button, buttonStyle, progressBarStyle]}>
               {showPercentage && (
