@@ -145,7 +145,7 @@ export type DrowdownProps = {
     containerStyle?: StyleProp<ViewStyle>
     buttonTitle?: string,
     rowStyle?: StyleProp<ViewStyle>
-    onSelect: (item: Array<string> | Array<object>) => void,
+    onSelect: (item: Array<string> | Array<object> | object) => void,
     defaultValue?: Array<object | string>,
     rowTextStyle?: StyleProp<TextStyle>,
     buttonTextStyle?: StyleProp<TextStyle>,
