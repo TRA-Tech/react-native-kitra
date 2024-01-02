@@ -41,6 +41,7 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
 ) => {
   const [visible, setVisible] = useState(false);
   const [selectedObjects, setSelectedObjects] = useState(defaultValue || []);
+  const [buttonValue, setButtonValue] = useState(displayedButtonValue(defaultValue) || []);
   const [cord, setCord] = useState({ x: 0, y: 0, height: 0, width: 0 });
   const openAnimation = useSharedValue(0);
   const dropdown = useRef<TouchableOpacity>(null);
@@ -57,7 +58,18 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
       selectedObjectsTemp.push(value);
     }
     onSelect(selectedObjectsTemp);
+
     setSelectedObjects(selectedObjectsTemp);
+  };
+  const toggleCheckBoxButtonValue = (value: any) => {
+    const tempValue = [...buttonValue];
+    const valueIndex = tempValue.indexOf(value);
+    if (valueIndex > -1) {
+      tempValue.splice(valueIndex, 1);
+    } else {
+      tempValue.push(value);
+    }
+    setButtonValue(tempValue);
   };
 
   const isItemSelected = (item: string | { [key: string]: any; }) => {
@@ -102,9 +114,9 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
         >
           {!isObjectSelected ?
             (buttonTitle || 'Please Select')
-            : selectedObjects.length <= displayLength ?
-              `${selectedObjects}` :
-              `${selectedObjects?.length} Selected`}
+            : buttonValue.length <= displayLength ?
+              `${buttonValue}` :
+              `${buttonValue?.length} Selected`}
         </Animated.Text>
         {right || (
           <View style={[Style.rightIcon, { backgroundColor: visible ? theme?.primary5 : theme?.lightGrey }]}>
@@ -148,6 +160,8 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
                   onPress={() => {
                     setSelectedObjects(item);
                     toggleCheckBox(item);
+                    setButtonValue(item);
+                    toggleCheckBoxButtonValue(displayedButtonValue(item));
                   }}
                   style={[
                     Style.row, {
