@@ -117,7 +117,7 @@ export type CheckBoxProps = {
 
 export type ChipProps = {
     label?: string,
-    textStyle?: StyleProp<TextStyle>,
+    labelStyle?: StyleProp<TextStyle>,
     style?: StyleProp<ViewStyle>,
     value?:boolean,
     icon?: { iconName: string, iconType: IconType, iconPosition: 'left'|'right'},
