@@ -348,6 +348,7 @@ exports[`PagerView renders PagerView with not react element 1`] = `
             "flex": 1,
             "justifyContent": "center",
             "opacity": 1,
+            "zIndex": 101,
           }
         }
         testID="tab_button_0"
