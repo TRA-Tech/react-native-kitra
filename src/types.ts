@@ -153,7 +153,7 @@ export type DrowdownProps = {
     left?: React.ReactNode,
     right?: React.ReactNode,
     onComplete?: (item: string | object) => void,
-    buttonBackgrounColor?: { focusBackground: string, defaultBackground: string },
+    buttonBackgroundColor?: { focusBackground: string, defaultBackground: string },
     iconStyle?: { color: string, container: StyleProp<ViewStyle> }
     autoPosition?: boolean,
     testID?: string

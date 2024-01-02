@@ -30,7 +30,7 @@ const Dropdown :FCCWD<DrowdownProps> = (
     iconStyle,
     autoPosition = true,
     testID,
-    buttonBackgrounColor = { focusBackground: theme?.error, defaultBackground: theme?.darkWhite } },
+    buttonBackgroundColor = { focusBackground: theme?.error, defaultBackground: theme?.darkWhite } },
 ) => {
   const [visible, setVisible] = useState(false);
   const [selectedObject, setSelectedObject] = useState(defaultValue);
@@ -63,7 +63,7 @@ const Dropdown :FCCWD<DrowdownProps> = (
         disabled={disabled}
         onLayout={event => setCord(event.nativeEvent.layout)}
         onPress={() => { setVisible(!visible); }}
-        style={[Style.button, buttonStyle, { backgroundColor: visible ? buttonBackgrounColor.focusBackground : buttonBackgrounColor.defaultBackground }]}
+        style={[Style.button, buttonStyle, { backgroundColor: visible ? buttonBackgroundColor.focusBackground : buttonBackgroundColor.defaultBackground }]}
       >
         {left}
         <Animated.Text
@@ -80,7 +80,7 @@ const Dropdown :FCCWD<DrowdownProps> = (
           {isObjectSelected ? (buttonTitle || 'Please Select') : displayedButtonValue(selectedObject)}
         </Animated.Text>
         {right || (
-        <View style={[Style.rightIcon, { backgroundColor: visible ? buttonBackgrounColor.focusBackground : buttonBackgrounColor.defaultBackground }, iconStyle?.container]}>
+        <View style={[Style.rightIcon, { backgroundColor: visible ? buttonBackgroundColor.focusBackground : buttonBackgroundColor.defaultBackground }, iconStyle?.container]}>
           <Animated.View style={dropdownAnimation}>
             <FeatherIcon
               name="chevron-down"
