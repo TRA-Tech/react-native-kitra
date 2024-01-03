@@ -57,6 +57,7 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
       selectedObjectsTemp.push(value);
     }
     onSelect(selectedObjectsTemp);
+
     setSelectedObjects(selectedObjectsTemp);
   };
 
@@ -103,7 +104,7 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
           {!isObjectSelected ?
             (buttonTitle || 'Please Select')
             : selectedObjects.length <= displayLength ?
-              `${selectedObjects}` :
+              `${selectedObjects.map(item => displayedButtonValue(item))}` :
               `${selectedObjects?.length} Selected`}
         </Animated.Text>
         {right || (
