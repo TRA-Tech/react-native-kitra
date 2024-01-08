@@ -26,7 +26,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
     errorMessage,
     left,
     right,
-    labelColor = { focus: theme?.primary, default: theme?.white },
+    labelColor = { focus: theme?.primary, default: theme?.primary },
     onFocus,
     onEndEditing,
     ...props },
