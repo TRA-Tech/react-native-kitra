@@ -110,11 +110,11 @@ const SpeedDial: FCCWD<SpeedDialProps> = (
     typography,
     baseItemBackground = theme?.tertiary,
     items,
+    onChange,
     variant = 'flat',
     baseItemIcon = <Icon type="material-community" name="close" size={25} color={theme?.white} /> },
 ) => {
   const offset = useSharedValue(0);
-
   const rotate = useAnimatedStyle(() => ({
     transform: [{ rotateZ: `${(offset.value - 1) * 45}deg` }],
   }));
@@ -133,6 +133,15 @@ const SpeedDial: FCCWD<SpeedDialProps> = (
     if (variant === 'spread') { items = items.slice(0, 3); }
   }, [variant]);
 
+  const onPress = () => {
+    if (offset.value > 0) {
+      offset.value = withSpring(0, animationStartConfig);
+      onChange && onChange(false);
+    } else {
+      offset.value = withSpring(1, animationEndConfig);
+      onChange && onChange(true);
+    }
+  };
   return (
     <View style={[{ right: '7%' }, { alignSelf: 'flex-end' }, styles.container]}>
       <View style={styles.innerContainer}>
@@ -149,9 +158,7 @@ const SpeedDial: FCCWD<SpeedDialProps> = (
           <TouchableOpacity
             testID="base_item"
             style={styles.nodeButton}
-            onPress={() => {
-              offset.value = offset.value > 0 ? withSpring(0, animationStartConfig) : withSpring(1, animationEndConfig);
-            }}
+            onPress={onPress}
           >
             {baseItemIcon}
           </TouchableOpacity>
