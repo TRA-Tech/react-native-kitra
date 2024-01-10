@@ -56,7 +56,7 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
     } else {
       selectedObjectsTemp.push(value);
     }
-    onSelect(selectedObjectsTemp);
+    onSelect?.(selectedObjectsTemp);
 
     setSelectedObjects(selectedObjectsTemp);
   };
