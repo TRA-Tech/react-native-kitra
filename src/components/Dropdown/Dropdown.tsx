@@ -1,5 +1,5 @@
 /* eslint-disable no-unsafe-optional-chaining */
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Animated, { FadeIn, FadeOut, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -9,7 +9,7 @@ import FeatherIcon from '../Icons/Feather';
 
 const windowsHeight = Dimensions.get('window').height;
 
-const Dropdown :FCCWD<DrowdownProps> = (
+const Dropdown: FCCWD<DrowdownProps> = (
   { left,
     right,
     theme,
@@ -38,6 +38,10 @@ const Dropdown :FCCWD<DrowdownProps> = (
   const openAnimation = useSharedValue(0);
   const dropdown = useRef<TouchableOpacity>(null);
 
+  const rightElement = useMemo(() => (typeof right === 'function' ? right(visible) : right), [visible, right]);
+
+  const leftElement = useMemo(() => (typeof left === 'function' ? left(visible) : left), [visible, left]);
+
   const dropdownAnimation = useAnimatedStyle(() => ({
     transform: [{ rotate: `${openAnimation.value * 180}deg` }],
   }), []);
@@ -65,30 +69,32 @@ const Dropdown :FCCWD<DrowdownProps> = (
         onPress={() => { setVisible(!visible); }}
         style={[Style.button, buttonStyle, { backgroundColor: visible ? buttonBackgrounColor.focusBackground : buttonBackgrounColor.defaultBackground }]}
       >
-        {left}
+        {leftElement}
         <Animated.Text
           numberOfLines={1}
           key={displayedButtonValue(selectedObject)}
           entering={FadeIn.delay(100)}
           exiting={FadeOut}
           style={[
-            { flex: 1,
+            {
+              flex: 1,
               marginLeft: 12,
-              color: isObjectSelected || disabled ? theme?.grey : theme?.primary },
+              color: isObjectSelected || disabled ? theme?.grey : theme?.primary,
+            },
             typography?.body.medium, buttonTextStyle]}
         >
           {isObjectSelected ? (buttonTitle || 'Please Select') : displayedButtonValue(selectedObject)}
         </Animated.Text>
-        {right || (
-        <View style={[Style.rightIcon, { backgroundColor: visible ? buttonBackgrounColor.focusBackground : buttonBackgrounColor.defaultBackground }, iconStyle?.container]}>
-          <Animated.View style={dropdownAnimation}>
-            <FeatherIcon
-              name="chevron-down"
-              size={14}
-              color={iconStyle?.color || (visible ? theme?.primary : theme?.grey)}
-            />
-          </Animated.View>
-        </View>
+        {rightElement || (
+          <View style={[Style.rightIcon, { backgroundColor: visible ? buttonBackgrounColor.focusBackground : buttonBackgrounColor.defaultBackground }, iconStyle?.container]}>
+            <Animated.View style={dropdownAnimation}>
+              <FeatherIcon
+                name="chevron-down"
+                size={14}
+                color={iconStyle?.color || (visible ? theme?.primary : theme?.grey)}
+              />
+            </Animated.View>
+          </View>
         )}
       </TouchableOpacity>
       {visible && (

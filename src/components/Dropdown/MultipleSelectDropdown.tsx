@@ -1,5 +1,5 @@
 import { FlashList } from '@shopify/flash-list';
-import { forwardRef, RefAttributes, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { forwardRef, RefAttributes, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Dimensions, ScrollViewProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { NativeViewGestureHandlerProps, ScrollView } from 'react-native-gesture-handler';
 import Animated, { FadeIn, FadeOut, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
@@ -48,6 +48,10 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
     transform: [{ rotate: `${openAnimation.value * 180}deg` }],
   }), []);
 
+  const rightElement = useMemo(() => (typeof right === 'function' ? right(visible) : right), [visible, right]);
+
+  const leftElement = useMemo(() => (typeof left === 'function' ? left(visible) : left), [visible, left]);
+
   const toggleCheckBox = (value: string | { [key: string]: any; }) => {
     const selectedObjectsTemp = [...selectedObjects];
     const valueIndex = selectedObjectsTemp.indexOf(value);
@@ -92,7 +96,7 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
         onPress={() => { setVisible(!visible); }}
         style={[Style.button, buttonStyle, { backgroundColor: visible ? theme?.primary5 : theme?.darkWhite }]}
       >
-        {left}
+        {leftElement}
         <Animated.Text
           numberOfLines={1}
           entering={FadeIn.delay(100)}
@@ -107,7 +111,7 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
               `${selectedObjects.map(item => displayedButtonValue(item))}` :
               `${selectedObjects?.length} Selected`}
         </Animated.Text>
-        {right || (
+        {rightElement || (
           <View style={[Style.rightIcon, { backgroundColor: visible ? theme?.primary5 : theme?.lightGrey }]}>
             <Animated.View style={dropdownAnimation}>
               <FeatherIcon
