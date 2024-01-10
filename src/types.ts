@@ -129,8 +129,8 @@ export type ChipProps = {
     label?: string,
     textStyle?: StyleProp<TextStyle>,
     style?: StyleProp<ViewStyle>,
-    value?:boolean,
-    icon?: { iconName: string, iconType: IconType, iconPosition: 'left'|'right'},
+    value?: boolean,
+    icon?: { iconName: string, iconType: IconType, iconPosition: 'left' | 'right' },
     colorStyle?: { backgroundColor: string, selectBackgroundColor: string, selectTitleColor: string, titleColor: string },
     size?: 'large' | 'medium' | 'small',
     onChange: (event: boolean) => void,
@@ -160,8 +160,8 @@ export type DrowdownProps = {
     rowTextStyle?: StyleProp<TextStyle>,
     buttonTextStyle?: StyleProp<TextStyle>,
     listContainerStyle?: StyleProp<ViewStyle>,
-    left?: React.ReactNode,
-    right?: React.ReactNode,
+    left?: (isVisible: boolean) => React.ReactNode,
+    right?: (isVisible: boolean) => React.ReactNode,
     onComplete?: (item: string | object) => void,
     buttonBackgrounColor?: { focusBackground: string, defaultBackground: string },
     iconStyle?: { color: string, container: StyleProp<ViewStyle> }
@@ -175,7 +175,7 @@ export type IconButtonProps = {
     iconColor?: string,
     containerColor?: string,
     style: ViewStyle,
-    icon: {type:IconType, name:string, size:number},
+    icon: { type: IconType, name: string, size: number },
     focusedColor: string
 }
 
@@ -301,7 +301,7 @@ export type SpeedDialProps = {
     items: Array<{ icon?: React.ReactNode, title?: string, titleColor?: string, backgroundColor?: string, onPress?: () => void }>,
     baseItemBackground?: string,
     variant: 'flat' | 'spread',
-    onChange?:(event:boolean)=>void,
+    onChange?: (event: boolean) => void,
     baseItemIcon?: React.ReactNode
 };
 
