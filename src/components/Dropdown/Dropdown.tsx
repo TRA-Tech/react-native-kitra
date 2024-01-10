@@ -111,7 +111,7 @@ const Dropdown :FCCWD<DrowdownProps> = (
                 onPress={() => {
                   setSelectedObject(value);
                   setVisible(false);
-                  onSelect(value);
+                  onSelect?.(value);
                 }}
                 style={[
                   Style.row, {
