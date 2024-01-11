@@ -30,7 +30,7 @@ const Dropdown: FCCWD<DrowdownProps> = (
     iconStyle,
     autoPosition = true,
     testID,
-    buttonBackgrounColor = { focusBackground: theme?.error, defaultBackground: theme?.darkWhite } },
+    buttonBackgrounColor = { focusBackground: theme?.primary5, defaultBackground: theme?.darkWhite } },
 ) => {
   const [visible, setVisible] = useState(false);
   const [selectedObject, setSelectedObject] = useState(defaultValue);
