@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-expressions */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import type { FCCWD, ToggleButtonProps } from '../../types';
 import { opacity } from '../../../src/utilities';
@@ -35,8 +35,8 @@ const ToggleButton: FCCWD<ToggleButtonProps> = (
               paddingVertical: size === 'small' ? 5 : 10,
             },
             styles.containerStyle,
-            index !== 0 && index !== buttonList.length - 1 ? { borderRightWidth: 0 } : null,
-            index === 0 ? { borderTopLeftRadius: 5, borderBottomLeftRadius: 5, borderRightWidth: 0 } : null,
+            index < buttonList.length - 1 ? { borderRightWidth: 0 } : { borderRightWidth: 1 },
+            index === 0 ? { borderTopLeftRadius: 5, borderBottomLeftRadius: 5 } : null,
             index === buttonList.length - 1 ? { borderTopRightRadius: 5, borderBottomRightRadius: 5 } : null,
 
           ]}
