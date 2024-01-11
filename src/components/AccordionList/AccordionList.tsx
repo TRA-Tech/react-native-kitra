@@ -43,7 +43,7 @@ const AccordionList: FCCWD<AccordionListProps > = ({
       listHeight.value = withTiming(0);
       iconRotation.value = withTiming(0);
     } else {
-      onExpand();
+      onExpand?.();
       listHeight.value = withTiming(contentHeight, { duration: 600 });
       iconRotation.value = withTiming(180, { duration: 200 });
     }

@@ -30,16 +30,16 @@ export type TypographyType = typeof defaultTypography & any;
 
 export type AccordionListProps = {
     data: any[],
-    left: (expanded: boolean) => React.ReactNode,
-    right: (expanded: boolean) => React.ReactNode,
-    onExpand: () => void,
-    label: string,
-    labelContainerStyle: StyleProp<ViewStyle>,
+    left?: (expanded: boolean) => React.ReactNode,
+    right?: (expanded: boolean) => React.ReactNode,
+    onExpand?: () => void,
+    label?: string,
+    labelContainerStyle?: StyleProp<ViewStyle>,
     onSelect: (params: any) => void,
     itemDisplay: (params: any) => any,
-    labelStyle: StyleProp<TextStyle>,
-    rowTextStyle: StyleProp<TextStyle>,
-    rowStyle: StyleProp<ViewStyle>
+    labelStyle?: StyleProp<TextStyle>,
+    rowTextStyle?: StyleProp<TextStyle>,
+    rowStyle?: StyleProp<ViewStyle>
     testID?: string
 }
 
