@@ -1,5 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import React from 'react';
+import React, { useState } from 'react';
 import { Platform, Pressable, PressableProps, StyleSheet, Text, TextStyle, ViewStyle } from 'react-native';
 import type { ButtonProps, FCCWD } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
@@ -17,6 +17,7 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
     children,
     ...props },
 ) => {
+  const [isPressed, setIsPressed] = useState(false);
   const fontStyles = {
     large: typography?.body.medium,
     medium: typography?.body.smedium,
@@ -37,6 +38,9 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
       container: {
         backgroundColor: statusStyle?.focused?.container?.backgroundColor || theme?.focused,
       },
+      text: {
+        color: statusStyle?.focused?.text?.color || theme?.white,
+      },
     },
 
     disabled: {
@@ -51,6 +55,8 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
 
   return (
     <Pressable
+      onPressIn={() => setIsPressed(true)}
+      onPressOut={() => setIsPressed(false)}
       android_ripple={{
         color: viewStyles.focused.container.backgroundColor,
       }}
@@ -84,10 +90,10 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
       {React.Children.map(children, item =>
         React.cloneElement(item, {
           size: item.props.size || fontStyles[size].fontSize,
-          color: item.props.color || (disabled ? viewStyles.disabled.text.color : viewStyles.default.text.color),
+          color: (disabled ? viewStyles.disabled.text.color : (isPressed ? (item.props.color || viewStyles.focused.text.color) : (item.props.color || viewStyles.default.text.color))),
           style: [label.length ? (iconPosition === 'left' ? { marginRight: 10 } : { marginLeft: 10 }) : null, item.props?.style],
         }))}
-      <Text testID="button_text" style={[disabled ? viewStyles.disabled.text : viewStyles.default.text, { fontWeight: '500' }, fontStyles[size], textStyle]}>
+      <Text testID="button_text" style={[disabled ? viewStyles.disabled.text : (isPressed ? viewStyles.focused.text : viewStyles.default.text), { fontWeight: '500' }, fontStyles[size], textStyle]}>
         {label}
       </Text>
     </Pressable>

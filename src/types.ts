@@ -101,6 +101,9 @@ export type ButtonProps = {
             container: {
                 backgroundColor: string
             },
+            text: {
+                color: string
+            }
         },
         disabled: {
             container: {
