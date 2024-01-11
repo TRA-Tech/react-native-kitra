@@ -90,7 +90,7 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
       {React.Children.map(children, item =>
         React.cloneElement(item, {
           size: item.props.size || fontStyles[size].fontSize,
-          color: item.props.color || (disabled ? viewStyles.disabled.text.color : (isPressed ? viewStyles.focused.text.color : viewStyles.default.text.color)),
+          color: (disabled ? viewStyles.disabled.text.color : (isPressed ? (item.props.color || viewStyles.focused.text.color) : (item.props.color || viewStyles.default.text.color))),
           style: [label.length ? (iconPosition === 'left' ? { marginRight: 10 } : { marginLeft: 10 }) : null, item.props?.style],
         }))}
       <Text testID="button_text" style={[disabled ? viewStyles.disabled.text : (isPressed ? viewStyles.focused.text : viewStyles.default.text), { fontWeight: '500' }, fontStyles[size], textStyle]}>
