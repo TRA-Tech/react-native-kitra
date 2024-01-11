@@ -60,7 +60,7 @@ const Dropdown: FCCWD<DrowdownProps> = (
   }, [visible]);
 
   return (
-    <View testID={testID} style={[containerStyle, { opacity: disabled ? 0.5 : 1, zIndex: 100 }]}>
+    <View testID={testID} style={[containerStyle, { opacity: disabled ? 0.5 : 1, zIndex: visible ? 1000 : 0 }]}>
       <TouchableOpacity
         ref={dropdown}
         activeOpacity={0.9}
