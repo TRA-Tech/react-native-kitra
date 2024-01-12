@@ -1,6 +1,7 @@
 import type { FC, PropsWithChildren } from 'react';
 import type React from 'react';
 import type { Animated, ImageSourcePropType, StyleProp, TextProps, TextStyle, ViewProps, ViewStyle } from 'react-native';
+import { Swipeable } from 'react-native-gesture-handler';
 import type Icon from './components/Icons/Icon';
 import type IoniconsIcon from './components/Icons/Ionicons';
 import type { defaultTypography } from './core/typography/typography';
@@ -252,7 +253,7 @@ export type ActionProps = {
     style?: StyleProp<ViewStyle>,
     icon?: React.ReactNode,
     textStyle?: StyleProp<TextStyle>,
-    onPress?: () => void
+    onPress?: (ref:React.RefObject<Swipeable>) => void
 }
 
 export type SwipeProps = {
