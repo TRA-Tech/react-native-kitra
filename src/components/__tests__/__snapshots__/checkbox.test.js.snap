@@ -27,10 +27,7 @@ exports[`CheckBox renders with different props renders checked 1`] = `
   }
   testID="checkbox"
 >
-  <View
-    entering={BaseAnimationMock {}}
-    exiting={BaseAnimationMock {}}
-  >
+  <View>
     <Text
       accessibilityElementsHidden={true}
       allowFontScaling={false}
@@ -94,10 +91,7 @@ exports[`CheckBox renders with different props renders custom icon color 1`] = `
   }
   testID="checkbox"
 >
-  <View
-    entering={BaseAnimationMock {}}
-    exiting={BaseAnimationMock {}}
-  >
+  <View>
     <Text
       accessibilityElementsHidden={true}
       allowFontScaling={false}
