@@ -64,7 +64,7 @@ export const CheckBox: FCCWD<CheckBoxProps & TouchableOpacityProps> = (
       {...props}
     >
       {status && (
-        <Animated.View exiting={FadeOut} entering={FadeIn}>
+        <Animated.View>
           <Octicons
             color={iconColor}
             name="check"
