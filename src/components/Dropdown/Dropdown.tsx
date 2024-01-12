@@ -97,7 +97,7 @@ const Dropdown: FCCWD<DrowdownProps> = (
           </View>
         )}
       </TouchableOpacity>
-      {visible && (
+      {visible && cord.x >= 0 && cord.y >= 0 && (
         <Animated.View
           entering={FadeIn}
           exiting={FadeOut}
