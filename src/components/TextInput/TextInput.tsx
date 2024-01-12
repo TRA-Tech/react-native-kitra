@@ -153,7 +153,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
         height: sizeStyles[size].height,
       },
       // @ts-ignore
-      borderAnimation, inputContainerStyle, { backgroundColor: error ? opacity(theme?.error, 15) : inputContainerStyle?.backgroundColor || 'transparent' }]}
+      borderAnimation, inputContainerStyle, { backgroundColor: error ? opacity(theme?.error, 15) : (inputContainerStyle?.backgroundColor || theme?.white) }]}
       >
         <View style={{ flex: 1, flexDirection: 'row', height: sizeStyles[size].height }}>
           <View style={{ alignSelf: 'center', marginLeft: sizeStyles[size].padding, marginRight: 5 }}>
@@ -180,7 +180,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
             {label ? (
               <Animated.View style={[{ position: 'absolute', paddingHorizontal: 4 }, labelContainerStyle, labelPositionAnimation, {
                 // @ts-ignore
-                backgroundColor: error ? opacity(theme?.error, 0) : labelContainerStyle?.backgroundColor || theme?.background || 'white',
+                backgroundColor: error ? opacity(theme?.error, 0) : (inputContainerStyle?.backgroundColor || theme?.white),
               }]}
               >
                 <TouchableOpacity onPress={() => inputRef.current?.focus()} activeOpacity={0.9}>
