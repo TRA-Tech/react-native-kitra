@@ -202,7 +202,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
         {/* @ts-ignore */}
         <Text style={[labelStyles[size].default, helperTextStyle, { color: error ? theme?.error : helperTextStyle?.color || theme?.grey }]}>{error ? `${errorMessage}` : `${helperText}`}</Text>
         {/* @ts-ignore */}
-        {count ? <Text style={[styles.helperText, helperTextStyle, { color: error ? theme?.error : helperTextStyle?.color || theme?.grey }]}>{`${counts}/${props.maxLength}`}</Text> : null}
+        {count ? <Text style={[labelStyles[size].default, helperTextStyle, { color: error ? theme?.error : helperTextStyle?.color || theme?.grey }]}>{`${counts}/${props.maxLength}`}</Text> : null}
       </View>
     </View>
   );
@@ -211,17 +211,10 @@ const styles = StyleSheet.create({
   inputContainer: {
     alignItems: 'center',
   },
-
-  labelContainer: {
-  },
   helperContainer: {
     flexDirection: 'row',
     paddingHorizontal: 5,
     justifyContent: 'space-between',
-  },
-  helperText: {
-    fontSize: 12,
-    fontWeight: '400',
   },
 
 });
