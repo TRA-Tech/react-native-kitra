@@ -200,7 +200,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
 
       <View style={[styles.helperContainer, { flexDirection: 'row', display: (error || !!helperText || count) ? 'flex' : 'none', alignSelf: 'stretch' }]}>
         {/* @ts-ignore */}
-        <Text style={[labelStyles[size].default, helperTextStyle, { color: error ? theme?.error : helperTextStyle?.color || theme?.grey }]}>{error ? `${errorMessage}` : `${helperText}`}</Text>
+        <Text style={[labelStyles[size].default, helperTextStyle, { color: error ? theme?.error : helperTextStyle?.color || theme?.grey }]}>{error ? `${errorMessage || ''}` : `${helperText}`}</Text>
         {/* @ts-ignore */}
         {count ? <Text style={[labelStyles[size].default, helperTextStyle, { color: error ? theme?.error : helperTextStyle?.color || theme?.grey }]}>{`${counts}/${props.maxLength}`}</Text> : null}
       </View>
