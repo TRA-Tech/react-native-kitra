@@ -1,9 +1,12 @@
 import type { ComponentType, ForwardedRef } from 'react';
 import React from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import Animated from 'react-native-reanimated';
 import { ThemeContext, ThemeProvider } from './theme/theme';
 import { TypographyContext, TypographyProvider } from './typography/typography';
 import { NotificationProvider } from './notification/notification';
+
+Animated.addWhitelistedNativeProps({ text: true });
 
 type KitraProviderType = {
   children?: any,
