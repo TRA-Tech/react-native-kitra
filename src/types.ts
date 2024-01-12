@@ -273,7 +273,6 @@ export type TextInputProps = {
     size?: 'large' | 'medium' | 'small',
     iconPosition?: 'left' | 'right',
     labelColor?: { focus: string, default: string },
-    disabled?: boolean,
     helperText?: string,
     helperTextStyle?: StyleProp<TextStyle>,
     variant?: 'filled' | 'outlined',
