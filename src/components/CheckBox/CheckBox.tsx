@@ -25,12 +25,12 @@ export const CheckBox: FCCWD<CheckBoxProps & TouchableOpacityProps> = (
       const borderColorInterpolation = interpolateColor(
         animatedValue.value,
         [0, 1],
-        [theme?.disabledLight!, 'transparent'],
+        [disabled ? theme?.disabledDark! : theme?.disabledLight!, 'transparent'],
       );
       const backgroundColorInterpolation = interpolateColor(
         animatedValue.value,
         [0, 1],
-        [theme?.disabledLightDark!, theme?.focused!],
+        [theme?.disabledLightDark!, disabled ? theme?.disabledDark! : theme?.focused!],
       );
       return (
         {
