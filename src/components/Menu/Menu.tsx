@@ -80,7 +80,7 @@ const Menu : FCCWD<MenuProps> = (
         >
           {items.map((item, index) => (
             <View key={index} style={rowStyle}>
-              <TouchableOpacity testID={`item_button_${index}`} activeOpacity={closeOnPress ? 0.4 : 1} onPress={() => { item.onPress && item.onPress(); closeMenu(); }} style={[styles.menuButton, { backgroundColor: menuStyle?.backgroundColor }]}>
+              <TouchableOpacity testID={`item_button_${index}`}  onPress={() => { item.onPress && item.onPress(); closeMenu(); }} style={[styles.menuButton, { backgroundColor: menuStyle?.backgroundColor }]}>
                 {item.left && item.left}
                 <View style={styles.buttonContainer}>
                   <Text style={[
