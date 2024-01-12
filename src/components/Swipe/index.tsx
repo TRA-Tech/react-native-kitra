@@ -42,7 +42,7 @@ const Swipe: FCCWD<SwipeProps & SwipeableProps> = ({
     });
 
     return (
-      <TouchableOpacity style={[styles.leftAction, leftAction?.style]} onPress={() => { leftAction?.onPress?.(); close(); }}>
+      <TouchableOpacity style={[styles.leftAction, leftAction?.style]} onPress={() => { leftAction?.onPress?.(swipeRef); close(); }}>
         <Animated.View style={[styles.leftActionContainer, {
           transform: [{ translateX: trans }],
         }]}
@@ -87,7 +87,7 @@ const Swipe: FCCWD<SwipeProps & SwipeableProps> = ({
           styles.rightAction,
           style,
           ]}
-        onPress={item.onPress}
+        onPress={() => item.onPress?.(swipeRef)}
       >
         {icon}
         {!!text && <Text style={[{ color: theme?.white }, typography?.body.xsmedium, styles.actionText, textStyle, { marginTop: icon ? 10 : 0 }]}>{text}</Text>}
