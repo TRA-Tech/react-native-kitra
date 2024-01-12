@@ -33,7 +33,7 @@ exports[`TextInput renders  with variant="filled" 1`] = `
           },
           undefined,
           {
-            "backgroundColor": "transparent",
+            "backgroundColor": "#FFFFFF",
           },
         ]
       }
@@ -268,7 +268,7 @@ exports[`TextInput renders  with variant="outlined" 1`] = `
           },
           undefined,
           {
-            "backgroundColor": "transparent",
+            "backgroundColor": "#FFFFFF",
           },
         ]
       }
@@ -503,7 +503,7 @@ exports[`TextInput renders default 1`] = `
           },
           undefined,
           {
-            "backgroundColor": "transparent",
+            "backgroundColor": "#FFFFFF",
           },
         ]
       }
@@ -567,7 +567,7 @@ exports[`TextInput renders default 1`] = `
                   "top": undefined,
                 },
                 {
-                  "backgroundColor": "white",
+                  "backgroundColor": "#FFFFFF",
                 },
               ]
             }
