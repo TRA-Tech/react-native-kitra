@@ -50,6 +50,7 @@ const Swipe: FCCWD<SwipeProps & SwipeableProps> = ({
           {leftAction?.icon}
           <Text
             style={[
+              { color: theme?.white },
               typography?.body.xsmedium,
               styles.actionText,
               leftAction?.textStyle,
@@ -89,7 +90,7 @@ const Swipe: FCCWD<SwipeProps & SwipeableProps> = ({
         onPress={item.onPress}
       >
         {icon}
-        {!!text && <Text style={[typography?.body.xsmedium, styles.actionText, textStyle, { marginTop: icon ? 10 : 0 }]}>{text}</Text>}
+        {!!text && <Text style={[{ color: theme?.white }, typography?.body.xsmedium, styles.actionText, textStyle, { marginTop: icon ? 10 : 0 }]}>{text}</Text>}
       </AnimatedTouchableOpacity>
     );
   };
@@ -150,7 +151,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   actionText: {
-    color: 'white',
     backgroundColor: 'transparent',
   },
   leftActionContainer: {
