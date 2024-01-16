@@ -64,8 +64,8 @@ exports[` 1`] = `
               },
               [
                 {
-                  "height": 24,
-                  "width": 24,
+                  "height": 30,
+                  "width": 30,
                 },
                 {
                   "backgroundColor": "#8973CD",
@@ -75,7 +75,9 @@ exports[` 1`] = `
               undefined,
             ]
           }
-        />
+        >
+          circular
+        </View>
       </View>
     </View>
   </View>
@@ -249,8 +251,8 @@ exports[` 2`] = `
               },
               [
                 {
-                  "height": 24,
-                  "width": 24,
+                  "height": 30,
+                  "width": 30,
                 },
                 {
                   "backgroundColor": "#8973CD",
@@ -260,7 +262,9 @@ exports[` 2`] = `
               undefined,
             ]
           }
-        />
+        >
+          circular
+        </View>
       </View>
     </View>
   </View>
@@ -437,8 +441,8 @@ exports[` 3`] = `
               },
               [
                 {
-                  "height": 24,
-                  "width": 24,
+                  "height": 30,
+                  "width": 30,
                 },
                 {
                   "backgroundColor": "#8973CD",
@@ -448,7 +452,9 @@ exports[` 3`] = `
               undefined,
             ]
           }
-        />
+        >
+          circular
+        </View>
       </View>
     </View>
   </View>
@@ -625,8 +631,8 @@ exports[` 4`] = `
               },
               [
                 {
-                  "height": 24,
-                  "width": 24,
+                  "height": 30,
+                  "width": 30,
                 },
                 {
                   "backgroundColor": "#8973CD",
@@ -636,7 +642,9 @@ exports[` 4`] = `
               undefined,
             ]
           }
-        />
+        >
+          circular
+        </View>
       </View>
     </View>
   </View>
@@ -1532,7 +1540,9 @@ exports[` 6`] = `
                   undefined,
                 ]
               }
-            />
+            >
+              circular
+            </View>
           </View>
         </View>
       </View>
@@ -1614,7 +1624,9 @@ exports[` 6`] = `
                   undefined,
                 ]
               }
-            />
+            >
+              circular
+            </View>
           </View>
         </View>
       </View>
@@ -1815,7 +1827,9 @@ exports[` 7`] = `
                   undefined,
                 ]
               }
-            />
+            >
+              circular
+            </View>
           </View>
         </View>
       </View>
@@ -2146,8 +2160,8 @@ exports[`Avatar renders badge with different badge position renders badge with b
               },
               [
                 {
-                  "height": 24,
-                  "width": 24,
+                  "height": 30,
+                  "width": 30,
                 },
                 {
                   "backgroundColor": "#8973CD",
@@ -2157,7 +2171,9 @@ exports[`Avatar renders badge with different badge position renders badge with b
               undefined,
             ]
           }
-        />
+        >
+          circular
+        </View>
       </View>
     </View>
   </View>
@@ -2331,8 +2347,8 @@ exports[`Avatar renders badge with different badge position renders badge with t
               },
               [
                 {
-                  "height": 24,
-                  "width": 24,
+                  "height": 30,
+                  "width": 30,
                 },
                 {
                   "backgroundColor": "#8973CD",
@@ -2342,7 +2358,9 @@ exports[`Avatar renders badge with different badge position renders badge with t
               undefined,
             ]
           }
-        />
+        >
+          circular
+        </View>
       </View>
     </View>
   </View>
@@ -2516,8 +2534,8 @@ exports[`Avatar renders badge with different border style renders badge with cir
               },
               [
                 {
-                  "height": 24,
-                  "width": 24,
+                  "height": 30,
+                  "width": 30,
                 },
                 {
                   "backgroundColor": "#8973CD",
@@ -2527,7 +2545,9 @@ exports[`Avatar renders badge with different border style renders badge with cir
               undefined,
             ]
           }
-        />
+        >
+          circular
+        </View>
       </View>
     </View>
   </View>
@@ -2701,8 +2721,8 @@ exports[`Avatar renders badge with different border style renders badge with rou
               },
               [
                 {
-                  "height": 24,
-                  "width": 24,
+                  "height": 30,
+                  "width": 30,
                 },
                 {
                   "backgroundColor": "#8973CD",
@@ -2712,7 +2732,9 @@ exports[`Avatar renders badge with different border style renders badge with rou
               undefined,
             ]
           }
-        />
+        >
+          circular
+        </View>
       </View>
     </View>
   </View>
@@ -2886,8 +2908,8 @@ exports[`Avatar renders badge with different sizes renders badge with medium siz
               },
               [
                 {
-                  "height": 24,
-                  "width": 24,
+                  "height": 30,
+                  "width": 30,
                 },
                 {
                   "backgroundColor": "#8973CD",
@@ -2897,7 +2919,9 @@ exports[`Avatar renders badge with different sizes renders badge with medium siz
               undefined,
             ]
           }
-        />
+        >
+          circular
+        </View>
       </View>
     </View>
   </View>
@@ -3074,8 +3098,8 @@ exports[`Avatar renders badge with different sizes renders badge with medium siz
               },
               [
                 {
-                  "height": 24,
-                  "width": 24,
+                  "height": 30,
+                  "width": 30,
                 },
                 {
                   "backgroundColor": "#8973CD",
@@ -3085,7 +3109,9 @@ exports[`Avatar renders badge with different sizes renders badge with medium siz
               undefined,
             ]
           }
-        />
+        >
+          circular
+        </View>
       </View>
     </View>
   </View>
@@ -3273,7 +3299,9 @@ exports[`Avatar renders badge with different sizes renders badge with small size
               undefined,
             ]
           }
-        />
+        >
+          circular
+        </View>
       </View>
     </View>
   </View>
@@ -3458,7 +3486,9 @@ exports[`Avatar renders badge with different sizes renders badge with small size
               undefined,
             ]
           }
-        />
+        >
+          circular
+        </View>
       </View>
     </View>
   </View>

@@ -11,7 +11,7 @@ const Avatar : FCCWD<AvatarProps> = (
     size = 'medium',
     borderStyle,
     containerStyle,
-    badgeContent,
+    badgeContent = 'circular',
     avatarIcon = <OcticonsIcon name="person" size={sizes[size].iconSize} color={theme?.primary} />,
     label,
     labelStyle,
