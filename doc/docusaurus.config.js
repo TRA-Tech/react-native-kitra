@@ -2,6 +2,7 @@
 // Note: type annotations allow type checking and IDEs autocompletion
 
 const { themes } = require('prism-react-renderer');
+
 const lightTheme = themes.github;
 const darkTheme = themes.dracula;
 
@@ -20,12 +21,12 @@ const config = {
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
   stylesheets: [
-    'https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap'
+    'https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap',
   ],
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
-  organizationName: 'facebook', 
-  projectName: 'docusaurus', 
+  organizationName: 'tra-tech',
+  projectName: 'react-native-kitra',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   i18n: {
@@ -43,12 +44,12 @@ const config = {
 
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          ...commonDocsOptions
+          ...commonDocsOptions,
 
         },
         blog: {
           showReadingTime: true,
-          
+
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
@@ -122,7 +123,7 @@ const config = {
               {
                 label: 'Twitter',
                 href: 'https://twitter.com/trabilisim',
-              }
+              },
             ],
           },
         ],
@@ -130,7 +131,7 @@ const config = {
       },
       prism: {
         theme: lightTheme,
-        darkTheme: darkTheme,
+        darkTheme,
       },
     }),
 };
