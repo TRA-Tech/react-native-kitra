@@ -1,5 +1,7 @@
 # Kitra
  
+[Documentation](https://tra-tech.github.io/react-native-kitra/)
+
 ## Installation
 
 ```sh
