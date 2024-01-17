@@ -11,7 +11,7 @@ const commonDocsOptions = {
   showLastUpdateAuthor: false,
   showLastUpdateTime: true,
   editUrl:
-    'https://github.com/facebook/react-native-website/blob/main/website/',
+    'https://github.com/TRA-Tech/react-native-kitra/tree/main/',
 };
 
 /** @type {import('@docusaurus/types').Config} */
@@ -43,15 +43,9 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
 
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/TRA-Tech/react-native-kitra/tree/main',
           ...commonDocsOptions,
 
-        },
-        blog: {
-          showReadingTime: true,
-
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
