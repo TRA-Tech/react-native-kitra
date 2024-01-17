@@ -23,8 +23,8 @@ const config = {
   stylesheets: [
     'https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap',
   ],
-  url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
+  url: 'https://tra-tech.github.io',
+  baseUrl: '/react-native-kitra/',
   organizationName: 'tra-tech',
   projectName: 'react-native-kitra',
   onBrokenLinks: 'throw',
