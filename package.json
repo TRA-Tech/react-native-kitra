@@ -26,8 +26,7 @@
     "typescript": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "prepare": "bob build",
-    "release": "release-it",
-    "bootstrap": "yarn"
+    "release": "release-it"
   },
   "keywords": [
     "react-native",
@@ -54,7 +53,7 @@
     "@shopify/flash-list": "*",
     "@testing-library/jest-native": "^5.4.3",
     "@testing-library/react-native": "^12.2.2",
-    "@types/react": "~18.0.25",
+    "@types/react": "~18.2.48",
     "@types/react-dom": "^18.0.9",
     "@types/react-native": "^0.71.5",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
@@ -80,10 +79,9 @@
     "react-test-renderer": "^18.2.0",
     "release-it": "^15.0.0",
     "typescript": "^5.2.2"
+    
   },
-  "resolutions": {
-    "@types/react": "~18.0.25"
-  },
+
   "peerDependencies": {
     "@shopify/flash-list": ">=1.0.0",
     "react": "*",

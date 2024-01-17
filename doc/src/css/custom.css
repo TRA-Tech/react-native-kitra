@@ -1,0 +1,234 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap');
+
+:root {
+  --ifm-font-family-base: 'Poppins', sans-serif;
+  --ifm-color-primary: #8973CD;
+  --ifm-color-primary-dark: #7762BA;
+  --ifm-color-primary-darker: #6652A8;
+  --ifm-color-primary-darkest: #4D3C86;
+  --ifm-color-primary-light: #DCD5F0;
+  --ifm-color-primary-lighter: #EDEAF8;
+  --ifm-color-primary-lightest: #F9F8FD;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --github-button-color: #4F9DBD;
+  --github-button-focus-color: #2B7D9F --intro-text:#4b4d51
+}
+
+/* For readability concerns, you shoul#2B7D9Fd choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #8973CD;
+  --ifm-color-primary-dark: #7762BA;
+  --ifm-color-primary-darker: #6652A8;
+  --ifm-color-primary-darkest: #4D3C86;
+  --ifm-color-primary-light: #DCD5F0;
+  --ifm-color-primary-lighter: #EDEAF8;
+  --ifm-color-primary-lightest: #F9F8FD;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --github-button-color: #B7EAFF;
+  --github-button-focus-color: #65BDE1 --intro-text:#e3e3e3
+}
+
+.footer {
+  background-color: #404040;
+}
+
+.navbar {
+  /* background: transparent !important; */
+  justify-content: center;
+}
+
+.navbar__title {
+  font-size: 28px;
+  font-family: "M PLUS Rounded 1c";
+}
+
+.navbar__link {
+  align-self: center;
+}
+
+.home-background {
+  height: calc(100vh - 60px);
+}
+
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.content-container {
+  width: 80%;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.intro-text {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 35px;
+  text-align: center;
+  color: var(--intro-text);
+  margin-bottom: 8rem;
+}
+
+@media screen and (max-width:768px) {
+  .intro-text {
+    font-size: 28px;
+  }
+}
+
+.button-container {
+  display: flex;
+  column-gap: 2rem;
+  justify-content: center;
+  align-self: center;
+}
+
+.get-started-button {
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 100px;
+  padding: 16px 32px;
+  font-weight: 500;
+  color: #e3e3e3;
+  background-color: #8973CD;
+  border-width: 0;
+  text-align: center;
+  align-self: center;
+
+}
+
+@media screen and (max-width:768px) {
+  .get-started-button {
+    font-size: 10px;
+
+    align-self: center;
+  }
+}
+.get-started-button:hover {
+  color: var(--ifm-color-content);
+  box-shadow: 0px 0px 9px #8973CD;
+}
+
+.github-button {
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 100px;
+  font-family: 'Poppins', sans-serif;
+  padding: 16px 32px;
+  align-items: center;
+  justify-content: center;
+  color: var(--github-button-color);
+  border: 2px solid var(--github-button-color);
+  background-color: transparent;
+}
+
+@media screen and (max-width:768px) {
+  .github-button {
+    font-size: 10px;
+    align-self: center;
+
+  }
+  .link-icon{
+    width: 5px;
+    height: 5px;
+  }
+}
+.github-button:hover {
+  box-shadow: 0px 0px 9px var(--github-button-color);
+}
+
+.features-section {
+  margin: auto;
+}
+
+.features-image {
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+}
+
+.features-preview {
+  z-index: 2;
+  align-self: center;
+}
+
+@media (min-width: 768px) {
+  .features-preview {
+    width: 40%;
+  }
+}
+
+.features-text {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .features-text {
+   margin-bottom: 4rem;
+  }
+}
+
+.features-container {
+  display: flex;
+  padding-left: 8vw;
+  padding-right: 8vw;
+  position: relative;
+  column-gap: 10rem;
+  flex-direction: row;
+}
+
+@media screen and (max-width:768px) {
+  .features-container {
+    flex-direction: column;
+  }
+}
+
+
+.features-header {
+  display: flex;
+  align-self: center;
+  text-align: center;
+  font-size: 28px;
+}
+
+.features-description {
+  align-self: center;
+  display: flex;
+  font-size: 19px;
+  text-align: center;
+}
+
+.vector-one {
+  position: absolute;
+  right: -500px;
+  bottom: -170px;
+}
+
+table th,
+table td {
+  text-align: center;
+}
