@@ -57,6 +57,11 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+
+      colorMode: {
+        disableSwitch: true,
+        defaultMode: 'light',
+      },
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
         title: 'Kitra',
