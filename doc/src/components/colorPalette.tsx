@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "./PaletteColor.module.css";
-import { ToastContainer, toast } from "react-toastify";
+import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import styles from './PaletteColor.module.css';
 
 interface PaletteColorProps {
   colorName: string;
@@ -11,18 +11,18 @@ interface PaletteColorProps {
 const PaletteColor: React.FC<PaletteColorProps> = ({
   colorName,
   colorValue,
-  border = "solid",
+  border = 'solid',
 }) => {
-  const notify = () =>  toast.success("Copied to Clipboard!");
+  const notify = () => toast.success('Copied to Clipboard!');
 
   return (
-    <div id="colorbutton"  style={{cursor:'pointer'}} onClick={()=>{navigator.clipboard.writeText(colorValue); notify()}} className={styles.container}>
+    <div id="colorbutton" style={{ cursor: 'pointer' }} onClick={() => { navigator.clipboard.writeText(colorValue); notify(); }} className={styles.container}>
 
       <div
         className={styles.swatch}
-        style={{ backgroundColor: colorValue, border: border, borderWidth:1 }}
-      ></div>
-      <div style={{ display: "flex", flexDirection: "column" }}>
+        style={{ backgroundColor: colorValue, border, borderWidth: 1 }}
+      />
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
         <p className={styles.colorName}>{colorName}</p>
         <p className={styles.colorValue}>{colorValue}</p>
       </div>
