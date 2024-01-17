@@ -18,7 +18,7 @@ const commonDocsOptions = {
 const config = {
   title: 'Kitra',
   plugins: [require.resolve('./docusuarusWebpack5Plugin.js')],
-  tagline: 'Dinosaurs are cool',
+  tagline: 'Kitra is a React Native UI Kit',
   favicon: 'img/favicon.ico',
   stylesheets: [
     'https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap',
@@ -62,7 +62,7 @@ const config = {
         disableSwitch: true,
         defaultMode: 'light',
       },
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/kitra-social-card.png',
       navbar: {
         title: 'Kitra',
         logo: {
