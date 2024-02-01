@@ -36,11 +36,11 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
   const textInputOffset = useSharedValue(props.defaultValue || props.placeholder || props.value ? 0 : 1);
 
   const fontStyles =
-    {
-      large: typography?.body.regular,
-      medium: typography?.body.sregular,
-      small: typography?.body.xsregular,
-    };
+  {
+    large: typography?.body.regular,
+    medium: typography?.body.sregular,
+    small: typography?.body.xsregular,
+  };
 
   const sizeStyles =
   {
@@ -151,13 +151,14 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
         borderRadius: 5,
         borderWidth: 1,
         height: sizeStyles[size].height,
+        backgroundColor: theme?.white,
       },
       // @ts-ignore
-      borderAnimation, inputContainerStyle, { backgroundColor: error ? opacity(theme?.error, 15) : (inputContainerStyle?.backgroundColor || theme?.white) }]}
+      borderAnimation, inputContainerStyle, error && { backgroundColor: opacity(theme?.error, 15) }]}
       >
         <View style={{ flex: 1, flexDirection: 'row', height: sizeStyles[size].height }}>
           <View style={{ alignSelf: 'center', marginLeft: sizeStyles[size].padding, marginRight: 5 }}>
-            {left && left }
+            {left && left}
           </View>
           <View style={{ flex: 1, flexDirection: 'row' }}>
             <AnimatedTextInput
@@ -178,10 +179,13 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
             />
 
             {label ? (
-              <Animated.View style={[{ position: 'absolute', paddingHorizontal: 4 }, labelContainerStyle, labelPositionAnimation, {
-                // @ts-ignore
-                backgroundColor: error ? opacity(theme?.error, 0) : (inputContainerStyle?.backgroundColor || theme?.white),
-              }]}
+              <Animated.View style={[
+                { position: 'absolute',
+                  paddingHorizontal: 4,
+                  backgroundColor: theme?.white },
+                labelContainerStyle,
+                error && { backgroundColor: opacity(theme?.error || 'transparent', 0) },
+                labelPositionAnimation]}
               >
                 <TouchableOpacity onPress={() => inputRef.current?.focus()} activeOpacity={0.9}>
                   <Animated.Text style={[{ color: theme?.primary, fontFamily: labelStyles[size].default.fontFamily }, labelStyle, labelFontAnimation]}>

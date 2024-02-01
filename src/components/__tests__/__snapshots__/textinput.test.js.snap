@@ -23,6 +23,7 @@ exports[`TextInput renders  with variant="filled" 1`] = `
       style={
         [
           {
+            "backgroundColor": "#FFFFFF",
             "borderRadius": 5,
             "borderWidth": 1,
             "height": 42,
@@ -32,9 +33,7 @@ exports[`TextInput renders  with variant="filled" 1`] = `
             "borderColor": undefined,
           },
           undefined,
-          {
-            "backgroundColor": "#FFFFFF",
-          },
+          false,
         ]
       }
     >
@@ -258,6 +257,7 @@ exports[`TextInput renders  with variant="outlined" 1`] = `
       style={
         [
           {
+            "backgroundColor": "#FFFFFF",
             "borderRadius": 5,
             "borderWidth": 1,
             "height": 42,
@@ -267,9 +267,7 @@ exports[`TextInput renders  with variant="outlined" 1`] = `
             "borderColor": undefined,
           },
           undefined,
-          {
-            "backgroundColor": "#FFFFFF",
-          },
+          false,
         ]
       }
     >
@@ -493,6 +491,7 @@ exports[`TextInput renders default 1`] = `
       style={
         [
           {
+            "backgroundColor": "#FFFFFF",
             "borderRadius": 5,
             "borderWidth": 1,
             "height": 42,
@@ -502,9 +501,7 @@ exports[`TextInput renders default 1`] = `
             "borderColor": undefined,
           },
           undefined,
-          {
-            "backgroundColor": "#FFFFFF",
-          },
+          false,
         ]
       }
     >
@@ -559,15 +556,14 @@ exports[`TextInput renders default 1`] = `
             style={
               [
                 {
+                  "backgroundColor": "#FFFFFF",
                   "paddingHorizontal": 4,
                   "position": "absolute",
                 },
                 undefined,
+                false,
                 {
                   "top": undefined,
-                },
-                {
-                  "backgroundColor": "#FFFFFF",
                 },
               ]
             }
