@@ -27,8 +27,8 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems:'center',
-    flexGrow:1
+    alignItems: 'center',
+    flexGrow: 1,
   },
 });
 
@@ -53,7 +53,7 @@ const Menu : FCCWD<MenuProps> = (
       setSize({ x: pageX, y: pageY, width, height });
     });
   }, [open]);
-  
+
   const closeMenu = useCallback(() => {
     if (closeOnPress) {
       setOpen(false);
@@ -69,7 +69,7 @@ const Menu : FCCWD<MenuProps> = (
           testID="menu_container"
           style={[
             styles.menuContainer,
-            { backgroundColor: menuStyle?.backgroundColor || theme?.white, right: 0 },
+            { backgroundColor: menuStyle?.backgroundColor || theme.white, right: 0 },
             HEIGHT - (size.y + menuHeight.height + size.height) >= 0 ? { top: size.height + 10 } : { bottom: 30 }, menuStyle,
           ]}
           entering={FadeIn.duration(300)}
@@ -77,11 +77,14 @@ const Menu : FCCWD<MenuProps> = (
           onLayout={e => setMenuHeight({ height: e.nativeEvent.layout.height })}
         >
           {items.map((item, index) => (
-            <View key={index} style={rowStyle} >
-              <TouchableOpacity  testID={`item_button_${index}`} activeOpacity={closeOnPress ? 0.4 : 1} onPress={() => { item.onPress && item.onPress(); closeMenu(); }} 
-              style={styles.menuButton}>
+            <View key={index} style={rowStyle}>
+              <TouchableOpacity
+                testID={`item_button_${index}`}
+                onPress={() => { item.onPress && item.onPress(); closeMenu(); }}
+                style={styles.menuButton}
+              >
                 {item.left && item.left}
-                <View style={styles.buttonContainer}> 
+                <View style={styles.buttonContainer}>
                   <Text style={[
                     { fontSize: typography?.body.smedium.fontSize,
                       fontWeight: '500',
@@ -94,8 +97,12 @@ const Menu : FCCWD<MenuProps> = (
                   {item.right && item.right}
                 </View>
               </TouchableOpacity>
-                <Divider theme={theme} typography={typography} color={dividerColor} style={{paddingHorizontal:10}} />
-               
+              {items.length - 1 !== index ?
+                <Divider theme={theme} typography={typography} color={dividerColor} style={{ paddingHorizontal: 10 }} />
+                :
+                null
+              }
+
             </View>
           ))}
         </Animated.View>
