@@ -113,7 +113,6 @@ npm install react-native-pager-view
 
 **react-native-reanimated**
 
-
 ```bash npm2yarn
 npx expo install react-native-reanimated
 ```
@@ -138,6 +137,16 @@ Add this import to the top of your app entry file, such as App.js:
 
 ```js
 import 'react-native-gesture-handler';
+```
+**react-native-pager-view**
+
+```bash npm2yarn
+npx expo install react-native-pager-view
+```
+Add this import to the top of your app entry file, such as App.js:
+
+```js
+import 'react-native-pager-view';
 ```
 </TabItem>
 </Tabs>
