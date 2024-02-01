@@ -17,20 +17,18 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   menuContainer: {
-    width: 200,
     borderRadius: 5,
     position: 'absolute',
   },
   menuButton: {
     margin: 10,
     flexDirection: 'row',
-    alignItems: 'center',
   },
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    flex: 1,
     alignItems: 'center',
+    flexGrow: 1,
   },
 });
 
@@ -50,7 +48,6 @@ const Menu : FCCWD<MenuProps> = (
   const [size, setSize] = useState({ x: 0, y: 0, width: 0, height: 0 });
   const [menuHeight, setMenuHeight] = useState({ height: 0 });
   const menu = useRef<View>(null);
-
   useEffect(() => {
     menu.current?.measure((x, y, width, height, pageX, pageY) => {
       setSize({ x: pageX, y: pageY, width, height });
@@ -63,7 +60,7 @@ const Menu : FCCWD<MenuProps> = (
     }
   }, [closeOnPress]);
   return (
-    <View style={[styles.container, { width: menuStyle ? menuStyle?.width : 200 }, containerStyle]} ref={menu}>
+    <View style={[styles.container, containerStyle]} ref={menu}>
       <TouchableOpacity testID="open_button" onPress={() => setOpen(!open)} style={styles.openButton}>
         {button(open)}
       </TouchableOpacity>
@@ -72,7 +69,7 @@ const Menu : FCCWD<MenuProps> = (
           testID="menu_container"
           style={[
             styles.menuContainer,
-            { backgroundColor: menuStyle?.backgroundColor, right: 0 },
+            { backgroundColor: menuStyle?.backgroundColor || theme?.white, right: 0 },
             HEIGHT - (size.y + menuHeight.height + size.height) >= 0 ? { top: size.height + 10 } : { bottom: 30 }, menuStyle,
           ]}
           entering={FadeIn.duration(300)}
@@ -81,7 +78,11 @@ const Menu : FCCWD<MenuProps> = (
         >
           {items.map((item, index) => (
             <View key={index} style={rowStyle}>
-              <TouchableOpacity testID={`item_button_${index}`} onPress={() => { item.onPress && item.onPress(); closeMenu(); }} style={[styles.menuButton, { backgroundColor: menuStyle?.backgroundColor }]}>
+              <TouchableOpacity
+                testID={`item_button_${index}`}
+                onPress={() => { item.onPress && item.onPress(); closeMenu(); }}
+                style={styles.menuButton}
+              >
                 {item.left && item.left}
                 <View style={styles.buttonContainer}>
                   <Text style={[
@@ -96,9 +97,12 @@ const Menu : FCCWD<MenuProps> = (
                   {item.right && item.right}
                 </View>
               </TouchableOpacity>
-              {items.length - 1 !== index && dividerColor ?
-                <Divider theme={theme} typography={typography} color={dividerColor} width={Number(menuStyle?.width) - 20 || 180} />
-                : null}
+              {items.length - 1 !== index ?
+                <Divider theme={theme} typography={typography} color={dividerColor} style={{ paddingHorizontal: 10 }} />
+                :
+                null
+              }
+
             </View>
           ))}
         </Animated.View>
