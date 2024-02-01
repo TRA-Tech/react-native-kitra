@@ -69,7 +69,7 @@ const Menu : FCCWD<MenuProps> = (
           testID="menu_container"
           style={[
             styles.menuContainer,
-            { backgroundColor: menuStyle?.backgroundColor || theme.white, right: 0 },
+            { backgroundColor: menuStyle?.backgroundColor || theme?.white, right: 0 },
             HEIGHT - (size.y + menuHeight.height + size.height) >= 0 ? { top: size.height + 10 } : { bottom: 30 }, menuStyle,
           ]}
           entering={FadeIn.duration(300)}
