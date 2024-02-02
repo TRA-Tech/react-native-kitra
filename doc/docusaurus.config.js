@@ -10,8 +10,6 @@ const commonDocsOptions = {
   breadcrumbs: false,
   showLastUpdateAuthor: false,
   showLastUpdateTime: true,
-  editUrl:
-    'https://github.com/TRA-Tech/react-native-kitra/tree/main/',
 };
 
 /** @type {import('@docusaurus/types').Config} */
@@ -41,9 +39,8 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-
           editUrl:
-            'https://github.com/TRA-Tech/react-native-kitra/tree/main',
+            'https://github.com/TRA-Tech/react-native-kitra/tree/main/doc',
           ...commonDocsOptions,
 
         },
