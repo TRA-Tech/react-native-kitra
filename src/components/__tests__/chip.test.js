@@ -11,8 +11,8 @@ describe('Chip', () => {
       const tree = render(<Chip label="Test label" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
-    it('renders chip with disable', () => {
-      const tree = render(<Chip disable />).toJSON();
+    it('renders chip with disabled', () => {
+      const tree = render(<Chip disabled />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
@@ -25,11 +25,11 @@ describe('Chip', () => {
       const tree = render(<Chip size="small" icon={{ iconName: 'check', iconType: 'ant-design', iconPosition: 'right' }} />).toJSON();
       expect(tree).toMatchSnapshot();
     });
-    it('applies opacity renders chip with disable', () => {
+    it('applies opacity renders chip with disabled', () => {
       const { getByTestId } = render(<Chip disabled />);
       const chip = getByTestId('chip');
       expect(chip).toHaveStyle({
-        opacity: 1,
+        opacity: 0.7,
       });
     });
   });

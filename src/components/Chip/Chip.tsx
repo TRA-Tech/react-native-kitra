@@ -40,7 +40,7 @@ const Chip:FCCWD<ChipProps> = (
     colorStyle = { backgroundColor: theme?.primary!, selectBackgroundColor: theme?.white!, selectTitleColor: theme?.primary!, titleColor: theme?.white! },
     size = 'small',
     onChange,
-    disable = false },
+    disabled = false },
 ) => {
   const offset = useSharedValue(0);
   const [select, setSelect] = useState(value || false);
@@ -81,7 +81,7 @@ const Chip:FCCWD<ChipProps> = (
   }, [value]);
   return (
     <Button
-      disabled={disable}
+      disabled={disabled}
       testID="chip"
       onPress={() => { setSelect(prev => !prev); }}
       activeOpacity={1}
@@ -90,7 +90,7 @@ const Chip:FCCWD<ChipProps> = (
         height: sizes[size].height,
         borderWidth: 1,
         borderRadius: 40,
-        opacity: disable ? 0.7 : 1,
+        opacity: disabled ? 0.7 : 1,
         borderColor: colorStyle.backgroundColor,
         width: icon ? sizes[size].iconwithWidth : sizes[size].width }, style]}
     >

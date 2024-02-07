@@ -138,7 +138,7 @@ export type ChipProps = {
     colorStyle?: { backgroundColor: string, selectBackgroundColor: string, selectTitleColor: string, titleColor: string },
     size?: 'large' | 'medium' | 'small',
     onChange: (event: boolean) => void,
-    disable?: boolean,
+    disabled?: boolean,
 }
 
 export type DividerProps = {

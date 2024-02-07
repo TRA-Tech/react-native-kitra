@@ -44,6 +44,6 @@ export default App;
 | colorStyle   | `` { backgroundColor: string, selectBackgroundColor: string, selectTitleColor: string,``<br/>`` titleColor: string } `` | No       | Styles for chip color.                                                      |
 | size         | <code> 'small' \| 'medium' \| 'large'</code>                                                                               | No       | The size of the chip. Default value: ``'small'``                              |
 | onChange     | ``(event:boolean)=> void``                                                                                     | Yes      | Returns whether the chip is selected.                                       |
-| disable      | ``boolean ``                                                                                                   | No       | If true the user won't be able to toggle the chip. Default value: ``false`` |
+| disabled      | ``boolean ``                                                                                                   | No       | If true the user won't be able to toggle the chip. Default value: ``false`` |
 | theme        | ``UITheme ``                                                                                                   | No       | The theme to use for the component.                                      |
 | typography   | ``UITypography``                                                                                               | No       | The typography to use for the component.                                 |
