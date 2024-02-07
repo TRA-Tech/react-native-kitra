@@ -1,6 +1,5 @@
-import { FlashList } from '@shopify/flash-list';
 import { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
+import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Animated, { FadeInUp, FadeOut, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import type { AccordionListProps, FCCWD } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
@@ -8,7 +7,7 @@ import OcticonsIcon from '../Icons/Octicons';
 
 const AnimatedIcon = Animated.createAnimatedComponent(OcticonsIcon);
 
-const AccordionList: FCCWD<AccordionListProps > = ({
+const AccordionList: FCCWD<AccordionListProps> = ({
   data,
   label,
   left,
@@ -70,10 +69,9 @@ const AccordionList: FCCWD<AccordionListProps > = ({
         </View>
       </TouchableOpacity>
       <Animated.View style={[animatedStyle, { overflow: 'hidden' }]}>
-        <FlashList
+        <FlatList
           bounces={false}
           data={data}
-          estimatedItemSize={21}
           onContentSizeChange={(w, h) => { if (h > 0 && h !== contentHeight) setContentHeight(h); }}
           renderItem={({ item }) => (
             <TouchableOpacity activeOpacity={0.9} onPress={() => onSelect(item)}>
