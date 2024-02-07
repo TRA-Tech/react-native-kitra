@@ -57,9 +57,6 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
     <Pressable
       onPressIn={() => setIsPressed(true)}
       onPressOut={() => setIsPressed(false)}
-      android_ripple={{
-        color: viewStyles.focused.container.backgroundColor,
-      }}
       style={({ pressed }) =>
         [
           styles.container,
@@ -72,13 +69,10 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
             :
             { padding: (fontStyles[size].lineHeight - fontStyles[size].fontSize) / 2 + 10 },
 
-          Platform.OS === 'ios' ?
-            (pressed ?
-              viewStyles.focused.container
-              :
-              viewStyles.default.container)
+          (pressed ?
+            viewStyles.focused.container
             :
-            viewStyles.default.container,
+            viewStyles.default.container),
 
           disabled ? viewStyles.disabled.container : null,
 
