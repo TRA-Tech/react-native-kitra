@@ -29,8 +29,10 @@ exports[`ActiviyIndicator renders avtivity indicator 1`] = `
       style={
         [
           {
+            "alignItems": "center",
             "borderRadius": 20,
             "height": 150,
+            "justifyContent": "center",
             "width": 150,
           },
         ]
@@ -177,8 +179,10 @@ exports[`ActiviyIndicator renders avtivity indicator with children 1`] = `
       style={
         [
           {
+            "alignItems": "center",
             "borderRadius": 20,
             "height": 150,
+            "justifyContent": "center",
             "width": 150,
           },
         ]

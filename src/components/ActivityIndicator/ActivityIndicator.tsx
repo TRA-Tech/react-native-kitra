@@ -16,6 +16,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     width: 150,
     height: 150,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 const ActivityIndicator:FCCWD<ActivityIndicatorProps> = ({ theme, children }) => (
