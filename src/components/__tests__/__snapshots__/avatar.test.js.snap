@@ -865,7 +865,7 @@ exports[` 5`] = `
                 "primary30": "#DCD5F0",
                 "primary5": "#F9F8FD",
                 "secondary": "#82B98E",
-                "succes": "#09CE63",
+                "success": "#09CE63",
                 "tertiary": "#67A7C1",
                 "white": "#FFFFFF",
               }
@@ -1181,7 +1181,7 @@ exports[` 6`] = `
                     "primary30": "#DCD5F0",
                     "primary5": "#F9F8FD",
                     "secondary": "#82B98E",
-                    "succes": "#09CE63",
+                    "success": "#09CE63",
                     "tertiary": "#67A7C1",
                     "white": "#FFFFFF",
                   }
@@ -1380,7 +1380,7 @@ exports[` 6`] = `
                     "primary30": "#DCD5F0",
                     "primary5": "#F9F8FD",
                     "secondary": "#82B98E",
-                    "succes": "#09CE63",
+                    "success": "#09CE63",
                     "tertiary": "#67A7C1",
                     "white": "#FFFFFF",
                   }
