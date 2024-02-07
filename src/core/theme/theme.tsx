@@ -56,7 +56,7 @@ const text = {
 const status = {
   focused: '#654FA6',
   error: '#FF3434',
-  succes: '#09CE63',
+  success: '#09CE63',
   disabledLight: '#D7D1E9',
   disabledDark: '#BDBCBF',
   disabledLightDark: '#F6F6F6',

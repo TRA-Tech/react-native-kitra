@@ -89,7 +89,7 @@ exports[`Button renders small size heart icon to different positions renders sma
           "primary30": "#DCD5F0",
           "primary5": "#F9F8FD",
           "secondary": "#82B98E",
-          "succes": "#09CE63",
+          "success": "#09CE63",
           "tertiary": "#67A7C1",
           "white": "#FFFFFF",
         }
@@ -387,7 +387,7 @@ exports[`Button renders small size heart icon to different positions renders sma
           "primary30": "#DCD5F0",
           "primary5": "#F9F8FD",
           "secondary": "#82B98E",
-          "succes": "#09CE63",
+          "success": "#09CE63",
           "tertiary": "#67A7C1",
           "white": "#FFFFFF",
         }

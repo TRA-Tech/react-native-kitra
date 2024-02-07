@@ -3419,7 +3419,7 @@ exports[`AccordionList renders with icons renders with left icon prop 1`] = `
             "primary30": "#DCD5F0",
             "primary5": "#F9F8FD",
             "secondary": "#82B98E",
-            "succes": "#09CE63",
+            "success": "#09CE63",
             "tertiary": "#67A7C1",
             "white": "#FFFFFF",
           }
@@ -4396,7 +4396,7 @@ exports[`AccordionList renders with icons renders with right icon prop 1`] = `
             "primary30": "#DCD5F0",
             "primary5": "#F9F8FD",
             "secondary": "#82B98E",
-            "succes": "#09CE63",
+            "success": "#09CE63",
             "tertiary": "#67A7C1",
             "white": "#FFFFFF",
           }
