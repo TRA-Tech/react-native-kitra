@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import type { FCCWD, ToggleButtonProps } from '../../types';
-import { opacity } from '../../../src/utilities';
+import { opacity } from '../../utilities';
 import { applyDefaults } from '../../core/KitraProvider';
 
 const ToggleButton: FCCWD<ToggleButtonProps> = (
