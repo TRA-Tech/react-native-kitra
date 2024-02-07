@@ -130,608 +130,214 @@ exports[`AccordionList renders with different data types renders default 1`] = `
       ]
     }
   >
-    <View
-      style={
-        {
-          "flex": 1,
-          "overflow": "hidden",
-        }
+    <RCTScrollView
+      bounces={false}
+      data={
+        [
+          {
+            "content": "content1",
+            "title": "title1",
+          },
+          {
+            "content": "content2",
+            "title": "title2",
+          },
+          {
+            "content": "content3",
+            "title": "title3",
+          },
+        ]
       }
+      getItem={[Function]}
+      getItemCount={[Function]}
+      keyExtractor={[Function]}
+      onContentSizeChange={[Function]}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={[]}
+      viewabilityConfigCallbackPairs={[]}
     >
-      <RCTScrollView
-        applyWindowCorrection={[Function]}
-        bounces={false}
-        canChangeSize={true}
-        contentContainerStyle={
-          {
-            "backgroundColor": undefined,
-            "minHeight": 1,
-            "minWidth": 1,
-            "paddingLeft": 0,
-            "paddingRight": 0,
-          }
-        }
-        contentHeight={63}
-        contentWidth={400}
-        data={
-          [
-            {
-              "content": "content1",
-              "title": "title1",
-            },
-            {
-              "content": "content2",
-              "title": "title2",
-            },
-            {
-              "content": "content3",
-              "title": "title3",
-            },
-          ]
-        }
-        dataProvider={
-          DataProvider {
-            "_data": [
-              {
-                "content": "content1",
-                "title": "title1",
-              },
-              {
-                "content": "content2",
-                "title": "title2",
-              },
-              {
-                "content": "content3",
-                "title": "title3",
-              },
-            ],
-            "_firstIndexToProcess": 0,
-            "_hasStableIds": false,
-            "_requiresDataChangeHandling": false,
-            "_size": 3,
-            "getStableId": [Function],
-            "rowHasChanged": [Function],
-          }
-        }
-        disableRecycling={false}
-        estimatedItemSize={21}
-        extendedState={{}}
-        externalScrollView={[Function]}
-        finalRenderAheadOffset={250}
-        forceNonDeterministicRendering={true}
-        horizontal={false}
-        initialOffset={0}
-        initialRenderIndex={0}
-        isHorizontal={false}
-        layoutProvider={
-          GridLayoutProviderWithProps {
-            "_acceptableRelayoutDelta": 1,
-            "_getHeightOrWidth": [Function],
-            "_getLayoutTypeForIndex": [Function],
-            "_getSpan": [Function],
-            "_hasExpired": false,
-            "_isHorizontal": false,
-            "_lastLayoutManager": GridLayoutManager {
-              "_acceptableRelayoutDelta": 1,
-              "_getSpan": [Function],
-              "_isGridHorizontal": false,
-              "_isHorizontal": false,
-              "_layoutProvider": [Circular],
-              "_layouts": [
-                {
-                  "height": 21,
-                  "type": 0,
-                  "width": 400,
-                  "x": 0,
-                  "y": 0,
-                },
-                {
-                  "height": 21,
-                  "type": 0,
-                  "width": 400,
-                  "x": 0,
-                  "y": 21,
-                },
-                {
-                  "height": 21,
-                  "type": 0,
-                  "width": 400,
-                  "x": 0,
-                  "y": 42,
-                },
-              ],
-              "_maxSpan": 1,
-              "_renderWindowSize": {
-                "height": 900,
-                "width": 400,
-              },
-              "_totalHeight": 63,
-              "_totalWidth": 400,
-              "_window": {
-                "height": 900,
-                "width": 400,
-              },
-            },
-            "_maxSpan": 1,
-            "_renderWindowSize": {
-              "height": 900,
-              "width": 400,
-            },
-            "_setLayoutForType": [Function],
-            "_tempDim": {
-              "height": 0,
-              "width": 0,
-            },
-            "averageWindow": AverageWindow {
-              "currentAverage": 21,
-              "currentCount": 1,
-              "inputValues": [
-                21,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-              ],
-              "nextIndex": 1,
-            },
-            "defaultEstimatedItemSize": 100,
-            "layoutObject": {
-              "size": undefined,
-              "span": undefined,
-            },
-            "props": {
-              "bounces": false,
-              "data": [
-                {
-                  "content": "content1",
-                  "title": "title1",
-                },
-                {
-                  "content": "content2",
-                  "title": "title2",
-                },
-                {
-                  "content": "content3",
-                  "title": "title3",
-                },
-              ],
-              "estimatedItemSize": 21,
-              "numColumns": 1,
-              "onContentSizeChange": [Function],
-              "renderItem": [Function],
-            },
-            "renderWindowInsets": {
-              "height": 0,
-              "width": 0,
-            },
-            "shouldRefreshWithAnchoring": true,
-          }
-        }
-        maxRenderAhead={750}
-        numColumns={1}
-        onContentSizeChange={[Function]}
-        onEndReached={[Function]}
-        onEndReachedThreshold={0}
-        onEndReachedThresholdRelative={0}
-        onItemLayout={[Function]}
-        onLayout={[Function]}
-        onScroll={[Function]}
-        onScrollBeginDrag={[Function]}
-        onSizeChanged={[Function]}
-        onVisibleIndicesChanged={[Function]}
-        removeClippedSubviews={false}
-        renderAheadOffset={0}
-        renderAheadStep={250}
-        renderContentContainer={[Function]}
-        renderItem={[Function]}
-        renderItemContainer={[Function]}
-        rowRenderer={[Function]}
-        scrollEventThrottle={16}
-        scrollThrottle={16}
-        scrollViewProps={
-          {
-            "contentContainerStyle": {
-              "backgroundColor": undefined,
-              "minHeight": 1,
-              "minWidth": 1,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-            },
-            "onLayout": [Function],
-            "onScrollBeginDrag": [Function],
-            "refreshControl": undefined,
-            "style": {
-              "minHeight": 1,
-              "minWidth": 1,
-            },
-          }
-        }
-        style={
-          {
-            "minHeight": 1,
-            "minWidth": 1,
-          }
-        }
-        suppressBoundedSizeException={true}
-        windowCorrectionConfig={
-          {
-            "applyToInitialOffset": true,
-            "applyToItemScroll": true,
-            "value": {
-              "endCorrection": 0,
-              "startCorrection": 0,
-              "windowShift": -0,
-            },
-          }
-        }
-      >
-        <View>
+      <View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
           <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               {
-                "flexDirection": "column",
+                "opacity": 1,
               }
             }
           >
             <View
-              style={
-                {
-                  "paddingLeft": 0,
-                  "paddingTop": 0,
-                }
-              }
-            />
-            <View
+              entering={BaseAnimationMock {}}
+              exiting={BaseAnimationMock {}}
               style={
                 [
-                  undefined,
+                  {
+                    "padding": 10,
+                  },
+                  {
+                    "backgroundColor": "#F9F8FD",
+                  },
                   undefined,
                 ]
               }
-            />
-            <AutoLayoutView
-              enableInstrumentation={false}
-              horizontal={false}
-              onBlankAreaEvent={[Function]}
-              onLayout={[Function]}
-              renderAheadOffset={0}
-              scrollOffset={0}
-              style={
-                {
-                  "height": 63,
-                  "width": 400,
-                }
-              }
-              windowSize={900}
             >
-              <CellContainer
-                index={0}
-                onLayout={[Function]}
+              <Text
                 style={
-                  {
-                    "alignItems": "stretch",
-                    "flexDirection": "column",
-                    "left": 0,
-                    "position": "absolute",
-                    "top": 0,
-                    "width": 400,
-                  }
+                  [
+                    {
+                      "color": "#9A9A9A",
+                      "textAlign": "center",
+                    },
+                    {
+                      "fontFamily": "Poppins-Medium",
+                      "fontSize": 12,
+                      "lineHeight": 18,
+                    },
+                    undefined,
+                  ]
                 }
               >
-                <View
-                  style={
-                    {
-                      "flexDirection": "column",
-                    }
-                  }
-                >
-                  <View
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "opacity": 1,
-                      }
-                    }
-                  >
-                    <View
-                      entering={BaseAnimationMock {}}
-                      exiting={BaseAnimationMock {}}
-                      style={
-                        [
-                          {
-                            "padding": 10,
-                          },
-                          {
-                            "backgroundColor": "#F9F8FD",
-                          },
-                          undefined,
-                        ]
-                      }
-                    >
-                      <Text
-                        style={
-                          [
-                            {
-                              "color": "#9A9A9A",
-                              "textAlign": "center",
-                            },
-                            {
-                              "fontFamily": "Poppins-Medium",
-                              "fontSize": 12,
-                              "lineHeight": 18,
-                            },
-                            undefined,
-                          ]
-                        }
-                      >
-                        title1
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              </CellContainer>
-              <CellContainer
-                index={1}
-                onLayout={[Function]}
-                style={
-                  {
-                    "alignItems": "stretch",
-                    "flexDirection": "column",
-                    "left": 0,
-                    "position": "absolute",
-                    "top": 21,
-                    "width": 400,
-                  }
-                }
-              >
-                <View
-                  style={
-                    {
-                      "flexDirection": "column",
-                    }
-                  }
-                >
-                  <View
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "opacity": 1,
-                      }
-                    }
-                  >
-                    <View
-                      entering={BaseAnimationMock {}}
-                      exiting={BaseAnimationMock {}}
-                      style={
-                        [
-                          {
-                            "padding": 10,
-                          },
-                          {
-                            "backgroundColor": "#F9F8FD",
-                          },
-                          undefined,
-                        ]
-                      }
-                    >
-                      <Text
-                        style={
-                          [
-                            {
-                              "color": "#9A9A9A",
-                              "textAlign": "center",
-                            },
-                            {
-                              "fontFamily": "Poppins-Medium",
-                              "fontSize": 12,
-                              "lineHeight": 18,
-                            },
-                            undefined,
-                          ]
-                        }
-                      >
-                        title2
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              </CellContainer>
-              <CellContainer
-                index={2}
-                onLayout={[Function]}
-                style={
-                  {
-                    "alignItems": "stretch",
-                    "flexDirection": "column",
-                    "left": 0,
-                    "position": "absolute",
-                    "top": 42,
-                    "width": 400,
-                  }
-                }
-              >
-                <View
-                  style={
-                    {
-                      "flexDirection": "column",
-                    }
-                  }
-                >
-                  <View
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "opacity": 1,
-                      }
-                    }
-                  >
-                    <View
-                      entering={BaseAnimationMock {}}
-                      exiting={BaseAnimationMock {}}
-                      style={
-                        [
-                          {
-                            "padding": 10,
-                          },
-                          {
-                            "backgroundColor": "#F9F8FD",
-                          },
-                          undefined,
-                        ]
-                      }
-                    >
-                      <Text
-                        style={
-                          [
-                            {
-                              "color": "#9A9A9A",
-                              "textAlign": "center",
-                            },
-                            {
-                              "fontFamily": "Poppins-Medium",
-                              "fontSize": 12,
-                              "lineHeight": 18,
-                            },
-                            undefined,
-                          ]
-                        }
-                      >
-                        title3
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              </CellContainer>
-            </AutoLayoutView>
-            <CellContainer
-              index={-1}
-              style={
-                [
-                  undefined,
-                  undefined,
-                ]
-              }
-            />
-            <View
-              style={
-                {
-                  "paddingBottom": 0,
-                  "paddingRight": 0,
-                }
-              }
-            />
+                title1
+              </Text>
+            </View>
           </View>
         </View>
-      </RCTScrollView>
-    </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              entering={BaseAnimationMock {}}
+              exiting={BaseAnimationMock {}}
+              style={
+                [
+                  {
+                    "padding": 10,
+                  },
+                  {
+                    "backgroundColor": "#F9F8FD",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#9A9A9A",
+                      "textAlign": "center",
+                    },
+                    {
+                      "fontFamily": "Poppins-Medium",
+                      "fontSize": 12,
+                      "lineHeight": 18,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                title2
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              entering={BaseAnimationMock {}}
+              exiting={BaseAnimationMock {}}
+              style={
+                [
+                  {
+                    "padding": 10,
+                  },
+                  {
+                    "backgroundColor": "#F9F8FD",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#9A9A9A",
+                      "textAlign": "center",
+                    },
+                    {
+                      "fontFamily": "Poppins-Medium",
+                      "fontSize": 12,
+                      "lineHeight": 18,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                title3
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
   </View>
   <View
     entering={BaseAnimationMock {}}
@@ -969,575 +575,199 @@ exports[`AccordionList renders with different data types renders with string arr
       ]
     }
   >
-    <View
-      style={
-        {
-          "flex": 1,
-          "overflow": "hidden",
-        }
+    <RCTScrollView
+      bounces={false}
+      data={
+        [
+          "title1",
+          "title2",
+          "title3",
+        ]
       }
+      getItem={[Function]}
+      getItemCount={[Function]}
+      keyExtractor={[Function]}
+      onContentSizeChange={[Function]}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={[]}
+      viewabilityConfigCallbackPairs={[]}
     >
-      <RCTScrollView
-        applyWindowCorrection={[Function]}
-        bounces={false}
-        canChangeSize={true}
-        contentContainerStyle={
-          {
-            "backgroundColor": undefined,
-            "minHeight": 1,
-            "minWidth": 1,
-            "paddingLeft": 0,
-            "paddingRight": 0,
-          }
-        }
-        contentHeight={63}
-        contentWidth={400}
-        data={
-          [
-            "title1",
-            "title2",
-            "title3",
-          ]
-        }
-        dataProvider={
-          DataProvider {
-            "_data": [
-              "title1",
-              "title2",
-              "title3",
-            ],
-            "_firstIndexToProcess": 0,
-            "_hasStableIds": false,
-            "_requiresDataChangeHandling": false,
-            "_size": 3,
-            "getStableId": [Function],
-            "rowHasChanged": [Function],
-          }
-        }
-        disableRecycling={false}
-        estimatedItemSize={21}
-        extendedState={{}}
-        externalScrollView={[Function]}
-        finalRenderAheadOffset={250}
-        forceNonDeterministicRendering={true}
-        horizontal={false}
-        initialOffset={0}
-        initialRenderIndex={0}
-        isHorizontal={false}
-        layoutProvider={
-          GridLayoutProviderWithProps {
-            "_acceptableRelayoutDelta": 1,
-            "_getHeightOrWidth": [Function],
-            "_getLayoutTypeForIndex": [Function],
-            "_getSpan": [Function],
-            "_hasExpired": false,
-            "_isHorizontal": false,
-            "_lastLayoutManager": GridLayoutManager {
-              "_acceptableRelayoutDelta": 1,
-              "_getSpan": [Function],
-              "_isGridHorizontal": false,
-              "_isHorizontal": false,
-              "_layoutProvider": [Circular],
-              "_layouts": [
-                {
-                  "height": 21,
-                  "type": 0,
-                  "width": 400,
-                  "x": 0,
-                  "y": 0,
-                },
-                {
-                  "height": 21,
-                  "type": 0,
-                  "width": 400,
-                  "x": 0,
-                  "y": 21,
-                },
-                {
-                  "height": 21,
-                  "type": 0,
-                  "width": 400,
-                  "x": 0,
-                  "y": 42,
-                },
-              ],
-              "_maxSpan": 1,
-              "_renderWindowSize": {
-                "height": 900,
-                "width": 400,
-              },
-              "_totalHeight": 63,
-              "_totalWidth": 400,
-              "_window": {
-                "height": 900,
-                "width": 400,
-              },
-            },
-            "_maxSpan": 1,
-            "_renderWindowSize": {
-              "height": 900,
-              "width": 400,
-            },
-            "_setLayoutForType": [Function],
-            "_tempDim": {
-              "height": 0,
-              "width": 0,
-            },
-            "averageWindow": AverageWindow {
-              "currentAverage": 21,
-              "currentCount": 1,
-              "inputValues": [
-                21,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-              ],
-              "nextIndex": 1,
-            },
-            "defaultEstimatedItemSize": 100,
-            "layoutObject": {
-              "size": undefined,
-              "span": undefined,
-            },
-            "props": {
-              "bounces": false,
-              "data": [
-                "title1",
-                "title2",
-                "title3",
-              ],
-              "estimatedItemSize": 21,
-              "numColumns": 1,
-              "onContentSizeChange": [Function],
-              "renderItem": [Function],
-            },
-            "renderWindowInsets": {
-              "height": 0,
-              "width": 0,
-            },
-            "shouldRefreshWithAnchoring": true,
-          }
-        }
-        maxRenderAhead={750}
-        numColumns={1}
-        onContentSizeChange={[Function]}
-        onEndReached={[Function]}
-        onEndReachedThreshold={0}
-        onEndReachedThresholdRelative={0}
-        onItemLayout={[Function]}
-        onLayout={[Function]}
-        onScroll={[Function]}
-        onScrollBeginDrag={[Function]}
-        onSizeChanged={[Function]}
-        onVisibleIndicesChanged={[Function]}
-        removeClippedSubviews={false}
-        renderAheadOffset={0}
-        renderAheadStep={250}
-        renderContentContainer={[Function]}
-        renderItem={[Function]}
-        renderItemContainer={[Function]}
-        rowRenderer={[Function]}
-        scrollEventThrottle={16}
-        scrollThrottle={16}
-        scrollViewProps={
-          {
-            "contentContainerStyle": {
-              "backgroundColor": undefined,
-              "minHeight": 1,
-              "minWidth": 1,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-            },
-            "onLayout": [Function],
-            "onScrollBeginDrag": [Function],
-            "refreshControl": undefined,
-            "style": {
-              "minHeight": 1,
-              "minWidth": 1,
-            },
-          }
-        }
-        style={
-          {
-            "minHeight": 1,
-            "minWidth": 1,
-          }
-        }
-        suppressBoundedSizeException={true}
-        windowCorrectionConfig={
-          {
-            "applyToInitialOffset": true,
-            "applyToItemScroll": true,
-            "value": {
-              "endCorrection": 0,
-              "startCorrection": 0,
-              "windowShift": -0,
-            },
-          }
-        }
-      >
-        <View>
+      <View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
           <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               {
-                "flexDirection": "column",
+                "opacity": 1,
               }
             }
           >
             <View
-              style={
-                {
-                  "paddingLeft": 0,
-                  "paddingTop": 0,
-                }
-              }
-            />
-            <View
+              entering={BaseAnimationMock {}}
+              exiting={BaseAnimationMock {}}
               style={
                 [
-                  undefined,
+                  {
+                    "padding": 10,
+                  },
+                  {
+                    "backgroundColor": "#F9F8FD",
+                  },
                   undefined,
                 ]
               }
-            />
-            <AutoLayoutView
-              enableInstrumentation={false}
-              horizontal={false}
-              onBlankAreaEvent={[Function]}
-              onLayout={[Function]}
-              renderAheadOffset={0}
-              scrollOffset={0}
-              style={
-                {
-                  "height": 63,
-                  "width": 400,
-                }
-              }
-              windowSize={900}
             >
-              <CellContainer
-                index={0}
-                onLayout={[Function]}
+              <Text
                 style={
-                  {
-                    "alignItems": "stretch",
-                    "flexDirection": "column",
-                    "left": 0,
-                    "position": "absolute",
-                    "top": 0,
-                    "width": 400,
-                  }
-                }
-              >
-                <View
-                  style={
+                  [
                     {
-                      "flexDirection": "column",
-                    }
-                  }
-                >
-                  <View
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "opacity": 1,
-                      }
-                    }
-                  >
-                    <View
-                      entering={BaseAnimationMock {}}
-                      exiting={BaseAnimationMock {}}
-                      style={
-                        [
-                          {
-                            "padding": 10,
-                          },
-                          {
-                            "backgroundColor": "#F9F8FD",
-                          },
-                          undefined,
-                        ]
-                      }
-                    >
-                      <Text
-                        style={
-                          [
-                            {
-                              "color": "#9A9A9A",
-                              "textAlign": "center",
-                            },
-                            {
-                              "fontFamily": "Poppins-Medium",
-                              "fontSize": 12,
-                              "lineHeight": 18,
-                            },
-                            undefined,
-                          ]
-                        }
-                      />
-                    </View>
-                  </View>
-                </View>
-              </CellContainer>
-              <CellContainer
-                index={1}
-                onLayout={[Function]}
-                style={
-                  {
-                    "alignItems": "stretch",
-                    "flexDirection": "column",
-                    "left": 0,
-                    "position": "absolute",
-                    "top": 21,
-                    "width": 400,
-                  }
-                }
-              >
-                <View
-                  style={
+                      "color": "#9A9A9A",
+                      "textAlign": "center",
+                    },
                     {
-                      "flexDirection": "column",
-                    }
-                  }
-                >
-                  <View
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "opacity": 1,
-                      }
-                    }
-                  >
-                    <View
-                      entering={BaseAnimationMock {}}
-                      exiting={BaseAnimationMock {}}
-                      style={
-                        [
-                          {
-                            "padding": 10,
-                          },
-                          {
-                            "backgroundColor": "#F9F8FD",
-                          },
-                          undefined,
-                        ]
-                      }
-                    >
-                      <Text
-                        style={
-                          [
-                            {
-                              "color": "#9A9A9A",
-                              "textAlign": "center",
-                            },
-                            {
-                              "fontFamily": "Poppins-Medium",
-                              "fontSize": 12,
-                              "lineHeight": 18,
-                            },
-                            undefined,
-                          ]
-                        }
-                      />
-                    </View>
-                  </View>
-                </View>
-              </CellContainer>
-              <CellContainer
-                index={2}
-                onLayout={[Function]}
-                style={
-                  {
-                    "alignItems": "stretch",
-                    "flexDirection": "column",
-                    "left": 0,
-                    "position": "absolute",
-                    "top": 42,
-                    "width": 400,
-                  }
+                      "fontFamily": "Poppins-Medium",
+                      "fontSize": 12,
+                      "lineHeight": 18,
+                    },
+                    undefined,
+                  ]
                 }
-              >
-                <View
-                  style={
-                    {
-                      "flexDirection": "column",
-                    }
-                  }
-                >
-                  <View
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "opacity": 1,
-                      }
-                    }
-                  >
-                    <View
-                      entering={BaseAnimationMock {}}
-                      exiting={BaseAnimationMock {}}
-                      style={
-                        [
-                          {
-                            "padding": 10,
-                          },
-                          {
-                            "backgroundColor": "#F9F8FD",
-                          },
-                          undefined,
-                        ]
-                      }
-                    >
-                      <Text
-                        style={
-                          [
-                            {
-                              "color": "#9A9A9A",
-                              "textAlign": "center",
-                            },
-                            {
-                              "fontFamily": "Poppins-Medium",
-                              "fontSize": 12,
-                              "lineHeight": 18,
-                            },
-                            undefined,
-                          ]
-                        }
-                      />
-                    </View>
-                  </View>
-                </View>
-              </CellContainer>
-            </AutoLayoutView>
-            <CellContainer
-              index={-1}
-              style={
-                [
-                  undefined,
-                  undefined,
-                ]
-              }
-            />
-            <View
-              style={
-                {
-                  "paddingBottom": 0,
-                  "paddingRight": 0,
-                }
-              }
-            />
+              />
+            </View>
           </View>
         </View>
-      </RCTScrollView>
-    </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              entering={BaseAnimationMock {}}
+              exiting={BaseAnimationMock {}}
+              style={
+                [
+                  {
+                    "padding": 10,
+                  },
+                  {
+                    "backgroundColor": "#F9F8FD",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#9A9A9A",
+                      "textAlign": "center",
+                    },
+                    {
+                      "fontFamily": "Poppins-Medium",
+                      "fontSize": 12,
+                      "lineHeight": 18,
+                    },
+                    undefined,
+                  ]
+                }
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              entering={BaseAnimationMock {}}
+              exiting={BaseAnimationMock {}}
+              style={
+                [
+                  {
+                    "padding": 10,
+                  },
+                  {
+                    "backgroundColor": "#F9F8FD",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#9A9A9A",
+                      "textAlign": "center",
+                    },
+                    {
+                      "fontFamily": "Poppins-Medium",
+                      "fontSize": 12,
+                      "lineHeight": 18,
+                    },
+                    undefined,
+                  ]
+                }
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
   </View>
   <View
     entering={BaseAnimationMock {}}
@@ -1780,623 +1010,229 @@ exports[`AccordionList renders with different styles renders with custom style 1
       ]
     }
   >
-    <View
-      style={
-        {
-          "flex": 1,
-          "overflow": "hidden",
-        }
+    <RCTScrollView
+      bounces={false}
+      data={
+        [
+          {
+            "content": "content1",
+            "title": "title1",
+          },
+          {
+            "content": "content2",
+            "title": "title2",
+          },
+          {
+            "content": "content3",
+            "title": "title3",
+          },
+        ]
       }
+      getItem={[Function]}
+      getItemCount={[Function]}
+      keyExtractor={[Function]}
+      onContentSizeChange={[Function]}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={[]}
+      viewabilityConfigCallbackPairs={[]}
     >
-      <RCTScrollView
-        applyWindowCorrection={[Function]}
-        bounces={false}
-        canChangeSize={true}
-        contentContainerStyle={
-          {
-            "backgroundColor": undefined,
-            "minHeight": 1,
-            "minWidth": 1,
-            "paddingLeft": 0,
-            "paddingRight": 0,
-          }
-        }
-        contentHeight={63}
-        contentWidth={400}
-        data={
-          [
-            {
-              "content": "content1",
-              "title": "title1",
-            },
-            {
-              "content": "content2",
-              "title": "title2",
-            },
-            {
-              "content": "content3",
-              "title": "title3",
-            },
-          ]
-        }
-        dataProvider={
-          DataProvider {
-            "_data": [
-              {
-                "content": "content1",
-                "title": "title1",
-              },
-              {
-                "content": "content2",
-                "title": "title2",
-              },
-              {
-                "content": "content3",
-                "title": "title3",
-              },
-            ],
-            "_firstIndexToProcess": 0,
-            "_hasStableIds": false,
-            "_requiresDataChangeHandling": false,
-            "_size": 3,
-            "getStableId": [Function],
-            "rowHasChanged": [Function],
-          }
-        }
-        disableRecycling={false}
-        estimatedItemSize={21}
-        extendedState={{}}
-        externalScrollView={[Function]}
-        finalRenderAheadOffset={250}
-        forceNonDeterministicRendering={true}
-        horizontal={false}
-        initialOffset={0}
-        initialRenderIndex={0}
-        isHorizontal={false}
-        layoutProvider={
-          GridLayoutProviderWithProps {
-            "_acceptableRelayoutDelta": 1,
-            "_getHeightOrWidth": [Function],
-            "_getLayoutTypeForIndex": [Function],
-            "_getSpan": [Function],
-            "_hasExpired": false,
-            "_isHorizontal": false,
-            "_lastLayoutManager": GridLayoutManager {
-              "_acceptableRelayoutDelta": 1,
-              "_getSpan": [Function],
-              "_isGridHorizontal": false,
-              "_isHorizontal": false,
-              "_layoutProvider": [Circular],
-              "_layouts": [
-                {
-                  "height": 21,
-                  "type": 0,
-                  "width": 400,
-                  "x": 0,
-                  "y": 0,
-                },
-                {
-                  "height": 21,
-                  "type": 0,
-                  "width": 400,
-                  "x": 0,
-                  "y": 21,
-                },
-                {
-                  "height": 21,
-                  "type": 0,
-                  "width": 400,
-                  "x": 0,
-                  "y": 42,
-                },
-              ],
-              "_maxSpan": 1,
-              "_renderWindowSize": {
-                "height": 900,
-                "width": 400,
-              },
-              "_totalHeight": 63,
-              "_totalWidth": 400,
-              "_window": {
-                "height": 900,
-                "width": 400,
-              },
-            },
-            "_maxSpan": 1,
-            "_renderWindowSize": {
-              "height": 900,
-              "width": 400,
-            },
-            "_setLayoutForType": [Function],
-            "_tempDim": {
-              "height": 0,
-              "width": 0,
-            },
-            "averageWindow": AverageWindow {
-              "currentAverage": 21,
-              "currentCount": 1,
-              "inputValues": [
-                21,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-              ],
-              "nextIndex": 1,
-            },
-            "defaultEstimatedItemSize": 100,
-            "layoutObject": {
-              "size": undefined,
-              "span": undefined,
-            },
-            "props": {
-              "bounces": false,
-              "data": [
-                {
-                  "content": "content1",
-                  "title": "title1",
-                },
-                {
-                  "content": "content2",
-                  "title": "title2",
-                },
-                {
-                  "content": "content3",
-                  "title": "title3",
-                },
-              ],
-              "estimatedItemSize": 21,
-              "numColumns": 1,
-              "onContentSizeChange": [Function],
-              "renderItem": [Function],
-            },
-            "renderWindowInsets": {
-              "height": 0,
-              "width": 0,
-            },
-            "shouldRefreshWithAnchoring": true,
-          }
-        }
-        maxRenderAhead={750}
-        numColumns={1}
-        onContentSizeChange={[Function]}
-        onEndReached={[Function]}
-        onEndReachedThreshold={0}
-        onEndReachedThresholdRelative={0}
-        onItemLayout={[Function]}
-        onLayout={[Function]}
-        onScroll={[Function]}
-        onScrollBeginDrag={[Function]}
-        onSizeChanged={[Function]}
-        onVisibleIndicesChanged={[Function]}
-        removeClippedSubviews={false}
-        renderAheadOffset={0}
-        renderAheadStep={250}
-        renderContentContainer={[Function]}
-        renderItem={[Function]}
-        renderItemContainer={[Function]}
-        rowRenderer={[Function]}
-        scrollEventThrottle={16}
-        scrollThrottle={16}
-        scrollViewProps={
-          {
-            "contentContainerStyle": {
-              "backgroundColor": undefined,
-              "minHeight": 1,
-              "minWidth": 1,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-            },
-            "onLayout": [Function],
-            "onScrollBeginDrag": [Function],
-            "refreshControl": undefined,
-            "style": {
-              "minHeight": 1,
-              "minWidth": 1,
-            },
-          }
-        }
-        style={
-          {
-            "minHeight": 1,
-            "minWidth": 1,
-          }
-        }
-        suppressBoundedSizeException={true}
-        windowCorrectionConfig={
-          {
-            "applyToInitialOffset": true,
-            "applyToItemScroll": true,
-            "value": {
-              "endCorrection": 0,
-              "startCorrection": 0,
-              "windowShift": -0,
-            },
-          }
-        }
-      >
-        <View>
+      <View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
           <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               {
-                "flexDirection": "column",
+                "opacity": 1,
               }
             }
           >
             <View
-              style={
-                {
-                  "paddingLeft": 0,
-                  "paddingTop": 0,
-                }
-              }
-            />
-            <View
+              entering={BaseAnimationMock {}}
+              exiting={BaseAnimationMock {}}
               style={
                 [
-                  undefined,
-                  undefined,
+                  {
+                    "padding": 10,
+                  },
+                  {
+                    "backgroundColor": "#F9F8FD",
+                  },
+                  {
+                    "backgroundColor": "red",
+                  },
                 ]
               }
-            />
-            <AutoLayoutView
-              enableInstrumentation={false}
-              horizontal={false}
-              onBlankAreaEvent={[Function]}
-              onLayout={[Function]}
-              renderAheadOffset={0}
-              scrollOffset={0}
-              style={
-                {
-                  "height": 63,
-                  "width": 400,
-                }
-              }
-              windowSize={900}
             >
-              <CellContainer
-                index={0}
-                onLayout={[Function]}
+              <Text
                 style={
-                  {
-                    "alignItems": "stretch",
-                    "flexDirection": "column",
-                    "left": 0,
-                    "position": "absolute",
-                    "top": 0,
-                    "width": 400,
-                  }
+                  [
+                    {
+                      "color": "#9A9A9A",
+                      "textAlign": "center",
+                    },
+                    {
+                      "fontFamily": "Poppins-Medium",
+                      "fontSize": 12,
+                      "lineHeight": 18,
+                    },
+                    {
+                      "color": "yellow",
+                      "fontSize": 15,
+                    },
+                  ]
                 }
               >
-                <View
-                  style={
-                    {
-                      "flexDirection": "column",
-                    }
-                  }
-                >
-                  <View
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "opacity": 1,
-                      }
-                    }
-                  >
-                    <View
-                      entering={BaseAnimationMock {}}
-                      exiting={BaseAnimationMock {}}
-                      style={
-                        [
-                          {
-                            "padding": 10,
-                          },
-                          {
-                            "backgroundColor": "#F9F8FD",
-                          },
-                          {
-                            "backgroundColor": "red",
-                          },
-                        ]
-                      }
-                    >
-                      <Text
-                        style={
-                          [
-                            {
-                              "color": "#9A9A9A",
-                              "textAlign": "center",
-                            },
-                            {
-                              "fontFamily": "Poppins-Medium",
-                              "fontSize": 12,
-                              "lineHeight": 18,
-                            },
-                            {
-                              "color": "yellow",
-                              "fontSize": 15,
-                            },
-                          ]
-                        }
-                      >
-                        title1
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              </CellContainer>
-              <CellContainer
-                index={1}
-                onLayout={[Function]}
-                style={
-                  {
-                    "alignItems": "stretch",
-                    "flexDirection": "column",
-                    "left": 0,
-                    "position": "absolute",
-                    "top": 21,
-                    "width": 400,
-                  }
-                }
-              >
-                <View
-                  style={
-                    {
-                      "flexDirection": "column",
-                    }
-                  }
-                >
-                  <View
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "opacity": 1,
-                      }
-                    }
-                  >
-                    <View
-                      entering={BaseAnimationMock {}}
-                      exiting={BaseAnimationMock {}}
-                      style={
-                        [
-                          {
-                            "padding": 10,
-                          },
-                          {
-                            "backgroundColor": "#F9F8FD",
-                          },
-                          {
-                            "backgroundColor": "red",
-                          },
-                        ]
-                      }
-                    >
-                      <Text
-                        style={
-                          [
-                            {
-                              "color": "#9A9A9A",
-                              "textAlign": "center",
-                            },
-                            {
-                              "fontFamily": "Poppins-Medium",
-                              "fontSize": 12,
-                              "lineHeight": 18,
-                            },
-                            {
-                              "color": "yellow",
-                              "fontSize": 15,
-                            },
-                          ]
-                        }
-                      >
-                        title2
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              </CellContainer>
-              <CellContainer
-                index={2}
-                onLayout={[Function]}
-                style={
-                  {
-                    "alignItems": "stretch",
-                    "flexDirection": "column",
-                    "left": 0,
-                    "position": "absolute",
-                    "top": 42,
-                    "width": 400,
-                  }
-                }
-              >
-                <View
-                  style={
-                    {
-                      "flexDirection": "column",
-                    }
-                  }
-                >
-                  <View
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "opacity": 1,
-                      }
-                    }
-                  >
-                    <View
-                      entering={BaseAnimationMock {}}
-                      exiting={BaseAnimationMock {}}
-                      style={
-                        [
-                          {
-                            "padding": 10,
-                          },
-                          {
-                            "backgroundColor": "#F9F8FD",
-                          },
-                          {
-                            "backgroundColor": "red",
-                          },
-                        ]
-                      }
-                    >
-                      <Text
-                        style={
-                          [
-                            {
-                              "color": "#9A9A9A",
-                              "textAlign": "center",
-                            },
-                            {
-                              "fontFamily": "Poppins-Medium",
-                              "fontSize": 12,
-                              "lineHeight": 18,
-                            },
-                            {
-                              "color": "yellow",
-                              "fontSize": 15,
-                            },
-                          ]
-                        }
-                      >
-                        title3
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              </CellContainer>
-            </AutoLayoutView>
-            <CellContainer
-              index={-1}
-              style={
-                [
-                  undefined,
-                  undefined,
-                ]
-              }
-            />
-            <View
-              style={
-                {
-                  "paddingBottom": 0,
-                  "paddingRight": 0,
-                }
-              }
-            />
+                title1
+              </Text>
+            </View>
           </View>
         </View>
-      </RCTScrollView>
-    </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              entering={BaseAnimationMock {}}
+              exiting={BaseAnimationMock {}}
+              style={
+                [
+                  {
+                    "padding": 10,
+                  },
+                  {
+                    "backgroundColor": "#F9F8FD",
+                  },
+                  {
+                    "backgroundColor": "red",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#9A9A9A",
+                      "textAlign": "center",
+                    },
+                    {
+                      "fontFamily": "Poppins-Medium",
+                      "fontSize": 12,
+                      "lineHeight": 18,
+                    },
+                    {
+                      "color": "yellow",
+                      "fontSize": 15,
+                    },
+                  ]
+                }
+              >
+                title2
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              entering={BaseAnimationMock {}}
+              exiting={BaseAnimationMock {}}
+              style={
+                [
+                  {
+                    "padding": 10,
+                  },
+                  {
+                    "backgroundColor": "#F9F8FD",
+                  },
+                  {
+                    "backgroundColor": "red",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#9A9A9A",
+                      "textAlign": "center",
+                    },
+                    {
+                      "fontFamily": "Poppins-Medium",
+                      "fontSize": 12,
+                      "lineHeight": 18,
+                    },
+                    {
+                      "color": "yellow",
+                      "fontSize": 15,
+                    },
+                  ]
+                }
+              >
+                title3
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
   </View>
   <View
     entering={BaseAnimationMock {}}
@@ -2634,608 +1470,214 @@ exports[`AccordionList renders with different styles renders with default style 
       ]
     }
   >
-    <View
-      style={
-        {
-          "flex": 1,
-          "overflow": "hidden",
-        }
+    <RCTScrollView
+      bounces={false}
+      data={
+        [
+          {
+            "content": "content1",
+            "title": "title1",
+          },
+          {
+            "content": "content2",
+            "title": "title2",
+          },
+          {
+            "content": "content3",
+            "title": "title3",
+          },
+        ]
       }
+      getItem={[Function]}
+      getItemCount={[Function]}
+      keyExtractor={[Function]}
+      onContentSizeChange={[Function]}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={[]}
+      viewabilityConfigCallbackPairs={[]}
     >
-      <RCTScrollView
-        applyWindowCorrection={[Function]}
-        bounces={false}
-        canChangeSize={true}
-        contentContainerStyle={
-          {
-            "backgroundColor": undefined,
-            "minHeight": 1,
-            "minWidth": 1,
-            "paddingLeft": 0,
-            "paddingRight": 0,
-          }
-        }
-        contentHeight={63}
-        contentWidth={400}
-        data={
-          [
-            {
-              "content": "content1",
-              "title": "title1",
-            },
-            {
-              "content": "content2",
-              "title": "title2",
-            },
-            {
-              "content": "content3",
-              "title": "title3",
-            },
-          ]
-        }
-        dataProvider={
-          DataProvider {
-            "_data": [
-              {
-                "content": "content1",
-                "title": "title1",
-              },
-              {
-                "content": "content2",
-                "title": "title2",
-              },
-              {
-                "content": "content3",
-                "title": "title3",
-              },
-            ],
-            "_firstIndexToProcess": 0,
-            "_hasStableIds": false,
-            "_requiresDataChangeHandling": false,
-            "_size": 3,
-            "getStableId": [Function],
-            "rowHasChanged": [Function],
-          }
-        }
-        disableRecycling={false}
-        estimatedItemSize={21}
-        extendedState={{}}
-        externalScrollView={[Function]}
-        finalRenderAheadOffset={250}
-        forceNonDeterministicRendering={true}
-        horizontal={false}
-        initialOffset={0}
-        initialRenderIndex={0}
-        isHorizontal={false}
-        layoutProvider={
-          GridLayoutProviderWithProps {
-            "_acceptableRelayoutDelta": 1,
-            "_getHeightOrWidth": [Function],
-            "_getLayoutTypeForIndex": [Function],
-            "_getSpan": [Function],
-            "_hasExpired": false,
-            "_isHorizontal": false,
-            "_lastLayoutManager": GridLayoutManager {
-              "_acceptableRelayoutDelta": 1,
-              "_getSpan": [Function],
-              "_isGridHorizontal": false,
-              "_isHorizontal": false,
-              "_layoutProvider": [Circular],
-              "_layouts": [
-                {
-                  "height": 21,
-                  "type": 0,
-                  "width": 400,
-                  "x": 0,
-                  "y": 0,
-                },
-                {
-                  "height": 21,
-                  "type": 0,
-                  "width": 400,
-                  "x": 0,
-                  "y": 21,
-                },
-                {
-                  "height": 21,
-                  "type": 0,
-                  "width": 400,
-                  "x": 0,
-                  "y": 42,
-                },
-              ],
-              "_maxSpan": 1,
-              "_renderWindowSize": {
-                "height": 900,
-                "width": 400,
-              },
-              "_totalHeight": 63,
-              "_totalWidth": 400,
-              "_window": {
-                "height": 900,
-                "width": 400,
-              },
-            },
-            "_maxSpan": 1,
-            "_renderWindowSize": {
-              "height": 900,
-              "width": 400,
-            },
-            "_setLayoutForType": [Function],
-            "_tempDim": {
-              "height": 0,
-              "width": 0,
-            },
-            "averageWindow": AverageWindow {
-              "currentAverage": 21,
-              "currentCount": 1,
-              "inputValues": [
-                21,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-              ],
-              "nextIndex": 1,
-            },
-            "defaultEstimatedItemSize": 100,
-            "layoutObject": {
-              "size": undefined,
-              "span": undefined,
-            },
-            "props": {
-              "bounces": false,
-              "data": [
-                {
-                  "content": "content1",
-                  "title": "title1",
-                },
-                {
-                  "content": "content2",
-                  "title": "title2",
-                },
-                {
-                  "content": "content3",
-                  "title": "title3",
-                },
-              ],
-              "estimatedItemSize": 21,
-              "numColumns": 1,
-              "onContentSizeChange": [Function],
-              "renderItem": [Function],
-            },
-            "renderWindowInsets": {
-              "height": 0,
-              "width": 0,
-            },
-            "shouldRefreshWithAnchoring": true,
-          }
-        }
-        maxRenderAhead={750}
-        numColumns={1}
-        onContentSizeChange={[Function]}
-        onEndReached={[Function]}
-        onEndReachedThreshold={0}
-        onEndReachedThresholdRelative={0}
-        onItemLayout={[Function]}
-        onLayout={[Function]}
-        onScroll={[Function]}
-        onScrollBeginDrag={[Function]}
-        onSizeChanged={[Function]}
-        onVisibleIndicesChanged={[Function]}
-        removeClippedSubviews={false}
-        renderAheadOffset={0}
-        renderAheadStep={250}
-        renderContentContainer={[Function]}
-        renderItem={[Function]}
-        renderItemContainer={[Function]}
-        rowRenderer={[Function]}
-        scrollEventThrottle={16}
-        scrollThrottle={16}
-        scrollViewProps={
-          {
-            "contentContainerStyle": {
-              "backgroundColor": undefined,
-              "minHeight": 1,
-              "minWidth": 1,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-            },
-            "onLayout": [Function],
-            "onScrollBeginDrag": [Function],
-            "refreshControl": undefined,
-            "style": {
-              "minHeight": 1,
-              "minWidth": 1,
-            },
-          }
-        }
-        style={
-          {
-            "minHeight": 1,
-            "minWidth": 1,
-          }
-        }
-        suppressBoundedSizeException={true}
-        windowCorrectionConfig={
-          {
-            "applyToInitialOffset": true,
-            "applyToItemScroll": true,
-            "value": {
-              "endCorrection": 0,
-              "startCorrection": 0,
-              "windowShift": -0,
-            },
-          }
-        }
-      >
-        <View>
+      <View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
           <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               {
-                "flexDirection": "column",
+                "opacity": 1,
               }
             }
           >
             <View
-              style={
-                {
-                  "paddingLeft": 0,
-                  "paddingTop": 0,
-                }
-              }
-            />
-            <View
+              entering={BaseAnimationMock {}}
+              exiting={BaseAnimationMock {}}
               style={
                 [
-                  undefined,
+                  {
+                    "padding": 10,
+                  },
+                  {
+                    "backgroundColor": "#F9F8FD",
+                  },
                   undefined,
                 ]
               }
-            />
-            <AutoLayoutView
-              enableInstrumentation={false}
-              horizontal={false}
-              onBlankAreaEvent={[Function]}
-              onLayout={[Function]}
-              renderAheadOffset={0}
-              scrollOffset={0}
-              style={
-                {
-                  "height": 63,
-                  "width": 400,
-                }
-              }
-              windowSize={900}
             >
-              <CellContainer
-                index={0}
-                onLayout={[Function]}
+              <Text
                 style={
-                  {
-                    "alignItems": "stretch",
-                    "flexDirection": "column",
-                    "left": 0,
-                    "position": "absolute",
-                    "top": 0,
-                    "width": 400,
-                  }
+                  [
+                    {
+                      "color": "#9A9A9A",
+                      "textAlign": "center",
+                    },
+                    {
+                      "fontFamily": "Poppins-Medium",
+                      "fontSize": 12,
+                      "lineHeight": 18,
+                    },
+                    undefined,
+                  ]
                 }
               >
-                <View
-                  style={
-                    {
-                      "flexDirection": "column",
-                    }
-                  }
-                >
-                  <View
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "opacity": 1,
-                      }
-                    }
-                  >
-                    <View
-                      entering={BaseAnimationMock {}}
-                      exiting={BaseAnimationMock {}}
-                      style={
-                        [
-                          {
-                            "padding": 10,
-                          },
-                          {
-                            "backgroundColor": "#F9F8FD",
-                          },
-                          undefined,
-                        ]
-                      }
-                    >
-                      <Text
-                        style={
-                          [
-                            {
-                              "color": "#9A9A9A",
-                              "textAlign": "center",
-                            },
-                            {
-                              "fontFamily": "Poppins-Medium",
-                              "fontSize": 12,
-                              "lineHeight": 18,
-                            },
-                            undefined,
-                          ]
-                        }
-                      >
-                        title1
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              </CellContainer>
-              <CellContainer
-                index={1}
-                onLayout={[Function]}
-                style={
-                  {
-                    "alignItems": "stretch",
-                    "flexDirection": "column",
-                    "left": 0,
-                    "position": "absolute",
-                    "top": 21,
-                    "width": 400,
-                  }
-                }
-              >
-                <View
-                  style={
-                    {
-                      "flexDirection": "column",
-                    }
-                  }
-                >
-                  <View
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "opacity": 1,
-                      }
-                    }
-                  >
-                    <View
-                      entering={BaseAnimationMock {}}
-                      exiting={BaseAnimationMock {}}
-                      style={
-                        [
-                          {
-                            "padding": 10,
-                          },
-                          {
-                            "backgroundColor": "#F9F8FD",
-                          },
-                          undefined,
-                        ]
-                      }
-                    >
-                      <Text
-                        style={
-                          [
-                            {
-                              "color": "#9A9A9A",
-                              "textAlign": "center",
-                            },
-                            {
-                              "fontFamily": "Poppins-Medium",
-                              "fontSize": 12,
-                              "lineHeight": 18,
-                            },
-                            undefined,
-                          ]
-                        }
-                      >
-                        title2
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              </CellContainer>
-              <CellContainer
-                index={2}
-                onLayout={[Function]}
-                style={
-                  {
-                    "alignItems": "stretch",
-                    "flexDirection": "column",
-                    "left": 0,
-                    "position": "absolute",
-                    "top": 42,
-                    "width": 400,
-                  }
-                }
-              >
-                <View
-                  style={
-                    {
-                      "flexDirection": "column",
-                    }
-                  }
-                >
-                  <View
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "opacity": 1,
-                      }
-                    }
-                  >
-                    <View
-                      entering={BaseAnimationMock {}}
-                      exiting={BaseAnimationMock {}}
-                      style={
-                        [
-                          {
-                            "padding": 10,
-                          },
-                          {
-                            "backgroundColor": "#F9F8FD",
-                          },
-                          undefined,
-                        ]
-                      }
-                    >
-                      <Text
-                        style={
-                          [
-                            {
-                              "color": "#9A9A9A",
-                              "textAlign": "center",
-                            },
-                            {
-                              "fontFamily": "Poppins-Medium",
-                              "fontSize": 12,
-                              "lineHeight": 18,
-                            },
-                            undefined,
-                          ]
-                        }
-                      >
-                        title3
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              </CellContainer>
-            </AutoLayoutView>
-            <CellContainer
-              index={-1}
-              style={
-                [
-                  undefined,
-                  undefined,
-                ]
-              }
-            />
-            <View
-              style={
-                {
-                  "paddingBottom": 0,
-                  "paddingRight": 0,
-                }
-              }
-            />
+                title1
+              </Text>
+            </View>
           </View>
         </View>
-      </RCTScrollView>
-    </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              entering={BaseAnimationMock {}}
+              exiting={BaseAnimationMock {}}
+              style={
+                [
+                  {
+                    "padding": 10,
+                  },
+                  {
+                    "backgroundColor": "#F9F8FD",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#9A9A9A",
+                      "textAlign": "center",
+                    },
+                    {
+                      "fontFamily": "Poppins-Medium",
+                      "fontSize": 12,
+                      "lineHeight": 18,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                title2
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              entering={BaseAnimationMock {}}
+              exiting={BaseAnimationMock {}}
+              style={
+                [
+                  {
+                    "padding": 10,
+                  },
+                  {
+                    "backgroundColor": "#F9F8FD",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#9A9A9A",
+                      "textAlign": "center",
+                    },
+                    {
+                      "fontFamily": "Poppins-Medium",
+                      "fontSize": 12,
+                      "lineHeight": 18,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                title3
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
   </View>
   <View
     entering={BaseAnimationMock {}}
@@ -3589,608 +2031,214 @@ exports[`AccordionList renders with icons renders with left icon prop 1`] = `
       ]
     }
   >
-    <View
-      style={
-        {
-          "flex": 1,
-          "overflow": "hidden",
-        }
+    <RCTScrollView
+      bounces={false}
+      data={
+        [
+          {
+            "content": "content1",
+            "title": "title1",
+          },
+          {
+            "content": "content2",
+            "title": "title2",
+          },
+          {
+            "content": "content3",
+            "title": "title3",
+          },
+        ]
       }
+      getItem={[Function]}
+      getItemCount={[Function]}
+      keyExtractor={[Function]}
+      onContentSizeChange={[Function]}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={[]}
+      viewabilityConfigCallbackPairs={[]}
     >
-      <RCTScrollView
-        applyWindowCorrection={[Function]}
-        bounces={false}
-        canChangeSize={true}
-        contentContainerStyle={
-          {
-            "backgroundColor": undefined,
-            "minHeight": 1,
-            "minWidth": 1,
-            "paddingLeft": 0,
-            "paddingRight": 0,
-          }
-        }
-        contentHeight={63}
-        contentWidth={400}
-        data={
-          [
-            {
-              "content": "content1",
-              "title": "title1",
-            },
-            {
-              "content": "content2",
-              "title": "title2",
-            },
-            {
-              "content": "content3",
-              "title": "title3",
-            },
-          ]
-        }
-        dataProvider={
-          DataProvider {
-            "_data": [
-              {
-                "content": "content1",
-                "title": "title1",
-              },
-              {
-                "content": "content2",
-                "title": "title2",
-              },
-              {
-                "content": "content3",
-                "title": "title3",
-              },
-            ],
-            "_firstIndexToProcess": 0,
-            "_hasStableIds": false,
-            "_requiresDataChangeHandling": false,
-            "_size": 3,
-            "getStableId": [Function],
-            "rowHasChanged": [Function],
-          }
-        }
-        disableRecycling={false}
-        estimatedItemSize={21}
-        extendedState={{}}
-        externalScrollView={[Function]}
-        finalRenderAheadOffset={250}
-        forceNonDeterministicRendering={true}
-        horizontal={false}
-        initialOffset={0}
-        initialRenderIndex={0}
-        isHorizontal={false}
-        layoutProvider={
-          GridLayoutProviderWithProps {
-            "_acceptableRelayoutDelta": 1,
-            "_getHeightOrWidth": [Function],
-            "_getLayoutTypeForIndex": [Function],
-            "_getSpan": [Function],
-            "_hasExpired": false,
-            "_isHorizontal": false,
-            "_lastLayoutManager": GridLayoutManager {
-              "_acceptableRelayoutDelta": 1,
-              "_getSpan": [Function],
-              "_isGridHorizontal": false,
-              "_isHorizontal": false,
-              "_layoutProvider": [Circular],
-              "_layouts": [
-                {
-                  "height": 21,
-                  "type": 0,
-                  "width": 400,
-                  "x": 0,
-                  "y": 0,
-                },
-                {
-                  "height": 21,
-                  "type": 0,
-                  "width": 400,
-                  "x": 0,
-                  "y": 21,
-                },
-                {
-                  "height": 21,
-                  "type": 0,
-                  "width": 400,
-                  "x": 0,
-                  "y": 42,
-                },
-              ],
-              "_maxSpan": 1,
-              "_renderWindowSize": {
-                "height": 900,
-                "width": 400,
-              },
-              "_totalHeight": 63,
-              "_totalWidth": 400,
-              "_window": {
-                "height": 900,
-                "width": 400,
-              },
-            },
-            "_maxSpan": 1,
-            "_renderWindowSize": {
-              "height": 900,
-              "width": 400,
-            },
-            "_setLayoutForType": [Function],
-            "_tempDim": {
-              "height": 0,
-              "width": 0,
-            },
-            "averageWindow": AverageWindow {
-              "currentAverage": 21,
-              "currentCount": 1,
-              "inputValues": [
-                21,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-              ],
-              "nextIndex": 1,
-            },
-            "defaultEstimatedItemSize": 100,
-            "layoutObject": {
-              "size": undefined,
-              "span": undefined,
-            },
-            "props": {
-              "bounces": false,
-              "data": [
-                {
-                  "content": "content1",
-                  "title": "title1",
-                },
-                {
-                  "content": "content2",
-                  "title": "title2",
-                },
-                {
-                  "content": "content3",
-                  "title": "title3",
-                },
-              ],
-              "estimatedItemSize": 21,
-              "numColumns": 1,
-              "onContentSizeChange": [Function],
-              "renderItem": [Function],
-            },
-            "renderWindowInsets": {
-              "height": 0,
-              "width": 0,
-            },
-            "shouldRefreshWithAnchoring": true,
-          }
-        }
-        maxRenderAhead={750}
-        numColumns={1}
-        onContentSizeChange={[Function]}
-        onEndReached={[Function]}
-        onEndReachedThreshold={0}
-        onEndReachedThresholdRelative={0}
-        onItemLayout={[Function]}
-        onLayout={[Function]}
-        onScroll={[Function]}
-        onScrollBeginDrag={[Function]}
-        onSizeChanged={[Function]}
-        onVisibleIndicesChanged={[Function]}
-        removeClippedSubviews={false}
-        renderAheadOffset={0}
-        renderAheadStep={250}
-        renderContentContainer={[Function]}
-        renderItem={[Function]}
-        renderItemContainer={[Function]}
-        rowRenderer={[Function]}
-        scrollEventThrottle={16}
-        scrollThrottle={16}
-        scrollViewProps={
-          {
-            "contentContainerStyle": {
-              "backgroundColor": undefined,
-              "minHeight": 1,
-              "minWidth": 1,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-            },
-            "onLayout": [Function],
-            "onScrollBeginDrag": [Function],
-            "refreshControl": undefined,
-            "style": {
-              "minHeight": 1,
-              "minWidth": 1,
-            },
-          }
-        }
-        style={
-          {
-            "minHeight": 1,
-            "minWidth": 1,
-          }
-        }
-        suppressBoundedSizeException={true}
-        windowCorrectionConfig={
-          {
-            "applyToInitialOffset": true,
-            "applyToItemScroll": true,
-            "value": {
-              "endCorrection": 0,
-              "startCorrection": 0,
-              "windowShift": -0,
-            },
-          }
-        }
-      >
-        <View>
+      <View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
           <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               {
-                "flexDirection": "column",
+                "opacity": 1,
               }
             }
           >
             <View
-              style={
-                {
-                  "paddingLeft": 0,
-                  "paddingTop": 0,
-                }
-              }
-            />
-            <View
+              entering={BaseAnimationMock {}}
+              exiting={BaseAnimationMock {}}
               style={
                 [
-                  undefined,
+                  {
+                    "padding": 10,
+                  },
+                  {
+                    "backgroundColor": "#F9F8FD",
+                  },
                   undefined,
                 ]
               }
-            />
-            <AutoLayoutView
-              enableInstrumentation={false}
-              horizontal={false}
-              onBlankAreaEvent={[Function]}
-              onLayout={[Function]}
-              renderAheadOffset={0}
-              scrollOffset={0}
-              style={
-                {
-                  "height": 63,
-                  "width": 400,
-                }
-              }
-              windowSize={900}
             >
-              <CellContainer
-                index={0}
-                onLayout={[Function]}
+              <Text
                 style={
-                  {
-                    "alignItems": "stretch",
-                    "flexDirection": "column",
-                    "left": 0,
-                    "position": "absolute",
-                    "top": 0,
-                    "width": 400,
-                  }
+                  [
+                    {
+                      "color": "#9A9A9A",
+                      "textAlign": "center",
+                    },
+                    {
+                      "fontFamily": "Poppins-Medium",
+                      "fontSize": 12,
+                      "lineHeight": 18,
+                    },
+                    undefined,
+                  ]
                 }
               >
-                <View
-                  style={
-                    {
-                      "flexDirection": "column",
-                    }
-                  }
-                >
-                  <View
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "opacity": 1,
-                      }
-                    }
-                  >
-                    <View
-                      entering={BaseAnimationMock {}}
-                      exiting={BaseAnimationMock {}}
-                      style={
-                        [
-                          {
-                            "padding": 10,
-                          },
-                          {
-                            "backgroundColor": "#F9F8FD",
-                          },
-                          undefined,
-                        ]
-                      }
-                    >
-                      <Text
-                        style={
-                          [
-                            {
-                              "color": "#9A9A9A",
-                              "textAlign": "center",
-                            },
-                            {
-                              "fontFamily": "Poppins-Medium",
-                              "fontSize": 12,
-                              "lineHeight": 18,
-                            },
-                            undefined,
-                          ]
-                        }
-                      >
-                        title1
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              </CellContainer>
-              <CellContainer
-                index={1}
-                onLayout={[Function]}
-                style={
-                  {
-                    "alignItems": "stretch",
-                    "flexDirection": "column",
-                    "left": 0,
-                    "position": "absolute",
-                    "top": 21,
-                    "width": 400,
-                  }
-                }
-              >
-                <View
-                  style={
-                    {
-                      "flexDirection": "column",
-                    }
-                  }
-                >
-                  <View
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "opacity": 1,
-                      }
-                    }
-                  >
-                    <View
-                      entering={BaseAnimationMock {}}
-                      exiting={BaseAnimationMock {}}
-                      style={
-                        [
-                          {
-                            "padding": 10,
-                          },
-                          {
-                            "backgroundColor": "#F9F8FD",
-                          },
-                          undefined,
-                        ]
-                      }
-                    >
-                      <Text
-                        style={
-                          [
-                            {
-                              "color": "#9A9A9A",
-                              "textAlign": "center",
-                            },
-                            {
-                              "fontFamily": "Poppins-Medium",
-                              "fontSize": 12,
-                              "lineHeight": 18,
-                            },
-                            undefined,
-                          ]
-                        }
-                      >
-                        title2
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              </CellContainer>
-              <CellContainer
-                index={2}
-                onLayout={[Function]}
-                style={
-                  {
-                    "alignItems": "stretch",
-                    "flexDirection": "column",
-                    "left": 0,
-                    "position": "absolute",
-                    "top": 42,
-                    "width": 400,
-                  }
-                }
-              >
-                <View
-                  style={
-                    {
-                      "flexDirection": "column",
-                    }
-                  }
-                >
-                  <View
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "opacity": 1,
-                      }
-                    }
-                  >
-                    <View
-                      entering={BaseAnimationMock {}}
-                      exiting={BaseAnimationMock {}}
-                      style={
-                        [
-                          {
-                            "padding": 10,
-                          },
-                          {
-                            "backgroundColor": "#F9F8FD",
-                          },
-                          undefined,
-                        ]
-                      }
-                    >
-                      <Text
-                        style={
-                          [
-                            {
-                              "color": "#9A9A9A",
-                              "textAlign": "center",
-                            },
-                            {
-                              "fontFamily": "Poppins-Medium",
-                              "fontSize": 12,
-                              "lineHeight": 18,
-                            },
-                            undefined,
-                          ]
-                        }
-                      >
-                        title3
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              </CellContainer>
-            </AutoLayoutView>
-            <CellContainer
-              index={-1}
-              style={
-                [
-                  undefined,
-                  undefined,
-                ]
-              }
-            />
-            <View
-              style={
-                {
-                  "paddingBottom": 0,
-                  "paddingRight": 0,
-                }
-              }
-            />
+                title1
+              </Text>
+            </View>
           </View>
         </View>
-      </RCTScrollView>
-    </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              entering={BaseAnimationMock {}}
+              exiting={BaseAnimationMock {}}
+              style={
+                [
+                  {
+                    "padding": 10,
+                  },
+                  {
+                    "backgroundColor": "#F9F8FD",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#9A9A9A",
+                      "textAlign": "center",
+                    },
+                    {
+                      "fontFamily": "Poppins-Medium",
+                      "fontSize": 12,
+                      "lineHeight": 18,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                title2
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              entering={BaseAnimationMock {}}
+              exiting={BaseAnimationMock {}}
+              style={
+                [
+                  {
+                    "padding": 10,
+                  },
+                  {
+                    "backgroundColor": "#F9F8FD",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#9A9A9A",
+                      "textAlign": "center",
+                    },
+                    {
+                      "fontFamily": "Poppins-Medium",
+                      "fontSize": 12,
+                      "lineHeight": 18,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                title3
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
   </View>
   <View
     entering={BaseAnimationMock {}}
@@ -4544,608 +2592,214 @@ exports[`AccordionList renders with icons renders with right icon prop 1`] = `
       ]
     }
   >
-    <View
-      style={
-        {
-          "flex": 1,
-          "overflow": "hidden",
-        }
+    <RCTScrollView
+      bounces={false}
+      data={
+        [
+          {
+            "content": "content1",
+            "title": "title1",
+          },
+          {
+            "content": "content2",
+            "title": "title2",
+          },
+          {
+            "content": "content3",
+            "title": "title3",
+          },
+        ]
       }
+      getItem={[Function]}
+      getItemCount={[Function]}
+      keyExtractor={[Function]}
+      onContentSizeChange={[Function]}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={[]}
+      viewabilityConfigCallbackPairs={[]}
     >
-      <RCTScrollView
-        applyWindowCorrection={[Function]}
-        bounces={false}
-        canChangeSize={true}
-        contentContainerStyle={
-          {
-            "backgroundColor": undefined,
-            "minHeight": 1,
-            "minWidth": 1,
-            "paddingLeft": 0,
-            "paddingRight": 0,
-          }
-        }
-        contentHeight={63}
-        contentWidth={400}
-        data={
-          [
-            {
-              "content": "content1",
-              "title": "title1",
-            },
-            {
-              "content": "content2",
-              "title": "title2",
-            },
-            {
-              "content": "content3",
-              "title": "title3",
-            },
-          ]
-        }
-        dataProvider={
-          DataProvider {
-            "_data": [
-              {
-                "content": "content1",
-                "title": "title1",
-              },
-              {
-                "content": "content2",
-                "title": "title2",
-              },
-              {
-                "content": "content3",
-                "title": "title3",
-              },
-            ],
-            "_firstIndexToProcess": 0,
-            "_hasStableIds": false,
-            "_requiresDataChangeHandling": false,
-            "_size": 3,
-            "getStableId": [Function],
-            "rowHasChanged": [Function],
-          }
-        }
-        disableRecycling={false}
-        estimatedItemSize={21}
-        extendedState={{}}
-        externalScrollView={[Function]}
-        finalRenderAheadOffset={250}
-        forceNonDeterministicRendering={true}
-        horizontal={false}
-        initialOffset={0}
-        initialRenderIndex={0}
-        isHorizontal={false}
-        layoutProvider={
-          GridLayoutProviderWithProps {
-            "_acceptableRelayoutDelta": 1,
-            "_getHeightOrWidth": [Function],
-            "_getLayoutTypeForIndex": [Function],
-            "_getSpan": [Function],
-            "_hasExpired": false,
-            "_isHorizontal": false,
-            "_lastLayoutManager": GridLayoutManager {
-              "_acceptableRelayoutDelta": 1,
-              "_getSpan": [Function],
-              "_isGridHorizontal": false,
-              "_isHorizontal": false,
-              "_layoutProvider": [Circular],
-              "_layouts": [
-                {
-                  "height": 21,
-                  "type": 0,
-                  "width": 400,
-                  "x": 0,
-                  "y": 0,
-                },
-                {
-                  "height": 21,
-                  "type": 0,
-                  "width": 400,
-                  "x": 0,
-                  "y": 21,
-                },
-                {
-                  "height": 21,
-                  "type": 0,
-                  "width": 400,
-                  "x": 0,
-                  "y": 42,
-                },
-              ],
-              "_maxSpan": 1,
-              "_renderWindowSize": {
-                "height": 900,
-                "width": 400,
-              },
-              "_totalHeight": 63,
-              "_totalWidth": 400,
-              "_window": {
-                "height": 900,
-                "width": 400,
-              },
-            },
-            "_maxSpan": 1,
-            "_renderWindowSize": {
-              "height": 900,
-              "width": 400,
-            },
-            "_setLayoutForType": [Function],
-            "_tempDim": {
-              "height": 0,
-              "width": 0,
-            },
-            "averageWindow": AverageWindow {
-              "currentAverage": 21,
-              "currentCount": 1,
-              "inputValues": [
-                21,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-                ,
-              ],
-              "nextIndex": 1,
-            },
-            "defaultEstimatedItemSize": 100,
-            "layoutObject": {
-              "size": undefined,
-              "span": undefined,
-            },
-            "props": {
-              "bounces": false,
-              "data": [
-                {
-                  "content": "content1",
-                  "title": "title1",
-                },
-                {
-                  "content": "content2",
-                  "title": "title2",
-                },
-                {
-                  "content": "content3",
-                  "title": "title3",
-                },
-              ],
-              "estimatedItemSize": 21,
-              "numColumns": 1,
-              "onContentSizeChange": [Function],
-              "renderItem": [Function],
-            },
-            "renderWindowInsets": {
-              "height": 0,
-              "width": 0,
-            },
-            "shouldRefreshWithAnchoring": true,
-          }
-        }
-        maxRenderAhead={750}
-        numColumns={1}
-        onContentSizeChange={[Function]}
-        onEndReached={[Function]}
-        onEndReachedThreshold={0}
-        onEndReachedThresholdRelative={0}
-        onItemLayout={[Function]}
-        onLayout={[Function]}
-        onScroll={[Function]}
-        onScrollBeginDrag={[Function]}
-        onSizeChanged={[Function]}
-        onVisibleIndicesChanged={[Function]}
-        removeClippedSubviews={false}
-        renderAheadOffset={0}
-        renderAheadStep={250}
-        renderContentContainer={[Function]}
-        renderItem={[Function]}
-        renderItemContainer={[Function]}
-        rowRenderer={[Function]}
-        scrollEventThrottle={16}
-        scrollThrottle={16}
-        scrollViewProps={
-          {
-            "contentContainerStyle": {
-              "backgroundColor": undefined,
-              "minHeight": 1,
-              "minWidth": 1,
-              "paddingLeft": 0,
-              "paddingRight": 0,
-            },
-            "onLayout": [Function],
-            "onScrollBeginDrag": [Function],
-            "refreshControl": undefined,
-            "style": {
-              "minHeight": 1,
-              "minWidth": 1,
-            },
-          }
-        }
-        style={
-          {
-            "minHeight": 1,
-            "minWidth": 1,
-          }
-        }
-        suppressBoundedSizeException={true}
-        windowCorrectionConfig={
-          {
-            "applyToInitialOffset": true,
-            "applyToItemScroll": true,
-            "value": {
-              "endCorrection": 0,
-              "startCorrection": 0,
-              "windowShift": -0,
-            },
-          }
-        }
-      >
-        <View>
+      <View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
           <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               {
-                "flexDirection": "column",
+                "opacity": 1,
               }
             }
           >
             <View
-              style={
-                {
-                  "paddingLeft": 0,
-                  "paddingTop": 0,
-                }
-              }
-            />
-            <View
+              entering={BaseAnimationMock {}}
+              exiting={BaseAnimationMock {}}
               style={
                 [
-                  undefined,
+                  {
+                    "padding": 10,
+                  },
+                  {
+                    "backgroundColor": "#F9F8FD",
+                  },
                   undefined,
                 ]
               }
-            />
-            <AutoLayoutView
-              enableInstrumentation={false}
-              horizontal={false}
-              onBlankAreaEvent={[Function]}
-              onLayout={[Function]}
-              renderAheadOffset={0}
-              scrollOffset={0}
-              style={
-                {
-                  "height": 63,
-                  "width": 400,
-                }
-              }
-              windowSize={900}
             >
-              <CellContainer
-                index={0}
-                onLayout={[Function]}
+              <Text
                 style={
-                  {
-                    "alignItems": "stretch",
-                    "flexDirection": "column",
-                    "left": 0,
-                    "position": "absolute",
-                    "top": 0,
-                    "width": 400,
-                  }
+                  [
+                    {
+                      "color": "#9A9A9A",
+                      "textAlign": "center",
+                    },
+                    {
+                      "fontFamily": "Poppins-Medium",
+                      "fontSize": 12,
+                      "lineHeight": 18,
+                    },
+                    undefined,
+                  ]
                 }
               >
-                <View
-                  style={
-                    {
-                      "flexDirection": "column",
-                    }
-                  }
-                >
-                  <View
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "opacity": 1,
-                      }
-                    }
-                  >
-                    <View
-                      entering={BaseAnimationMock {}}
-                      exiting={BaseAnimationMock {}}
-                      style={
-                        [
-                          {
-                            "padding": 10,
-                          },
-                          {
-                            "backgroundColor": "#F9F8FD",
-                          },
-                          undefined,
-                        ]
-                      }
-                    >
-                      <Text
-                        style={
-                          [
-                            {
-                              "color": "#9A9A9A",
-                              "textAlign": "center",
-                            },
-                            {
-                              "fontFamily": "Poppins-Medium",
-                              "fontSize": 12,
-                              "lineHeight": 18,
-                            },
-                            undefined,
-                          ]
-                        }
-                      >
-                        title1
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              </CellContainer>
-              <CellContainer
-                index={1}
-                onLayout={[Function]}
-                style={
-                  {
-                    "alignItems": "stretch",
-                    "flexDirection": "column",
-                    "left": 0,
-                    "position": "absolute",
-                    "top": 21,
-                    "width": 400,
-                  }
-                }
-              >
-                <View
-                  style={
-                    {
-                      "flexDirection": "column",
-                    }
-                  }
-                >
-                  <View
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "opacity": 1,
-                      }
-                    }
-                  >
-                    <View
-                      entering={BaseAnimationMock {}}
-                      exiting={BaseAnimationMock {}}
-                      style={
-                        [
-                          {
-                            "padding": 10,
-                          },
-                          {
-                            "backgroundColor": "#F9F8FD",
-                          },
-                          undefined,
-                        ]
-                      }
-                    >
-                      <Text
-                        style={
-                          [
-                            {
-                              "color": "#9A9A9A",
-                              "textAlign": "center",
-                            },
-                            {
-                              "fontFamily": "Poppins-Medium",
-                              "fontSize": 12,
-                              "lineHeight": 18,
-                            },
-                            undefined,
-                          ]
-                        }
-                      >
-                        title2
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              </CellContainer>
-              <CellContainer
-                index={2}
-                onLayout={[Function]}
-                style={
-                  {
-                    "alignItems": "stretch",
-                    "flexDirection": "column",
-                    "left": 0,
-                    "position": "absolute",
-                    "top": 42,
-                    "width": 400,
-                  }
-                }
-              >
-                <View
-                  style={
-                    {
-                      "flexDirection": "column",
-                    }
-                  }
-                >
-                  <View
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "opacity": 1,
-                      }
-                    }
-                  >
-                    <View
-                      entering={BaseAnimationMock {}}
-                      exiting={BaseAnimationMock {}}
-                      style={
-                        [
-                          {
-                            "padding": 10,
-                          },
-                          {
-                            "backgroundColor": "#F9F8FD",
-                          },
-                          undefined,
-                        ]
-                      }
-                    >
-                      <Text
-                        style={
-                          [
-                            {
-                              "color": "#9A9A9A",
-                              "textAlign": "center",
-                            },
-                            {
-                              "fontFamily": "Poppins-Medium",
-                              "fontSize": 12,
-                              "lineHeight": 18,
-                            },
-                            undefined,
-                          ]
-                        }
-                      >
-                        title3
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              </CellContainer>
-            </AutoLayoutView>
-            <CellContainer
-              index={-1}
-              style={
-                [
-                  undefined,
-                  undefined,
-                ]
-              }
-            />
-            <View
-              style={
-                {
-                  "paddingBottom": 0,
-                  "paddingRight": 0,
-                }
-              }
-            />
+                title1
+              </Text>
+            </View>
           </View>
         </View>
-      </RCTScrollView>
-    </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              entering={BaseAnimationMock {}}
+              exiting={BaseAnimationMock {}}
+              style={
+                [
+                  {
+                    "padding": 10,
+                  },
+                  {
+                    "backgroundColor": "#F9F8FD",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#9A9A9A",
+                      "textAlign": "center",
+                    },
+                    {
+                      "fontFamily": "Poppins-Medium",
+                      "fontSize": 12,
+                      "lineHeight": 18,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                title2
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "opacity": 1,
+              }
+            }
+          >
+            <View
+              entering={BaseAnimationMock {}}
+              exiting={BaseAnimationMock {}}
+              style={
+                [
+                  {
+                    "padding": 10,
+                  },
+                  {
+                    "backgroundColor": "#F9F8FD",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "color": "#9A9A9A",
+                      "textAlign": "center",
+                    },
+                    {
+                      "fontFamily": "Poppins-Medium",
+                      "fontSize": 12,
+                      "lineHeight": 18,
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                title3
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
   </View>
   <View
     entering={BaseAnimationMock {}}
