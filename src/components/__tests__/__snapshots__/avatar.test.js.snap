@@ -28,6 +28,9 @@ exports[` 1`] = `
         [
           {
             "color": "#8973CD",
+          },
+          {
+            "fontFamily": "Poppins-Medium",
             "fontSize": 28,
             "lineHeight": 42,
           },
@@ -37,49 +40,6 @@ exports[` 1`] = `
     >
       T
     </Text>
-    <View
-      style={
-        [
-          {
-            "borderRadius": 50,
-            "padding": 4,
-            "position": "absolute",
-            "right": -10,
-          },
-          {
-            "top": -10,
-          },
-        ]
-      }
-    >
-      <View>
-        <View
-          entering={BaseAnimationMock {}}
-          exiting={BaseAnimationMock {}}
-          style={
-            [
-              {
-                "alignItems": "center",
-                "justifyContent": "center",
-              },
-              [
-                {
-                  "height": 30,
-                  "width": 30,
-                },
-                {
-                  "backgroundColor": "#8973CD",
-                  "borderRadius": 50,
-                },
-              ],
-              undefined,
-            ]
-          }
-        >
-          circular
-        </View>
-      </View>
-    </View>
   </View>
   <View
     entering={BaseAnimationMock {}}
@@ -215,6 +175,9 @@ exports[` 2`] = `
         [
           {
             "color": "#8973CD",
+          },
+          {
+            "fontFamily": "Poppins-Medium",
             "fontSize": 28,
             "lineHeight": 42,
           },
@@ -224,49 +187,6 @@ exports[` 2`] = `
     >
       T
     </Text>
-    <View
-      style={
-        [
-          {
-            "borderRadius": 50,
-            "padding": 4,
-            "position": "absolute",
-            "right": -10,
-          },
-          {
-            "bottom": -10,
-          },
-        ]
-      }
-    >
-      <View>
-        <View
-          entering={BaseAnimationMock {}}
-          exiting={BaseAnimationMock {}}
-          style={
-            [
-              {
-                "alignItems": "center",
-                "justifyContent": "center",
-              },
-              [
-                {
-                  "height": 30,
-                  "width": 30,
-                },
-                {
-                  "backgroundColor": "#8973CD",
-                  "borderRadius": 50,
-                },
-              ],
-              undefined,
-            ]
-          }
-        >
-          circular
-        </View>
-      </View>
-    </View>
   </View>
   <View
     entering={BaseAnimationMock {}}
@@ -414,49 +334,6 @@ exports[` 3`] = `
         ]
       }
     />
-    <View
-      style={
-        [
-          {
-            "borderRadius": 50,
-            "padding": 4,
-            "position": "absolute",
-            "right": -10,
-          },
-          {
-            "bottom": -10,
-          },
-        ]
-      }
-    >
-      <View>
-        <View
-          entering={BaseAnimationMock {}}
-          exiting={BaseAnimationMock {}}
-          style={
-            [
-              {
-                "alignItems": "center",
-                "justifyContent": "center",
-              },
-              [
-                {
-                  "height": 30,
-                  "width": 30,
-                },
-                {
-                  "backgroundColor": "#8973CD",
-                  "borderRadius": 50,
-                },
-              ],
-              undefined,
-            ]
-          }
-        >
-          circular
-        </View>
-      </View>
-    </View>
   </View>
   <View
     entering={BaseAnimationMock {}}
@@ -604,49 +481,6 @@ exports[` 4`] = `
         ]
       }
     />
-    <View
-      style={
-        [
-          {
-            "borderRadius": 50,
-            "padding": 4,
-            "position": "absolute",
-            "right": -10,
-          },
-          {
-            "bottom": -10,
-          },
-        ]
-      }
-    >
-      <View>
-        <View
-          entering={BaseAnimationMock {}}
-          exiting={BaseAnimationMock {}}
-          style={
-            [
-              {
-                "alignItems": "center",
-                "justifyContent": "center",
-              },
-              [
-                {
-                  "height": 30,
-                  "width": 30,
-                },
-                {
-                  "backgroundColor": "#8973CD",
-                  "borderRadius": 50,
-                },
-              ],
-              undefined,
-            ]
-          }
-        >
-          circular
-        </View>
-      </View>
-    </View>
   </View>
   <View
     entering={BaseAnimationMock {}}
@@ -782,6 +616,9 @@ exports[` 5`] = `
         [
           {
             "color": "#8973CD",
+          },
+          {
+            "fontFamily": "Poppins-Medium",
             "fontSize": 28,
             "lineHeight": 42,
           },
@@ -791,164 +628,6 @@ exports[` 5`] = `
     >
       T
     </Text>
-    <View
-      style={
-        [
-          {
-            "borderRadius": 50,
-            "padding": 4,
-            "position": "absolute",
-            "right": -10,
-          },
-          {
-            "top": -10,
-          },
-        ]
-      }
-    >
-      <View>
-        <View
-          entering={BaseAnimationMock {}}
-          exiting={BaseAnimationMock {}}
-          style={
-            [
-              {
-                "alignItems": "center",
-                "justifyContent": "center",
-              },
-              [
-                {
-                  "height": 30,
-                  "width": 30,
-                },
-                {
-                  "backgroundColor": "#8973CD",
-                  "borderRadius": 50,
-                },
-              ],
-              undefined,
-            ]
-          }
-        >
-          <Text
-            allowFontScaling={false}
-            selectable={false}
-            style={
-              [
-                {
-                  "color": undefined,
-                  "fontSize": 15,
-                },
-                undefined,
-                {
-                  "fontFamily": "anticon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                {},
-              ]
-            }
-            theme={
-              {
-                "black": "#000000",
-                "darkWhite": "#FDFCFF",
-                "disabledDark": "#BDBCBF",
-                "disabledLight": "#D7D1E9",
-                "disabledLightDark": "#F6F6F6",
-                "error": "#FF3434",
-                "focused": "#654FA6",
-                "grey": "#9A9A9A",
-                "lightBlack": "#404040",
-                "lightGrey": "#F5F4F6",
-                "primary": "#8973CD",
-                "primary15": "#EDEAF8",
-                "primary30": "#DCD5F0",
-                "primary5": "#F9F8FD",
-                "secondary": "#82B98E",
-                "success": "#09CE63",
-                "tertiary": "#67A7C1",
-                "white": "#FFFFFF",
-              }
-            }
-            typography={
-              {
-                "body": {
-                  "medium": {
-                    "fontFamily": "Poppins-Medium",
-                    "fontSize": 14,
-                    "lineHeight": 21,
-                  },
-                  "regular": {
-                    "fontFamily": "Poppins-Regular",
-                    "fontSize": 14,
-                    "lineHeight": 16,
-                  },
-                  "smedium": {
-                    "fontFamily": "Poppins-Medium",
-                    "fontSize": 12,
-                    "lineHeight": 18,
-                  },
-                  "sregular": {
-                    "fontFamily": "Poppins-Regular",
-                    "fontSize": 12,
-                    "lineHeight": 16,
-                  },
-                  "xsmedium": {
-                    "fontFamily": "Poppins-Medium",
-                    "fontSize": 10,
-                    "lineHeight": 16,
-                  },
-                  "xsregular": {
-                    "fontFamily": "Poppins-Regular",
-                    "fontSize": 10,
-                    "lineHeight": 14,
-                  },
-                  "xxsmedium": {
-                    "fontFamily": "Poppins-Medium",
-                    "fontSize": 8,
-                    "lineHeight": 12,
-                  },
-                  "xxsregular": {
-                    "fontFamily": "Poppins-Regular",
-                    "fontSize": 8,
-                    "lineHeight": 12,
-                  },
-                },
-                "heading": {
-                  "h1": {
-                    "fontFamily": "Poppins-Medium",
-                    "fontSize": 30,
-                    "lineHeight": 45,
-                  },
-                  "h2": {
-                    "fontFamily": "Poppins-Medium",
-                    "fontSize": 28,
-                    "lineHeight": 42,
-                  },
-                  "h3": {
-                    "fontFamily": "Poppins-Medium",
-                    "fontSize": 23,
-                    "lineHeight": 35,
-                  },
-                  "h4": {
-                    "fontFamily": "Poppins-Medium",
-                    "fontSize": 19,
-                    "lineHeight": 29,
-                  },
-                  "h5": {
-                    "fontFamily": "Poppins-Medium",
-                    "fontSize": 16,
-                    "lineHeight": 25,
-                  },
-                },
-              }
-            }
-          >
-            
-          </Text>
-        </View>
-      </View>
-    </View>
   </View>
   <View
     entering={BaseAnimationMock {}}
@@ -1098,6 +777,9 @@ exports[` 6`] = `
             [
               {
                 "color": "#8973CD",
+              },
+              {
+                "fontFamily": "Poppins-Medium",
                 "fontSize": 12,
                 "lineHeight": 18,
               },
@@ -1107,164 +789,6 @@ exports[` 6`] = `
         >
           T
         </Text>
-        <View
-          style={
-            [
-              {
-                "borderRadius": 50,
-                "padding": 2,
-                "position": "absolute",
-                "right": -5,
-              },
-              {
-                "top": -5,
-              },
-            ]
-          }
-        >
-          <View>
-            <View
-              entering={BaseAnimationMock {}}
-              exiting={BaseAnimationMock {}}
-              style={
-                [
-                  {
-                    "alignItems": "center",
-                    "justifyContent": "center",
-                  },
-                  [
-                    {
-                      "height": 10,
-                      "width": 10,
-                    },
-                    {
-                      "backgroundColor": "#8973CD",
-                      "borderRadius": 50,
-                    },
-                  ],
-                  undefined,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                selectable={false}
-                style={
-                  [
-                    {
-                      "color": undefined,
-                      "fontSize": 15,
-                    },
-                    undefined,
-                    {
-                      "fontFamily": "anticon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    {},
-                  ]
-                }
-                theme={
-                  {
-                    "black": "#000000",
-                    "darkWhite": "#FDFCFF",
-                    "disabledDark": "#BDBCBF",
-                    "disabledLight": "#D7D1E9",
-                    "disabledLightDark": "#F6F6F6",
-                    "error": "#FF3434",
-                    "focused": "#654FA6",
-                    "grey": "#9A9A9A",
-                    "lightBlack": "#404040",
-                    "lightGrey": "#F5F4F6",
-                    "primary": "#8973CD",
-                    "primary15": "#EDEAF8",
-                    "primary30": "#DCD5F0",
-                    "primary5": "#F9F8FD",
-                    "secondary": "#82B98E",
-                    "success": "#09CE63",
-                    "tertiary": "#67A7C1",
-                    "white": "#FFFFFF",
-                  }
-                }
-                typography={
-                  {
-                    "body": {
-                      "medium": {
-                        "fontFamily": "Poppins-Medium",
-                        "fontSize": 14,
-                        "lineHeight": 21,
-                      },
-                      "regular": {
-                        "fontFamily": "Poppins-Regular",
-                        "fontSize": 14,
-                        "lineHeight": 16,
-                      },
-                      "smedium": {
-                        "fontFamily": "Poppins-Medium",
-                        "fontSize": 12,
-                        "lineHeight": 18,
-                      },
-                      "sregular": {
-                        "fontFamily": "Poppins-Regular",
-                        "fontSize": 12,
-                        "lineHeight": 16,
-                      },
-                      "xsmedium": {
-                        "fontFamily": "Poppins-Medium",
-                        "fontSize": 10,
-                        "lineHeight": 16,
-                      },
-                      "xsregular": {
-                        "fontFamily": "Poppins-Regular",
-                        "fontSize": 10,
-                        "lineHeight": 14,
-                      },
-                      "xxsmedium": {
-                        "fontFamily": "Poppins-Medium",
-                        "fontSize": 8,
-                        "lineHeight": 12,
-                      },
-                      "xxsregular": {
-                        "fontFamily": "Poppins-Regular",
-                        "fontSize": 8,
-                        "lineHeight": 12,
-                      },
-                    },
-                    "heading": {
-                      "h1": {
-                        "fontFamily": "Poppins-Medium",
-                        "fontSize": 30,
-                        "lineHeight": 45,
-                      },
-                      "h2": {
-                        "fontFamily": "Poppins-Medium",
-                        "fontSize": 28,
-                        "lineHeight": 42,
-                      },
-                      "h3": {
-                        "fontFamily": "Poppins-Medium",
-                        "fontSize": 23,
-                        "lineHeight": 35,
-                      },
-                      "h4": {
-                        "fontFamily": "Poppins-Medium",
-                        "fontSize": 19,
-                        "lineHeight": 29,
-                      },
-                      "h5": {
-                        "fontFamily": "Poppins-Medium",
-                        "fontSize": 16,
-                        "lineHeight": 25,
-                      },
-                    },
-                  }
-                }
-              >
-                
-              </Text>
-            </View>
-          </View>
-        </View>
       </View>
     </View>
     <View
@@ -1280,7 +804,7 @@ exports[` 6`] = `
             {
               "alignItems": "center",
               "backgroundColor": "#EDEAF8",
-              "borderRadius": 10,
+              "borderRadius": 50,
               "height": 30,
               "justifyContent": "center",
               "width": 30,
@@ -1299,171 +823,13 @@ exports[` 6`] = `
           style={
             [
               {
-                "borderRadius": 10,
+                "borderRadius": 50,
                 "height": 30,
                 "width": 30,
               },
             ]
           }
         />
-        <View
-          style={
-            [
-              {
-                "borderRadius": 50,
-                "padding": 2,
-                "position": "absolute",
-                "right": -5,
-              },
-              {
-                "bottom": -2,
-              },
-            ]
-          }
-        >
-          <View>
-            <View
-              entering={BaseAnimationMock {}}
-              exiting={BaseAnimationMock {}}
-              style={
-                [
-                  {
-                    "alignItems": "center",
-                    "justifyContent": "center",
-                  },
-                  [
-                    {
-                      "height": 10,
-                      "width": 10,
-                    },
-                    {
-                      "backgroundColor": "#8973CD",
-                      "borderRadius": 50,
-                    },
-                  ],
-                  undefined,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                selectable={false}
-                style={
-                  [
-                    {
-                      "color": undefined,
-                      "fontSize": 15,
-                    },
-                    undefined,
-                    {
-                      "fontFamily": "anticon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    {},
-                  ]
-                }
-                theme={
-                  {
-                    "black": "#000000",
-                    "darkWhite": "#FDFCFF",
-                    "disabledDark": "#BDBCBF",
-                    "disabledLight": "#D7D1E9",
-                    "disabledLightDark": "#F6F6F6",
-                    "error": "#FF3434",
-                    "focused": "#654FA6",
-                    "grey": "#9A9A9A",
-                    "lightBlack": "#404040",
-                    "lightGrey": "#F5F4F6",
-                    "primary": "#8973CD",
-                    "primary15": "#EDEAF8",
-                    "primary30": "#DCD5F0",
-                    "primary5": "#F9F8FD",
-                    "secondary": "#82B98E",
-                    "success": "#09CE63",
-                    "tertiary": "#67A7C1",
-                    "white": "#FFFFFF",
-                  }
-                }
-                typography={
-                  {
-                    "body": {
-                      "medium": {
-                        "fontFamily": "Poppins-Medium",
-                        "fontSize": 14,
-                        "lineHeight": 21,
-                      },
-                      "regular": {
-                        "fontFamily": "Poppins-Regular",
-                        "fontSize": 14,
-                        "lineHeight": 16,
-                      },
-                      "smedium": {
-                        "fontFamily": "Poppins-Medium",
-                        "fontSize": 12,
-                        "lineHeight": 18,
-                      },
-                      "sregular": {
-                        "fontFamily": "Poppins-Regular",
-                        "fontSize": 12,
-                        "lineHeight": 16,
-                      },
-                      "xsmedium": {
-                        "fontFamily": "Poppins-Medium",
-                        "fontSize": 10,
-                        "lineHeight": 16,
-                      },
-                      "xsregular": {
-                        "fontFamily": "Poppins-Regular",
-                        "fontSize": 10,
-                        "lineHeight": 14,
-                      },
-                      "xxsmedium": {
-                        "fontFamily": "Poppins-Medium",
-                        "fontSize": 8,
-                        "lineHeight": 12,
-                      },
-                      "xxsregular": {
-                        "fontFamily": "Poppins-Regular",
-                        "fontSize": 8,
-                        "lineHeight": 12,
-                      },
-                    },
-                    "heading": {
-                      "h1": {
-                        "fontFamily": "Poppins-Medium",
-                        "fontSize": 30,
-                        "lineHeight": 45,
-                      },
-                      "h2": {
-                        "fontFamily": "Poppins-Medium",
-                        "fontSize": 28,
-                        "lineHeight": 42,
-                      },
-                      "h3": {
-                        "fontFamily": "Poppins-Medium",
-                        "fontSize": 23,
-                        "lineHeight": 35,
-                      },
-                      "h4": {
-                        "fontFamily": "Poppins-Medium",
-                        "fontSize": 19,
-                        "lineHeight": 29,
-                      },
-                      "h5": {
-                        "fontFamily": "Poppins-Medium",
-                        "fontSize": 16,
-                        "lineHeight": 25,
-                      },
-                    },
-                  }
-                }
-              >
-                
-              </Text>
-            </View>
-          </View>
-        </View>
       </View>
     </View>
     <View
@@ -1493,6 +859,9 @@ exports[` 6`] = `
             [
               {
                 "color": "#8973CD",
+              },
+              {
+                "fontFamily": "Poppins-Medium",
                 "fontSize": 12,
                 "lineHeight": 18,
               },
@@ -1502,49 +871,6 @@ exports[` 6`] = `
         >
           T
         </Text>
-        <View
-          style={
-            [
-              {
-                "borderRadius": 50,
-                "padding": 2,
-                "position": "absolute",
-                "right": -5,
-              },
-              {
-                "top": -5,
-              },
-            ]
-          }
-        >
-          <View>
-            <View
-              entering={BaseAnimationMock {}}
-              exiting={BaseAnimationMock {}}
-              style={
-                [
-                  {
-                    "alignItems": "center",
-                    "justifyContent": "center",
-                  },
-                  [
-                    {
-                      "height": 10,
-                      "width": 10,
-                    },
-                    {
-                      "backgroundColor": "#8973CD",
-                      "borderRadius": 50,
-                    },
-                  ],
-                  undefined,
-                ]
-              }
-            >
-              circular
-            </View>
-          </View>
-        </View>
       </View>
     </View>
     <View
@@ -1586,49 +912,6 @@ exports[` 6`] = `
             ]
           }
         />
-        <View
-          style={
-            [
-              {
-                "borderRadius": 50,
-                "padding": 2,
-                "position": "absolute",
-                "right": -5,
-              },
-              {
-                "bottom": -2,
-              },
-            ]
-          }
-        >
-          <View>
-            <View
-              entering={BaseAnimationMock {}}
-              exiting={BaseAnimationMock {}}
-              style={
-                [
-                  {
-                    "alignItems": "center",
-                    "justifyContent": "center",
-                  },
-                  [
-                    {
-                      "height": 10,
-                      "width": 10,
-                    },
-                    {
-                      "backgroundColor": "#8973CD",
-                      "borderRadius": 50,
-                    },
-                  ],
-                  undefined,
-                ]
-              }
-            >
-              circular
-            </View>
-          </View>
-        </View>
       </View>
     </View>
   </View>
@@ -1780,6 +1063,9 @@ exports[` 7`] = `
             [
               {
                 "color": "#8973CD",
+              },
+              {
+                "fontFamily": "Poppins-Medium",
                 "fontSize": 12,
                 "lineHeight": 18,
               },
@@ -1789,49 +1075,6 @@ exports[` 7`] = `
         >
           T
         </Text>
-        <View
-          style={
-            [
-              {
-                "borderRadius": 50,
-                "padding": 2,
-                "position": "absolute",
-                "right": -5,
-              },
-              {
-                "bottom": -2,
-              },
-            ]
-          }
-        >
-          <View>
-            <View
-              entering={BaseAnimationMock {}}
-              exiting={BaseAnimationMock {}}
-              style={
-                [
-                  {
-                    "alignItems": "center",
-                    "justifyContent": "center",
-                  },
-                  [
-                    {
-                      "height": 10,
-                      "width": 10,
-                    },
-                    {
-                      "backgroundColor": "#8973CD",
-                      "borderRadius": 50,
-                    },
-                  ],
-                  undefined,
-                ]
-              }
-            >
-              circular
-            </View>
-          </View>
-        </View>
       </View>
     </View>
     <View
@@ -2124,6 +1367,9 @@ exports[`Avatar renders badge with different badge position renders badge with b
         [
           {
             "color": "#8973CD",
+          },
+          {
+            "fontFamily": "Poppins-Medium",
             "fontSize": 28,
             "lineHeight": 42,
           },
@@ -2133,49 +1379,6 @@ exports[`Avatar renders badge with different badge position renders badge with b
     >
       T
     </Text>
-    <View
-      style={
-        [
-          {
-            "borderRadius": 50,
-            "padding": 4,
-            "position": "absolute",
-            "right": -10,
-          },
-          {
-            "bottom": -10,
-          },
-        ]
-      }
-    >
-      <View>
-        <View
-          entering={BaseAnimationMock {}}
-          exiting={BaseAnimationMock {}}
-          style={
-            [
-              {
-                "alignItems": "center",
-                "justifyContent": "center",
-              },
-              [
-                {
-                  "height": 30,
-                  "width": 30,
-                },
-                {
-                  "backgroundColor": "#8973CD",
-                  "borderRadius": 50,
-                },
-              ],
-              undefined,
-            ]
-          }
-        >
-          circular
-        </View>
-      </View>
-    </View>
   </View>
   <View
     entering={BaseAnimationMock {}}
@@ -2311,6 +1514,9 @@ exports[`Avatar renders badge with different badge position renders badge with t
         [
           {
             "color": "#8973CD",
+          },
+          {
+            "fontFamily": "Poppins-Medium",
             "fontSize": 28,
             "lineHeight": 42,
           },
@@ -2320,49 +1526,6 @@ exports[`Avatar renders badge with different badge position renders badge with t
     >
       T
     </Text>
-    <View
-      style={
-        [
-          {
-            "borderRadius": 50,
-            "padding": 4,
-            "position": "absolute",
-            "right": -10,
-          },
-          {
-            "top": -10,
-          },
-        ]
-      }
-    >
-      <View>
-        <View
-          entering={BaseAnimationMock {}}
-          exiting={BaseAnimationMock {}}
-          style={
-            [
-              {
-                "alignItems": "center",
-                "justifyContent": "center",
-              },
-              [
-                {
-                  "height": 30,
-                  "width": 30,
-                },
-                {
-                  "backgroundColor": "#8973CD",
-                  "borderRadius": 50,
-                },
-              ],
-              undefined,
-            ]
-          }
-        >
-          circular
-        </View>
-      </View>
-    </View>
   </View>
   <View
     entering={BaseAnimationMock {}}
@@ -2498,6 +1661,9 @@ exports[`Avatar renders badge with different border style renders badge with cir
         [
           {
             "color": "#8973CD",
+          },
+          {
+            "fontFamily": "Poppins-Medium",
             "fontSize": 28,
             "lineHeight": 42,
           },
@@ -2507,49 +1673,6 @@ exports[`Avatar renders badge with different border style renders badge with cir
     >
       T
     </Text>
-    <View
-      style={
-        [
-          {
-            "borderRadius": 50,
-            "padding": 4,
-            "position": "absolute",
-            "right": 0,
-          },
-          {
-            "bottom": 0,
-          },
-        ]
-      }
-    >
-      <View>
-        <View
-          entering={BaseAnimationMock {}}
-          exiting={BaseAnimationMock {}}
-          style={
-            [
-              {
-                "alignItems": "center",
-                "justifyContent": "center",
-              },
-              [
-                {
-                  "height": 30,
-                  "width": 30,
-                },
-                {
-                  "backgroundColor": "#8973CD",
-                  "borderRadius": 50,
-                },
-              ],
-              undefined,
-            ]
-          }
-        >
-          circular
-        </View>
-      </View>
-    </View>
   </View>
   <View
     entering={BaseAnimationMock {}}
@@ -2671,7 +1794,7 @@ exports[`Avatar renders badge with different border style renders badge with rou
         {
           "alignItems": "center",
           "backgroundColor": "#EDEAF8",
-          "borderRadius": 10,
+          "borderRadius": 50,
           "height": 100,
           "justifyContent": "center",
           "width": 100,
@@ -2685,6 +1808,9 @@ exports[`Avatar renders badge with different border style renders badge with rou
         [
           {
             "color": "#8973CD",
+          },
+          {
+            "fontFamily": "Poppins-Medium",
             "fontSize": 28,
             "lineHeight": 42,
           },
@@ -2694,49 +1820,6 @@ exports[`Avatar renders badge with different border style renders badge with rou
     >
       T
     </Text>
-    <View
-      style={
-        [
-          {
-            "borderRadius": 50,
-            "padding": 4,
-            "position": "absolute",
-            "right": -10,
-          },
-          {
-            "top": -10,
-          },
-        ]
-      }
-    >
-      <View>
-        <View
-          entering={BaseAnimationMock {}}
-          exiting={BaseAnimationMock {}}
-          style={
-            [
-              {
-                "alignItems": "center",
-                "justifyContent": "center",
-              },
-              [
-                {
-                  "height": 30,
-                  "width": 30,
-                },
-                {
-                  "backgroundColor": "#8973CD",
-                  "borderRadius": 50,
-                },
-              ],
-              undefined,
-            ]
-          }
-        >
-          circular
-        </View>
-      </View>
-    </View>
   </View>
   <View
     entering={BaseAnimationMock {}}
@@ -2872,6 +1955,9 @@ exports[`Avatar renders badge with different sizes renders badge with medium siz
         [
           {
             "color": "#8973CD",
+          },
+          {
+            "fontFamily": "Poppins-Medium",
             "fontSize": 28,
             "lineHeight": 42,
           },
@@ -2881,49 +1967,6 @@ exports[`Avatar renders badge with different sizes renders badge with medium siz
     >
       T
     </Text>
-    <View
-      style={
-        [
-          {
-            "borderRadius": 50,
-            "padding": 4,
-            "position": "absolute",
-            "right": -10,
-          },
-          {
-            "bottom": -10,
-          },
-        ]
-      }
-    >
-      <View>
-        <View
-          entering={BaseAnimationMock {}}
-          exiting={BaseAnimationMock {}}
-          style={
-            [
-              {
-                "alignItems": "center",
-                "justifyContent": "center",
-              },
-              [
-                {
-                  "height": 30,
-                  "width": 30,
-                },
-                {
-                  "backgroundColor": "#8973CD",
-                  "borderRadius": 50,
-                },
-              ],
-              undefined,
-            ]
-          }
-        >
-          circular
-        </View>
-      </View>
-    </View>
   </View>
   <View
     entering={BaseAnimationMock {}}
@@ -3071,49 +2114,6 @@ exports[`Avatar renders badge with different sizes renders badge with medium siz
         ]
       }
     />
-    <View
-      style={
-        [
-          {
-            "borderRadius": 50,
-            "padding": 4,
-            "position": "absolute",
-            "right": 0,
-          },
-          {
-            "top": 0,
-          },
-        ]
-      }
-    >
-      <View>
-        <View
-          entering={BaseAnimationMock {}}
-          exiting={BaseAnimationMock {}}
-          style={
-            [
-              {
-                "alignItems": "center",
-                "justifyContent": "center",
-              },
-              [
-                {
-                  "height": 30,
-                  "width": 30,
-                },
-                {
-                  "backgroundColor": "#8973CD",
-                  "borderRadius": 50,
-                },
-              ],
-              undefined,
-            ]
-          }
-        >
-          circular
-        </View>
-      </View>
-    </View>
   </View>
   <View
     entering={BaseAnimationMock {}}
@@ -3261,49 +2261,6 @@ exports[`Avatar renders badge with different sizes renders badge with small size
         ]
       }
     />
-    <View
-      style={
-        [
-          {
-            "borderRadius": 50,
-            "padding": 2,
-            "position": "absolute",
-            "right": -5,
-          },
-          {
-            "top": -5,
-          },
-        ]
-      }
-    >
-      <View>
-        <View
-          entering={BaseAnimationMock {}}
-          exiting={BaseAnimationMock {}}
-          style={
-            [
-              {
-                "alignItems": "center",
-                "justifyContent": "center",
-              },
-              [
-                {
-                  "height": 10,
-                  "width": 10,
-                },
-                {
-                  "backgroundColor": "#8973CD",
-                  "borderRadius": 50,
-                },
-              ],
-              undefined,
-            ]
-          }
-        >
-          circular
-        </View>
-      </View>
-    </View>
   </View>
   <View
     entering={BaseAnimationMock {}}
@@ -3425,7 +2382,7 @@ exports[`Avatar renders badge with different sizes renders badge with small size
         {
           "alignItems": "center",
           "backgroundColor": "#EDEAF8",
-          "borderRadius": 10,
+          "borderRadius": 50,
           "height": 30,
           "justifyContent": "center",
           "width": 30,
@@ -3439,6 +2396,9 @@ exports[`Avatar renders badge with different sizes renders badge with small size
         [
           {
             "color": "#8973CD",
+          },
+          {
+            "fontFamily": "Poppins-Medium",
             "fontSize": 12,
             "lineHeight": 18,
           },
@@ -3448,49 +2408,6 @@ exports[`Avatar renders badge with different sizes renders badge with small size
     >
       T
     </Text>
-    <View
-      style={
-        [
-          {
-            "borderRadius": 50,
-            "padding": 2,
-            "position": "absolute",
-            "right": -5,
-          },
-          {
-            "top": -5,
-          },
-        ]
-      }
-    >
-      <View>
-        <View
-          entering={BaseAnimationMock {}}
-          exiting={BaseAnimationMock {}}
-          style={
-            [
-              {
-                "alignItems": "center",
-                "justifyContent": "center",
-              },
-              [
-                {
-                  "height": 10,
-                  "width": 10,
-                },
-                {
-                  "backgroundColor": "#8973CD",
-                  "borderRadius": 50,
-                },
-              ],
-              undefined,
-            ]
-          }
-        >
-          circular
-        </View>
-      </View>
-    </View>
   </View>
   <View
     entering={BaseAnimationMock {}}
