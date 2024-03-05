@@ -47,14 +47,11 @@ export type AccordionListProps = {
 export type AvatarGroupProps = {
     avatarsType: Array<{
         source?: ImageSourcePropType,
-        borderStyle?: 'circular' | 'rounded',
+        variant?: 'circular' | 'rounded',
         avatarIcon?: React.ReactNode,
         containerStyle?: StyleProp<ViewStyle>,
         label?: string,
         labelStyle?: StyleProp<TextStyle>,
-        badgePosition?: 'top' | 'bottom',
-        badgeStyle?: { containerStyle?: StyleProp<ViewStyle>, textStyle?: StyleProp<TextStyle> },
-        badgeContent?: React.ReactNode,
     }>,
     avatarLimit?: number,
     limitContainerStyle?: { style: StyleProp<TextStyle>, backgroundColor: string }
@@ -63,14 +60,11 @@ export type AvatarGroupProps = {
 export type AvatarProps = {
     size?: 'small' | 'medium',
     source?: ImageSourcePropType,
-    borderStyle?: 'circular' | 'rounded',
+    variant?: 'circular' | 'rounded',
     avatarIcon?: React.ReactNode,
     containerStyle?: StyleProp<ViewStyle>,
     label?: string,
     labelStyle?: StyleProp<TextStyle>,
-    badgePosition?: 'top' | 'bottom',
-    badgeStyle?: { containerStyle?: StyleProp<ViewStyle>, textStyle?: StyleProp<TextStyle> },
-    badgeContent?: React.ReactNode,
 }
 
 export type BadgeProps = {
@@ -79,8 +73,9 @@ export type BadgeProps = {
     size?: 'medium' | 'small',
     containerStyle?: StyleProp<ViewStyle>,
     textStyles?: StyleProp<TextStyle>,
-    borderStyle?: 'circular' | 'rectangular'
-    icon?: React.ReactNode
+    variant?: 'circular' | 'rectangular'
+    icon?: React.ReactNode,
+    badgePosition: 'topRight' | 'topLeft' | 'bottomRight' | 'bottomLeft'
 }
 
 export type ButtonProps = {
