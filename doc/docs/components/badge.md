@@ -21,8 +21,8 @@ import Badge from '../../components/Badge';
 
 const App = () => (
   <View style={{ alignItems: 'center', flexDirection: 'row' }}>
-    <Badge containerStyle={{ margin: 10, backgroundColor: '#9A9A9A' }} borderStyle="rectangular" size="medium" icon={<AntDesign name="apple1" color="#fff" />} />
-    <Badge containerStyle={{ margin: 10, backgroundColor: '#FF3434' }} borderStyle="rectangular" size="medium" icon={<AntDesign name="android1" color="#fff" />} />
+    <Badge containerStyle={{ margin: 10, backgroundColor: '#9A9A9A' }} variant="rectangular" size="medium" icon={<AntDesign name="apple1" color="#fff" />} />
+    <Badge containerStyle={{ margin: 10, backgroundColor: '#FF3434' }} variant="rectangular" size="medium" icon={<AntDesign name="android1" color="#fff" />} />
   </View>
 );
 
@@ -65,7 +65,7 @@ export default App;
 | size                  | <code> 'small' \| 'medium'</code>                          | No       | The size of the badge. Default value: ``'medium'``                                          |
 | containerStyle   |[``StyleProp<ViewStyle>``](https://reactnative.dev/docs/view-style-props)| No       | Additional styles to apply to the badge container.                        |
 | labelStyle          |[``StyleProp<TextStyle>``](https://reactnative.dev/docs/text-style-props)| No       | Additional styles to apply to the children text.                      |
-| borderStyle               |<code>'circular'  \| 'rectangular'</code>                  | No   | Specifies the border type of the badge. Default value: ``'circular'``       |
+| variant               |<code>'circular'  \| 'rectangular'</code>                  | No   | Specifies the border type of the badge. Default value: ``'circular'``       |
 | icon            |[``React.ReactNode``](https://reactnative.dev/docs/react-node)                                | No       | Icon to be added to badge.                                                                |
 | children                 |[``React.ReactNode``](https://reactnative.dev/docs/react-node) | Yes  | A required prop that represents the content to display within the Badge component. |
 | position                 |<code>'top-right'\| 'top-left' \| 'bottom-left' \| 'bottom-right'</code> | No       | Position the Badge component. Default value: ``'top-right'``   |

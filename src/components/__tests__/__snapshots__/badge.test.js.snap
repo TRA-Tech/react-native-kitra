@@ -1,261 +1,509 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[` 1`] = `
-<View>
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "height": 10,
+      "justifyContent": "center",
+      "width": 10,
+    }
+  }
+>
   <View
-    entering={BaseAnimationMock {}}
-    exiting={BaseAnimationMock {}}
     style={
       [
         {
-          "alignItems": "center",
-          "justifyContent": "center",
+          "backgroundColor": undefined,
+          "borderRadius": 50,
+          "padding": 3,
+          "position": "absolute",
+          "zIndex": 10,
         },
-        [
-          {
-            "height": 24,
-            "width": 24,
-          },
-          {
-            "backgroundColor": undefined,
-            "borderRadius": 50,
-          },
-        ],
-        undefined,
+        {
+          "bottom": 0,
+          "right": 0,
+        },
       ]
     }
+  >
+    <View
+      entering={BaseAnimationMock {}}
+      exiting={BaseAnimationMock {}}
+      style={
+        [
+          {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+          [
+            {
+              "height": 24,
+              "width": 24,
+            },
+            {
+              "backgroundColor": undefined,
+              "borderRadius": 50,
+            },
+          ],
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <View
+    onLayout={[Function]}
   />
 </View>
 `;
 
 exports[` 2`] = `
-<View>
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "height": 10,
+      "justifyContent": "center",
+      "width": 10,
+    }
+  }
+>
   <View
-    entering={BaseAnimationMock {}}
-    exiting={BaseAnimationMock {}}
     style={
       [
         {
-          "alignItems": "center",
-          "justifyContent": "center",
+          "backgroundColor": undefined,
+          "borderRadius": 50,
+          "padding": 3,
+          "position": "absolute",
+          "zIndex": 10,
         },
-        [
-          {
-            "height": 30,
-            "width": 30,
-          },
-          {
-            "backgroundColor": undefined,
-            "borderRadius": 50,
-          },
-        ],
-        undefined,
+        {
+          "bottom": 0,
+          "right": 0,
+        },
       ]
     }
   >
-    <Text
-      allowFontScaling={false}
-      selectable={false}
+    <View
+      entering={BaseAnimationMock {}}
+      exiting={BaseAnimationMock {}}
       style={
         [
           {
-            "color": undefined,
-            "fontSize": 20,
+            "alignItems": "center",
+            "justifyContent": "center",
           },
+          [
+            {
+              "height": 30,
+              "width": 30,
+            },
+            {
+              "backgroundColor": undefined,
+              "borderRadius": 50,
+            },
+          ],
           undefined,
-          {
-            "fontFamily": "anticon",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-          {},
         ]
       }
     >
-      
-    </Text>
+      <Text
+        allowFontScaling={false}
+        selectable={false}
+        style={
+          [
+            {
+              "color": undefined,
+              "fontSize": 20,
+            },
+            undefined,
+            {
+              "fontFamily": "anticon",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            {},
+          ]
+        }
+      >
+        
+      </Text>
+    </View>
   </View>
+  <View
+    onLayout={[Function]}
+  />
 </View>
 `;
 
 exports[` 3`] = `
-<View>
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "height": 10,
+      "justifyContent": "center",
+      "width": 10,
+    }
+  }
+>
   <View
-    entering={BaseAnimationMock {}}
-    exiting={BaseAnimationMock {}}
     style={
       [
         {
-          "alignItems": "center",
-          "justifyContent": "center",
+          "backgroundColor": undefined,
+          "borderRadius": 50,
+          "padding": 3,
+          "position": "absolute",
+          "zIndex": 10,
         },
-        [
-          {
-            "height": 30,
-            "width": 30,
-          },
-          {
-            "backgroundColor": undefined,
-            "borderRadius": 50,
-          },
-        ],
-        undefined,
+        {
+          "bottom": 0,
+          "right": 0,
+        },
       ]
     }
   >
-    <Text
+    <View
+      entering={BaseAnimationMock {}}
+      exiting={BaseAnimationMock {}}
       style={
         [
           {
-            "color": undefined,
-            "fontSize": 10,
+            "alignItems": "center",
+            "justifyContent": "center",
           },
+          [
+            {
+              "height": 30,
+              "width": 30,
+            },
+            {
+              "backgroundColor": undefined,
+              "borderRadius": 50,
+            },
+          ],
           undefined,
         ]
       }
     >
-      Test label
-    </Text>
+      <Text
+        style={
+          [
+            {
+              "color": undefined,
+              "fontSize": 10,
+            },
+            undefined,
+          ]
+        }
+      >
+        Test label
+      </Text>
+    </View>
   </View>
+  <View
+    onLayout={[Function]}
+  />
 </View>
 `;
 
 exports[`Badge renders badge with borderStyle renders badge with circular borderStyle 1`] = `
-<View>
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "height": 10,
+      "justifyContent": "center",
+      "width": 10,
+    }
+  }
+>
   <View
-    entering={BaseAnimationMock {}}
-    exiting={BaseAnimationMock {}}
     style={
       [
         {
-          "alignItems": "center",
-          "justifyContent": "center",
+          "backgroundColor": undefined,
+          "borderRadius": 50,
+          "padding": 3,
+          "position": "absolute",
+          "zIndex": 10,
         },
-        [
-          {
-            "height": 10,
-            "width": 10,
-          },
-          {
-            "backgroundColor": undefined,
-            "borderRadius": 50,
-          },
-        ],
-        undefined,
+        {
+          "bottom": 0,
+          "right": 0,
+        },
       ]
     }
+  >
+    <View
+      entering={BaseAnimationMock {}}
+      exiting={BaseAnimationMock {}}
+      style={
+        [
+          {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+          [
+            {
+              "height": 10,
+              "width": 10,
+            },
+            {
+              "backgroundColor": undefined,
+              "borderRadius": 50,
+            },
+          ],
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <View
+    onLayout={[Function]}
   />
 </View>
 `;
 
 exports[`Badge renders badge with borderStyle renders badge with rectangular borderStyle 1`] = `
-<View>
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "height": 10,
+      "justifyContent": "center",
+      "width": 10,
+    }
+  }
+>
   <View
-    entering={BaseAnimationMock {}}
-    exiting={BaseAnimationMock {}}
     style={
       [
         {
-          "alignItems": "center",
-          "justifyContent": "center",
+          "backgroundColor": undefined,
+          "borderRadius": 50,
+          "padding": 3,
+          "position": "absolute",
+          "zIndex": 10,
         },
-        [
-          {
-            "paddingHorizontal": 8,
-            "paddingVertical": 4,
-          },
-          {
-            "backgroundColor": undefined,
-            "borderRadius": 3,
-          },
-        ],
-        undefined,
+        {
+          "bottom": 0,
+          "right": 0,
+        },
       ]
     }
+  >
+    <View
+      entering={BaseAnimationMock {}}
+      exiting={BaseAnimationMock {}}
+      style={
+        [
+          {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+          [
+            {
+              "height": 24,
+              "width": 24,
+            },
+            {
+              "backgroundColor": undefined,
+              "borderRadius": 50,
+            },
+          ],
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <View
+    onLayout={[Function]}
   />
 </View>
 `;
 
 exports[`Badge renders badge with borderStyle renders badge with rectangular borderStyle, small size 1`] = `
-<View>
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "height": 10,
+      "justifyContent": "center",
+      "width": 10,
+    }
+  }
+>
   <View
-    entering={BaseAnimationMock {}}
-    exiting={BaseAnimationMock {}}
     style={
       [
         {
-          "alignItems": "center",
-          "justifyContent": "center",
+          "backgroundColor": undefined,
+          "borderRadius": 50,
+          "padding": 3,
+          "position": "absolute",
+          "zIndex": 10,
         },
-        [
-          {
-            "paddingHorizontal": 6,
-            "paddingVertical": 3,
-          },
-          {
-            "backgroundColor": undefined,
-            "borderRadius": 3,
-          },
-        ],
-        undefined,
+        {
+          "bottom": 0,
+          "right": 0,
+        },
       ]
     }
+  >
+    <View
+      entering={BaseAnimationMock {}}
+      exiting={BaseAnimationMock {}}
+      style={
+        [
+          {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+          [
+            {
+              "height": 10,
+              "width": 10,
+            },
+            {
+              "backgroundColor": undefined,
+              "borderRadius": 50,
+            },
+          ],
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <View
+    onLayout={[Function]}
   />
 </View>
 `;
 
 exports[`Badge renders badge with different sizes renders badge with medium size 1`] = `
-<View>
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "height": 10,
+      "justifyContent": "center",
+      "width": 10,
+    }
+  }
+>
   <View
-    entering={BaseAnimationMock {}}
-    exiting={BaseAnimationMock {}}
     style={
       [
         {
-          "alignItems": "center",
-          "justifyContent": "center",
+          "backgroundColor": undefined,
+          "borderRadius": 50,
+          "padding": 3,
+          "position": "absolute",
+          "zIndex": 10,
         },
-        [
-          {
-            "height": 24,
-            "width": 24,
-          },
-          {
-            "backgroundColor": undefined,
-            "borderRadius": 50,
-          },
-        ],
-        undefined,
+        {
+          "bottom": 0,
+          "right": 0,
+        },
       ]
     }
+  >
+    <View
+      entering={BaseAnimationMock {}}
+      exiting={BaseAnimationMock {}}
+      style={
+        [
+          {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+          [
+            {
+              "height": 24,
+              "width": 24,
+            },
+            {
+              "backgroundColor": undefined,
+              "borderRadius": 50,
+            },
+          ],
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <View
+    onLayout={[Function]}
   />
 </View>
 `;
 
 exports[`Badge renders badge with different sizes renders badge with small size 1`] = `
-<View>
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "transparent",
+      "height": 10,
+      "justifyContent": "center",
+      "width": 10,
+    }
+  }
+>
   <View
-    entering={BaseAnimationMock {}}
-    exiting={BaseAnimationMock {}}
     style={
       [
         {
-          "alignItems": "center",
-          "justifyContent": "center",
+          "backgroundColor": undefined,
+          "borderRadius": 50,
+          "padding": 3,
+          "position": "absolute",
+          "zIndex": 10,
         },
-        [
-          {
-            "height": 10,
-            "width": 10,
-          },
-          {
-            "backgroundColor": undefined,
-            "borderRadius": 50,
-          },
-        ],
-        undefined,
+        {
+          "bottom": 0,
+          "right": 0,
+        },
       ]
     }
+  >
+    <View
+      entering={BaseAnimationMock {}}
+      exiting={BaseAnimationMock {}}
+      style={
+        [
+          {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+          [
+            {
+              "height": 10,
+              "width": 10,
+            },
+            {
+              "backgroundColor": undefined,
+              "borderRadius": 50,
+            },
+          ],
+          undefined,
+        ]
+      }
+    />
+  </View>
+  <View
+    onLayout={[Function]}
   />
 </View>
 `;

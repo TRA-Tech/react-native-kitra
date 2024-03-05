@@ -27,14 +27,11 @@ const AvatarGroup: FCCWD<AvatarGroupProps> = (
             typography={typography}
             key={index}
             source={item?.source}
-            borderStyle={item?.borderStyle}
+            variant={item?.variant}
             avatarIcon={item?.avatarIcon}
             containerStyle={item?.containerStyle}
             size="small"
             label={item?.label}
-            badgePosition={item?.badgePosition}
-            badgeStyle={item?.badgeStyle}
-            badgeContent={item?.badgeContent}
           />
 
         </View>
@@ -43,7 +40,7 @@ const AvatarGroup: FCCWD<AvatarGroupProps> = (
         <Avatar
           theme={theme}
           typography={typography}
-          borderStyle="circular"
+          variant="circular"
           size="small"
           containerStyle={{ backgroundColor: limitContainerStyle?.backgroundColor || '#82B98E' }}
           avatarIcon={avatarIcon}
