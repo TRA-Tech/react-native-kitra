@@ -39,7 +39,7 @@
   "repository": "https://github.com/TRA-Tech/react-native-kitra",
   "license": "MIT",
   "bugs": {
-    "url": "https://git.trabilisim.tech//issues"
+    "url": "https://github.com/TRA-Tech/react-native-kitra/issues"
   },
   "homepage": "https://github.com/TRA-Tech/react-native-kitra/blob/main/README.md",
   "publishConfig": {
