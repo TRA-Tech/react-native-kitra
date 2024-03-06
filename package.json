@@ -24,8 +24,10 @@
     "test": "jest",
     "typescript": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "bootstrap": "yarn --cwd example && yarn",
     "prepare": "bob build",
-    "release": "release-it"
+    "release": "release-it",
+    "example": "yarn --cwd ./example"
   },
   "keywords": [
     "react-native",
