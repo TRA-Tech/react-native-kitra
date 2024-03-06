@@ -113,8 +113,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
     const color = interpolateColor(
       textInputOffset.value,
       [0, 1],
-      // @ts-ignore
-      [error ? theme?.error : labelColor.focus || '#000000', error ? theme?.error : labelColor.default || '#FFFFFF'],
+      [error ? theme?.error || '#FF3434' : labelColor.focus || '#000000', error ? theme?.error || '#FF3434' : labelColor.default || '#FFFFFF'],
     );
     return {
       fontSize,
