@@ -33,7 +33,6 @@ exports[`TextInput renders  with variant="filled" 1`] = `
             "borderColor": undefined,
           },
           undefined,
-          false,
         ]
       }
     >
@@ -71,14 +70,17 @@ exports[`TextInput renders  with variant="filled" 1`] = `
             style={
               [
                 {
-                  "flex": 1,
                   "flexDirection": "row",
+                  "flexGrow": 1,
                   "fontFamily": "Poppins-Regular",
                   "fontSize": 12,
-                  "lineHeight": 16,
+                  "lineHeight": 17,
                   "marginTop": 8,
                 },
                 undefined,
+                {
+                  "backgroundColor": "transparent",
+                },
               ]
             }
             testID="textInput"
@@ -267,7 +269,6 @@ exports[`TextInput renders  with variant="outlined" 1`] = `
             "borderColor": undefined,
           },
           undefined,
-          false,
         ]
       }
     >
@@ -297,6 +298,22 @@ exports[`TextInput renders  with variant="outlined" 1`] = `
             }
           }
         >
+          <View
+            style={
+              [
+                {
+                  "backgroundColor": "#FFFFFF",
+                  "height": 1.1,
+                  "position": "absolute",
+                  "width": 8,
+                  "zIndex": 100,
+                },
+                {
+                  "top": undefined,
+                },
+              ]
+            }
+          />
           <TextInput
             editable={true}
             onChangeText={[Function]}
@@ -305,14 +322,17 @@ exports[`TextInput renders  with variant="outlined" 1`] = `
             style={
               [
                 {
-                  "flex": 1,
                   "flexDirection": "row",
+                  "flexGrow": 1,
                   "fontFamily": "Poppins-Regular",
                   "fontSize": 12,
-                  "lineHeight": 16,
-                  "marginTop": 8,
+                  "lineHeight": 17,
+                  "marginTop": 0,
                 },
                 undefined,
+                {
+                  "backgroundColor": "transparent",
+                },
               ]
             }
             testID="textInput"
@@ -501,7 +521,6 @@ exports[`TextInput renders default 1`] = `
             "borderColor": undefined,
           },
           undefined,
-          false,
         ]
       }
     >
@@ -539,14 +558,17 @@ exports[`TextInput renders default 1`] = `
             style={
               [
                 {
-                  "flex": 1,
                   "flexDirection": "row",
+                  "flexGrow": 1,
                   "fontFamily": "Poppins-Regular",
                   "fontSize": 12,
-                  "lineHeight": 16,
+                  "lineHeight": 17,
                   "marginTop": 8,
                 },
                 undefined,
+                {
+                  "backgroundColor": "transparent",
+                },
               ]
             }
             testID="textInput"
@@ -556,15 +578,11 @@ exports[`TextInput renders default 1`] = `
             style={
               [
                 {
-                  "backgroundColor": "#FFFFFF",
                   "paddingHorizontal": 4,
                   "position": "absolute",
+                  "zIndex": 101,
                 },
                 undefined,
-                false,
-                {
-                  "top": undefined,
-                },
               ]
             }
           >
@@ -573,6 +591,7 @@ exports[`TextInput renders default 1`] = `
               collapsable={false}
               focusable={true}
               onClick={[Function]}
+              onLayout={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
               onResponderRelease={[Function]}
@@ -597,6 +616,7 @@ exports[`TextInput renders default 1`] = `
                       "color": undefined,
                       "fontSize": undefined,
                       "lineHeight": undefined,
+                      "top": undefined,
                     },
                   ]
                 }

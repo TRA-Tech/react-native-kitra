@@ -33,6 +33,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
 ) => {
   const inputRef = useRef<RNTextInput>(null);
   const [counts, setCounts] = useState(0);
+  const [labelLayout, setLabelLayout] = useState({ width: 0, height: 0 });
   const textInputOffset = useSharedValue(props.defaultValue || props.placeholder || props.value ? 0 : 1);
 
   const fontStyles =
@@ -45,16 +46,22 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
   const sizeStyles =
   {
     large: {
-      padding: 15,
+      paddingHorizontal: 18,
       height: 51,
+      paddingVertical: 15,
+      lineHeight: 20,
     },
     medium: {
-      padding: 12,
+      paddingHorizontal: 12,
       height: 42,
+      paddingVertical: 12,
+      lineHeight: 17,
     },
     small: {
-      padding: 10,
+      paddingHorizontal: 10,
       height: 36,
+      paddingVertical: 10,
+      lineHeight: 15,
     },
   };
 
@@ -74,12 +81,12 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
     },
   };
 
-  // label'ın konum ve fontsize animasyonu
+  // label'Ä±n konum ve fontsize animasyonu
   const labelPositionAnimation = useAnimatedStyle(() => {
     const topInterpolate = interpolate(
       textInputOffset.value,
       [0, 1],
-      [variant === 'filled' ? 2 : -labelStyles[size].focused.lineHeight + labelStyles[size].focused.lineHeight / 2, sizeStyles[size].padding],
+      [-1, sizeStyles[size].paddingHorizontal],
     );
 
     return {
@@ -91,7 +98,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
     const topInterpolate = interpolateColor(
       textInputOffset.value,
       [0, 1],
-      [theme?.primary || '#000000', theme?.grey || '#FFFFFF'],
+      [error ? theme?.error || '#FF3434' : theme?.primary || '#000000', error ? theme?.error || '#FF3434' : theme?.grey || '#FFFFFF'],
     );
 
     return {
@@ -115,10 +122,16 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
       [0, 1],
       [error ? theme?.error || '#FF3434' : labelColor.focus || '#000000', error ? theme?.error || '#FF3434' : labelColor.default || '#FFFFFF'],
     );
+    const topInterpolate = interpolate(
+      textInputOffset.value,
+      [0, 1],
+      [variant === 'filled' ? 2 : -labelStyles[size].focused.lineHeight + labelStyles[size].focused.lineHeight / 2, sizeStyles[size].paddingHorizontal],
+    );
     return {
       fontSize,
       lineHeight,
       color,
+      top: topInterpolate,
     };
   });
 
@@ -143,6 +156,21 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
     textInputOffset.value = (counts === 0) ? withTiming(1) : withTiming(0);
   };
 
+  const inputBackground = () => {
+    if (Array.isArray(inputContainerStyle)) {
+      for (let i = 0; i < inputContainerStyle.length; i + 1) {
+        const style = inputContainerStyle[i];
+        if (style && Object.hasOwn(style, 'backgroundColor')) {
+          // @ts-ignore
+          return style.backgroundColor;
+        }
+      }
+    } else if (inputContainerStyle && Object.hasOwn(inputContainerStyle, 'backgroundColor')) {
+      // @ts-ignore
+      return inputContainerStyle.backgroundColor;
+    }
+    return theme?.white;
+  };
   return (
     <View style={[{ flexGrow: 1, maxHeight: sizeStyles[size].height }, containerStyle]}>
       <Animated.View style={[{
@@ -150,27 +178,28 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
         borderRadius: 5,
         borderWidth: 1,
         height: sizeStyles[size].height,
-        backgroundColor: theme?.white,
+        backgroundColor: inputBackground?.(),
       },
       // @ts-ignore
-      borderAnimation, inputContainerStyle, error && { backgroundColor: opacity(theme?.error, 15) }]}
+      borderAnimation, inputContainerStyle]}
       >
         <View style={{ flex: 1, flexDirection: 'row', height: sizeStyles[size].height }}>
-          <View style={{ alignSelf: 'center', marginLeft: sizeStyles[size].padding, marginRight: 5 }}>
+          <View style={{ alignSelf: 'center', marginLeft: sizeStyles[size].paddingVertical, marginRight: 5 }}>
             {left && left}
           </View>
           <View style={{ flex: 1, flexDirection: 'row' }}>
+            {variant === 'outlined' && <Animated.View style={[{ position: 'absolute', backgroundColor: inputBackground?.(), width: labelLayout.width + 8, height: 1.1, zIndex: 100 }, labelPositionAnimation]} />}
             <AnimatedTextInput
               ref={inputRef}
               editable={editable}
               style={[{
-                marginTop: fontStyles[size].lineHeight / 2,
+                marginTop: variant === 'filled' ? fontStyles[size].lineHeight / 2 : 0,
                 fontSize: fontStyles[size].fontSize,
                 fontFamily: labelStyles[size].default.fontFamily,
-                lineHeight: fontStyles[size].lineHeight,
+                lineHeight: sizeStyles[size].lineHeight,
                 flexDirection: 'row',
-                flex: 1,
-              }, inputStyle]}
+                flexGrow: 1,
+              }, inputStyle, { backgroundColor: 'transparent' }]}
               onChangeText={event => { setCounts(event?.length || 0); onChangeText && onChangeText(event); }}
               onFocus={x => { onFocusInput(); onFocus?.(x); }}
               onEndEditing={x => { onEndEditingInput(); onEndEditing?.(x); }}
@@ -178,24 +207,25 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
             />
 
             {label ? (
-              <Animated.View style={[
+              <View style={[
                 { position: 'absolute',
-                  paddingHorizontal: 4,
-                  backgroundColor: theme?.white },
+                  zIndex: 101,
+                  paddingHorizontal: 4 },
                 labelContainerStyle,
-                error && { backgroundColor: opacity(theme?.error || 'transparent', 0) },
-                labelPositionAnimation]}
+              ]}
               >
-                <TouchableOpacity onPress={() => inputRef.current?.focus()} activeOpacity={0.9}>
+                <TouchableOpacity onPress={() => inputRef.current?.focus()} activeOpacity={0.9} onLayout={event => setLabelLayout({ width: event.nativeEvent.layout.width, height: event.nativeEvent.layout.height })}>
                   <Animated.Text style={[{ color: theme?.primary, fontFamily: labelStyles[size].default.fontFamily }, labelStyle, labelFontAnimation]}>
+
                     {label}
                   </Animated.Text>
                 </TouchableOpacity>
-              </Animated.View>
+              </View>
+
             ) : null
             }
           </View>
-          <View style={{ alignSelf: 'center', marginRight: sizeStyles[size].padding, marginLeft: 5 }}>
+          <View style={{ alignSelf: 'center', marginRight: sizeStyles[size].paddingVertical, marginLeft: 5 }}>
             {right && right}
           </View>
         </View>
