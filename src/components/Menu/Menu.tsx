@@ -38,7 +38,7 @@ const Menu : FCCWD<MenuProps> = (
     items,
     dividerColor,
     menuStyle,
-    labelStyle,
+    rowTextStyle,
     containerStyle,
     rowStyle,
     closeOnPress,
@@ -90,7 +90,7 @@ const Menu : FCCWD<MenuProps> = (
                       fontWeight: '500',
                       lineHeight: typography?.body.smedium.lineHeight,
                       paddingHorizontal: item.left ? 5 : 0,
-                      color: theme?.lightBlack }, labelStyle]}
+                      color: theme?.lightBlack }, rowTextStyle]}
                   >
                     {item.label}
                   </Text>
