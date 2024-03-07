@@ -1,73 +1,61 @@
-import { View } from "react-native";
-import Layout from "../components/Layout";
-import { Button, Icon, useTheme } from "@tra-tech/react-native-kitra";
-import Divider from "../components/Divider";
+import { View } from 'react-native';
+import { Button, Icon, useTheme } from '@tra-tech/react-native-kitra';
+import Layout from '../components/Layout';
+import Divider from '../components/Divider';
 
+const ButtonScreen = () => (
+  <Layout>
+    <Button label="Press Me!" />
 
-const ButtonScreen = () => {
-    return (
-        <Layout>
-            <Button label="Press Me!" />
+    <Divider label="Disabled" />
+    <Button label="Press Me!" disabled />
 
-            <Divider label="Disabled" />
-            <Button label="Press Me!" disabled />
+    <Divider label="Left-Right Elements" />
+    <View style={{ rowGap: 5 }}>
+      <Button label="Press Me!" icon={<Icon type="material-community" name="penguin" />} />
+      <Button label="Press Me!" iconPosition="right" icon={<Icon type="material-community" name="penguin" />} />
+    </View>
 
-            <Divider label="Left-Right Elements" />
-            <View style={{ rowGap: 5 }}>
-                <Button label="Press Me!">
-                    <Icon type="material-community" name="penguin" />
-                    <Icon type="material-community" name="penguin" />
-                </Button>
-                <Button label="Press Me!" iconPosition="right ">
-                    <Icon type="material-community" name="penguin" />
-                </Button>
-            </View>
+    <Divider label="Size S-M-L" />
+    <View style={{ rowGap: 5 }}>
+      <Button label="Press Me!" size="small" icon={<Icon type="material-community" name="penguin" />} />
+      <Button label="Press Me!" size="medium" icon={<Icon type="material-community" name="penguin" />} />
+      <Button label="Press Me!" size="large" icon={<Icon type="material-community" name="penguin" />} />
+    </View>
 
-            <Divider label="Size S-M-L" />
-            <View style={{ rowGap: 5 }}>
-                <Button label="Press Me!" size="small" >
-                    <Icon type="material-community" name="penguin" />
-                </Button>
-                <Button label="Press Me!" size="medium" >
-                    <Icon type="material-community" name="penguin" />
-                </Button>
-                <Button label="Press Me!" size="large" >
-                    <Icon type="material-community" name="penguin" />
-                </Button>
-            </View>
-
-            <Divider label="Custom Status Style" />
-            <Button label="Press Me!"
-             statusStyle={
+    <Divider label="Custom Status Style" />
+    <Button
+      label="Press Me!"
+      statusStyle={
                 {
-                    default: {
-                        container: {
-                            backgroundColor: 'black'
-                        },
-                        text: {
-                            color: 'white'
-                        }
+                  default: {
+                    container: {
+                      backgroundColor: 'black',
                     },
-                    disabled: {
-                        container: {
-                            backgroundColor: 'red'
-                        },
-                        text: {
-                            color: 'green'
-                        }
+                    text: {
+                      color: 'white',
                     },
-                    focused: {
-                        container: {
-                            backgroundColor: 'white'
-                        },
-                        text: {
-                            color: 'red'
-                        }
+                  },
+                  disabled: {
+                    container: {
+                      backgroundColor: 'red',
                     },
+                    text: {
+                      color: 'green',
+                    },
+                  },
+                  focused: {
+                    container: {
+                      backgroundColor: 'white',
+                    },
+                    text: {
+                      color: 'red',
+                    },
+                  },
                 }
-            }/>
-        </Layout>
-    )
-}
+            }
+    />
+  </Layout>
+);
 
 export default ButtonScreen;
