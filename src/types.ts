@@ -205,7 +205,7 @@ export type IconComponentType = React.ComponentType<
 export type MenuProps = {
     items: Array<{ label: string, left?: React.ReactNode, right?: React.ReactNode, onPress?: () => void }>,
     containerStyle?: StyleProp<ViewStyle>,
-    labelStyle?: StyleProp<TextStyle>,
+    rowTextStyle?: StyleProp<TextStyle>,
     dividerColor?: string,
     menuStyle?: ViewStyle,
     button?: (isOpen: boolean) => React.ReactNode,
