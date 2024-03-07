@@ -14,7 +14,7 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
     iconPosition = 'left',
     style,
     textStyle,
-    children,
+    icon,
     ...props },
 ) => {
   const [isPressed, setIsPressed] = useState(false);
@@ -81,12 +81,12 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
       disabled={disabled}
       {...props}
     >
-      {React.Children.map(children, item =>
-        React.cloneElement(item, {
-          size: item.props.size || fontStyles[size].fontSize,
-          color: (disabled ? viewStyles.disabled.text.color : (isPressed ? (item.props.color || viewStyles.focused.text.color) : (item.props.color || viewStyles.default.text.color))),
-          style: [label.length ? (iconPosition === 'left' ? { marginRight: 10 } : { marginLeft: 10 }) : null, item.props?.style],
-        }))}
+
+      {icon && React.cloneElement(icon, {
+        size: icon.props.size || fontStyles[size].fontSize,
+        color: (disabled ? viewStyles.disabled.text.color : (isPressed ? (icon.props.color || viewStyles.focused.text.color) : (icon.props.color || viewStyles.default.text.color))),
+        style: [label.length ? (iconPosition === 'left' ? { marginRight: 10 } : { marginLeft: 10 }) : null, icon.props?.style],
+      })}
       <Text testID="button_text" style={[disabled ? viewStyles.disabled.text : (isPressed ? viewStyles.focused.text : viewStyles.default.text), { fontWeight: '500' }, fontStyles[size], textStyle]}>
         {label}
       </Text>

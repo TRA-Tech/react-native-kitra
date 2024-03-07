@@ -82,7 +82,7 @@ export type ButtonProps = {
     size?: 'large' | 'medium' | 'small',
     disabled?: boolean,
     label?: string,
-    children?: any,
+    icon?: React.ReactElement,
     statusStyle?: {
         default:
         {

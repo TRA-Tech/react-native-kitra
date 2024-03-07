@@ -83,6 +83,7 @@ export default function App() {
             <Stack.Screen name="CheckBox" component={CheckBoxScreen} />
             <Stack.Screen name="ProgressBar" component={ProgressBarScreen} />
             <Stack.Screen name="Badge" component={BadgeScreen} />
+            <Stack.Screen name="Button" component={ButtonScreen} />
             <Stack.Screen name="IconButton" component={IconButtonScreen} />
             <Stack.Screen name="AccordionList" component={AccordionListScreen} />
             <Stack.Screen name="RadioButton" component={RadioButtonScreen} />
