@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
   menuButton: {
     margin: 10,
     flexDirection: 'row',
+    alignItems: 'center',
   },
   buttonContainer: {
     flexDirection: 'row',
