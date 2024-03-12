@@ -5,7 +5,6 @@ import { default as PagerViewComponent, PagerViewOnPageScrollEvent, PagerViewPro
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { ComponentThemeType, DefaultProps, FCCWD, PagerViewProps } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
-import Divider from '../Divider/Divider';
 import type Icon from '../Icons/Icon';
 
 const style = StyleSheet.create({
@@ -62,14 +61,10 @@ const PagerView:FCCWD<PagerViewProps&PWProps> =
 ({ children,
   containerStyle,
   pageContainerStyle,
-  headerTextColor,
   headerTextStyle,
   injectPagerRef = false,
   headerSliderStyle,
   headerContainerStyle,
-  showDivider = true,
-  dividerStyle,
-  dividerColor,
   icons,
   theme,
   typography }) => {

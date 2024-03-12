@@ -9,7 +9,6 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
     size = 'medium',
     disabled = false,
     label = '',
-    statusStyle,
     iconPosition = 'left',
     style,
     textStyle,

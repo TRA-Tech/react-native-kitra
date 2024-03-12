@@ -72,17 +72,17 @@ const Slider: FCCWD<SliderProps> = (
         <View
           ref={containerRef}
           onLayout={() => containerRef.current?.measure((x, y, width, height, pageX, pageY) => { setMeasure({ x, y, pageX, pageY, width, height }); })}
-          style={[{ backgroundColor: statusTheme.bar }, Style.barStyle, barStyle]}
+          style={[Style.barStyle, barStyle, { backgroundColor: statusTheme.bar }]}
         >
-          <Animated.View style={[{ position: 'absolute', borderRadius: 14, backgroundColor: statusTheme.progress, width: progress, height: 6 }, progressStyle, percentageStyle]} />
+          <Animated.View style={[{ position: 'absolute', borderRadius: 14, width: progress, height: 6 }, progressStyle, percentageStyle, { backgroundColor: statusTheme.progress }]} />
           <PanGestureHandler onGestureEvent={handler}>
-            <Animated.View hitSlop={{ top: 25, bottom: 25, left: 25, right: 25 }} style={[{ backgroundColor: statusTheme.thumb }, Style.button, buttonStyle, progressBarStyle]}>
+            <Animated.View hitSlop={{ top: 25, bottom: 25, left: 25, right: 25 }} style={[Style.button, buttonStyle, progressBarStyle, { backgroundColor: statusTheme.thumb }]}>
               {showPercentage && (
                 <View style={[Style.percentageIndicator, { backgroundColor: statusTheme.percentageBackground }]}>
                   <AnimatedTextInput
                     underlineColorAndroid="transparent"
                     editable={false}
-                    style={{ textAlign: 'center', color: statusTheme.percentageLabel, fontSize: 12 }}
+                    style={{ textAlign: 'center', fontSize: 12, color: statusTheme.percentageLabel }}
                     value={progress.value.toString()}
                     {...{ animatedProps }}
                   />

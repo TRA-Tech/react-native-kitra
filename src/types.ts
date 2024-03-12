@@ -98,33 +98,6 @@ export type ButtonProps = {
     disabled?: boolean,
     label?: string,
     icon?: React.ReactElement,
-    statusStyle?: {
-        default:
-        {
-            container: {
-                backgroundColor: string
-            },
-            text: {
-                color: string
-            }
-        },
-        focused: {
-            container: {
-                backgroundColor: string
-            },
-            text: {
-                color: string
-            }
-        },
-        disabled: {
-            container: {
-                backgroundColor: string
-            },
-            text: {
-                color: string
-            }
-        }
-    },
     iconPosition?: 'left' | 'right',
     style?: StyleProp<ViewStyle>,
     textStyle?: StyleProp<TextStyle>,
@@ -137,7 +110,6 @@ export type CheckBoxProps = {
     style?: StyleProp<ViewStyle>
     value?: boolean | undefined
     disabled?: boolean,
-    iconColor?: string
     theme: ComponentThemeType['checkbox']
 }
 
@@ -147,7 +119,6 @@ export type ChipProps = {
     style?: StyleProp<ViewStyle>,
     value?: boolean,
     icon?: { iconName: string, iconType: IconType, iconPosition: 'left' | 'right' },
-    colorStyle?: { backgroundColor: string, selectBackgroundColor: string, selectTitleColor: string, titleColor: string },
     size?: 'large' | 'medium' | 'small',
     onChange: (event: boolean) => void,
     disabled?: boolean,
@@ -157,7 +128,6 @@ export type ChipProps = {
 export type DividerProps = {
     borderStyle?: 'solid' | 'dotted' | 'dashed'
     width?: number,
-    color?: string,
     style?: StyleProp<ViewStyle>
     theme: ComponentThemeType['divider']
 }
@@ -238,8 +208,6 @@ export type MenuProps = {
 }
 export type ProgressBarProps = {
     progress?: number,
-    barColor?: string,
-    progressColor?: string,
     progressStyle?: StyleProp<ViewStyle>,
     testID?: string,
     theme: ComponentThemeType['progressBar']
@@ -353,9 +321,6 @@ export type PagerViewProps = {
     headerSliderStyle?: StyleProp<ViewStyle>,
     headerContainerStyle?: StyleProp<ViewStyle>,
     headerTextStyle?: StyleProp<TextStyle>,
-    showDivider?: boolean,
-    dividerStyle?: StyleProp<ViewStyle>,
-    dividerColor?: string,
     icons?: React.ReactElement<typeof Icon>[],
     theme: ComponentThemeType['pagerView']
 }
