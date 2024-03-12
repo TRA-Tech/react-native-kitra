@@ -1,8 +1,9 @@
-import React, { Dispatch, ReactNode, SetStateAction, useEffect, useRef, useState } from 'react';
-import Animated, { FadeIn, runOnJS, SharedValue, useAnimatedStyle, useDerivedValue, useSharedValue } from 'react-native-reanimated';
-import { StyleProp, StyleSheet, TextStyle, TouchableOpacity, View, ViewStyle } from 'react-native';
+import React, { Dispatch, FC, PropsWithChildren, ReactNode, SetStateAction, useRef, useState } from 'react';
+import Animated, { FadeIn, SharedValue, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
+import { StyleProp, StyleSheet, TextStyle, TouchableOpacity, View } from 'react-native';
 import { default as PagerViewComponent, PagerViewOnPageScrollEvent, PagerViewProps as PWProps } from 'react-native-pager-view';
-import type { FCCWD, IconComponentProps, IconType, PagerViewProps } from '../../types';
+import useComponentTheme from '../../core/hooks/useComponentTheme';
+import type { ComponentThemeType, DefaultProps, FCCWD, PagerViewProps } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
 import Divider from '../Divider/Divider';
 import type Icon from '../Icons/Icon';
@@ -20,19 +21,20 @@ const style = StyleSheet.create({
 export type TabItemProps = {
   item: ReactNode,
   index: number,
-  theme:{[index: string]: string} | undefined,
+  theme: ComponentThemeType['pagerView']
   refPager: React.RefObject<PagerViewComponent>,
   setSize: Dispatch<SetStateAction<{ height: number, width: number }>>,
   slideValue: SharedValue<number>
-  headerTextColor: {select:string|undefined, default:string|undefined},
   headerTextStyle?:StyleProp<TextStyle>,
   icons?: React.ReactElement<typeof Icon>[],
   selectPage:number
 }
-const TabItem:FCCWD<TabItemProps> = ({ theme, icons, selectPage, typography, item, index, refPager, setSize, slideValue, headerTextStyle, headerTextColor }) => {
+const TabItem: FC<PropsWithChildren<TabItemProps&DefaultProps>> = ({ theme, icons, selectPage, typography, item, index, refPager, setSize, slideValue, headerTextStyle }) => {
+  const { componentTheme, statusTheme } = useComponentTheme(theme, 'pagerView', selectPage === index ? 'active' : 'default');
+
   const textColorStyle = useAnimatedStyle(() => {
-    if (index - slideValue.value < 0.3 && index - slideValue.value > -0.5) { return { color: headerTextColor.select || theme?.white }; }
-    return { color: headerTextColor.default || theme?.primary };
+    if (index - slideValue.value < 0.3 && index - slideValue.value > -0.5) { return { color: componentTheme.active.headerLabel }; }
+    return { color: componentTheme.default.headerLabel };
   });
 
   return (
@@ -46,7 +48,7 @@ const TabItem:FCCWD<TabItemProps> = ({ theme, icons, selectPage, typography, ite
     >
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         {/* @ts-ignore */}
-        {icons && icons[index] && React.cloneElement(icons[index], { color: selectPage === index ? headerTextColor.select : headerTextColor.default })}
+        {icons && icons[index] && React.cloneElement(icons[index], { color: selectPage === index ? statusTheme.headerLabel : componentTheme.default.headerLabel })}
         {/* @ts-ignore */}
         <Animated.Text style={[{ fontSize: typography?.body.medium.fontSize, lineHeight: typography?.body.medium.lineHeight }, style.headerText, textColorStyle, headerTextStyle]}>{item.key}</Animated.Text>
       </View>
@@ -57,9 +59,7 @@ const TabItem:FCCWD<TabItemProps> = ({ theme, icons, selectPage, typography, ite
 const AnimatedPager = Animated.createAnimatedComponent(PagerViewComponent);
 
 const PagerView:FCCWD<PagerViewProps&PWProps> =
-({ theme,
-  typography,
-  children,
+({ children,
   containerStyle,
   pageContainerStyle,
   headerTextColor,
@@ -70,11 +70,14 @@ const PagerView:FCCWD<PagerViewProps&PWProps> =
   showDivider = true,
   dividerStyle,
   dividerColor,
-  icons }) => {
+  icons,
+  theme,
+  typography }) => {
   const refPager = useRef<PagerViewComponent>(null);
   const slideValue = useSharedValue(0);
   const [size, setSize] = useState<{ height: number, width: number }>({ height: 0, width: 0 });
   const [selectPage, setSelectPage] = useState(0);
+  const { componentTheme } = useComponentTheme(theme, 'pagerView');
   const headerSliderAnimated = useAnimatedStyle(() => (
     { left: (slideValue.value * (size?.width ? size.width : 0)) ? (slideValue.value * (size?.width ? size.width : 0)) : 0 }
   ));
@@ -85,10 +88,9 @@ const PagerView:FCCWD<PagerViewProps&PWProps> =
 
   return (
     <View style={[style.container, containerStyle]}>
-      <View style={[{ backgroundColor: theme?.white }, style.headersContainer, headerContainerStyle]}>
+      <View style={[{ backgroundColor: componentTheme.default.headerBackground }, style.headersContainer, headerContainerStyle]}>
         {React.Children.map(children, (item, index) => (
           <TabItem
-            theme={theme}
             selectPage={selectPage}
             item={item}
             icons={icons}
@@ -98,14 +100,11 @@ const PagerView:FCCWD<PagerViewProps&PWProps> =
             slideValue={slideValue}
             typography={typography}
             headerTextStyle={headerTextStyle}
-            headerTextColor={headerTextColor || { select: theme?.white, default: theme?.primary }}
+            theme={theme}
           />
         ))
         }
-        <Animated.View style={[style.slider, { backgroundColor: theme?.focused, height: size?.height, width: size?.width, zIndex: 100 }, headerSliderAnimated, headerSliderStyle]} />
-        {showDivider &&
-        <Divider style={[style.divider, dividerStyle]} color={dividerColor} />
- }
+        <Animated.View style={[style.slider, { backgroundColor: componentTheme.active.headerBackground, height: size?.height, width: size?.width, zIndex: 100 }, headerSliderAnimated, headerSliderStyle]} />
       </View>
 
       <AnimatedPager

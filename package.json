@@ -54,6 +54,7 @@
     "@shopify/flash-list": "*",
     "@testing-library/jest-native": "^5.4.3",
     "@testing-library/react-native": "^12.2.2",
+    "@types/lodash.merge": "^4.6.9",
     "@types/react": "~18.2.48",
     "@types/react-dom": "^18.0.9",
     "@types/react-native": "^0.71.5",
@@ -80,9 +81,7 @@
     "react-test-renderer": "^18.2.0",
     "release-it": "^15.0.0",
     "typescript": "^5.2.2"
-    
   },
-
   "peerDependencies": {
     "@shopify/flash-list": ">=1.0.0",
     "react": "*",
@@ -129,8 +128,8 @@
   },
   "dependencies": {
     "expo-linear-gradient": "^12.3.0",
+    "lodash.merge": "^4.6.2",
     "react-native-vector-icons": "^9.2.0"
-
   },
   "jest": {
     "preset": "react-native",

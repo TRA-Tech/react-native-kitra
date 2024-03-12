@@ -11,7 +11,6 @@ let swipeWidth: number;
 
 const Swipe: FCCWD<SwipeProps & SwipeableProps> = ({
   children = <View />,
-  theme,
   typography,
   variant = 'no-radius',
   rightActions,
@@ -50,7 +49,6 @@ const Swipe: FCCWD<SwipeProps & SwipeableProps> = ({
           {leftAction?.icon}
           <Text
             style={[
-              { color: theme?.white },
               typography?.body.xsmedium,
               styles.actionText,
               leftAction?.textStyle,
@@ -90,7 +88,7 @@ const Swipe: FCCWD<SwipeProps & SwipeableProps> = ({
         onPress={() => item.onPress?.(swipeRef)}
       >
         {icon}
-        {!!text && <Text style={[{ color: theme?.white }, typography?.body.xsmedium, styles.actionText, textStyle, { marginTop: icon ? 10 : 0 }]}>{text}</Text>}
+        {!!text && <Text style={[typography?.body.xsmedium, styles.actionText, textStyle, { marginTop: icon ? 10 : 0 }]}>{text}</Text>}
       </AnimatedTouchableOpacity>
     );
   };
@@ -136,7 +134,7 @@ const Swipe: FCCWD<SwipeProps & SwipeableProps> = ({
     >
       {React.Children.map(children, item =>
         React.cloneElement(item, {
-          style: [{ backgroundColor: theme?.white, height: 82 }, item.props?.style, { borderRadius: isRadius ? 10 : 0, overflow: 'hidden' }],
+          style: [{ height: 82 }, item.props?.style, { borderRadius: isRadius ? 10 : 0, overflow: 'hidden' }],
         }))}
 
     </Swipeable>

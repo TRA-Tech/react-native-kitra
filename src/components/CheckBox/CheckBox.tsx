@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { StyleSheet, TouchableOpacity, TouchableOpacityProps } from 'react-native';
-import Animated, { FadeIn, FadeOut, interpolateColor, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
+import Animated, { interpolateColor, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
+import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { CheckBoxProps, FCCWD } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
 import Octicons from '../Icons/Octicons';
@@ -8,16 +9,19 @@ import Octicons from '../Icons/Octicons';
 const AnimatedTouchableOpacity = Animated.createAnimatedComponent(TouchableOpacity);
 
 export const CheckBox: FCCWD<CheckBoxProps & TouchableOpacityProps> = (
-  { theme,
-    value,
+  { value,
     onChange,
     onPress,
     style,
     disabled,
-    iconColor = theme?.white,
+    iconColor,
+    theme,
     ...props },
 ) => {
   const [status, setStatus] = useState(value || false);
+  const componentStatus = disabled ? 'disabled' : (status ? 'filled' : 'default');
+  const { statusTheme } = useComponentTheme(theme, 'checkbox', componentStatus);
+
   const animatedValue = useSharedValue(0);
 
   const animatedStyle = useAnimatedStyle(
@@ -25,12 +29,12 @@ export const CheckBox: FCCWD<CheckBoxProps & TouchableOpacityProps> = (
       const borderColorInterpolation = interpolateColor(
         animatedValue.value,
         [0, 1],
-        [disabled ? theme?.disabledDark! : theme?.disabledLight!, 'transparent'],
+        [statusTheme.border, 'transparent'],
       );
       const backgroundColorInterpolation = interpolateColor(
         animatedValue.value,
         [0, 1],
-        [theme?.disabledLightDark!, disabled ? theme?.disabledDark! : theme?.focused!],
+        [statusTheme.background, statusTheme.background],
       );
       return (
         {
@@ -66,7 +70,7 @@ export const CheckBox: FCCWD<CheckBoxProps & TouchableOpacityProps> = (
       {status && (
         <Animated.View>
           <Octicons
-            color={iconColor}
+            color={iconColor || statusTheme.icon}
             name="check"
             size={12}
           />

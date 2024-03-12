@@ -6,8 +6,9 @@ import { default as ClassicDropdown } from './Dropdown';
 
 const Dropdown:FCCWD<DrowdownRouteProps> = props => {
   const { multiple } = props;
+  Dropdown.displayName = multiple ? 'MultipleDropdown' : 'Dropdown';
+
   if (multiple) { return (<MultipleDropdown {...props} />); }
   return <ClassicDropdown {...props} />;
 };
-
 export default applyDefaults(Dropdown);

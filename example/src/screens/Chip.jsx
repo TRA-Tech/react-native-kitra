@@ -1,20 +1,19 @@
-import Layout from "../components/Layout";
-import { Chip } from "@tra-tech/react-native-kitra";
-import { useState } from "react";
-import Divider from "../components/Divider";
+import { Chip } from '@tra-tech/react-native-kitra';
+import { useState } from 'react';
+import Layout from '../components/Layout';
+import Divider from '../components/Divider';
 
 const ChipScreen = () => {
-    const [status, setStatus] = useState(false);
-    console.log(status);
-    return (
-        <Layout>
-            <Chip onChange={setStatus} value={status} label="Press Me!"></Chip>
+  const [status, setStatus] = useState(false);
+  return (
+    <Layout>
+      <Chip onChange={setStatus} value={status} label="Press Me!" />
 
-            <Divider label="Disabled" />
-            <Chip disable label="Press Me!"></Chip>
+      <Divider label="Disabled" />
+      <Chip disabled label="Press Me!" />
 
-        </Layout>
-    )
-}
+    </Layout>
+  );
+};
 
 export default ChipScreen;

@@ -3,10 +3,10 @@ import type React from 'react';
 import type { Animated, ImageSourcePropType, StyleProp, TextProps, TextStyle, ViewProps, ViewStyle } from 'react-native';
 import { Swipeable } from 'react-native-gesture-handler';
 import type Icon from './components/Icons/Icon';
-import type IoniconsIcon from './components/Icons/Ionicons';
 import type { defaultTypography } from './core/typography/typography';
+import { DEFAULT_THEME } from './core/theme/colors';
 
-export type DefaultProps = { theme?: { [index: string]: string } } & { typography?: TypographyType }
+export type DefaultProps = { typography?: TypographyType } & { overrideTheme?: { [index: string]: string | object } }
 
 /**
 * Functional component with children
@@ -25,22 +25,34 @@ export type FCCWT<P = {}> = FCC<P & { theme: { [index: string]: string } }>
 
 export type FCCWD<P = {}> = FCC<P & DefaultProps>
 
-export type ThemeType = { dark: { [index: string]: string }, light: { [index: string]: string } }
+export type CoreThemeType = typeof DEFAULT_THEME
+export type ThemeType = CoreThemeType & {
+    dark: {
+        custom: any
+    },
+    light: {
+        custom: any
+    }
+}
+export type ComponentThemeType = typeof DEFAULT_THEME.light.components
+export type Components =keyof ComponentThemeType
 
 export type TypographyType = typeof defaultTypography & any;
 
 export type AccordionListProps = {
     data: any[],
-    left?: (expanded: boolean) => React.ReactNode,
-    right?: (expanded: boolean) => React.ReactNode,
+    left?: (expanded: boolean) => React.ReactElement,
+    right?: (expanded: boolean) => React.ReactElement,
     onExpand?: () => void,
     label?: string,
+    containerStyle?: StyleProp<ViewStyle>,
     labelContainerStyle?: StyleProp<ViewStyle>,
     onSelect: (params: any) => void,
     itemDisplay: (params: any) => any,
     labelStyle?: StyleProp<TextStyle>,
     rowTextStyle?: StyleProp<TextStyle>,
     rowStyle?: StyleProp<ViewStyle>
+    theme: ComponentThemeType['accordionList']
     testID?: string
 }
 
@@ -55,6 +67,7 @@ export type AvatarGroupProps = {
     }>,
     avatarLimit?: number,
     limitContainerStyle?: { style: StyleProp<TextStyle>, backgroundColor: string }
+    theme: ComponentThemeType['avatarGroup']
 }
 
 export type AvatarProps = {
@@ -65,6 +78,7 @@ export type AvatarProps = {
     containerStyle?: StyleProp<ViewStyle>,
     label?: string,
     labelStyle?: StyleProp<TextStyle>,
+    theme: ComponentThemeType['avatar']
 }
 
 export type BadgeProps = {
@@ -76,6 +90,7 @@ export type BadgeProps = {
     variant?: 'circular' | 'rectangular'
     icon?: React.ReactNode,
     badgePosition: 'topRight' | 'topLeft' | 'bottomRight' | 'bottomLeft'
+    theme: ComponentThemeType['badge']
 }
 
 export type ButtonProps = {
@@ -112,7 +127,8 @@ export type ButtonProps = {
     },
     iconPosition?: 'left' | 'right',
     style?: StyleProp<ViewStyle>,
-    textStyle?: StyleProp<TextStyle>
+    textStyle?: StyleProp<TextStyle>,
+    theme: ComponentThemeType['button']
 }
 
 export type CheckBoxProps = {
@@ -122,6 +138,7 @@ export type CheckBoxProps = {
     value?: boolean | undefined
     disabled?: boolean,
     iconColor?: string
+    theme: ComponentThemeType['checkbox']
 }
 
 export type ChipProps = {
@@ -134,6 +151,7 @@ export type ChipProps = {
     size?: 'large' | 'medium' | 'small',
     onChange: (event: boolean) => void,
     disabled?: boolean,
+    theme: ComponentThemeType['chip']
 }
 
 export type DividerProps = {
@@ -141,6 +159,7 @@ export type DividerProps = {
     width?: number,
     color?: string,
     style?: StyleProp<ViewStyle>
+    theme: ComponentThemeType['divider']
 }
 
 export type DrowdownProps = {
@@ -165,6 +184,7 @@ export type DrowdownProps = {
     buttonBackgrounColor?: { focusBackground: string, defaultBackground: string },
     iconStyle?: { color: string, container: StyleProp<ViewStyle> }
     autoPosition?: boolean,
+    theme: ComponentThemeType['multipleDropdown']
     testID?: string
 }
 
@@ -202,6 +222,10 @@ export type IconComponentType = React.ComponentType<
         pointerEvents?: ViewProps['pointerEvents'];
     }>;
 
+export type SwitchProps={
+        theme: ComponentThemeType['switch']
+    }
+
 export type MenuProps = {
     items: Array<{ label: string, left?: React.ReactNode, right?: React.ReactNode, onPress?: () => void }>,
     containerStyle?: StyleProp<ViewStyle>,
@@ -210,20 +234,23 @@ export type MenuProps = {
     menuStyle?: ViewStyle,
     button?: (isOpen: boolean) => React.ReactNode,
     rowStyle?: StyleProp<ViewStyle>,
-    closeOnPress?: boolean
+    closeOnPress?: boolean,
+    theme: ComponentThemeType['menu']
 }
 export type ProgressBarProps = {
     progress?: number,
     barColor?: string,
     progressColor?: string,
     progressStyle?: StyleProp<ViewStyle>,
-    testID?: string
+    testID?: string,
+    theme: ComponentThemeType['progressBar']
 }
 
 export type RadioButtonProps = {
     onChange: (event: boolean) => void
     style?: StyleProp<ViewStyle>,
     testID: string,
+    theme: ComponentThemeType['radioButton']
 }
 
 export type SearchBarProps = {
@@ -248,7 +275,7 @@ export type ActionProps = {
     style?: StyleProp<ViewStyle>,
     icon?: React.ReactNode,
     textStyle?: StyleProp<TextStyle>,
-    onPress?: (ref:React.RefObject<Swipeable>) => void
+    onPress?: (ref: React.RefObject<Swipeable>) => void
 }
 
 export type SwipeProps = {
@@ -293,6 +320,7 @@ export type ToggleButtonProps = {
         id?: number
     }[]
     size?: 'small' | 'medium',
+    theme: ComponentThemeType['toggleButton']
 }
 
 export type SpeedDialProps = {
@@ -300,7 +328,8 @@ export type SpeedDialProps = {
     baseItemBackground?: string,
     variant: 'flat' | 'spread',
     onChange?: (event: boolean) => void,
-    baseItemIcon?: React.ReactNode
+    baseItemIcon?: React.ReactNode,
+    theme: ComponentThemeType['speedDial']
 };
 
 export type ModalProps = {
@@ -327,7 +356,8 @@ export type PagerViewProps = {
     showDivider?: boolean,
     dividerStyle?: StyleProp<ViewStyle>,
     dividerColor?: string,
-    icons?: React.ReactElement<typeof Icon>[]
+    icons?: React.ReactElement<typeof Icon>[],
+    theme: ComponentThemeType['pagerView']
 }
 export type ActivityIndicatorProps = {
     children?: React.ReactNode

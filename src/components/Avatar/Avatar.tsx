@@ -1,21 +1,23 @@
 import { Image, View, Text } from 'react-native';
+import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { AvatarProps, FCCWD } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
 import OcticonsIcon from '../Icons/Octicons';
 
-const Avatar : FCCWD<AvatarProps> = (
-  { typography,
-    theme,
-    source,
+const Avatar: FCCWD<AvatarProps> = (
+  { source,
     size = 'medium',
     variant,
     containerStyle,
-    avatarIcon = <OcticonsIcon name="person" size={sizes[size].iconSize} color={theme?.primary} />,
+    avatarIcon,
     label,
-    labelStyle },
+    labelStyle,
+    typography,
+    theme },
 ) => {
-  const splitName = (string:string) => {
-    const avatarText = string.trim().replace(/ {1,9}/g, ' ').split(' ').reduce((accumulator, currentValue:any) => accumulator.concat(currentValue[0]), '');
+  const { statusTheme } = useComponentTheme(theme, 'avatar', 'default');
+  const splitName = (string: string) => {
+    const avatarText = string.trim().replace(/ {1,9}/g, ' ').split(' ').reduce((accumulator, currentValue: any) => accumulator.concat(currentValue[0]), '');
     return avatarText;
   };
 
@@ -27,13 +29,16 @@ const Avatar : FCCWD<AvatarProps> = (
       ...typography?.body.smedium,
     },
   };
+
   return (
-    <View style={[{ width: sizes[size].width,
+    <View style={[{
+      width: sizes[size].width,
       height: sizes[size].height,
       borderRadius: variant === 'rounded' ? 10 : 50,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: theme?.primary15 }, containerStyle]}
+      backgroundColor: statusTheme.background,
+    }, containerStyle]}
     >
       {(() => {
         if (source) {
@@ -43,7 +48,7 @@ const Avatar : FCCWD<AvatarProps> = (
         }
         if (label) {
           return (
-            <Text style={[{ color: theme?.primary }, labelTypography[size], labelStyle]}>
+            <Text style={[{ color: statusTheme.label }, labelTypography[size], labelStyle]}>
               {splitName(label)}
 
             </Text>
@@ -51,7 +56,7 @@ const Avatar : FCCWD<AvatarProps> = (
         }
 
         return (
-          avatarIcon
+          avatarIcon || <OcticonsIcon name="person" size={sizes[size].iconSize} color={statusTheme.label} />
         );
       })()}
 
