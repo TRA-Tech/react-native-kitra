@@ -6,7 +6,6 @@ import type { ChipProps, FCCWD } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
 import Icon from '../Icons/Icon';
 
-const AnimatedIcon = Animated.createAnimatedComponent(Icon);
 const AnimatedTouchableOpacity = Animated.createAnimatedComponent(TouchableOpacity);
 
 const Chip:FCCWD<ChipProps> = (
@@ -44,16 +43,6 @@ const Chip:FCCWD<ChipProps> = (
     };
   });
 
-  const textAnimated = useAnimatedStyle(() => {
-    const colorAnimated = interpolateColor(
-      offset.value,
-      [0, 1],
-      [statusTheme.label, statusTheme.label],
-    );
-    return {
-      color: colorAnimated,
-    };
-  });
   useEffect(() => {
     offset.value = withTiming(Number(!!select));
     if (onChange) onChange(select);
@@ -78,9 +67,9 @@ const Chip:FCCWD<ChipProps> = (
         width: icon ? sizes[size].iconwithWidth : sizes[size].width }, style]}
     >
       <View style={{ flexDirection: icon?.iconPosition === 'right' ? 'row' : 'row-reverse', alignItems: 'center' }}>
-        <Animated.Text style={[textAnimated, { fontSize: typographySize[size]?.fontSize, lineHeight: typographySize[size]?.lineHeight, fontWeight: '500' }, textStyle]}>{label}</Animated.Text>
+        <Animated.Text style={[{ fontSize: typographySize[size]?.fontSize, lineHeight: typographySize[size]?.lineHeight, fontWeight: '500', color: statusTheme.label }, textStyle]}>{label}</Animated.Text>
         {icon ?
-          <AnimatedIcon type={icon.iconType} name={icon.iconName} size={sizes[size].iconSize} animatedProps={textAnimated} style={[icon.iconPosition === 'right' ? { marginLeft: 6 } : { marginRight: 6 }]} />
+          <Icon color={statusTheme.icon} type={icon.iconType} name={icon.iconName} size={sizes[size].iconSize} style={[icon.iconPosition === 'right' ? { marginLeft: 6 } : { marginRight: 6 }]} />
           : null
         }
       </View>

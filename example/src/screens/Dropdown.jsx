@@ -44,26 +44,22 @@ const data = [
 
 const DropdownScreen = () => (
   <Layout>
-    <View style={{ zIndex: 10 }}>
-      <Dropdown
-        data={data}
-        displayedButtonValue={x => x.name}
-        displayedRowValue={x => `${x.name} ${x.activeYears}`}
-        onSelect={x => console.log(x)}
-      />
-    </View>
-    <View style={{ zIndex: 9 }}>
-      <Divider label="Disabled" />
-      <Dropdown
-        disabled
-        data={data}
-        displayedButtonValue={x => x.name}
-        displayedRowValue={x => `${x.name} ${x.activeYears}`}
-        onSelect={x => console.log(x)}
-      />
-    </View>
-    <View style={{ zIndex: 8 }}>
-      <Divider label="Left - Right Elements" />
+    <Dropdown
+      data={data}
+      displayedButtonValue={x => x.name}
+      displayedRowValue={x => `${x.name} ${x.activeYears}`}
+      onSelect={x => console.log(x)}
+    />
+    <Divider label="Disabled" />
+    <Dropdown
+      disabled
+      data={data}
+      displayedButtonValue={x => x.name}
+      displayedRowValue={x => `${x.name} ${x.activeYears}`}
+      onSelect={x => console.log(x)}
+    />
+    <Divider label="Left - Right Elements" />
+    <View style={{ rowGap: 10, zIndex: 2 }}>
       <Dropdown
         data={data}
         displayedButtonValue={x => x.name}
@@ -71,8 +67,6 @@ const DropdownScreen = () => (
         onSelect={x => console.log(x)}
         left={<Icon type="font-awesome-5" color="black" name="guitar" size={18} />}
       />
-    </View>
-    <View style={{ zIndex: 7 }}>
       <Dropdown
         data={data}
         displayedButtonValue={x => x.name}
@@ -80,8 +74,6 @@ const DropdownScreen = () => (
         onSelect={x => console.log(x)}
         right={<Icon type="ant-design" style={{ marginRight: 15 }} color="black" name="down" size={10} />}
       />
-    </View>
-    <View style={{ zIndex: 6 }}>
       <Dropdown
         data={data}
         displayedButtonValue={x => x.name}

@@ -8,7 +8,6 @@ const ChipScreen = () => {
   return (
     <Layout>
       <Chip onChange={setStatus} value={status} label="Press Me!" />
-
       <Divider label="Disabled" />
       <Chip disabled label="Press Me!" />
 

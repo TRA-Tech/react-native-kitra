@@ -90,7 +90,7 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
   }, []);
 
   return (
-    <View testID={testID} style={[containerStyle, { zIndex: 100 }]}>
+    <View testID={testID} style={[containerStyle, { zIndex: visible ? 1000 : 0 }]}>
       <TouchableOpacity
         testID="dropdown-button"
         ref={dropdown}
@@ -217,7 +217,7 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
               if (onComplete) onComplete(selectedObjects); setVisible(false);
             }}
             size="large"
-            overrideTheme={{
+            theme={{
               default: {
                 background: statusTheme.completeBackground,
                 label: statusTheme.completeLabel,
@@ -227,7 +227,6 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
             textStyle={{ textAlign: 'center' }}
             style={Style.completeSelection}
             iconPosition="left"
-            theme={undefined}
           />
         </Animated.View>
       )}

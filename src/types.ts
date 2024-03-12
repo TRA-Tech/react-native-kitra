@@ -6,7 +6,7 @@ import type Icon from './components/Icons/Icon';
 import type { defaultTypography } from './core/typography/typography';
 import { DEFAULT_THEME } from './core/theme/colors';
 
-export type DefaultProps = { typography?: TypographyType } & { overrideTheme?: { [index: string]: string | object } }
+export type DefaultProps = { typography?: TypographyType }
 
 /**
 * Functional component with children
@@ -184,7 +184,7 @@ export type DrowdownProps = {
     buttonBackgrounColor?: { focusBackground: string, defaultBackground: string },
     iconStyle?: { color: string, container: StyleProp<ViewStyle> }
     autoPosition?: boolean,
-    theme: ComponentThemeType['multipleDropdown']
+    theme: ComponentThemeType['dropdown']
     testID?: string
 }
 
@@ -268,6 +268,7 @@ export type SliderProps = {
     buttonStyle?: StyleProp<ViewStyle>
     barStyle?: StyleProp<ViewStyle>
     progressStyle?: StyleProp<ViewStyle>
+    theme: ComponentThemeType['slider']
 }
 
 export type ActionProps = {
@@ -361,6 +362,7 @@ export type PagerViewProps = {
 }
 export type ActivityIndicatorProps = {
     children?: React.ReactNode
+    theme: ComponentThemeType['activityIndicator']
 }
 
 export type IconType =

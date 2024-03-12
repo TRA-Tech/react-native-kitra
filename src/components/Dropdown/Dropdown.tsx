@@ -66,7 +66,7 @@ const Dropdown: FCCWD<DrowdownProps> = (
         activeOpacity={0.9}
         onLayout={event => setCord(event.nativeEvent.layout)}
         onPress={() => { setVisible(!visible); }}
-        style={[Style.button, buttonStyle, { borderColor: statusTheme.border }]}
+        style={[Style.button, buttonStyle, { borderColor: statusTheme.border, backgroundColor: statusTheme.background }]}
       >
         {leftElement}
         <Animated.Text
@@ -96,18 +96,20 @@ const Dropdown: FCCWD<DrowdownProps> = (
           </View>
         )}
       </TouchableOpacity>
+
       {visible && cord.x >= 0 && cord.y >= 0 && (
         <Animated.View
           entering={FadeIn}
           exiting={FadeOut}
           style={[Style.listContainer,
             {
-              backgroundColor: statusTheme.background,
+              backgroundColor: statusTheme.collapseBackground,
               width: cord?.width,
               left: 0,
             }, listContainerStyle,
             autoPosition ? (windowsHeight - cord?.y <= windowsHeight / 3 ? { bottom: cord?.height + 5 } : { top: cord?.height + 5 }) : { top: cord?.height + 5 }]}
         >
+
           <ScrollView nestedScrollEnabled>
             {data?.map((value, index) => (
               <TouchableOpacity

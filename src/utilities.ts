@@ -2,8 +2,13 @@
 
 import type React from 'react';
 import type { IconType } from './types';
+import { x11Colors } from './core/theme/x11';
 
 function hexToRgbA(hex:string, percentage:number) {
+  if (hex[0] !== '#') {
+    hex = `#${x11ColorToHex(hex)}`;
+  }
+
   let c;
   if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
     c = hex.substring(1).split('');
@@ -18,6 +23,14 @@ function hexToRgbA(hex:string, percentage:number) {
 }
 
 export const opacity = (color:string, percentage: number) => hexToRgbA(color, percentage);
+
+export function x11ColorToHex(colorName: string) {
+  const hex = x11Colors.find(x => x.name === colorName)?.hex;
+  if (!hex) {
+    throw new Error(`Unknown X11 color name: ${colorName}`);
+  }
+  return hex;
+}
 
 const customIcons: any = {};
 

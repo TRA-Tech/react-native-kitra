@@ -1,21 +1,31 @@
-import { Dispatch, SetStateAction, createContext, useCallback, useMemo, useState } from 'react';
+import { Dispatch, SetStateAction, createContext, useCallback, useLayoutEffect, useMemo, useState } from 'react';
 import merge from 'lodash.merge';
+import { ColorSchemeName, useColorScheme } from 'react-native';
 import type { FCC, ThemeType } from '../../types';
 import { DEFAULT_THEME } from './colors';
 
 type ThemeContextType = {
   theme: typeof DEFAULT_THEME.light | typeof DEFAULT_THEME.dark,
   updateTheme: (theme: { dark: { [index: string]: string }, light: { [index: string]: string } }) => void,
-  setColorScheme: Dispatch<SetStateAction<'light' | 'dark' | undefined>>,
-  colorScheme?: 'light' | 'dark' | undefined,
+  setColorScheme: Dispatch<SetStateAction<ColorSchemeName>>,
+  colorScheme?: ColorSchemeName,
 }
 
 const ThemeContext = createContext<ThemeContextType>({} as ThemeContextType);
 
 const ThemeProvider: FCC = ({ children }) => {
-  const [colorScheme, setColorScheme] = useState<'light' | 'dark' | undefined>('dark');
+  const [colorScheme, setColorScheme] = useState<ColorSchemeName>('dark');
   const [theme, setTheme] = useState<ThemeType>(DEFAULT_THEME);
+  const RNColorScheme = useColorScheme();
 
+  useLayoutEffect(
+    () => {
+      setColorScheme(RNColorScheme);
+    },
+    [RNColorScheme],
+  );
+  console.log(colorScheme);
+  
   const updateTheme = useCallback((newTheme: { dark: { [index: string]: string }, light: { [index: string]: string } }) => {
     setTheme(prev => merge(prev, newTheme));
   }, []);
