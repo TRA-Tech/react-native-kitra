@@ -14,7 +14,6 @@ export const CheckBox: FCCWD<CheckBoxProps & TouchableOpacityProps> = (
     onPress,
     style,
     disabled,
-    iconColor,
     theme,
     ...props },
 ) => {
@@ -70,7 +69,7 @@ export const CheckBox: FCCWD<CheckBoxProps & TouchableOpacityProps> = (
       {status && (
         <Animated.View>
           <Octicons
-            color={iconColor || statusTheme.icon}
+            color={statusTheme.icon}
             name="check"
             size={12}
           />

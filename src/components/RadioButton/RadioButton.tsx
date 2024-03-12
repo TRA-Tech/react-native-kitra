@@ -17,9 +17,9 @@ const RadioButton: FCCWD<RadioButtonProps> = ({ theme, onChange, testID, style }
       }}
       testID={testID}
       style={[
-        { borderColor: statusTheme.border, backgroundColor: statusTheme.background }, styles.container, style]}
+        styles.container, style, { borderColor: statusTheme.border, backgroundColor: statusTheme.background }]}
     >
-      {value && <Animated.View entering={FadeIn} exiting={FadeOut} style={[{ backgroundColor: statusTheme.dot }, styles.innerCircle]} />}
+      {value && <Animated.View entering={FadeIn} exiting={FadeOut} style={[styles.innerCircle, { backgroundColor: statusTheme.dot }]} />}
     </TouchableOpacity>
   );
 };

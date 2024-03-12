@@ -38,8 +38,8 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
             { paddingVertical: 15, paddingHorizontal: 30 }
             :
             { padding: (fontStyles[size].lineHeight - fontStyles[size].fontSize) / 2 + 10 },
-          { backgroundColor: statusTheme.background },
           style,
+          { backgroundColor: statusTheme.background },
         ]}
       disabled={disabled}
       {...props}
@@ -50,7 +50,7 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
         color: statusTheme.icon || icon.props.color,
         style: [label.length ? (iconPosition === 'left' ? { marginRight: 10 } : { marginLeft: 10 }) : null, icon.props?.style],
       })}
-      <Text testID="button_text" style={[{ color: statusTheme.label }, { fontWeight: '500' }, fontStyles[size], textStyle]}>
+      <Text testID="button_text" style={[{ fontWeight: '500' }, fontStyles[size], textStyle, { color: statusTheme.label }]}>
         {label}
       </Text>
     </Pressable>

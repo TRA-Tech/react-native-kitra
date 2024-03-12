@@ -53,13 +53,13 @@ const AccordionList: FCCWD<AccordionListProps> = ({
   return (
     <>
       <TouchableOpacity activeOpacity={0.8} onPress={handleListOpen} testID={testID}>
-        <View style={[{ backgroundColor: statusTheme.background }, styles.labelContianer, labelContainerStyle]}>
+        <View style={[styles.labelContianer, labelContainerStyle, { backgroundColor: statusTheme.background }]}>
           {left && cloneElement(left(expanded), { expanded, color: statusTheme.icon })}
-          <Text style={[{ color: statusTheme.label }, typography?.body.medium, styles.labelText, labelStyle]}>
+          <Text style={[typography?.body.medium, styles.labelText, labelStyle, { color: statusTheme.label }]}>
             {label}
           </Text>
           {right && cloneElement(right(expanded), { expanded, color: statusTheme.icon })}
-          <View style={[{ backgroundColor: statusTheme.collapseIconBackground }, styles.iconContainer]}>
+          <View style={[styles.iconContainer, { backgroundColor: statusTheme.collapseIconBackground }]}>
             <AnimatedIcon
               color={statusTheme.collapseIcon}
               name="chevron-down"
@@ -79,9 +79,9 @@ const AccordionList: FCCWD<AccordionListProps> = ({
               <Animated.View
                 entering={FadeInUp}
                 exiting={FadeOut}
-                style={[styles.itemContainer, { backgroundColor: statusTheme.itemBackground }, rowStyle]}
+                style={[styles.itemContainer, rowStyle, { backgroundColor: statusTheme.itemBackground }]}
               >
-                <Text style={[{ textAlign: 'center', color: statusTheme.itemLabel }, typography?.body.smedium, rowTextStyle]}>
+                <Text style={[{ textAlign: 'center' }, typography?.body.smedium, rowTextStyle, { color: statusTheme.itemLabel }]}>
                   {itemDisplay(item)}
                 </Text>
               </Animated.View>

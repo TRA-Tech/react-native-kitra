@@ -132,12 +132,11 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
           exiting={FadeOut}
           style={[Style.listContainer,
             {
-              backgroundColor: statusTheme.background,
               width: cord?.width,
               left: 0,
             },
             listContainerStyle,
-            windowsHeight - (cord?.y + (38 * 4) || 0) <= windowsHeight / 3 ? { bottom: cord?.height || 0 + 5 } : { top: cord?.height || 0 + 5 }]}
+            windowsHeight - (cord?.y + (38 * 4) || 0) <= windowsHeight / 3 ? { bottom: cord?.height || 0 + 5 } : { top: cord?.height || 0 + 5 }, { backgroundColor: statusTheme.background }]}
         >
           <FlashList
             extraData={selectedObjects}
@@ -157,11 +156,12 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
                     toggleCheckBox(item);
                   }}
                   style={[
-                    Style.row, {
-                      backgroundColor: statusTheme.itemBackground,
-                    },
+                    Style.row,
                     index === data?.length || 0 - 1 ? { borderBottomLeftRadius: 5, borderBottomRightRadius: 5 } : null,
                     rowStyle,
+                    {
+                      backgroundColor: statusTheme.itemBackground,
+                    },
                   ]}
                 >
                   <TouchableOpacity
@@ -181,8 +181,8 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
                   </TouchableOpacity>
                   <Text
                     style={[typography?.body.smedium,
-                      { color: statusTheme.itemLabel, marginHorizontal: 10 },
-                      rowTextStyle]}
+                      { marginHorizontal: 10 },
+                      rowTextStyle, { color: statusTheme.itemLabel }]}
                   >
                     {displayedRowValue(item)}
                   </Text>

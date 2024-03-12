@@ -37,8 +37,7 @@ const Avatar: FCCWD<AvatarProps> = (
       borderRadius: variant === 'rounded' ? 10 : 50,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: statusTheme.background,
-    }, containerStyle]}
+    }, containerStyle, { backgroundColor: statusTheme.background }]}
     >
       {(() => {
         if (source) {
@@ -48,7 +47,7 @@ const Avatar: FCCWD<AvatarProps> = (
         }
         if (label) {
           return (
-            <Text style={[{ color: statusTheme.label }, labelTypography[size], labelStyle]}>
+            <Text style={[labelTypography[size], labelStyle, { color: statusTheme.label }]}>
               {splitName(label)}
 
             </Text>

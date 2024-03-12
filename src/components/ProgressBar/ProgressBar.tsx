@@ -33,10 +33,10 @@ const ProgressBar: FCCWD<ProgressBarProps> = (
           [
             animatedStyle,
             Style.progressStyle,
+            progressStyle,
             {
               backgroundColor: componentTheme.default.progress,
             },
-            progressStyle,
           ]
         }
       />

@@ -11,7 +11,6 @@ const HEIGHT = Dimensions.get('window').height;
 
 const Menu: FCCWD<MenuProps> = (
   { items,
-    dividerColor,
     menuStyle,
     rowTextStyle,
     containerStyle,
@@ -50,8 +49,9 @@ const Menu: FCCWD<MenuProps> = (
           testID="menu_container"
           style={[
             styles.menuContainer,
-            { backgroundColor: menuStyle?.backgroundColor || statusTheme.itemBackground, right: 0 },
+            { right: 0 },
             HEIGHT - (size.y + menuHeight.height + size.height) >= 0 ? { top: size.height + 10 } : { bottom: 30 }, menuStyle,
+            { backgroundColor: statusTheme.itemBackground },
           ]}
           entering={FadeIn.duration(300)}
           exiting={FadeOut.duration(300)}
@@ -72,8 +72,9 @@ const Menu: FCCWD<MenuProps> = (
                       fontWeight: '500',
                       lineHeight: typography?.body.smedium.lineHeight,
                       paddingHorizontal: item.left ? 5 : 0,
+                    }, rowTextStyle, {
                       color: statusTheme.itemLabel,
-                    }, rowTextStyle]}
+                    }]}
                   >
                     {item.label}
                   </Text>

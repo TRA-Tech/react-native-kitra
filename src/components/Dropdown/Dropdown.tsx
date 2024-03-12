@@ -78,9 +78,10 @@ const Dropdown: FCCWD<DrowdownProps> = (
             {
               flex: 1,
               marginLeft: 12,
-              color: componentTheme[isObjectSelected ? 'selected' : componenetStatus].label,
             },
-            typography?.body.medium, buttonTextStyle]}
+            typography?.body.medium, buttonTextStyle, {
+              color: componentTheme[isObjectSelected ? 'selected' : componenetStatus].label,
+            }]}
         >
           {isObjectSelected ? displayedButtonValue(selectedObject) : (buttonTitle || 'Please Select')}
         </Animated.Text>
@@ -103,11 +104,11 @@ const Dropdown: FCCWD<DrowdownProps> = (
           exiting={FadeOut}
           style={[Style.listContainer,
             {
-              backgroundColor: statusTheme.collapseBackground,
+
               width: cord?.width,
               left: 0,
             }, listContainerStyle,
-            autoPosition ? (windowsHeight - cord?.y <= windowsHeight / 3 ? { bottom: cord?.height + 5 } : { top: cord?.height + 5 }) : { top: cord?.height + 5 }]}
+            autoPosition ? (windowsHeight - cord?.y <= windowsHeight / 3 ? { bottom: cord?.height + 5 } : { top: cord?.height + 5 }) : { top: cord?.height + 5 }, { backgroundColor: statusTheme.collapseBackground }]}
         >
 
           <ScrollView nestedScrollEnabled>
@@ -121,14 +122,15 @@ const Dropdown: FCCWD<DrowdownProps> = (
                   onSelect?.(value);
                 }}
                 style={[
-                  Style.row, {
-                    backgroundColor: componentTheme[isSelectedObject(value) ? 'selected' : componenetStatus].itemBackground,
-                  },
+                  Style.row,
                   index === data.length - 1 ? { borderBottomLeftRadius: 5, borderBottomRightRadius: 5 } : null,
                   rowStyle,
+                  {
+                    backgroundColor: componentTheme[isSelectedObject(value) ? 'selected' : componenetStatus].itemBackground,
+                  },
                 ]}
               >
-                <Text style={[typography?.body.smedium, { color: componentTheme[isSelectedObject(value) ? 'selected' : componenetStatus].itemLabel, marginVertical: 10, marginHorizontal: 10 }, rowTextStyle]}>{displayedRowValue(value)}</Text>
+                <Text style={[typography?.body.smedium, { marginVertical: 10, marginHorizontal: 10 }, rowTextStyle, { color: componentTheme[isSelectedObject(value) ? 'selected' : componenetStatus].itemLabel }]}>{displayedRowValue(value)}</Text>
               </TouchableOpacity>
             ))}
           </ScrollView>

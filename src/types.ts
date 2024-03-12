@@ -230,7 +230,6 @@ export type MenuProps = {
     items: Array<{ label: string, left?: React.ReactNode, right?: React.ReactNode, onPress?: () => void }>,
     containerStyle?: StyleProp<ViewStyle>,
     rowTextStyle?: StyleProp<TextStyle>,
-    dividerColor?: string,
     menuStyle?: ViewStyle,
     button?: (isOpen: boolean) => React.ReactNode,
     rowStyle?: StyleProp<ViewStyle>,
