@@ -25,7 +25,7 @@ const ProgressBar: FCCWD<ProgressBarProps> = (
     <View
       testID={testID}
       onLayout={x => setBarWidth(x.nativeEvent.layout.width)}
-      style={[Style.container, { backgroundColor: componentTheme.default.bar }]}
+      style={[Style.container, { backgroundColor: componentTheme.default?.bar }]}
     >
       <Animated.View
         testID="progressBarAnimation"
@@ -35,7 +35,7 @@ const ProgressBar: FCCWD<ProgressBarProps> = (
             Style.progressStyle,
             progressStyle,
             {
-              backgroundColor: componentTheme.default.progress,
+              backgroundColor: componentTheme.default?.progress,
             },
           ]
         }

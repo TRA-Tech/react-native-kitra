@@ -4,7 +4,10 @@ import type React from 'react';
 import type { IconType } from './types';
 import { x11Colors } from './core/theme/x11';
 
-function hexToRgbA(hex:string, percentage:number) {
+function hexToRgbA(hex:string|undefined, percentage:number) {
+  if (!hex) {
+    return 'rgba(0,0,0,0)';
+  }
   if (hex[0] !== '#') {
     hex = `#${x11ColorToHex(hex)}`;
   }
@@ -22,7 +25,7 @@ function hexToRgbA(hex:string, percentage:number) {
   throw new Error('Bad Hex');
 }
 
-export const opacity = (color:string, percentage: number) => hexToRgbA(color, percentage);
+export const opacity = (color:string|undefined, percentage: number) => hexToRgbA(color, percentage);
 
 export function x11ColorToHex(colorName: string) {
   const hex = x11Colors.find(x => x.name === colorName)?.hex;

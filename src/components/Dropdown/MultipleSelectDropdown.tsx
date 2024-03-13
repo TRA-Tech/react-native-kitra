@@ -4,7 +4,7 @@ import { Dimensions, ScrollViewProps, StyleSheet, Text, TouchableOpacity, View }
 import { NativeViewGestureHandlerProps, ScrollView } from 'react-native-gesture-handler';
 import Animated, { FadeIn, FadeOut, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
-import type { DrowdownProps, FCCWD } from '../../types';
+import type { DrowdownProps, FCCWD, MultipleDropdownProps } from '../../types';
 import Button from '../Button/Button';
 import FeatherIcon from '../Icons/Feather';
 import IoniconsIcon from '../Icons/Ionicons';
@@ -17,7 +17,7 @@ let dataWithID: Array<string | { keyID: number, [key: string]: any }>;
 // eslint-disable-next-line no-undef
 const GScrollView = forwardRef((props: JSX.IntrinsicAttributes & ScrollViewProps & NativeViewGestureHandlerProps & RefAttributes<ScrollView>, ref) => <ScrollView {...props} />);
 
-const MultipleDropdown: FCCWD<DrowdownProps> = (
+const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
   { typography,
     left,
     right,
@@ -105,7 +105,7 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
           exiting={FadeOut}
           style={[buttonTextStyle,
             typography?.body.medium,
-            { flex: 1, marginLeft: 12, color: componentTheme[isObjectSelected ? 'selected' : componenetStatus].label }]}
+            { flex: 1, marginLeft: 12, color: componentTheme[isObjectSelected ? 'selected' : componenetStatus]?.label }]}
         >
           {!isObjectSelected ?
             (buttonTitle || 'Please Select')
@@ -168,7 +168,7 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
                     disabled
                     style={[Style.checkBox, {
                       borderColor: statusTheme.checkBorder,
-                      backgroundColor: componentTheme[isSelected ? 'selected' : componenetStatus].checkBackground,
+                      backgroundColor: componentTheme[isSelected ? 'selected' : componenetStatus]?.checkBackground,
                     }]}
                   >
                     {isSelected && (

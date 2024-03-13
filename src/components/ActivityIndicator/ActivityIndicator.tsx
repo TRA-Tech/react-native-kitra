@@ -7,9 +7,9 @@ import { applyDefaults } from '../../core/KitraProvider';
 const ActivityIndicator:FCCWD<ActivityIndicatorProps> = ({ theme, children }) => {
   const { componentTheme } = useComponentTheme(theme, 'activityIndicator', 'default');
   return (
-    <View style={[styles.centeredView, { backgroundColor: opacity(String(componentTheme.default.background), 80) }]}>
+    <View style={[styles.centeredView, { backgroundColor: opacity(String(componentTheme.default?.background), 80) }]}>
       <View style={[styles.modalView]}>
-        {children || <RNActivityIndicator size="large" color={componentTheme.default.indicator} /> }
+        {children || <RNActivityIndicator size="large" color={componentTheme.default?.indicator} /> }
       </View>
     </View>
   );

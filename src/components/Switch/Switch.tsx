@@ -11,9 +11,9 @@ const Switch: FCCWD<RNSwithProps&SwitchProps> = (
 
   return (
     <RNSwitch
-      trackColor={{ false: componentTheme.default.track, true: componentTheme.active.track }}
-      ios_backgroundColor={componentTheme.default.track}
-      thumbColor={props.value ? componentTheme.active.thumb : componentTheme.default.thumb}
+      trackColor={{ false: componentTheme.default?.track, true: componentTheme.active?.track }}
+      ios_backgroundColor={componentTheme.default?.track}
+      thumbColor={props.value ? componentTheme.active?.thumb : componentTheme.default?.thumb}
       {...props}
       value={props.value}
     />

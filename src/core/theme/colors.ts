@@ -53,23 +53,23 @@ export const COLOR_SYSTEM_DARK = {
     disabledDark: '#445284',
     disabledLightDark: '#1B1E2B',
     disabledLight: '#252F54',
-    primary5: '#DCDFE7',
-    primary15: '#BCC4D6',
+    primary5: '#9F9F9F',
+    primary15: '#323A5E',
     primary30: '#A9B6D7',
     background: '#171922',
     filled: '#171922',
   },
   status: {
-    focused: '#082DAE',
+    focused: '#124CCA',
     secondary: '#FC6736',
     secondaryLight: '#452926',
-    tertiary: '#FCE836',
+    tertiary: '#EED815',
     error: '#FF0000',
     errorLight: '#42171D',
-    success: '#00CE5E',
+    success: '#01BA55',
     successLight: '#123D2E',
     warning: '#E2D029',
-    warningLight: '#FFFAD0',
+    warningLight: '#403E23',
   },
   neutral: {
     black: '#FFFFFF',
@@ -83,8 +83,8 @@ export const COLOR_SYSTEM_DARK = {
   },
   button: {
     disabled: '#2D375D',
-    disabledText: '#C0C2C7',
-    text: '#FFFFFF',
+    disabledText: '#6D738A',
+    text: '#9F9F9F',
   },
   input: {
     default: '#757575',
@@ -316,11 +316,11 @@ export const COLOR_COMPONENTS_LIGHT = {
   switch: {
     default: {
       track: COLOR_SYSTEM_LIGHT.system.disabledLight,
-      thumb: COLOR_SYSTEM_LIGHT.system.filled,
+      thumb: COLOR_SYSTEM_LIGHT.button.text,
     },
     active: {
       track: COLOR_SYSTEM_LIGHT.system.primary,
-      thumb: COLOR_SYSTEM_LIGHT.system.filled,
+      thumb: COLOR_SYSTEM_LIGHT.button.text,
     },
   },
   slider: {
@@ -583,11 +583,20 @@ export const COLOR_COMPONENTS_DARK = {
   switch: {
     default: {
       track: COLOR_SYSTEM_DARK.system.disabledLight,
-      thumb: COLOR_SYSTEM_DARK.system.filled,
+      thumb: COLOR_SYSTEM_DARK.button.text,
     },
     active: {
       track: COLOR_SYSTEM_DARK.system.primary,
-      thumb: COLOR_SYSTEM_DARK.system.filled,
+      thumb: COLOR_SYSTEM_DARK.button.text,
+    },
+  },
+  slider: {
+    default: {
+      thumb: COLOR_SYSTEM_DARK.button.text,
+      progress: COLOR_SYSTEM_DARK.system.primary,
+      bar: COLOR_SYSTEM_DARK.system.primary15,
+      percentageBackground: COLOR_SYSTEM_DARK.system.primary,
+      percentageLabel: COLOR_SYSTEM_DARK.button.text,
     },
   },
   speedDial: {

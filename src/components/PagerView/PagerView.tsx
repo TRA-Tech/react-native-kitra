@@ -3,7 +3,7 @@ import Animated, { FadeIn, SharedValue, useAnimatedStyle, useSharedValue } from 
 import { StyleProp, StyleSheet, TextStyle, TouchableOpacity, View } from 'react-native';
 import { default as PagerViewComponent, PagerViewOnPageScrollEvent, PagerViewProps as PWProps } from 'react-native-pager-view';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
-import type { ComponentThemeType, DefaultProps, FCCWD, PagerViewProps } from '../../types';
+import type { ComponentThemeType, DeepPartial, DefaultProps, FCCWD, PagerViewProps } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
 import type Icon from '../Icons/Icon';
 
@@ -20,7 +20,7 @@ const style = StyleSheet.create({
 export type TabItemProps = {
   item: ReactNode,
   index: number,
-  theme: ComponentThemeType['pagerView']
+  theme: DeepPartial<ComponentThemeType['pagerView']>
   refPager: React.RefObject<PagerViewComponent>,
   setSize: Dispatch<SetStateAction<{ height: number, width: number }>>,
   slideValue: SharedValue<number>
@@ -32,8 +32,8 @@ const TabItem: FC<PropsWithChildren<TabItemProps&DefaultProps>> = ({ theme, icon
   const { componentTheme, statusTheme } = useComponentTheme(theme, 'pagerView', selectPage === index ? 'active' : 'default');
 
   const textColorStyle = useAnimatedStyle(() => {
-    if (index - slideValue.value < 0.3 && index - slideValue.value > -0.5) { return { color: componentTheme.active.headerLabel }; }
-    return { color: componentTheme.default.headerLabel };
+    if (index - slideValue.value < 0.3 && index - slideValue.value > -0.5) { return { color: componentTheme.active?.headerLabel }; }
+    return { color: componentTheme.default?.headerLabel };
   });
 
   return (
@@ -83,7 +83,7 @@ const PagerView:FCCWD<PagerViewProps&PWProps> =
 
   return (
     <View style={[style.container, containerStyle]}>
-      <View style={[{ backgroundColor: componentTheme.default.headerBackground }, style.headersContainer, headerContainerStyle]}>
+      <View style={[{ backgroundColor: componentTheme.default?.headerBackground }, style.headersContainer, headerContainerStyle]}>
         {React.Children.map(children, (item, index) => (
           <TabItem
             selectPage={selectPage}
@@ -99,7 +99,7 @@ const PagerView:FCCWD<PagerViewProps&PWProps> =
           />
         ))
         }
-        <Animated.View style={[style.slider, { backgroundColor: componentTheme.active.headerBackground, height: size?.height, width: size?.width, zIndex: 100 }, headerSliderAnimated, headerSliderStyle]} />
+        <Animated.View style={[style.slider, { backgroundColor: componentTheme.active?.headerBackground, height: size?.height, width: size?.width, zIndex: 100 }, headerSliderAnimated, headerSliderStyle]} />
       </View>
 
       <AnimatedPager

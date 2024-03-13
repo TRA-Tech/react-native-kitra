@@ -80,7 +80,7 @@ const Dropdown: FCCWD<DrowdownProps> = (
               marginLeft: 12,
             },
             typography?.body.medium, buttonTextStyle, {
-              color: componentTheme[isObjectSelected ? 'selected' : componenetStatus].label,
+              color: componentTheme[isObjectSelected ? 'selected' : componenetStatus]?.label,
             }]}
         >
           {isObjectSelected ? displayedButtonValue(selectedObject) : (buttonTitle || 'Please Select')}
@@ -126,11 +126,11 @@ const Dropdown: FCCWD<DrowdownProps> = (
                   index === data.length - 1 ? { borderBottomLeftRadius: 5, borderBottomRightRadius: 5 } : null,
                   rowStyle,
                   {
-                    backgroundColor: componentTheme[isSelectedObject(value) ? 'selected' : componenetStatus].itemBackground,
+                    backgroundColor: componentTheme[isSelectedObject(value) ? 'selected' : componenetStatus]?.itemBackground,
                   },
                 ]}
               >
-                <Text style={[typography?.body.smedium, { marginVertical: 10, marginHorizontal: 10 }, rowTextStyle, { color: componentTheme[isSelectedObject(value) ? 'selected' : componenetStatus].itemLabel }]}>{displayedRowValue(value)}</Text>
+                <Text style={[typography?.body.smedium, { marginVertical: 10, marginHorizontal: 10 }, rowTextStyle, { color: componentTheme[isSelectedObject(value) ? 'selected' : componenetStatus]?.itemLabel }]}>{displayedRowValue(value)}</Text>
               </TouchableOpacity>
             ))}
           </ScrollView>

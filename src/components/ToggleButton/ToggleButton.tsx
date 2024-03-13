@@ -31,8 +31,8 @@ const ToggleButton: FCCWD<ToggleButtonProps> = (
           }}
           style={[
             {
-              backgroundColor: item.active ? componentTheme.active.background : opacity(componentTheme.default.background, 5),
-              borderColor: componentTheme[item.active ? 'active' : 'default'].border,
+              backgroundColor: item.active ? componentTheme.active?.background : opacity(componentTheme.default?.background, 5),
+              borderColor: componentTheme[item.active ? 'active' : 'default']?.border,
               paddingHorizontal: size === 'small' ? 10 : 20,
               paddingVertical: size === 'small' ? 5 : 10,
             },
@@ -46,7 +46,7 @@ const ToggleButton: FCCWD<ToggleButtonProps> = (
           <Text style={
             [
               size === 'small' ? typography?.body.smedium : typography?.body.medium,
-              { color: componentTheme[item.active ? 'active' : 'default'].label },
+              { color: componentTheme[item.active ? 'active' : 'default']?.label },
             ]
           }
           >

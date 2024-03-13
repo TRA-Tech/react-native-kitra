@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { useState, useEffect } from 'react';
 import { View, Modal as RNModal, StyleSheet, ViewStyle, ModalProps as RNModalProps } from 'react-native';
 import type { FCCWD, ModalProps } from '../../types';

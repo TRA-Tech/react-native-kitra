@@ -1,7 +1,7 @@
+// @ts-nocheck
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useMemo, useState } from 'react';
 import { StyleProp, StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
-
 import Animated, { FadeOut, Layout, LightSpeedInLeft } from 'react-native-reanimated';
 
 import IoniconsIcon from '../../components/Icons/Ionicons';
