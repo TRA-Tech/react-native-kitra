@@ -30,11 +30,12 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
     typography,
     ...props },
 ) => {
+  const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef<RNTextInput>(null);
   const [counts, setCounts] = useState(0);
   const [labelLayout, setLabelLayout] = useState({ width: 0, height: 0 });
   const textInputOffset = useSharedValue(props.defaultValue || props.placeholder || props.value ? 0 : 1);
-  const { statusTheme, componentTheme } = useComponentTheme(theme, 'textInput', error ? 'error' : 'default');
+  const { statusTheme, componentTheme } = useComponentTheme(theme, 'textInput', error ? 'error' : isFocused ? 'focused' : 'default');
 
   const fontStyles =
   {
@@ -150,12 +151,13 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
 
   const onFocusInput = () => {
     textInputOffset.value = withTiming(0);
+    setIsFocused(true);
   };
 
   const onEndEditingInput = () => {
     textInputOffset.value = (counts === 0) ? withTiming(1) : withTiming(0);
+    setIsFocused(false);
   };
-
   return (
     <View style={[{ flexGrow: 1, maxHeight: sizeStyles[size].height }, containerStyle]}>
       <Animated.View style={[{

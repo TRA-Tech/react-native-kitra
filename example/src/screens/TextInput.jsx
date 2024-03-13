@@ -24,7 +24,7 @@ const TextInputScreen = () => {
         <Divider label="Outlined" header style={{ marginTop: 0 }} />
 
         <Divider label="Filled" style={{ marginTop: 0 }} />
-        <TextInput error count maxLength={100} variant="outlined" label="Label" errorMessage="sdf" helperText="asdasf" />
+        <TextInput variant="outlined" label="Label" />
 
         <Divider label="Size S-M-L" style={{ marginTop: 0 }} />
         <TextInput variant="outlined" size="small" label="Label" containerStyle={{ marginBottom: 10 }} left={<Icon type="ant-design" color={theme.primary} name="plus" size={18} />} />
