@@ -275,6 +275,7 @@ export type TextInputProps = {
     error?: boolean,
     left?: React.ReactNode,
     right?: React.ReactNode,
+    theme: DeepPartial<(ComponentThemeType['textInput'])>
 }
 
 export type ToggleButtonProps = {

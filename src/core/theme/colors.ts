@@ -362,6 +362,42 @@ export const COLOR_COMPONENTS_LIGHT = {
       border: COLOR_SYSTEM_LIGHT.system.primary,
     },
   },
+  textInput: {
+    default: {
+      background: COLOR_SYSTEM_LIGHT.input.fill,
+      border: COLOR_SYSTEM_LIGHT.input.default,
+      label: COLOR_SYSTEM_LIGHT.neutral.lightBlack,
+      value: COLOR_SYSTEM_LIGHT.neutral.black,
+      bottomLabel: COLOR_SYSTEM_LIGHT.neutral.lightBlack,
+      countLabel: COLOR_SYSTEM_LIGHT.neutral.lightBlack,
+    },
+    focused: {
+      background: COLOR_SYSTEM_LIGHT.input.fill,
+      border: COLOR_SYSTEM_LIGHT.status.focused,
+      label: COLOR_SYSTEM_LIGHT.neutral.lightBlack,
+      value: COLOR_SYSTEM_LIGHT.neutral.black,
+      bottomLabel: COLOR_SYSTEM_LIGHT.neutral.lightBlack,
+      countLabel: COLOR_SYSTEM_LIGHT.neutral.lightBlack,
+
+    },
+    // disabled: {
+    //   background: COLOR_SYSTEM_LIGHT.input.lightDefault,
+    //   border: COLOR_SYSTEM_LIGHT.input.lightDefault,
+    //   label: COLOR_SYSTEM_LIGHT.neutral.grey,
+    //   value: COLOR_SYSTEM_LIGHT.neutral.black,
+    //   bottomLabel: COLOR_SYSTEM_LIGHT.neutral.grey,
+    //   countLabel: COLOR_SYSTEM_LIGHT.neutral.grey,
+    // },
+    error: {
+      background: COLOR_SYSTEM_LIGHT.input.fill,
+      border: COLOR_SYSTEM_LIGHT.status.error,
+      label: COLOR_SYSTEM_LIGHT.neutral.lightBlack,
+      value: COLOR_SYSTEM_LIGHT.neutral.black,
+      bottomLabel: COLOR_SYSTEM_LIGHT.status.error,
+      countLabel: COLOR_SYSTEM_LIGHT.neutral.lightBlack,
+
+    },
+  },
 };
 
 export const COLOR_COMPONENTS_DARK = {
@@ -627,6 +663,42 @@ export const COLOR_COMPONENTS_DARK = {
       background: COLOR_SYSTEM_DARK.button.text,
       dot: COLOR_SYSTEM_DARK.system.primary,
       border: COLOR_SYSTEM_DARK.system.primary,
+    },
+  },
+  textInput: {
+    default: {
+      background: COLOR_SYSTEM_DARK.input.fill,
+      border: COLOR_SYSTEM_DARK.input.default,
+      label: COLOR_SYSTEM_DARK.neutral.lightBlack,
+      value: COLOR_SYSTEM_DARK.neutral.black,
+      bottomLabel: COLOR_SYSTEM_DARK.neutral.lightBlack,
+      countLabel: COLOR_SYSTEM_DARK.neutral.lightBlack,
+
+    },
+    focused: {
+      background: COLOR_SYSTEM_DARK.input.fill,
+      border: COLOR_SYSTEM_DARK.status.focused,
+      label: COLOR_SYSTEM_DARK.neutral.lightBlack,
+      value: COLOR_SYSTEM_DARK.neutral.black,
+      bottomLabel: COLOR_SYSTEM_DARK.neutral.lightBlack,
+      countLabel: COLOR_SYSTEM_DARK.neutral.lightBlack,
+    },
+    // disabled: {
+    //   background: COLOR_SYSTEM_DARK.input.lightDefault,
+    //   border: COLOR_SYSTEM_DARK.input.lightDefault,
+    //   label: COLOR_SYSTEM_DARK.neutral.grey,
+    //   value: COLOR_SYSTEM_DARK.neutral.black,
+    //   bottomLabel: COLOR_SYSTEM_DARK.neutral.grey,
+    //   countLabel: COLOR_SYSTEM_DARK.neutral.grey,
+    // },
+
+    error: {
+      background: COLOR_SYSTEM_DARK.input.fill,
+      border: COLOR_SYSTEM_DARK.status.error,
+      label: COLOR_SYSTEM_DARK.neutral.lightBlack,
+      value: COLOR_SYSTEM_DARK.neutral.black,
+      bottomLabel: COLOR_SYSTEM_DARK.status.error,
+      countLabel: COLOR_SYSTEM_DARK.neutral.lightBlack,
     },
   },
 };
