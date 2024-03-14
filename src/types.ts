@@ -23,10 +23,10 @@ export type FCCWD<P = {}> = FCC<P & DefaultProps>
 export type CoreThemeType = typeof DEFAULT_THEME
 export type ThemeType = CoreThemeType & {
     dark: {
-        custom: any
+      colors:{ custom: any}
     },
     light: {
-        custom: any
+        colors:{ custom: any}
     }
 }
 export type ComponentThemeType = typeof DEFAULT_THEME.light.components

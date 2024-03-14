@@ -1,5 +1,6 @@
 import { Icon, TextInput, useTheme } from '@tra-tech/react-native-kitra';
 import { KeyboardAvoidingView, Text, TouchableOpacity, View } from 'react-native';
+import { useEffect } from 'react';
 import Layout from '../components/Layout';
 import Divider from '../components/Divider';
 
@@ -70,9 +71,8 @@ const TextInputScreen = () => {
         <View style={{ rowGap: 10 }}>
           <TextInput variant="filled" label="Label" left={<Icon type="ant-design" color={theme.primary} name="plus" size={18} />} />
           <TextInput variant="filled" label="Label" right={<TouchableOpacity><Icon type="ant-design" color={theme.primary} name="eye" size={18} /></TouchableOpacity>} />
-          <TextInput variant="filled" label="Label" right={<Icon type="ant-design" color={theme.primary} name="plus" size={18} />} left={<Icon type="ant-design" color={theme.primary} name="eye" size={18} />} />
+          <TextInput variant="filled" label="Label" right={<Icon type="ant-design" color={theme.colors.system.primary} name="plus" size={18} />} left={<Icon type="ant-design" color={theme.primary} name="eye" size={18} />} />
         </View>
-
         <Divider label="Helper Text" />
         <TextInput variant="filled" label="Label" helperText="Hello, this is helper text!" />
 
