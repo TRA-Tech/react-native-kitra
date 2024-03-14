@@ -158,6 +158,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
     textInputOffset.value = (counts === 0) ? withTiming(1) : withTiming(0);
     setIsFocused(false);
   };
+
   return (
     <View style={[{ flexGrow: 1, maxHeight: sizeStyles[size].height }, containerStyle]}>
       <Animated.View style={[{

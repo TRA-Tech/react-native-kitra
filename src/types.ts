@@ -21,6 +21,7 @@ export type FCC<P = {}> = FC<PropsWithChildren<P>>
 export type FCCWD<P = {}> = FCC<P & DefaultProps>
 
 export type CoreThemeType = typeof DEFAULT_THEME
+
 export type ThemeType = CoreThemeType & {
     dark: {
       colors:{ custom: any}
@@ -30,6 +31,7 @@ export type ThemeType = CoreThemeType & {
     }
 }
 export type ComponentThemeType = typeof DEFAULT_THEME.light.components
+
 export type Components =keyof ComponentThemeType
 
 export type TypographyType = typeof defaultTypography & any;
