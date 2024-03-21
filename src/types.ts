@@ -316,10 +316,9 @@ export type PagerViewProps = {
     containerStyle?: StyleProp<ViewStyle>
     pageContainerStyle?: StyleProp<ViewStyle>
     injectPagerRef?: boolean,
-    headerTextColor?: { select: string, default: string },
     headerSliderStyle?: StyleProp<ViewStyle>,
     headerContainerStyle?: StyleProp<ViewStyle>,
-    headerTextStyle?: StyleProp<TextStyle>,
+    headerLabelStyle?: StyleProp<TextStyle>,
     icons?: React.ReactElement<typeof Icon>[],
     theme: DeepPartial<(ComponentThemeType['pagerView'])>
 }

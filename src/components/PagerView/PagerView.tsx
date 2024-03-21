@@ -24,11 +24,11 @@ export type TabItemProps = {
   refPager: React.RefObject<PagerViewComponent>,
   setSize: Dispatch<SetStateAction<{ height: number, width: number }>>,
   slideValue: SharedValue<number>
-  headerTextStyle?:StyleProp<TextStyle>,
+  headerLabelStyle?:StyleProp<TextStyle>,
   icons?: React.ReactElement<typeof Icon>[],
   selectPage:number
 }
-const TabItem: FC<PropsWithChildren<TabItemProps&DefaultProps>> = ({ theme, icons, selectPage, typography, item, index, refPager, setSize, slideValue, headerTextStyle }) => {
+const TabItem: FC<PropsWithChildren<TabItemProps&DefaultProps>> = ({ theme, icons, selectPage, typography, item, index, refPager, setSize, slideValue, headerLabelStyle }) => {
   const { componentTheme, statusTheme } = useComponentTheme(theme, 'pagerView', selectPage === index ? 'active' : 'default');
 
   const textColorStyle = useAnimatedStyle(() => {
@@ -49,7 +49,7 @@ const TabItem: FC<PropsWithChildren<TabItemProps&DefaultProps>> = ({ theme, icon
         {/* @ts-ignore */}
         {icons && icons[index] && React.cloneElement(icons[index], { color: selectPage === index ? statusTheme.headerLabel : componentTheme.default.headerLabel })}
         {/* @ts-ignore */}
-        <Animated.Text style={[{ fontSize: typography?.body.medium.fontSize, lineHeight: typography?.body.medium.lineHeight }, style.headerText, textColorStyle, headerTextStyle]}>{item.key}</Animated.Text>
+        <Animated.Text style={[{ fontSize: typography?.body.medium.fontSize, lineHeight: typography?.body.medium.lineHeight }, style.headerText, textColorStyle, headerLabelStyle]}>{item.key}</Animated.Text>
       </View>
     </TouchableOpacity>
   );
@@ -61,7 +61,7 @@ const PagerView:FCCWD<PagerViewProps&PWProps> =
 ({ children,
   containerStyle,
   pageContainerStyle,
-  headerTextStyle,
+  headerLabelStyle,
   injectPagerRef = false,
   headerSliderStyle,
   headerContainerStyle,
@@ -94,7 +94,7 @@ const PagerView:FCCWD<PagerViewProps&PWProps> =
             setSize={setSize}
             slideValue={slideValue}
             typography={typography}
-            headerTextStyle={headerTextStyle}
+            headerLabelStyle={headerLabelStyle}
             theme={theme}
           />
         ))
