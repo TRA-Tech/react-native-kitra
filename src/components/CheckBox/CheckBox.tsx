@@ -28,7 +28,7 @@ export const CheckBox: FCCWD<CheckBoxProps & TouchableOpacityProps> = (
       const borderColorInterpolation = interpolateColor(
         animatedValue.value,
         [0, 1],
-        [statusTheme.border, 'transparent'],
+        [statusTheme.border, statusTheme.border],
       );
       const backgroundColorInterpolation = interpolateColor(
         animatedValue.value,
@@ -63,7 +63,7 @@ export const CheckBox: FCCWD<CheckBoxProps & TouchableOpacityProps> = (
       activeOpacity={1}
       onPress={toggle}
       disabled={disabled}
-      style={[styles.checkBox, animatedStyle, style]}
+      style={[styles.checkBox, style, animatedStyle]}
       {...props}
     >
       {status && (

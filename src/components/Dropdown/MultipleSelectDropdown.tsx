@@ -4,15 +4,13 @@ import { Dimensions, ScrollViewProps, StyleSheet, Text, TouchableOpacity, View }
 import { NativeViewGestureHandlerProps, ScrollView } from 'react-native-gesture-handler';
 import Animated, { FadeIn, FadeOut, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
-import type { DrowdownProps, FCCWD, MultipleDropdownProps } from '../../types';
+import type { FCCWD, MultipleDropdownProps } from '../../types';
 import Button from '../Button/Button';
 import FeatherIcon from '../Icons/Feather';
 import IoniconsIcon from '../Icons/Ionicons';
 import OcticonsIcon from '../Icons/Octicons';
 
 const windowsHeight = Dimensions.get('window').height;
-
-let dataWithID: Array<string | { keyID: number, [key: string]: any }>;
 
 // eslint-disable-next-line no-undef
 const GScrollView = forwardRef((props: JSX.IntrinsicAttributes & ScrollViewProps & NativeViewGestureHandlerProps & RefAttributes<ScrollView>, ref) => <ScrollView {...props} />);
@@ -43,7 +41,8 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
   const [selectedObjects, setSelectedObjects] = useState(defaultValue || []);
   const [cord, setCord] = useState({ x: 0, y: 0, height: 0, width: 0 });
   const openAnimation = useSharedValue(0);
-  const { statusTheme, componentTheme } = useComponentTheme(theme, 'multipleDropdown', visible ? 'active' : 'default');
+  const dataWithID = useRef();
+  const { statusTheme, componentTheme } = useComponentTheme(theme, 'multipleDropdown', selectedObjects.length ? 'selected' : visible ? 'active' : 'default');
   const componenetStatus = visible ? 'active' : 'default';
   const dropdown = useRef<TouchableOpacity>(null);
   const dropdownAnimation = useAnimatedStyle(() => ({
@@ -85,10 +84,11 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
   }, [visible]);
 
   useEffect(() => {
-    // @ts-expect-error
-    dataWithID = data?.map((x: (string | { [key: string]: any })): (string | { keyID: number, [key: string]: any }) => { x.keyID = Math.random(); return (x); });
-  }, []);
+    const tempData = JSON.parse(JSON.stringify(data));
 
+    // @ts-ignore
+    dataWithID.current = tempData?.map((x: (string | { [key: string]: any })): (string | { keyID: number, [key: string]: any }) => { x.keyID = Math.random(); return (x); });
+  }, []);
   return (
     <View testID={testID} style={[containerStyle, { zIndex: visible ? 1000 : 0 }]}>
       <TouchableOpacity
@@ -96,7 +96,11 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
         ref={dropdown}
         activeOpacity={0.9}
         onPress={() => { setVisible(!visible); }}
-        style={[Style.button, buttonStyle, { backgroundColor: statusTheme.background, borderColor: statusTheme.border }]}
+        style={[Style.button, buttonStyle,
+          {
+            backgroundColor: componentTheme[isObjectSelected ? 'selected' : componenetStatus]?.background,
+            borderColor: componentTheme[isObjectSelected ? 'selected' : componenetStatus]?.border,
+          }]}
       >
         {leftElement}
         <Animated.Text
@@ -136,12 +140,12 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
               left: 0,
             },
             listContainerStyle,
-            windowsHeight - (cord?.y + (38 * 4) || 0) <= windowsHeight / 3 ? { bottom: cord?.height || 0 + 5 } : { top: cord?.height || 0 + 5 }, { backgroundColor: statusTheme.background }]}
+            windowsHeight - (cord?.y + (38 * 4) || 0) <= windowsHeight / 3 ? { bottom: cord?.height || 0 + 5 } : { top: cord?.height || 0 + 5 }, { backgroundColor: statusTheme.collapseBackground }]}
         >
           <FlashList
             extraData={selectedObjects}
             renderScrollComponent={GScrollView}
-            data={dataWithID}
+            data={dataWithID.current}
             // @ts-expect-error
             keyExtractor={(item: string | { keyID: number, [key: string]: any }) => item.keyID || displayedRowValue(item)}
             estimatedItemSize={38}
@@ -160,20 +164,21 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
                     index === data?.length || 0 - 1 ? { borderBottomLeftRadius: 5, borderBottomRightRadius: 5 } : null,
                     rowStyle,
                     {
-                      backgroundColor: statusTheme.itemBackground,
+                      backgroundColor: componentTheme[isSelected ? 'selected' : componenetStatus]?.background,
                     },
                   ]}
                 >
+                  {}
                   <TouchableOpacity
                     disabled
                     style={[Style.checkBox, {
-                      borderColor: statusTheme.checkBorder,
+                      borderColor: componentTheme[isSelected ? 'selected' : componenetStatus]?.checkBorder,
                       backgroundColor: componentTheme[isSelected ? 'selected' : componenetStatus]?.checkBackground,
                     }]}
                   >
                     {isSelected && (
                       <OcticonsIcon
-                        color={statusTheme.checkIcon}
+                        color={componentTheme[isSelected ? 'selected' : componenetStatus]?.checkIcon}
                         name="check"
                         size={12}
                       />
@@ -182,7 +187,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
                   <Text
                     style={[typography?.body.smedium,
                       { marginHorizontal: 10 },
-                      rowTextStyle, { color: statusTheme.itemLabel }]}
+                      rowTextStyle, { color: componentTheme[isSelected ? 'selected' : componenetStatus]?.itemLabel }]}
                   >
                     {displayedRowValue(item)}
                   </Text>
@@ -224,7 +229,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
               },
             }}
             label="Complete Selection"
-            textStyle={{ textAlign: 'center' }}
+            labelStyle={{ textAlign: 'center' }}
             style={Style.completeSelection}
             iconPosition="left"
           />

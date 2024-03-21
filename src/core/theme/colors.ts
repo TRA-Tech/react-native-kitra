@@ -53,7 +53,7 @@ export const COLOR_SYSTEM_DARK = {
     disabledDark: '#445284',
     disabledLightDark: '#1B1E2B',
     disabledLight: '#252F54',
-    primary5: '#9F9F9F',
+    primary5: '#21273E',
     primary15: '#323A5E',
     primary30: '#A9B6D7',
     background: '#171922',
@@ -84,7 +84,7 @@ export const COLOR_SYSTEM_DARK = {
   button: {
     disabled: '#2D375D',
     disabledText: '#6D738A',
-    text: '#9F9F9F',
+    text: '#FFFFFF',
   },
   input: {
     default: '#757575',
@@ -99,25 +99,21 @@ export const COLOR_COMPONENTS_LIGHT = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_
     accordionList: {
       default: {
         background: COLOR_SYSTEM.colors.neutral.lightGrey,
-        border: COLOR_SYSTEM.colors.neutral.lightGrey,
         label: COLOR_SYSTEM.colors.neutral.lightBlack,
         itemBackground: COLOR_SYSTEM.colors.system.filled,
         collapseIconBackground: COLOR_SYSTEM.colors.system.primary5,
         collapseIcon: COLOR_SYSTEM.colors.neutral.lightBlack,
         itemLabel: COLOR_SYSTEM.colors.neutral.grey,
         icon: COLOR_SYSTEM.colors.neutral.lightBlack,
-        itemChildLabel: COLOR_SYSTEM.colors.neutral.grey,
       },
       active: {
         background: COLOR_SYSTEM.colors.system.primary5,
-        border: COLOR_SYSTEM.colors.neutral.lightGrey,
         label: COLOR_SYSTEM.colors.system.primary,
         itemBackground: COLOR_SYSTEM.colors.system.filled,
         collapseIconBackground: COLOR_SYSTEM.colors.system.primary15,
         collapseIcon: COLOR_SYSTEM.colors.system.primary,
         itemLabel: COLOR_SYSTEM.colors.neutral.grey,
         icon: COLOR_SYSTEM.colors.system.primary,
-        itemChildLabel: COLOR_SYSTEM.colors.system.primary,
       },
     },
     activityIndicator: {
@@ -238,6 +234,7 @@ export const COLOR_COMPONENTS_LIGHT = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_
     },
     multipleDropdown: {
       default: {
+        collapseBackground: COLOR_SYSTEM.colors.system.background,
         background: COLOR_SYSTEM.colors.system.background,
         border: COLOR_SYSTEM.colors.neutral.default,
         label: COLOR_SYSTEM.colors.neutral.lightBlack,
@@ -252,6 +249,7 @@ export const COLOR_COMPONENTS_LIGHT = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_
         checkBorder: COLOR_SYSTEM.colors.system.primary,
       },
       active: {
+        collapseBackground: COLOR_SYSTEM.colors.system.background,
         background: COLOR_SYSTEM.colors.system.background,
         border: COLOR_SYSTEM.colors.status.focused,
         label: COLOR_SYSTEM.colors.status.focused,
@@ -267,6 +265,7 @@ export const COLOR_COMPONENTS_LIGHT = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_
 
       },
       selected: {
+        collapseBackground: COLOR_SYSTEM.colors.system.background,
         background: COLOR_SYSTEM.colors.system.background,
         border: COLOR_SYSTEM.colors.neutral.default,
         label: COLOR_SYSTEM.colors.system.primary,
@@ -406,7 +405,6 @@ export const COLOR_COMPONENTS_DARK = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_D
   accordionList: {
     default: {
       background: COLOR_SYSTEM.colors.neutral.lightGrey,
-      border: COLOR_SYSTEM.colors.neutral.lightGrey,
       label: COLOR_SYSTEM.colors.neutral.lightBlack,
       itemBackground: COLOR_SYSTEM.colors.system.filled,
       collapseIconBackground: COLOR_SYSTEM.colors.system.primary5,
@@ -417,7 +415,6 @@ export const COLOR_COMPONENTS_DARK = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_D
     },
     active: {
       background: COLOR_SYSTEM.colors.system.primary5,
-      border: COLOR_SYSTEM.colors.neutral.lightGrey,
       label: COLOR_SYSTEM.colors.system.primary,
       itemBackground: COLOR_SYSTEM.colors.system.filled,
       collapseIconBackground: COLOR_SYSTEM.colors.system.primary15,

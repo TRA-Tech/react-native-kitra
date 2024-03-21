@@ -32,7 +32,7 @@ const Dropdown: FCCWD<DrowdownProps> = (
   const [visible, setVisible] = useState(false);
   const [selectedObject, setSelectedObject] = useState(defaultValue);
   const [cord, setCord] = useState({ x: 0, y: 0, height: 0, width: 0 });
-  const { statusTheme, componentTheme } = useComponentTheme(theme, 'dropdown', visible ? 'active' : 'default');
+  const { statusTheme, componentTheme } = useComponentTheme(theme, 'dropdown', Object.keys(selectedObject).length ? 'selected' : visible ? 'active' : 'default');
 
   const isObjectSelected = (Object.keys(selectedObject).length !== 0);
   const isSelectedObject = (value: any) => displayedButtonValue(selectedObject) === displayedButtonValue(value);

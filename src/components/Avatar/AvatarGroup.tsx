@@ -39,11 +39,10 @@ const AvatarGroup: FCCWD<AvatarGroupProps> = (
       ))}
       {(avatars.length || 0) > avatarLimit ? (
         <Avatar
-          theme={theme}
           typography={typography}
           variant="circular"
           size="small"
-          containerStyle={{ backgroundColor: statusTheme.moreBackground }}
+          theme={{ default: { background: statusTheme.moreBackground, label: statusTheme.morelabel } }}
           avatarIcon={avatarIcon}
         />
       )

@@ -25,7 +25,7 @@ const AccordionList: FCCWD<AccordionListProps> = ({
   typography,
 }) => {
   const [expanded, setExpanded] = useState(false);
-  const { statusTheme, componentTheme } = useComponentTheme(theme, 'accordionList', expanded ? 'active' : 'default');
+  const { statusTheme } = useComponentTheme(theme, 'accordionList', expanded ? 'active' : 'default');
   const listHeight = useSharedValue(0);
   const iconRotation = useSharedValue(0);
   const [contentHeight, setContentHeight] = useState(0);
