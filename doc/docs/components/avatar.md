@@ -64,7 +64,7 @@ const App = () => (
       <AvatarGroup
         avatarLimit={5}
         limitContainerStyle={{ backgroundColor: '#82B98E', style: { fontSize: 10 } }}
-        avatarsType={[
+        avatars={[
           { source: { uri: 'https://randomuser.me/api/portraits/men/62.jpg' } },
           { source: { uri: 'https://randomuser.me/api/portraits/men/40.jpg' } },
           { source: { uri: 'https://randomuser.me/api/portraits/women/26.jpg' } },
@@ -83,7 +83,7 @@ export default App;
 
 | Prop name             | Type                                            | Required | Description                                                                                |
 |-----------------------|-------------------------------------------------|----------|--------------------------------------------------------------------------------------------|
-| avatarsType           | ``Array<{``<br />`` source?: ImageSourcePropType,``<br />`` variant?: 'circular' \| 'rounded',``<br />`` avatarIcon?: React.ReactNode,``<br />`` containerStyle?: StyleProp<ViewStyle>,``<br />`` label?: string,``<br />``  labelStyle?: StyleProp<TextStyle>,``<br />`` textStyle?: StyleProp<TextStyle> }, ``<br />``}> ``| Yes      | Takes avatar props into array. |
+| avatars           | ``Array<{``<br />`` source?: ImageSourcePropType,``<br />`` variant?: 'circular' \| 'rounded',``<br />`` avatarIcon?: React.ReactNode,``<br />`` containerStyle?: StyleProp<ViewStyle>,``<br />`` label?: string,``<br />``  labelStyle?: StyleProp<TextStyle>,``<br />`` textStyle?: StyleProp<TextStyle> }, ``<br />``}> ``| Yes      | Takes avatar props into array. |
 | avatarLimit           |``number``                                        | No      |  Limit of avatars to be listed. Default value: ``10``            |
 | limitContainerStyle   |<code>'circular' \| 'rounded'</code>                   | No       | Additional styles to apply to the limit container. |
 | theme                 |``UITheme                                     `` | No       | The theme to use for the component.                                                     |

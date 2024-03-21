@@ -12,7 +12,7 @@ const Chip:FCCWD<ChipProps> = (
   { typography,
     label,
     value,
-    textStyle,
+    labelStyle,
     style,
     icon,
     size = 'small',
@@ -66,7 +66,7 @@ const Chip:FCCWD<ChipProps> = (
         width: icon ? sizes[size].iconwithWidth : sizes[size].width }, style, { borderColor: statusTheme.border }]}
     >
       <View style={{ flexDirection: icon?.iconPosition === 'right' ? 'row' : 'row-reverse', alignItems: 'center' }}>
-        <Animated.Text style={[{ fontSize: typographySize[size]?.fontSize, lineHeight: typographySize[size]?.lineHeight, fontWeight: '500' }, textStyle, { color: statusTheme.label }]}>{label}</Animated.Text>
+        <Animated.Text style={[{ fontSize: typographySize[size]?.fontSize, lineHeight: typographySize[size]?.lineHeight, fontWeight: '500' }, labelStyle, { color: statusTheme.label }]}>{label}</Animated.Text>
         {icon ?
           <Icon color={statusTheme.icon} type={icon.iconType} name={icon.iconName} size={sizes[size].iconSize} style={[icon.iconPosition === 'right' ? { marginLeft: 6 } : { marginRight: 6 }]} />
           : null

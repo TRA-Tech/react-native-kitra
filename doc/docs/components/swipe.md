@@ -72,4 +72,4 @@ export default App;
 
 | Name | Type |
 |-----------|-----------|
-| ActionProps | ``text?: string, style?: StyleProp<ViewStyle>, icon?: React.ReactNode,``<br/>`` textStyle?: StyleProp<TextStyle>, onPress: (ref:React.RefObject<Swipeable>)=>void``  |
+| ActionProps | ``label?: string, style?: StyleProp<ViewStyle>, icon?: React.ReactNode,``<br/>`` labelStyle?: StyleProp<TextStyle>, onPress: (ref:React.RefObject<Swipeable>)=>void``  |

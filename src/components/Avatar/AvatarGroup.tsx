@@ -8,11 +8,11 @@ const AvatarGroup: FCCWD<AvatarGroupProps> = (
   { theme,
     typography,
     limitContainerStyle,
-    avatarsType,
+    avatars,
     avatarLimit = 10 },
 ) => {
   const { statusTheme } = useComponentTheme(theme, 'avatarGroup', 'default');
-  const limit = (avatarsType?.length || 0) - avatarLimit;
+  const limit = (avatars?.length || 0) - avatarLimit;
   const avatarIcon = (
     <Text style={[{ fontSize: typography?.body.smedium.fontSize, lineHeight: typography?.body.smedium.lineHeight, fontWeight: '500' }, limitContainerStyle?.style, { color: statusTheme.morelabel }]}>
       +
@@ -21,7 +21,7 @@ const AvatarGroup: FCCWD<AvatarGroupProps> = (
   );
   return (
     <View style={{ flexDirection: 'row' }}>
-      {avatarsType?.slice(0, avatarLimit)?.map((item, index): any => (
+      {avatars?.slice(0, avatarLimit)?.map((item, index): any => (
         <View key={item.label || item.avatarIcon?.toString()} style={{ marginRight: -7 }}>
           <Avatar
             theme={theme}
@@ -37,7 +37,7 @@ const AvatarGroup: FCCWD<AvatarGroupProps> = (
 
         </View>
       ))}
-      {(avatarsType.length || 0) > avatarLimit ? (
+      {(avatars.length || 0) > avatarLimit ? (
         <Avatar
           theme={theme}
           typography={typography}

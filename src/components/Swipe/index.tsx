@@ -51,10 +51,10 @@ const Swipe: FCCWD<SwipeProps & SwipeableProps> = ({
             style={[
               typography?.body.xsmedium,
               styles.actionText,
-              leftAction?.textStyle,
+              leftAction?.labelStyle,
             ]}
           >
-            {leftAction?.text}
+            {leftAction?.label}
           </Text>
         </Animated.View>
       </TouchableOpacity>
@@ -67,7 +67,7 @@ const Swipe: FCCWD<SwipeProps & SwipeableProps> = ({
     progress,
     index,
   }: RenderRightActionProps) => {
-    const { text, style, icon, textStyle } = item;
+    const { label, style, icon, labelStyle } = item;
     const trans = progress.interpolate({
       inputRange: [0, 1],
       outputRange: [dragValue, 0],
@@ -88,7 +88,7 @@ const Swipe: FCCWD<SwipeProps & SwipeableProps> = ({
         onPress={() => item.onPress?.(swipeRef)}
       >
         {icon}
-        {!!text && <Text style={[typography?.body.xsmedium, styles.actionText, textStyle, { marginTop: icon ? 10 : 0 }]}>{text}</Text>}
+        {!!label && <Text style={[typography?.body.xsmedium, styles.actionText, labelStyle, { marginTop: icon ? 10 : 0 }]}>{label}</Text>}
       </AnimatedTouchableOpacity>
     );
   };

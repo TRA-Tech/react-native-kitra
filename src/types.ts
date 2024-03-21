@@ -54,7 +54,7 @@ export type AccordionListProps = {
 }
 
 export type AvatarGroupProps = {
-    avatarsType: Array<{
+    avatars: Array<{
         source?: ImageSourcePropType,
         variant?: 'circular' | 'rounded',
         avatarIcon?: React.ReactNode,
@@ -83,7 +83,7 @@ export type BadgeProps = {
     label?: string | number,
     size?: 'medium' | 'small',
     containerStyle?: StyleProp<ViewStyle>,
-    textStyles?: StyleProp<TextStyle>,
+    labelStyle?: StyleProp<TextStyle>,
     variant?: 'circular' | 'rectangular'
     icon?: React.ReactNode,
     badgePosition: 'topRight' | 'topLeft' | 'bottomRight' | 'bottomLeft'
@@ -97,7 +97,7 @@ export type ButtonProps = {
     icon?: React.ReactElement,
     iconPosition?: 'left' | 'right',
     style?: StyleProp<ViewStyle>,
-    textStyle?: StyleProp<TextStyle>,
+    labelStyle?: StyleProp<TextStyle>,
     theme: DeepPartial<(ComponentThemeType['button'])>
 }
 
@@ -112,7 +112,7 @@ export type CheckBoxProps = {
 
 export type ChipProps = {
     label?: string,
-    textStyle?: StyleProp<TextStyle>,
+    labelStyle?: StyleProp<TextStyle>,
     style?: StyleProp<ViewStyle>,
     value?: boolean,
     icon?: { iconName: string, iconType: IconType, iconPosition: 'left' | 'right' },
@@ -237,10 +237,10 @@ export type SliderProps = {
 }
 
 export type ActionProps = {
-    text?: string,
+    label?: string,
     style?: StyleProp<ViewStyle>,
     icon?: React.ReactNode,
-    textStyle?: StyleProp<TextStyle>,
+    labelStyle?: StyleProp<TextStyle>,
     onPress?: (ref: React.RefObject<Swipeable>) => void
 }
 

@@ -10,7 +10,7 @@ const Badge: FCCWD<BadgeProps> = (
     label,
     size = 'medium',
     containerStyle,
-    textStyles,
+    labelStyle,
     variant = 'circular',
     icon,
     badgePosition = 'bottomRight',
@@ -35,7 +35,7 @@ const Badge: FCCWD<BadgeProps> = (
           >
             {(() => {
               if (label) {
-                return <Text style={[{ fontSize: sizes[size]?.fontSize }, textStyles, { color: statusTheme.label }]}>{label}</Text>;
+                return <Text style={[{ fontSize: sizes[size]?.fontSize }, labelStyle, { color: statusTheme.label }]}>{label}</Text>;
               }
               if (icon) {
                 return icon;

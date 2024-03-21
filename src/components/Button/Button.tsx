@@ -11,7 +11,7 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
     label = '',
     iconPosition = 'left',
     style,
-    textStyle,
+    labelStyle,
     icon,
     theme,
     ...props },
@@ -49,7 +49,7 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
         color: statusTheme.icon || icon.props.color,
         style: [label.length ? (iconPosition === 'left' ? { marginRight: 10 } : { marginLeft: 10 }) : null, icon.props?.style],
       })}
-      <Text testID="button_text" style={[{ fontWeight: '500' }, fontStyles[size], textStyle, { color: statusTheme.label }]}>
+      <Text testID="button_text" style={[{ fontWeight: '500' }, fontStyles[size], labelStyle, { color: statusTheme.label }]}>
         {label}
       </Text>
     </Pressable>
