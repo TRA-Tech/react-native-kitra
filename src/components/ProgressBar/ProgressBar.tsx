@@ -8,6 +8,7 @@ import { applyDefaults } from '../../core/KitraProvider';
 const ProgressBar: FCCWD<ProgressBarProps> = (
   { progress = 0,
     progressStyle,
+    barStyle,
     testID,
     theme },
 ) => {
@@ -25,7 +26,7 @@ const ProgressBar: FCCWD<ProgressBarProps> = (
     <View
       testID={testID}
       onLayout={x => setBarWidth(x.nativeEvent.layout.width)}
-      style={[Style.container, { backgroundColor: componentTheme.default?.bar }]}
+      style={[Style.container, barStyle, { backgroundColor: componentTheme.default?.bar }]}
     >
       <Animated.View
         testID="progressBarAnimation"

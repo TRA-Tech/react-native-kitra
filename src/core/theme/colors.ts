@@ -411,7 +411,6 @@ export const COLOR_COMPONENTS_DARK = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_D
       collapseIcon: COLOR_SYSTEM.colors.neutral.lightBlack,
       itemLabel: COLOR_SYSTEM.colors.neutral.grey,
       icon: COLOR_SYSTEM.colors.neutral.lightBlack,
-      itemChildLabel: COLOR_SYSTEM.colors.neutral.grey,
     },
     active: {
       background: COLOR_SYSTEM.colors.system.primary5,
@@ -421,7 +420,6 @@ export const COLOR_COMPONENTS_DARK = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_D
       collapseIcon: COLOR_SYSTEM.colors.system.primary,
       itemLabel: COLOR_SYSTEM.colors.neutral.grey,
       icon: COLOR_SYSTEM.colors.system.primary,
-      itemChildLabel: COLOR_SYSTEM.colors.system.primary,
     },
   },
   activityIndicator: {

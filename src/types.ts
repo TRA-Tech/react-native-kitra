@@ -208,6 +208,7 @@ export type ProgressBarProps = {
     progress?: number,
     progressStyle?: StyleProp<ViewStyle>,
     testID?: string,
+    barStyle?: StyleProp<ViewStyle>,
     theme: DeepPartial<(ComponentThemeType['progressBar'])>
 }
 
@@ -292,7 +293,6 @@ export type ToggleButtonProps = {
 
 export type SpeedDialProps = {
     items: Array<{ icon?: React.ReactNode, title?: string, titleColor?: string, backgroundColor?: string, onPress?: () => void }>,
-    baseItemBackground?: string,
     variant: 'flat' | 'spread',
     onChange?: (event: boolean) => void,
     baseItemIcon?: React.ReactNode,

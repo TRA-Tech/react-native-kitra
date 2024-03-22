@@ -1,5 +1,5 @@
 import { Icon, TextInput, useTheme } from '@tra-tech/react-native-kitra';
-import { KeyboardAvoidingView, Text, TouchableOpacity, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, Text, TouchableOpacity, View } from 'react-native';
 import { useEffect } from 'react';
 import Layout from '../components/Layout';
 import Divider from '../components/Divider';

@@ -112,10 +112,8 @@ const SpeedDial: FCCWD<SpeedDialProps> = (
     theme,
     typography },
 ) => {
-  console.log(theme);
-
   const { statusTheme } = useComponentTheme(theme, 'speedDial', 'default');
-  baseItemIcon = <Icon type="material-community" name="close" size={25} color={statusTheme.icon} />;
+
   const offset = useSharedValue(0);
   const rotate = useAnimatedStyle(() => ({
     transform: [{ rotateZ: `${(offset.value - 1) * 45}deg` }],

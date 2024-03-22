@@ -67,7 +67,7 @@ const PagerView:FCCWD<PagerViewProps&PWProps> =
   headerContainerStyle,
   icons,
   theme,
-  typography }) => {
+  typography, ...props }) => {
   const refPager = useRef<PagerViewComponent>(null);
   const slideValue = useSharedValue(0);
   const [size, setSize] = useState<{ height: number, width: number }>({ height: 0, width: 0 });
@@ -111,6 +111,7 @@ const PagerView:FCCWD<PagerViewProps&PWProps> =
         style={[{ flex: 1 }, pageContainerStyle]}
         initialPage={0}
         onPageSelected={e => setSelectPage(e.nativeEvent.position)}
+        {...props}
       >
 
         {React.Children.map(children, (item, index) => {

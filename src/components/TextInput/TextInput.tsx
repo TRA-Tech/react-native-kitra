@@ -36,6 +36,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
   const [labelLayout, setLabelLayout] = useState({ width: 0, height: 0 });
   const textInputOffset = useSharedValue(props.defaultValue || props.placeholder || props.value ? 0 : 1);
   const { statusTheme, componentTheme } = useComponentTheme(theme, 'textInput', error ? 'error' : isFocused ? 'focused' : 'default');
+  const { value: statusValue } = statusTheme;
 
   const fontStyles =
   {
@@ -187,13 +188,12 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
                 lineHeight: sizeStyles[size].lineHeight,
                 flexDirection: 'row',
                 flexGrow: 1,
-              }, inputStyle, { backgroundColor: statusTheme.background, color: statusTheme.value }]}
+              }, inputStyle, { backgroundColor: statusTheme.background, color: statusValue }]}
               onChangeText={event => { setCounts(event?.length || 0); onChangeText && onChangeText(event); }}
               onFocus={x => { onFocusInput(); onFocus?.(x); }}
               onEndEditing={x => { onEndEditingInput(); onEndEditing?.(x); }}
               {...props}
             />
-
             {label ? (
               <View style={[
                 {
@@ -210,7 +210,6 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
                   </Animated.Text>
                 </TouchableOpacity>
               </View>
-
             ) : null
             }
           </View>
