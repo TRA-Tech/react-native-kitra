@@ -21,7 +21,6 @@
     "!**/__mocks__"
   ],
   "scripts": {
-    "test": "jest",
     "typescript": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "bootstrap": "yarn --cwd example && yarn",
