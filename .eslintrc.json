@@ -73,6 +73,8 @@
         "global-require": 0,
         "no-unused-vars": "off",
         "@typescript-eslint/no-unused-vars": "off",
+        "no-shadow": "off",
+        "@typescript-eslint/no-shadow": "warn",
         "react/jsx-props-no-spreading": 0,
         "react/react-in-jsx-scope": 0,
         "react/style-prop-object": 0,

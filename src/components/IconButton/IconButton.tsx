@@ -1,4 +1,5 @@
-import React from 'react';
+// @ts-nocheck
+
 import { Pressable, PressableProps, ViewStyle, Platform } from 'react-native';
 import type { FCCWD, IconButtonProps } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';

@@ -3,8 +3,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
-import { KitraProvider } from '@tra-tech/react-native-kitra';
+import { KitraProvider, useTheme } from '@tra-tech/react-native-kitra';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useColorScheme } from 'react-native';
 import Home from './src/screens/Home';
 import TextInputScreen from './src/screens/TextInput';
 import CheckBoxScreen from './src/screens/CheckBox';
@@ -79,30 +80,30 @@ export default function App() {
         <NavigationContainer>
           <Stack.Navigator>
             <Stack.Screen name="Home" component={Home} />
-            <Stack.Screen name="TextInput" component={TextInputScreen} />
-            <Stack.Screen name="CheckBox" component={CheckBoxScreen} />
-            <Stack.Screen name="ProgressBar" component={ProgressBarScreen} />
-            <Stack.Screen name="Badge" component={BadgeScreen} />
-            <Stack.Screen name="Button" component={ButtonScreen} />
-            <Stack.Screen name="IconButton" component={IconButtonScreen} />
             <Stack.Screen name="AccordionList" component={AccordionListScreen} />
-            <Stack.Screen name="RadioButton" component={RadioButtonScreen} />
-            <Stack.Screen name="ToggleButton" component={ToggleButtonScreen} />
-            <Stack.Screen name="Menu" component={MenuScreen} />
-            <Stack.Screen name="Dropdown" component={DropdownScreen} />
-            <Stack.Screen name="Swipe" component={SwipeScreen} />
-            <Stack.Screen name="Divider" component={DividerScreen} />
-            <Stack.Screen name="SpeedDial" component={SpeedDialScreen} />
+            <Stack.Screen name="ActivityIndicator" component={ActivityIndicatorScreen} />
             <Stack.Screen name="Avatar" component={AvatarScreen} />
             <Stack.Screen name="AvatarGroup" component={AvatarGroupScreen} />
+            <Stack.Screen name="Badge" component={BadgeScreen} />
+            <Stack.Screen name="Button" component={ButtonScreen} />
+            <Stack.Screen name="CheckBox" component={CheckBoxScreen} />
             <Stack.Screen name="Chip" component={ChipScreen} />
-            <Stack.Screen name="SearchBar" component={SearchBarScreen} />
-            <Stack.Screen name="Switch" component={SwitchScreen} />
-            <Stack.Screen name="Slider" component={SliderScreen} />
+            <Stack.Screen name="Divider" component={DividerScreen} />
+            <Stack.Screen name="Dropdown" component={DropdownScreen} />
+            <Stack.Screen name="IconButton" component={IconButtonScreen} />
+            <Stack.Screen name="Icon" component={IconScreen} />
+            <Stack.Screen name="Menu" component={MenuScreen} />
             <Stack.Screen name="Modal" component={ModalScreen} />
             <Stack.Screen name="PagerView" component={PagerViewScreen} />
-            <Stack.Screen name="ActivityIndicator" component={ActivityIndicatorScreen} />
-            <Stack.Screen name="Icon" component={IconScreen} />
+            <Stack.Screen name="ProgressBar" component={ProgressBarScreen} />
+            <Stack.Screen name="RadioButton" component={RadioButtonScreen} />
+            <Stack.Screen name="SearchBar" component={SearchBarScreen} />
+            <Stack.Screen name="Slider" component={SliderScreen} />
+            <Stack.Screen name="SpeedDial" component={SpeedDialScreen} />
+            <Stack.Screen name="Swipe" component={SwipeScreen} />
+            <Stack.Screen name="Switch" component={SwitchScreen} />
+            <Stack.Screen name="TextInput" component={TextInputScreen} />
+            <Stack.Screen name="ToggleButton" component={ToggleButtonScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </KitraProvider>

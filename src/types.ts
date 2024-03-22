@@ -3,20 +3,15 @@ import type React from 'react';
 import type { Animated, ImageSourcePropType, StyleProp, TextProps, TextStyle, ViewProps, ViewStyle } from 'react-native';
 import { Swipeable } from 'react-native-gesture-handler';
 import type Icon from './components/Icons/Icon';
-import type IoniconsIcon from './components/Icons/Ionicons';
 import type { defaultTypography } from './core/typography/typography';
+import { DEFAULT_THEME } from './core/theme/colors';
 
-export type DefaultProps = { theme?: { [index: string]: string } } & { typography?: TypographyType }
+export type DefaultProps = { typography?: TypographyType }
 
 /**
 * Functional component with children
 */
 export type FCC<P = {}> = FC<PropsWithChildren<P>>
-
-/**
-* Functional component with children and theme
-*/
-export type FCCWT<P = {}> = FCC<P & { theme: { [index: string]: string } }>
 
 /**
  *
@@ -25,27 +20,41 @@ export type FCCWT<P = {}> = FCC<P & { theme: { [index: string]: string } }>
 
 export type FCCWD<P = {}> = FCC<P & DefaultProps>
 
-export type ThemeType = { dark: { [index: string]: string }, light: { [index: string]: string } }
+export type CoreThemeType = typeof DEFAULT_THEME
+
+export type ThemeType = CoreThemeType & {
+    dark: {
+      colors:{ custom: any}
+    },
+    light: {
+        colors:{ custom: any}
+    }
+}
+export type ComponentThemeType = typeof DEFAULT_THEME.light.components
+
+export type Components =keyof ComponentThemeType
 
 export type TypographyType = typeof defaultTypography & any;
 
 export type AccordionListProps = {
     data: any[],
-    left?: (expanded: boolean) => React.ReactNode,
-    right?: (expanded: boolean) => React.ReactNode,
+    left?: (expanded: boolean) => React.ReactElement,
+    right?: (expanded: boolean) => React.ReactElement,
     onExpand?: () => void,
     label?: string,
+    containerStyle?: StyleProp<ViewStyle>,
     labelContainerStyle?: StyleProp<ViewStyle>,
     onSelect: (params: any) => void,
     itemDisplay: (params: any) => any,
     labelStyle?: StyleProp<TextStyle>,
     rowTextStyle?: StyleProp<TextStyle>,
     rowStyle?: StyleProp<ViewStyle>
+    theme: DeepPartial<(ComponentThemeType['accordionList'])>
     testID?: string
 }
 
 export type AvatarGroupProps = {
-    avatarsType: Array<{
+    avatars: Array<{
         source?: ImageSourcePropType,
         variant?: 'circular' | 'rounded',
         avatarIcon?: React.ReactNode,
@@ -55,6 +64,7 @@ export type AvatarGroupProps = {
     }>,
     avatarLimit?: number,
     limitContainerStyle?: { style: StyleProp<TextStyle>, backgroundColor: string }
+    theme: DeepPartial<(ComponentThemeType['avatarGroup'])>
 }
 
 export type AvatarProps = {
@@ -65,6 +75,7 @@ export type AvatarProps = {
     containerStyle?: StyleProp<ViewStyle>,
     label?: string,
     labelStyle?: StyleProp<TextStyle>,
+    theme: DeepPartial<(ComponentThemeType['avatar'])>
 }
 
 export type BadgeProps = {
@@ -72,10 +83,11 @@ export type BadgeProps = {
     label?: string | number,
     size?: 'medium' | 'small',
     containerStyle?: StyleProp<ViewStyle>,
-    textStyles?: StyleProp<TextStyle>,
+    labelStyle?: StyleProp<TextStyle>,
     variant?: 'circular' | 'rectangular'
     icon?: React.ReactNode,
     badgePosition: 'topRight' | 'topLeft' | 'bottomRight' | 'bottomLeft'
+    theme: DeepPartial<(ComponentThemeType['badge'])>
 }
 
 export type ButtonProps = {
@@ -83,36 +95,10 @@ export type ButtonProps = {
     disabled?: boolean,
     label?: string,
     icon?: React.ReactElement,
-    statusStyle?: {
-        default:
-        {
-            container: {
-                backgroundColor: string
-            },
-            text: {
-                color: string
-            }
-        },
-        focused: {
-            container: {
-                backgroundColor: string
-            },
-            text: {
-                color: string
-            }
-        },
-        disabled: {
-            container: {
-                backgroundColor: string
-            },
-            text: {
-                color: string
-            }
-        }
-    },
     iconPosition?: 'left' | 'right',
     style?: StyleProp<ViewStyle>,
-    textStyle?: StyleProp<TextStyle>
+    labelStyle?: StyleProp<TextStyle>,
+    theme: DeepPartial<(ComponentThemeType['button'])>
 }
 
 export type CheckBoxProps = {
@@ -121,26 +107,26 @@ export type CheckBoxProps = {
     style?: StyleProp<ViewStyle>
     value?: boolean | undefined
     disabled?: boolean,
-    iconColor?: string
+    theme: DeepPartial<(ComponentThemeType['checkbox'])>
 }
 
 export type ChipProps = {
     label?: string,
-    textStyle?: StyleProp<TextStyle>,
+    labelStyle?: StyleProp<TextStyle>,
     style?: StyleProp<ViewStyle>,
     value?: boolean,
     icon?: { iconName: string, iconType: IconType, iconPosition: 'left' | 'right' },
-    colorStyle?: { backgroundColor: string, selectBackgroundColor: string, selectTitleColor: string, titleColor: string },
     size?: 'large' | 'medium' | 'small',
     onChange: (event: boolean) => void,
     disabled?: boolean,
+    theme: DeepPartial<(ComponentThemeType['chip'])>
 }
 
 export type DividerProps = {
     borderStyle?: 'solid' | 'dotted' | 'dashed'
     width?: number,
-    color?: string,
     style?: StyleProp<ViewStyle>
+    theme: DeepPartial<DeepPartial<(ComponentThemeType['divider'])>>
 }
 
 export type DrowdownProps = {
@@ -165,10 +151,12 @@ export type DrowdownProps = {
     buttonBackgrounColor?: { focusBackground: string, defaultBackground: string },
     iconStyle?: { color: string, container: StyleProp<ViewStyle> }
     autoPosition?: boolean,
+    theme: DeepPartial<(ComponentThemeType['dropdown'])>
     testID?: string
 }
 
-export type DrowdownRouteProps = DrowdownProps & { multiple?: boolean, }
+export type MultipleDropdownProps = DrowdownProps & { theme: DeepPartial<(ComponentThemeType['multipleDropdown'])> }
+export type DrowdownRouteProps= MultipleDropdownProps& { multiple: boolean }
 
 export type IconButtonProps = {
     iconColor?: string,
@@ -202,28 +190,33 @@ export type IconComponentType = React.ComponentType<
         pointerEvents?: ViewProps['pointerEvents'];
     }>;
 
+export type SwitchProps={
+        theme: DeepPartial<(ComponentThemeType['switch'])>
+    }
+
 export type MenuProps = {
     items: Array<{ label: string, left?: React.ReactNode, right?: React.ReactNode, onPress?: () => void }>,
     containerStyle?: StyleProp<ViewStyle>,
     rowTextStyle?: StyleProp<TextStyle>,
-    dividerColor?: string,
     menuStyle?: ViewStyle,
     button?: (isOpen: boolean) => React.ReactNode,
     rowStyle?: StyleProp<ViewStyle>,
-    closeOnPress?: boolean
+    closeOnPress?: boolean,
+    theme: DeepPartial<(ComponentThemeType['menu'])>
 }
 export type ProgressBarProps = {
     progress?: number,
-    barColor?: string,
-    progressColor?: string,
     progressStyle?: StyleProp<ViewStyle>,
-    testID?: string
+    testID?: string,
+    barStyle?: StyleProp<ViewStyle>,
+    theme: DeepPartial<(ComponentThemeType['progressBar'])>
 }
 
 export type RadioButtonProps = {
     onChange: (event: boolean) => void
     style?: StyleProp<ViewStyle>,
     testID: string,
+    theme: DeepPartial<(ComponentThemeType['radioButton'])>
 }
 
 export type SearchBarProps = {
@@ -241,14 +234,15 @@ export type SliderProps = {
     buttonStyle?: StyleProp<ViewStyle>
     barStyle?: StyleProp<ViewStyle>
     progressStyle?: StyleProp<ViewStyle>
+    theme: DeepPartial<(ComponentThemeType['slider'])>
 }
 
 export type ActionProps = {
-    text?: string,
+    label?: string,
     style?: StyleProp<ViewStyle>,
     icon?: React.ReactNode,
-    textStyle?: StyleProp<TextStyle>,
-    onPress?: (ref:React.RefObject<Swipeable>) => void
+    labelStyle?: StyleProp<TextStyle>,
+    onPress?: (ref: React.RefObject<Swipeable>) => void
 }
 
 export type SwipeProps = {
@@ -284,6 +278,7 @@ export type TextInputProps = {
     error?: boolean,
     left?: React.ReactNode,
     right?: React.ReactNode,
+    theme: DeepPartial<(ComponentThemeType['textInput'])>
 }
 
 export type ToggleButtonProps = {
@@ -293,14 +288,15 @@ export type ToggleButtonProps = {
         id?: number
     }[]
     size?: 'small' | 'medium',
+    theme: DeepPartial<(ComponentThemeType['toggleButton'])>
 }
 
 export type SpeedDialProps = {
     items: Array<{ icon?: React.ReactNode, title?: string, titleColor?: string, backgroundColor?: string, onPress?: () => void }>,
-    baseItemBackground?: string,
     variant: 'flat' | 'spread',
     onChange?: (event: boolean) => void,
-    baseItemIcon?: React.ReactNode
+    baseItemIcon?: React.ReactNode,
+    theme: DeepPartial<(ComponentThemeType['speedDial'])>
 };
 
 export type ModalProps = {
@@ -320,17 +316,15 @@ export type PagerViewProps = {
     containerStyle?: StyleProp<ViewStyle>
     pageContainerStyle?: StyleProp<ViewStyle>
     injectPagerRef?: boolean,
-    headerTextColor?: { select: string, default: string },
     headerSliderStyle?: StyleProp<ViewStyle>,
     headerContainerStyle?: StyleProp<ViewStyle>,
-    headerTextStyle?: StyleProp<TextStyle>,
-    showDivider?: boolean,
-    dividerStyle?: StyleProp<ViewStyle>,
-    dividerColor?: string,
-    icons?: React.ReactElement<typeof Icon>[]
+    headerLabelStyle?: StyleProp<TextStyle>,
+    icons?: React.ReactElement<typeof Icon>[],
+    theme: DeepPartial<(ComponentThemeType['pagerView'])>
 }
 export type ActivityIndicatorProps = {
     children?: React.ReactNode
+    theme: DeepPartial<(ComponentThemeType['activityIndicator'])>
 }
 
 export type IconType =
@@ -349,3 +343,7 @@ export type IconType =
     | 'entypo'
     | 'antdesign'
     | 'font-awesome-5';
+
+export type DeepPartial<T> = T extends object ? {
+        [P in keyof T]?: DeepPartial<T[P]>;
+    } : T;

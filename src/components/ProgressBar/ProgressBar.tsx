@@ -1,10 +1,18 @@
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
+import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { FCCWD, ProgressBarProps } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
 
-const ProgressBar: FCCWD<ProgressBarProps> = ({ theme, progress = 0, barColor, progressColor, progressStyle, testID }) => {
+const ProgressBar: FCCWD<ProgressBarProps> = (
+  { progress = 0,
+    progressStyle,
+    barStyle,
+    testID,
+    theme },
+) => {
+  const { componentTheme } = useComponentTheme(theme, 'progressBar');
   const offset = useSharedValue(progress);
   const [barWidth, setBarWidth] = useState(0);
   offset.value = progress;
@@ -18,7 +26,7 @@ const ProgressBar: FCCWD<ProgressBarProps> = ({ theme, progress = 0, barColor, p
     <View
       testID={testID}
       onLayout={x => setBarWidth(x.nativeEvent.layout.width)}
-      style={[Style.container, { backgroundColor: barColor || theme?.primary15 }]}
+      style={[Style.container, barStyle, { backgroundColor: componentTheme.default?.bar }]}
     >
       <Animated.View
         testID="progressBarAnimation"
@@ -26,10 +34,10 @@ const ProgressBar: FCCWD<ProgressBarProps> = ({ theme, progress = 0, barColor, p
           [
             animatedStyle,
             Style.progressStyle,
-            {
-              backgroundColor: progressColor || theme?.primary,
-            },
             progressStyle,
+            {
+              backgroundColor: componentTheme.default?.progress,
+            },
           ]
         }
       />

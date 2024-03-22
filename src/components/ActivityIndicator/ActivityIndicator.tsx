@@ -1,7 +1,21 @@
 import { StyleSheet, View, ActivityIndicator as RNActivityIndicator } from 'react-native';
+import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { ActivityIndicatorProps, FCCWD } from '../../types';
 import { opacity } from '../../utilities';
 import { applyDefaults } from '../../core/KitraProvider';
+
+const ActivityIndicator:FCCWD<ActivityIndicatorProps> = ({ theme, children }) => {
+  const { componentTheme } = useComponentTheme(theme, 'activityIndicator', 'default');
+  return (
+    <View style={[styles.centeredView, { backgroundColor: opacity(String(componentTheme.default?.background), 80) }]}>
+      <View style={[styles.modalView]}>
+        {children || <RNActivityIndicator size="large" color={componentTheme.default?.indicator} /> }
+      </View>
+    </View>
+  );
+};
+
+export default applyDefaults(ActivityIndicator);
 
 const styles = StyleSheet.create({
   centeredView: {
@@ -20,12 +34,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-const ActivityIndicator:FCCWD<ActivityIndicatorProps> = ({ theme, children }) => (
-  <View style={[styles.centeredView, { backgroundColor: opacity(String(theme?.lightBlack), 80) }]}>
-    <View style={[styles.modalView]}>
-      {children || <RNActivityIndicator size="large" color={theme?.primary} /> }
-    </View>
-  </View>
-);
-
-export default applyDefaults(ActivityIndicator);

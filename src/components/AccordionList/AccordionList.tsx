@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { cloneElement, useState } from 'react';
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Animated, { FadeInUp, FadeOut, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
-import type { AccordionListProps, FCCWD } from '../../types';
+import useComponentTheme from '../../core/hooks/useComponentTheme';
+import { type AccordionListProps, type FCCWD } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
 import OcticonsIcon from '../Icons/Octicons';
 
@@ -18,13 +19,13 @@ const AccordionList: FCCWD<AccordionListProps> = ({
   rowStyle,
   onSelect,
   onExpand,
-  theme,
-  typography,
   itemDisplay,
   testID,
-
+  theme,
+  typography,
 }) => {
   const [expanded, setExpanded] = useState(false);
+  const { statusTheme } = useComponentTheme(theme, 'accordionList', expanded ? 'active' : 'default');
   const listHeight = useSharedValue(0);
   const iconRotation = useSharedValue(0);
   const [contentHeight, setContentHeight] = useState(0);
@@ -52,15 +53,15 @@ const AccordionList: FCCWD<AccordionListProps> = ({
   return (
     <>
       <TouchableOpacity activeOpacity={0.8} onPress={handleListOpen} testID={testID}>
-        <View style={[{ backgroundColor: expanded ? theme?.primary15 : theme?.primary5 }, styles.labelContianer, labelContainerStyle]}>
-          {left && left(expanded)}
-          <Text style={[{ color: expanded ? theme?.primary : theme?.lightBlack }, typography?.body.medium, styles.labelText, labelStyle]}>
+        <View style={[styles.labelContianer, labelContainerStyle, { backgroundColor: statusTheme.background }]}>
+          {left && cloneElement(left(expanded), { expanded, color: statusTheme.icon })}
+          <Text style={[typography?.body.medium, styles.labelText, labelStyle, { color: statusTheme.label }]}>
             {label}
           </Text>
-          {right && right(expanded)}
-          <View style={[{ backgroundColor: expanded ? theme?.primary30 : theme?.lightGrey }, styles.iconContainer]}>
+          {right && cloneElement(right(expanded), { expanded, color: statusTheme.icon })}
+          <View style={[styles.iconContainer, { backgroundColor: statusTheme.collapseIconBackground }]}>
             <AnimatedIcon
-              color={expanded ? theme?.primary : theme?.disabledLight}
+              color={statusTheme.collapseIcon}
               name="chevron-down"
               style={iconStyle}
               size={20}
@@ -78,9 +79,9 @@ const AccordionList: FCCWD<AccordionListProps> = ({
               <Animated.View
                 entering={FadeInUp}
                 exiting={FadeOut}
-                style={[styles.itemContainer, { backgroundColor: theme?.primary5 }, rowStyle]}
+                style={[styles.itemContainer, rowStyle, { backgroundColor: statusTheme.itemBackground }]}
               >
-                <Text style={[{ textAlign: 'center', color: theme?.grey }, typography?.body.smedium, rowTextStyle]}>
+                <Text style={[{ textAlign: 'center' }, typography?.body.smedium, rowTextStyle, { color: statusTheme.itemLabel }]}>
                   {itemDisplay(item)}
                 </Text>
               </Animated.View>

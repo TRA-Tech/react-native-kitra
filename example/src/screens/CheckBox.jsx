@@ -1,23 +1,18 @@
-import { View } from "react-native";
-import Layout from "../components/Layout";
-import { CheckBox } from "@tra-tech/react-native-kitra";
-import Divider from "../components/Divider";
+import { CheckBox } from '@tra-tech/react-native-kitra';
+import Layout from '../components/Layout';
+import Divider from '../components/Divider';
 
+const CheckBoxScreen = () => (
+  <Layout>
+    <CheckBox />
 
-const CheckBoxScreen = () => {
+    <Divider label="Disabled" />
+    <CheckBox disabled />
 
-    return(
-       <Layout>
-        <CheckBox  />
+    <Divider label="Customized" />
+    <CheckBox iconColor="red" />
 
-        <Divider label={"Disabled"} />
-        <CheckBox  disabled />
-
-        <Divider label={"Customized"} />
-        <CheckBox iconColor="red"/>
-
-        </Layout>
-    )
-}
+  </Layout>
+);
 
 export default CheckBoxScreen;

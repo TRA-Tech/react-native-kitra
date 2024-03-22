@@ -51,10 +51,9 @@ export default App;
 | children          | [``React.ReactNode``](https://reactnative.dev/docs/react-node)         | Yes       |A required prop that represents the content to display within the PagerView component.|
 | containerStyle | [``StyleProp<ViewStyle>``](https://reactnative.dev/docs/view-style-props) | No       | Additional styles to apply to the pager view container. |
 | pageContainerStyle          | [``StyleProp<ViewStyle>``](https://reactnative.dev/docs/view-style-props)                   | No       | Additional styles to apply to the page container.      |
-| headerTextColor          | ``{select: string,``<br/>`` default: string}``                   | No       | Text colors of header text.      |
 | headerSliderStyle          | [``StyleProp<ViewStyle>``](https://reactnative.dev/docs/view-style-props)                      | No       | Style of header slider.      |
 | headerContainerStyle          | [``StyleProp<ViewStyle>``](https://reactnative.dev/docs/view-style-props)                      | No       | Style of header slider container.      |
-| headerTextStyle          | [``StyleProp<TextStyle>``](https://reactnative.dev/docs/text-style-props)                     | No        | Text style of header text. |
+| headerLabelStyle          | [``StyleProp<TextStyle>``](https://reactnative.dev/docs/text-style-props)                     | No        | Text style of header text. |
 | injectPagerRef          | ``boolean``                 | No  | An optional boolean prop that determines whether to inject the PagerView reference into each child component's props. Default value: ``false``|
 | showDivider          | ``boolean``                 | No  |   Determines whether the divider is shown or not. Default value:``true`` |
 | dividerStyle          | [``StyleProp<ViewStyle>``](https://reactnative.dev/docs/view-style-props)                 | No  |   Style of divider  |

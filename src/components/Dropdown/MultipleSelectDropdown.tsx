@@ -3,9 +3,8 @@ import { forwardRef, RefAttributes, useEffect, useLayoutEffect, useMemo, useRef,
 import { Dimensions, ScrollViewProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { NativeViewGestureHandlerProps, ScrollView } from 'react-native-gesture-handler';
 import Animated, { FadeIn, FadeOut, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
-import type { DrowdownProps, FCCWD } from '../../types';
-import { defaultTheme } from '../../core/theme/theme';
-import { defaultTypography } from '../../core/typography/typography';
+import useComponentTheme from '../../core/hooks/useComponentTheme';
+import type { FCCWD, MultipleDropdownProps } from '../../types';
 import Button from '../Button/Button';
 import FeatherIcon from '../Icons/Feather';
 import IoniconsIcon from '../Icons/Ionicons';
@@ -13,14 +12,11 @@ import OcticonsIcon from '../Icons/Octicons';
 
 const windowsHeight = Dimensions.get('window').height;
 
-let dataWithID: Array<string | { keyID: number, [key: string]: any }>;
-
 // eslint-disable-next-line no-undef
 const GScrollView = forwardRef((props: JSX.IntrinsicAttributes & ScrollViewProps & NativeViewGestureHandlerProps & RefAttributes<ScrollView>, ref) => <ScrollView {...props} />);
 
-const MultipleDropdown: FCCWD<DrowdownProps> = (
-  { theme,
-    typography,
+const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
+  { typography,
     left,
     right,
     data,
@@ -37,12 +33,17 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
     onSelect,
     onComplete,
     rowTextStyle,
-    containerStyle, testID },
+    containerStyle,
+    testID,
+    theme },
 ) => {
   const [visible, setVisible] = useState(false);
   const [selectedObjects, setSelectedObjects] = useState(defaultValue || []);
   const [cord, setCord] = useState({ x: 0, y: 0, height: 0, width: 0 });
   const openAnimation = useSharedValue(0);
+  const dataWithID = useRef();
+  const { statusTheme, componentTheme } = useComponentTheme(theme, 'multipleDropdown', selectedObjects.length ? 'selected' : visible ? 'active' : 'default');
+  const componenetStatus = visible ? 'active' : 'default';
   const dropdown = useRef<TouchableOpacity>(null);
   const dropdownAnimation = useAnimatedStyle(() => ({
     transform: [{ rotate: `${openAnimation.value * 180}deg` }],
@@ -83,18 +84,23 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
   }, [visible]);
 
   useEffect(() => {
-    // @ts-expect-error
-    dataWithID = data?.map((x: (string | { [key: string]: any })): (string | { keyID: number, [key: string]: any }) => { x.keyID = Math.random(); return (x); });
-  }, []);
+    const tempData = JSON.parse(JSON.stringify(data));
 
+    // @ts-ignore
+    dataWithID.current = tempData?.map((x: (string | { [key: string]: any })): (string | { keyID: number, [key: string]: any }) => { x.keyID = Math.random(); return (x); });
+  }, []);
   return (
-    <View testID={testID} style={[containerStyle, { zIndex: 100 }]}>
+    <View testID={testID} style={[containerStyle, { zIndex: visible ? 1000 : 0 }]}>
       <TouchableOpacity
         testID="dropdown-button"
         ref={dropdown}
         activeOpacity={0.9}
         onPress={() => { setVisible(!visible); }}
-        style={[Style.button, buttonStyle, { backgroundColor: visible ? theme?.primary5 : theme?.darkWhite }]}
+        style={[Style.button, buttonStyle,
+          {
+            backgroundColor: componentTheme[isObjectSelected ? 'selected' : componenetStatus]?.background,
+            borderColor: componentTheme[isObjectSelected ? 'selected' : componenetStatus]?.border,
+          }]}
       >
         {leftElement}
         <Animated.Text
@@ -103,7 +109,7 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
           exiting={FadeOut}
           style={[buttonTextStyle,
             typography?.body.medium,
-            { flex: 1, marginLeft: 12, color: isObjectSelected ? theme?.primary : theme?.grey }]}
+            { flex: 1, marginLeft: 12, color: componentTheme[isObjectSelected ? 'selected' : componenetStatus]?.label }]}
         >
           {!isObjectSelected ?
             (buttonTitle || 'Please Select')
@@ -112,12 +118,12 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
               `${selectedObjects?.length} Selected`}
         </Animated.Text>
         {rightElement || (
-          <View style={[Style.rightIcon, { backgroundColor: visible ? theme?.primary5 : theme?.lightGrey }]}>
+          <View style={[Style.rightIcon]}>
             <Animated.View style={dropdownAnimation}>
               <FeatherIcon
                 name="chevron-down"
                 size={14}
-                color={visible ? theme?.primary : theme?.grey}
+                color={statusTheme.collapseIcon}
               />
             </Animated.View>
           </View>
@@ -130,21 +136,20 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
           exiting={FadeOut}
           style={[Style.listContainer,
             {
-              backgroundColor: theme?.darkWhite,
               width: cord?.width,
               left: 0,
             },
             listContainerStyle,
-            windowsHeight - (cord?.y + (38 * 4) || 0) <= windowsHeight / 3 ? { bottom: cord?.height || 0 + 5 } : { top: cord?.height || 0 + 5 }]}
+            windowsHeight - (cord?.y + (38 * 4) || 0) <= windowsHeight / 3 ? { bottom: cord?.height || 0 + 5 } : { top: cord?.height || 0 + 5 }, { backgroundColor: statusTheme.collapseBackground }]}
         >
           <FlashList
             extraData={selectedObjects}
             renderScrollComponent={GScrollView}
-            data={dataWithID}
+            data={dataWithID.current}
             // @ts-expect-error
             keyExtractor={(item: string | { keyID: number, [key: string]: any }) => item.keyID || displayedRowValue(item)}
             estimatedItemSize={38}
-            renderItem={({ item, index }:any) => {
+            renderItem={({ item, index }: any) => {
               const isSelected = isItemSelected(item || {});
 
               return (
@@ -155,23 +160,25 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
                     toggleCheckBox(item);
                   }}
                   style={[
-                    Style.row, {
-                      backgroundColor: theme?.darkWhite,
-                    },
+                    Style.row,
                     index === data?.length || 0 - 1 ? { borderBottomLeftRadius: 5, borderBottomRightRadius: 5 } : null,
                     rowStyle,
+                    {
+                      backgroundColor: componentTheme[isSelected ? 'selected' : componenetStatus]?.background,
+                    },
                   ]}
                 >
+                  {}
                   <TouchableOpacity
                     disabled
                     style={[Style.checkBox, {
-                      borderColor: theme?.disabledLight,
-                      backgroundColor: theme?.disabledLightDark,
+                      borderColor: componentTheme[isSelected ? 'selected' : componenetStatus]?.checkBorder,
+                      backgroundColor: componentTheme[isSelected ? 'selected' : componenetStatus]?.checkBackground,
                     }]}
                   >
                     {isSelected && (
                       <OcticonsIcon
-                        color={theme?.primary}
+                        color={componentTheme[isSelected ? 'selected' : componenetStatus]?.checkIcon}
                         name="check"
                         size={12}
                       />
@@ -179,8 +186,8 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
                   </TouchableOpacity>
                   <Text
                     style={[typography?.body.smedium,
-                      { color: isSelected ? theme?.primary : theme?.black, marginHorizontal: 10 },
-                      rowTextStyle]}
+                      { marginHorizontal: 10 },
+                      rowTextStyle, { color: componentTheme[isSelected ? 'selected' : componenetStatus]?.itemLabel }]}
                   >
                     {displayedRowValue(item)}
                   </Text>
@@ -197,7 +204,7 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
               style={{ flexDirection: 'row', justifyContent: 'flex-end' }}
             >
               <Text
-                style={[typography?.body.smedium, { textAlign: 'right', color: theme?.secondary }]}
+                style={[typography?.body.smedium, { textAlign: 'right', color: statusTheme.selectAllLabel }]}
               >
                 Select All
               </Text>
@@ -205,7 +212,7 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
                 name="checkmark-done-outline"
                 size={16}
                 style={{ marginLeft: 5 }}
-                color={theme?.secondary}
+                color={statusTheme.selectAllLabel}
               />
             </TouchableOpacity>
           )}
@@ -215,12 +222,16 @@ const MultipleDropdown: FCCWD<DrowdownProps> = (
               if (onComplete) onComplete(selectedObjects); setVisible(false);
             }}
             size="large"
+            theme={{
+              default: {
+                background: statusTheme.completeBackground,
+                label: statusTheme.completeLabel,
+              },
+            }}
             label="Complete Selection"
-            textStyle={{ textAlign: 'center' }}
+            labelStyle={{ textAlign: 'center' }}
             style={Style.completeSelection}
             iconPosition="left"
-            theme={defaultTheme?.light}
-            typography={defaultTypography}
           />
         </Animated.View>
       )}
@@ -232,8 +243,9 @@ export default MultipleDropdown;
 
 export const Style = StyleSheet.create({
   button: {
-    height: 38,
+    height: 42,
     width: '100%',
+    borderWidth: 1,
     flexDirection: 'row',
     alignItems: 'center',
     borderRadius: 5,

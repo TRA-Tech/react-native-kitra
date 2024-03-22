@@ -45,7 +45,7 @@ export default App;
 | label | ``string`` | No | The label to display on the button. |
 | iconPosition | <code >'left' \| 'right'</code>  | No | The position of the icon in relation to the label. Default value: ``'left'``. |
 | style | [``StyleProp<ViewStyle>``](https://reactnative.dev/docs/view-style-props) | No | The style object for the button. |
-| textStyle | [``StyleProp<TextStyle>``](https://reactnative.dev/docs/text-style-props) | No | The style object for the button's text. |
+| labelStyle | [``StyleProp<TextStyle>``](https://reactnative.dev/docs/text-style-props) | No | The style object for the button's text. |
 | children | [``React.ReactNode``](https://reactnative.dev/docs/react-node) | No | Icons to be rendered inside the button. |
 | statusStyle                 |``ActionProps``                                       | No       | Contains style definitions for a button component's normal, focused, and disabled states, specifying background and text colors.                                                     |
 | theme | ``UITheme`` | No | The theme to use for the component. |

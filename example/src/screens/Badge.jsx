@@ -1,19 +1,16 @@
-import { View } from "react-native";
-import Layout from "../components/Layout";
-import { Badge, Icon } from "@tra-tech/react-native-kitra";
+import { Badge, Icon, Avatar } from '@tra-tech/react-native-kitra';
+import Layout from '../components/Layout';
 
-
-const BadgeScreen = () => {
-
-    return (
-        <Layout>
-            <Badge icon={<Icon type="ant-design" name="minus" />}></Badge>
-            <Badge icon={<Icon type="ant-design" name="minus" />} ></Badge>
-            <Badge ></Badge>
-
-        </Layout>
-    )
-}
+const BadgeScreen = () => (
+  <Layout>
+    <Badge icon={<Icon type="ant-design" name="minus" />}>
+      <Avatar />
+    </Badge>
+    <Badge label="kitra">
+      <Avatar />
+    </Badge>
+    <Badge />
+  </Layout>
+);
 
 export default BadgeScreen;
- 

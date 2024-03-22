@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
+import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { FCCWD, RadioButtonProps } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
 
 const RadioButton: FCCWD<RadioButtonProps> = ({ theme, onChange, testID, style }) => {
   const [value, setValue] = useState(false);
+  const { statusTheme } = useComponentTheme(theme, 'radioButton', value ? 'active' : 'default');
   return (
     <TouchableOpacity
       activeOpacity={0.5}
@@ -14,12 +16,10 @@ const RadioButton: FCCWD<RadioButtonProps> = ({ theme, onChange, testID, style }
         onChange(!value);
       }}
       testID={testID}
-      style={[value ?
-        { borderColor: theme?.primary, backgroundColor: theme?.white }
-        :
-        { borderColor: theme?.disabledDark, backgroundColor: theme?.disabledLight }, styles.container, style]}
+      style={[
+        styles.container, style, { borderColor: statusTheme.border, backgroundColor: statusTheme.background }]}
     >
-      {value && <Animated.View entering={FadeIn} exiting={FadeOut} style={[{ backgroundColor: theme?.primary }, styles.innerCircle]} />}
+      {value && <Animated.View entering={FadeIn} exiting={FadeOut} style={[styles.innerCircle, { backgroundColor: statusTheme.dot }]} />}
     </TouchableOpacity>
   );
 };

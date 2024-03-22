@@ -4,20 +4,22 @@ import { Gesture, GestureDetector, PanGestureHandler } from 'react-native-gestur
 import Animated, { runOnJS, useAnimatedGestureHandler, useAnimatedProps, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import type { FCCWD, SliderProps } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
+import useComponentTheme from '../../core/hooks/useComponentTheme';
 
 const AnimatedTextInput = Animated.createAnimatedComponent(TextInput);
 
 const Slider: FCCWD<SliderProps> = (
   {
-    theme,
     showPercentage,
     onChangeEnd = () => null,
     value,
     buttonStyle,
     barStyle,
     progressStyle,
+    theme,
   },
 ) => {
+  const { statusTheme } = useComponentTheme(theme, 'slider', 'default');
   const progress = useSharedValue(0);
   const containerRef = useRef<View>(null);
   const [measure, setMeasure] = useState({ x: 0, y: 0, pageX: 0, pageY: 0, width: 0, height: 0 });
@@ -70,17 +72,17 @@ const Slider: FCCWD<SliderProps> = (
         <View
           ref={containerRef}
           onLayout={() => containerRef.current?.measure((x, y, width, height, pageX, pageY) => { setMeasure({ x, y, pageX, pageY, width, height }); })}
-          style={[{ backgroundColor: theme?.primary15 }, Style.barStyle, barStyle]}
+          style={[Style.barStyle, barStyle, { backgroundColor: statusTheme.bar }]}
         >
-          <Animated.View style={[{ position: 'absolute', borderRadius: 14, backgroundColor: theme?.primary, width: progress, height: 6 }, progressStyle, percentageStyle]} />
+          <Animated.View style={[{ position: 'absolute', borderRadius: 14, width: progress, height: 6 }, progressStyle, percentageStyle, { backgroundColor: statusTheme.progress }]} />
           <PanGestureHandler onGestureEvent={handler}>
-            <Animated.View hitSlop={{ top: 25, bottom: 25, left: 25, right: 25 }} style={[{ backgroundColor: theme?.white }, Style.button, buttonStyle, progressBarStyle]}>
+            <Animated.View hitSlop={{ top: 25, bottom: 25, left: 25, right: 25 }} style={[Style.button, buttonStyle, progressBarStyle, { backgroundColor: statusTheme.thumb }]}>
               {showPercentage && (
-                <View style={[Style.percentageIndicator, { backgroundColor: theme?.primary }]}>
+                <View style={[Style.percentageIndicator, { backgroundColor: statusTheme.percentageBackground }]}>
                   <AnimatedTextInput
                     underlineColorAndroid="transparent"
                     editable={false}
-                    style={{ textAlign: 'center', color: theme?.white, fontSize: 12 }}
+                    style={{ textAlign: 'center', fontSize: 12, color: statusTheme.percentageLabel }}
                     value={progress.value.toString()}
                     {...{ animatedProps }}
                   />

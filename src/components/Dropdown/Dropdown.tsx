@@ -1,10 +1,10 @@
 /* eslint-disable no-unsafe-optional-chaining */
-import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Animated, { FadeIn, FadeOut, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import { ScrollView } from 'react-native-gesture-handler';
+import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { DrowdownProps, FCCWD } from '../../types';
-
 import FeatherIcon from '../Icons/Feather';
 
 const windowsHeight = Dimensions.get('window').height;
@@ -12,7 +12,6 @@ const windowsHeight = Dimensions.get('window').height;
 const Dropdown: FCCWD<DrowdownProps> = (
   { left,
     right,
-    theme,
     typography,
     data,
     displayedRowValue,
@@ -22,19 +21,23 @@ const Dropdown: FCCWD<DrowdownProps> = (
     buttonTitle,
     rowStyle,
     buttonStyle,
-    disabled,
     buttonTextStyle,
     onSelect,
     rowTextStyle,
     containerStyle,
-    iconStyle,
     autoPosition = true,
     testID,
-    buttonBackgrounColor = { focusBackground: theme?.primary5, defaultBackground: theme?.darkWhite } },
+    theme },
 ) => {
   const [visible, setVisible] = useState(false);
   const [selectedObject, setSelectedObject] = useState(defaultValue);
   const [cord, setCord] = useState({ x: 0, y: 0, height: 0, width: 0 });
+  const { statusTheme, componentTheme } = useComponentTheme(theme, 'dropdown', Object.keys(selectedObject).length ? 'selected' : visible ? 'active' : 'default');
+
+  const isObjectSelected = (Object.keys(selectedObject).length !== 0);
+  const isSelectedObject = (value: any) => displayedButtonValue(selectedObject) === displayedButtonValue(value);
+  const componenetStatus = visible ? 'active' : 'default';
+
   const openAnimation = useSharedValue(0);
   const dropdown = useRef<TouchableOpacity>(null);
 
@@ -45,9 +48,6 @@ const Dropdown: FCCWD<DrowdownProps> = (
   const dropdownAnimation = useAnimatedStyle(() => ({
     transform: [{ rotate: `${openAnimation.value * 180}deg` }],
   }), []);
-
-  const isObjectSelected = (Object.keys(selectedObject).length === 0);
-  const isSelectedObject = (value: any) => displayedButtonValue(selectedObject) === displayedButtonValue(value);
 
   useLayoutEffect(() => {
     dropdown?.current?.measure((x, y, width, height, pageX, pageY) => {
@@ -60,14 +60,13 @@ const Dropdown: FCCWD<DrowdownProps> = (
   }, [visible]);
 
   return (
-    <View testID={testID} style={[containerStyle, { opacity: disabled ? 0.5 : 1, zIndex: visible ? 1000 : 0 }]}>
+    <View testID={testID} style={[containerStyle, { zIndex: visible ? 1000 : 0 }]}>
       <TouchableOpacity
         ref={dropdown}
         activeOpacity={0.9}
-        disabled={disabled}
         onLayout={event => setCord(event.nativeEvent.layout)}
         onPress={() => { setVisible(!visible); }}
-        style={[Style.button, buttonStyle, { backgroundColor: visible ? buttonBackgrounColor.focusBackground : buttonBackgrounColor.defaultBackground }]}
+        style={[Style.button, buttonStyle, { borderColor: statusTheme.border, backgroundColor: statusTheme.background }]}
       >
         {leftElement}
         <Animated.Text
@@ -79,36 +78,39 @@ const Dropdown: FCCWD<DrowdownProps> = (
             {
               flex: 1,
               marginLeft: 12,
-              color: isObjectSelected || disabled ? theme?.grey : theme?.primary,
             },
-            typography?.body.medium, buttonTextStyle]}
+            typography?.body.medium, buttonTextStyle, {
+              color: componentTheme[isObjectSelected ? 'selected' : componenetStatus]?.label,
+            }]}
         >
-          {isObjectSelected ? (buttonTitle || 'Please Select') : displayedButtonValue(selectedObject)}
+          {isObjectSelected ? displayedButtonValue(selectedObject) : (buttonTitle || 'Please Select')}
         </Animated.Text>
         {rightElement || (
-          <View style={[Style.rightIcon, { backgroundColor: visible ? buttonBackgrounColor.focusBackground : buttonBackgrounColor.defaultBackground }, iconStyle?.container]}>
+          <View style={[Style.rightIcon]}>
             <Animated.View style={dropdownAnimation}>
               <FeatherIcon
                 name="chevron-down"
                 size={14}
-                color={iconStyle?.color || (visible ? theme?.primary : theme?.grey)}
+                color={statusTheme.collapseIcon}
               />
             </Animated.View>
           </View>
         )}
       </TouchableOpacity>
+
       {visible && cord.x >= 0 && cord.y >= 0 && (
         <Animated.View
           entering={FadeIn}
           exiting={FadeOut}
           style={[Style.listContainer,
             {
-              backgroundColor: theme?.darkWhite,
+
               width: cord?.width,
               left: 0,
             }, listContainerStyle,
-            autoPosition ? (windowsHeight - cord?.y <= windowsHeight / 3 ? { bottom: cord?.height + 5 } : { top: cord?.height + 5 }) : { top: cord?.height + 5 }]}
+            autoPosition ? (windowsHeight - cord?.y <= windowsHeight / 3 ? { bottom: cord?.height + 5 } : { top: cord?.height + 5 }) : { top: cord?.height + 5 }, { backgroundColor: statusTheme.collapseBackground }]}
         >
+
           <ScrollView nestedScrollEnabled>
             {data?.map((value, index) => (
               <TouchableOpacity
@@ -120,14 +122,15 @@ const Dropdown: FCCWD<DrowdownProps> = (
                   onSelect?.(value);
                 }}
                 style={[
-                  Style.row, {
-                    backgroundColor: isSelectedObject(value) ? theme?.primary15 : theme?.darkWhite,
-                  },
+                  Style.row,
                   index === data.length - 1 ? { borderBottomLeftRadius: 5, borderBottomRightRadius: 5 } : null,
                   rowStyle,
+                  {
+                    backgroundColor: componentTheme[isSelectedObject(value) ? 'selected' : componenetStatus]?.itemBackground,
+                  },
                 ]}
               >
-                <Text style={[typography?.body.smedium, { color: isSelectedObject(value) ? theme?.primary : theme?.black, marginVertical: 10, marginHorizontal: 10 }, rowTextStyle]}>{displayedRowValue(value)}</Text>
+                <Text style={[typography?.body.smedium, { marginVertical: 10, marginHorizontal: 10 }, rowTextStyle, { color: componentTheme[isSelectedObject(value) ? 'selected' : componenetStatus]?.itemLabel }]}>{displayedRowValue(value)}</Text>
               </TouchableOpacity>
             ))}
           </ScrollView>
@@ -142,11 +145,12 @@ export default Dropdown;
 
 export const Style = StyleSheet.create({
   button: {
-    height: 38,
+    height: 42,
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
     borderRadius: 5,
+    borderWidth: 1,
   },
 
   listContainer: {

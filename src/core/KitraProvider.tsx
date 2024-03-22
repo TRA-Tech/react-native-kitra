@@ -45,11 +45,12 @@ export const KitraProvider = ({ children, messageType, linearMessageType, limit 
 
 export function applyDefaults<T>(Component: ComponentType<T>) {
   return React.forwardRef((props: T, ref: ForwardedRef<any>) => (
+
     <ThemeContext.Consumer>
       {theme => (
         <TypographyContext.Consumer>
           {typography =>
-            <Component ref={ref} theme={theme?.theme} typography={typography?.typography} {...props} />
+            <Component ref={ref} typography={typography?.typography} {...props} />
           }
         </TypographyContext.Consumer>
       )}

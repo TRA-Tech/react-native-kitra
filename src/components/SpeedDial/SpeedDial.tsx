@@ -1,9 +1,8 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import { useEffect } from 'react';
+import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { FCCWD, SpeedDialProps } from '../../types';
-import MaterialCommunityIcon from '../Icons/MaterialCommunity';
-
 import { applyDefaults } from '../../core/KitraProvider';
 import Icon from '../Icons/Icon';
 
@@ -106,14 +105,15 @@ const ChildItem = ({ item, index, offset, onPress, variant, typography }:{item:a
 };
 
 const SpeedDial: FCCWD<SpeedDialProps> = (
-  { theme,
-    typography,
-    baseItemBackground = theme?.tertiary,
-    items,
+  { items,
     onChange,
     variant = 'flat',
-    baseItemIcon = <Icon type="material-community" name="close" size={25} color={theme?.white} /> },
+    baseItemIcon,
+    theme,
+    typography },
 ) => {
+  const { statusTheme } = useComponentTheme(theme, 'speedDial', 'default');
+
   const offset = useSharedValue(0);
   const rotate = useAnimatedStyle(() => ({
     transform: [{ rotateZ: `${(offset.value - 1) * 45}deg` }],
@@ -151,16 +151,16 @@ const SpeedDial: FCCWD<SpeedDialProps> = (
           ))}
         </>
         <Animated.View
-          style={[baseItemIcon === (<Icon type="material-community" name="close" size={25} color={theme?.white} />)
+          style={[baseItemIcon === (<Icon type="material-community" name="close" size={25} color={statusTheme.icon} />)
             ? rotate
-            : null, styles.nodeContainer, { backgroundColor: baseItemBackground }]}
+            : null, styles.nodeContainer, { backgroundColor: statusTheme.background }]}
         >
           <TouchableOpacity
             testID="base_item"
             style={styles.nodeButton}
             onPress={onPress}
           >
-            {baseItemIcon}
+            {baseItemIcon || <Icon type="material-community" name="close" size={25} color={statusTheme.icon} /> }
           </TouchableOpacity>
         </Animated.View>
 

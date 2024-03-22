@@ -1,15 +1,13 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { TextInput as RNTextInput, View, TextInputProps as RNTextInputProps, TouchableOpacity, StyleSheet, Text } from 'react-native';
 import Animated, { interpolate, interpolateColor, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
-import { opacity } from '../../utilities';
+import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { FCCWD, TextInputProps } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
 
 const AnimatedTextInput = Animated.createAnimatedComponent(RNTextInput);
 const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
-  { theme,
-    typography,
-    inputStyle,
+  { inputStyle,
     editable = true,
     size = 'medium',
     helperText = '',
@@ -26,15 +24,19 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
     errorMessage,
     left,
     right,
-    labelColor = { focus: theme?.primary, default: theme?.primary },
     onFocus,
     onEndEditing,
+    theme,
+    typography,
     ...props },
 ) => {
+  const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef<RNTextInput>(null);
   const [counts, setCounts] = useState(0);
   const [labelLayout, setLabelLayout] = useState({ width: 0, height: 0 });
   const textInputOffset = useSharedValue(props.defaultValue || props.placeholder || props.value ? 0 : 1);
+  const { statusTheme, componentTheme } = useComponentTheme(theme, 'textInput', error ? 'error' : isFocused ? 'focused' : 'default');
+  const { value: statusValue } = statusTheme;
 
   const fontStyles =
   {
@@ -81,7 +83,6 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
     },
   };
 
-  // label'Ä±n konum ve fontsize animasyonu
   const labelPositionAnimation = useAnimatedStyle(() => {
     const topInterpolate = interpolate(
       textInputOffset.value,
@@ -98,7 +99,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
     const topInterpolate = interpolateColor(
       textInputOffset.value,
       [0, 1],
-      [error ? theme?.error || '#FF3434' : theme?.primary || '#000000', error ? theme?.error || '#FF3434' : theme?.grey || '#FFFFFF'],
+      [componentTheme.focused?.border || '', error ? componentTheme.error?.border || '' : componentTheme.default?.border || ''],
     );
 
     return {
@@ -120,7 +121,8 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
     const color = interpolateColor(
       textInputOffset.value,
       [0, 1],
-      [error ? theme?.error || '#FF3434' : labelColor.focus || '#000000', error ? theme?.error || '#FF3434' : labelColor.default || '#FFFFFF'],
+      // @ts-ignore
+      [statusTheme.label, statusTheme.label],
     );
     const topInterpolate = interpolate(
       textInputOffset.value,
@@ -150,27 +152,14 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
 
   const onFocusInput = () => {
     textInputOffset.value = withTiming(0);
+    setIsFocused(true);
   };
 
   const onEndEditingInput = () => {
     textInputOffset.value = (counts === 0) ? withTiming(1) : withTiming(0);
+    setIsFocused(false);
   };
 
-  const inputBackground = () => {
-    if (Array.isArray(inputContainerStyle)) {
-      for (let i = 0; i < inputContainerStyle.length; i + 1) {
-        const style = inputContainerStyle[i];
-        if (style && Object.hasOwn(style, 'backgroundColor')) {
-          // @ts-ignore
-          return style.backgroundColor;
-        }
-      }
-    } else if (inputContainerStyle && Object.hasOwn(inputContainerStyle, 'backgroundColor')) {
-      // @ts-ignore
-      return inputContainerStyle.backgroundColor;
-    }
-    return theme?.white;
-  };
   return (
     <View style={[{ flexGrow: 1, maxHeight: sizeStyles[size].height }, containerStyle]}>
       <Animated.View style={[{
@@ -178,17 +167,17 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
         borderRadius: 5,
         borderWidth: 1,
         height: sizeStyles[size].height,
-        backgroundColor: inputBackground?.(),
       },
       // @ts-ignore
-      borderAnimation, inputContainerStyle]}
+      borderAnimation, inputContainerStyle, { backgroundColor: statusTheme.background }]}
       >
         <View style={{ flex: 1, flexDirection: 'row', height: sizeStyles[size].height }}>
           <View style={{ alignSelf: 'center', marginLeft: sizeStyles[size].paddingVertical, marginRight: 5 }}>
             {left && left}
           </View>
+
           <View style={{ flex: 1, flexDirection: 'row' }}>
-            {variant === 'outlined' && <Animated.View style={[{ position: 'absolute', backgroundColor: inputBackground?.(), width: labelLayout.width + 8, height: 1.1, zIndex: 100 }, labelPositionAnimation]} />}
+            {variant === 'outlined' && <Animated.View style={[{ position: 'absolute', width: labelLayout.width + 8, height: 1, zIndex: 100 }, labelPositionAnimation, { backgroundColor: statusTheme.background }]} />}
             <AnimatedTextInput
               ref={inputRef}
               editable={editable}
@@ -199,29 +188,28 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
                 lineHeight: sizeStyles[size].lineHeight,
                 flexDirection: 'row',
                 flexGrow: 1,
-              }, inputStyle, { backgroundColor: 'transparent' }]}
+              }, inputStyle, { backgroundColor: statusTheme.background, color: statusValue }]}
               onChangeText={event => { setCounts(event?.length || 0); onChangeText && onChangeText(event); }}
               onFocus={x => { onFocusInput(); onFocus?.(x); }}
               onEndEditing={x => { onEndEditingInput(); onEndEditing?.(x); }}
               {...props}
             />
-
             {label ? (
               <View style={[
-                { position: 'absolute',
+                {
+                  position: 'absolute',
                   zIndex: 101,
-                  paddingHorizontal: 4 },
+                  paddingHorizontal: 4,
+                },
                 labelContainerStyle,
               ]}
               >
                 <TouchableOpacity onPress={() => inputRef.current?.focus()} activeOpacity={0.9} onLayout={event => setLabelLayout({ width: event.nativeEvent.layout.width, height: event.nativeEvent.layout.height })}>
-                  <Animated.Text style={[{ color: theme?.primary, fontFamily: labelStyles[size].default.fontFamily }, labelStyle, labelFontAnimation]}>
-
+                  <Animated.Text style={[{ fontFamily: labelStyles[size].default.fontFamily }, labelStyle, labelFontAnimation, { color: statusTheme.label }]}>
                     {label}
                   </Animated.Text>
                 </TouchableOpacity>
               </View>
-
             ) : null
             }
           </View>
@@ -233,9 +221,9 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
 
       <View style={[styles.helperContainer, { flexDirection: 'row', display: (error || !!helperText || count) ? 'flex' : 'none', alignSelf: 'stretch' }]}>
         {/* @ts-ignore */}
-        <Text style={[labelStyles[size].default, helperTextStyle, { color: error ? theme?.error : helperTextStyle?.color || theme?.grey }]}>{error ? `${errorMessage || ''}` : `${helperText}`}</Text>
+        <Text style={[labelStyles[size].default, helperTextStyle, { color: statusTheme.bottomLabel }]}>{error ? `${errorMessage || ''}` : `${helperText}`}</Text>
         {/* @ts-ignore */}
-        {count ? <Text style={[labelStyles[size].default, helperTextStyle, { color: error ? theme?.error : helperTextStyle?.color || theme?.grey }]}>{`${counts}/${props.maxLength}`}</Text> : null}
+        {count ? <Text style={[labelStyles[size].default, helperTextStyle, { color: statusTheme.countLabel }]}>{`${counts}/${props.maxLength}`}</Text> : null}
       </View>
     </View>
   );
