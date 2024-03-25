@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-expressions */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { FCCWD, ToggleButtonProps } from '../../types';
@@ -16,6 +16,11 @@ const ToggleButton: FCCWD<ToggleButtonProps> = (
 ) => {
   const { componentTheme } = useComponentTheme(theme, 'toggleButton');
   const [buttonList, setButtonList] = useState(buttons.map((item, index) => ({ ...item, id: index, active: false })));
+
+  useEffect(() => {
+    setButtonList(buttons.map((item, index) => ({ ...item, id: index, active: false })));
+  }, [buttons]);
+
   return (
     <View style={{ flexDirection: 'row' }}>
       {buttonList?.map((item, index) => (
