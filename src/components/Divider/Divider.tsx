@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   },
 });
 const Divider: FCCWD<DividerProps & ViewProps> = (
-  { borderStyle = 'solid',
+  { variant = 'solid',
     width = '100%',
     style,
     theme,
@@ -18,7 +18,7 @@ const Divider: FCCWD<DividerProps & ViewProps> = (
   const { statusTheme } = useComponentTheme(theme, 'divider', 'default');
   return (
     <View style={[styles.container, { width }, style]} {...props}>
-      <View style={{ width, borderWidth: StyleSheet.hairlineWidth, borderColor: statusTheme.background, borderStyle }} />
+      <View style={{ width, borderWidth: StyleSheet.hairlineWidth, borderColor: statusTheme.background, borderStyle: variant }} />
     </View>
   );
 };
