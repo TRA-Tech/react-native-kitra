@@ -10,6 +10,7 @@ const Badge: FCCWD<BadgeProps> = (
     label,
     size = 'medium',
     containerStyle,
+    badgeStyle,
     labelStyle,
     variant = 'circular',
     icon,
@@ -17,56 +18,77 @@ const Badge: FCCWD<BadgeProps> = (
     children,
     theme },
 ) => {
-  const [childSize, setChildSize] = useState({ width: 0, height: 0 });
   const { statusTheme } = useComponentTheme(theme, 'badge', 'default');
+
+  const styleOfSize = {
+    circular: {
+      medium: {
+        paddingHorizontal: label || icon ? 7 : 10,
+        paddingVertical: label || icon ? 7 : 10,
+        borderWidth: 3,
+        fontSize: 10,
+      },
+      small: {
+        paddingHorizontal: 3,
+        paddingVertical: 3,
+        borderWidth: 1.5,
+        fontSize: 8,
+      },
+      borderRadius: 50,
+    },
+    rectangular: {
+      medium: {
+        paddingHorizontal: 8,
+        paddingVertical: 4,
+        borderWidth: 0,
+        fontSize: 10,
+      },
+      small: {
+        paddingHorizontal: 6,
+        paddingVertical: 3,
+        borderWidth: 0,
+        fontSize: 8,
+      },
+      borderRadius: 3,
+    },
+  };
   return (
-    <View style={{ alignItems: 'center', backgroundColor: 'transparent', justifyContent: 'center', width: childSize.width + 10, height: childSize.height + 10 }}>
+    <View style={[containerStyle, { backgroundColor: 'transparent', alignSelf: 'baseline' }]}>
       {visible ? (
-        <View style={[{ position: 'absolute', zIndex: 10, borderRadius: 50, padding: variant === 'circular' ? 3 : 0 }, badgePositions[badgePosition], { backgroundColor: statusTheme.border }]}>
-          <Animated.View
-            exiting={FadeOut.duration(300)}
-            entering={FadeIn.duration(400)}
-            style={[badgeStyles.container,
-              [variant === 'circular' ? { width: size === 'medium' ? (label || icon ? 30 : 24) : 10, height: size === 'medium' ? (label || icon ? 30 : 24) : 10 }
-                :
-                { paddingVertical: size === 'medium' ? 4 : 3, paddingHorizontal: size === 'medium' ? 8 : 6 },
-              { borderRadius: variant === 'circular' ? 50 : 3 }],
-              containerStyle, { backgroundColor: statusTheme.background }]}
-          >
-            {(() => {
-              if (label) {
-                return <Text style={[{ fontSize: sizes[size]?.fontSize }, labelStyle, { color: statusTheme.label }]}>{label}</Text>;
-              }
-              if (icon) {
-                return icon;
-              }
-              return null;
-            })()}
-          </Animated.View>
-        </View>
+        <Animated.View
+          exiting={FadeOut.duration(300)}
+          entering={FadeIn.duration(400)}
+          style={[badgeStyles.container,
+            { position: 'absolute',
+              zIndex: 10,
+              borderRadius: styleOfSize[variant].borderRadius,
+              borderWidth: styleOfSize[variant][size].borderWidth,
+              borderColor: statusTheme.border,
+              paddingHorizontal: styleOfSize[variant][size].paddingHorizontal,
+              paddingVertical: styleOfSize[variant][size].paddingVertical },
+            children ? badgePositions[badgePosition] : null,
+            badgeStyle, { backgroundColor: statusTheme.background }]}
+        >
+          {(() => {
+            if (label) {
+              return <Text style={[{ fontSize: styleOfSize[variant][size].fontSize }, labelStyle, { color: statusTheme.label }]}>{label}</Text>;
+            }
+            if (icon) {
+              return icon;
+            }
+            return null;
+          })()}
+        </Animated.View>
       )
         : null
       }
-      <View onLayout={e => setChildSize({ width: e.nativeEvent.layout.width, height: e.nativeEvent.layout.height })}>
+      <View>
         {children}
       </View>
     </View>
   );
 };
 export default applyDefaults(Badge);
-
-const sizes = {
-  medium: {
-    width: 24,
-    height: 24,
-    fontSize: 10,
-  },
-  small: {
-    width: 10,
-    height: 10,
-    fontSize: 8,
-  },
-};
 
 const badgePositions = {
   topRight: { top: 0, right: 0 },
