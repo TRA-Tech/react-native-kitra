@@ -1,7 +1,5 @@
-import { FlashList } from '@shopify/flash-list';
-import { forwardRef, RefAttributes, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import { Dimensions, ScrollViewProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { NativeViewGestureHandlerProps, ScrollView } from 'react-native-gesture-handler';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { Dimensions, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Animated, { FadeIn, FadeOut, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { FCCWD, MultipleDropdownProps } from '../../types';
@@ -11,9 +9,6 @@ import IoniconsIcon from '../Icons/Ionicons';
 import OcticonsIcon from '../Icons/Octicons';
 
 const windowsHeight = Dimensions.get('window').height;
-
-// eslint-disable-next-line no-undef
-const GScrollView = forwardRef((props: JSX.IntrinsicAttributes & ScrollViewProps & NativeViewGestureHandlerProps & RefAttributes<ScrollView>, ref) => <ScrollView {...props} />);
 
 const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
   { typography,
@@ -142,13 +137,11 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
             listContainerStyle,
             windowsHeight - (cord?.y + (38 * 4) || 0) <= windowsHeight / 3 ? { bottom: cord?.height || 0 + 5 } : { top: cord?.height || 0 + 5 }, { backgroundColor: statusTheme.collapseBackground }]}
         >
-          <FlashList
+          <FlatList
             extraData={selectedObjects}
-            renderScrollComponent={GScrollView}
             data={dataWithID.current}
             // @ts-expect-error
             keyExtractor={(item: string | { keyID: number, [key: string]: any }) => item.keyID || displayedRowValue(item)}
-            estimatedItemSize={38}
             renderItem={({ item, index }: any) => {
               const isSelected = isItemSelected(item || {});
 
