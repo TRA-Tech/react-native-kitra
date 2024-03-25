@@ -230,7 +230,7 @@ export type SearchBarProps = {
 export type SliderProps = {
     showPercentage?: boolean
     onChangeEnd: (value: number) => void
-    value?: number
+    defaultValue?: number
     buttonStyle?: StyleProp<ViewStyle>
     barStyle?: StyleProp<ViewStyle>
     progressStyle?: StyleProp<ViewStyle>
