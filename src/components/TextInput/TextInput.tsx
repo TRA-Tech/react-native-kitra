@@ -10,7 +10,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
   { inputStyle,
     editable = true,
     size = 'medium',
-    helperText = '',
+    bottomLabel = '',
     variant = 'filled',
     labelContainerStyle,
     containerStyle,
@@ -19,9 +19,8 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
     label,
     inputContainerStyle,
     labelStyle,
-    helperTextStyle,
+    bottomLabelStyle,
     error = false,
-    errorMessage,
     left,
     right,
     onFocus,
@@ -204,7 +203,11 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
                 labelContainerStyle,
               ]}
               >
-                <TouchableOpacity onPress={() => inputRef.current?.focus()} activeOpacity={0.9} onLayout={event => setLabelLayout({ width: event.nativeEvent.layout.width, height: event.nativeEvent.layout.height })}>
+                <TouchableOpacity
+                  onPress={() => inputRef.current?.focus()}
+                  activeOpacity={0.9}
+                  onLayout={event => setLabelLayout({ width: event.nativeEvent.layout.width, height: event.nativeEvent.layout.height })}
+                >
                   <Animated.Text style={[{ fontFamily: labelStyles[size].default.fontFamily }, labelStyle, labelFontAnimation, { color: statusTheme.label }]}>
                     {label}
                   </Animated.Text>
@@ -219,11 +222,11 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
         </View>
       </Animated.View>
 
-      <View style={[styles.helperContainer, { flexDirection: 'row', display: (error || !!helperText || count) ? 'flex' : 'none', alignSelf: 'stretch' }]}>
+      <View style={[styles.helperContainer, { flexDirection: 'row', display: (error || !!bottomLabel || count) ? 'flex' : 'none', alignSelf: 'stretch' }]}>
         {/* @ts-ignore */}
-        <Text style={[labelStyles[size].default, helperTextStyle, { color: statusTheme.bottomLabel }]}>{error ? `${errorMessage || ''}` : `${helperText}`}</Text>
+        <Text style={[labelStyles[size].default, bottomLabelStyle, { color: statusTheme.bottomLabel }]}>{bottomLabel}</Text>
         {/* @ts-ignore */}
-        {count ? <Text style={[labelStyles[size].default, helperTextStyle, { color: statusTheme.countLabel }]}>{`${counts}/${props.maxLength}`}</Text> : null}
+        {count ? <Text style={[labelStyles[size].default, bottomLabelStyle, { color: statusTheme.countLabel }]}>{`${counts}/${props.maxLength}`}</Text> : null}
       </View>
     </View>
   );
