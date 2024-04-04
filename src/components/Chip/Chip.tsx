@@ -1,5 +1,5 @@
+import React, { useEffect, useState } from 'react';
 import { TouchableOpacity, View } from 'react-native';
-import { useEffect, useState } from 'react';
 import Animated, { interpolateColor, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { ChipProps, FCCWD } from '../../types';
@@ -15,6 +15,7 @@ const Chip:FCCWD<ChipProps> = (
     labelStyle,
     style,
     icon,
+    iconPosition = 'right',
     size = 'small',
     onChange,
     disabled = false,
@@ -61,16 +62,17 @@ const Chip:FCCWD<ChipProps> = (
         alignItems: 'center',
         height: sizes[size].height,
         borderWidth: 1,
-        borderRadius: 40,
+        borderRadius: 30,
         opacity: disabled ? 0.7 : 1,
         width: icon ? sizes[size].iconwithWidth : sizes[size].width }, style, { borderColor: statusTheme.border }]}
     >
-      <View style={{ flexDirection: icon?.iconPosition === 'right' ? 'row' : 'row-reverse', alignItems: 'center' }}>
+      <View style={{ flexDirection: iconPosition === 'right' ? 'row' : 'row-reverse', alignItems: 'center' }}>
         <Animated.Text style={[{ fontSize: typographySize[size]?.fontSize, lineHeight: typographySize[size]?.lineHeight, fontWeight: '500' }, labelStyle, { color: statusTheme.label }]}>{label}</Animated.Text>
-        {icon ?
-          <Icon color={statusTheme.icon} type={icon.iconType} name={icon.iconName} size={sizes[size].iconSize} style={[icon.iconPosition === 'right' ? { marginLeft: 6 } : { marginRight: 6 }]} />
-          : null
-        }
+        {icon && React.cloneElement(icon, {
+          size: sizes[size].iconSize,
+          color: statusTheme.icon,
+          style: [(iconPosition === 'right' ? { marginLeft: 6 } : { marginRight: 6 })],
+        })}
       </View>
     </AnimatedTouchableOpacity>
   );
