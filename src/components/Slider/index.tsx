@@ -12,7 +12,7 @@ const Slider: FCCWD<SliderProps> = (
   {
     showPercentage,
     onChangeEnd = () => null,
-    value,
+    defaultValue,
     buttonStyle,
     barStyle,
     progressStyle,
@@ -47,11 +47,11 @@ const Slider: FCCWD<SliderProps> = (
   }, [measure]);
 
   useEffect(() => {
-    if (value) {
-      if (value >= 100) progress.value = withTiming(100);
-      if (value <= 0) { progress.value = withTiming(0); } else progress.value = withTiming((value / 100) * (measure.width - 20));
+    if (defaultValue) {
+      if (defaultValue >= 100) progress.value = withTiming(100);
+      if (defaultValue <= 0) { progress.value = withTiming(0); } else progress.value = withTiming((defaultValue / 100) * (measure.width - 20));
     }
-  }, [value, measure]);
+  }, [defaultValue, measure]);
 
   const progressBarStyle = useAnimatedStyle(() => ({
     transform: [{ translateX: progress.value }],
