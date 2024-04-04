@@ -124,7 +124,7 @@ export type ChipProps = {
 }
 
 export type DividerProps = {
-    borderStyle?: 'solid' | 'dotted' | 'dashed'
+    variant?: 'solid' | 'dotted' | 'dashed'
     width?: number,
     style?: StyleProp<ViewStyle>
     theme: DeepPartial<DeepPartial<(ComponentThemeType['divider'])>>
