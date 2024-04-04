@@ -83,6 +83,7 @@ export type BadgeProps = {
     label?: string | number,
     size?: 'medium' | 'small',
     containerStyle?: StyleProp<ViewStyle>,
+    badgeStyle?:StyleProp<ViewStyle>,
     labelStyle?: StyleProp<TextStyle>,
     variant?: 'circular' | 'rectangular'
     icon?: React.ReactNode,
