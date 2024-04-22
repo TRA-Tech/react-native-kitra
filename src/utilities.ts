@@ -68,7 +68,6 @@ export const getIconType = (type: IconType): any => {
       return require('react-native-vector-icons/SimpleLineIcons').default;
     case 'feather':
       return require('react-native-vector-icons/Feather').default;
-    case 'antdesign':
     case 'ant-design':
       return require('react-native-vector-icons/AntDesign').default;
     case 'fontisto':

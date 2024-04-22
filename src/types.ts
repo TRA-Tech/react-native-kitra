@@ -323,11 +323,10 @@ export type IconType =
     | 'ionicon'
     | 'foundation'
     | 'feather'
-    | 'ant-design'
     | 'fontisto'
     | 'evilicon'
     | 'entypo'
-    | 'antdesign'
+    | 'ant-design'
     | 'font-awesome-5';
 
 export type DeepPartial<T> = T extends object ? {
