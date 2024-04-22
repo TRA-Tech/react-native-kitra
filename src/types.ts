@@ -160,14 +160,6 @@ export type DrowdownProps = {
 export type MultipleDropdownProps = DrowdownProps & { theme: DeepPartial<(ComponentThemeType['multipleDropdown'])> }
 export type DrowdownRouteProps= MultipleDropdownProps& { multiple: boolean }
 
-export type IconButtonProps = {
-    iconColor?: string,
-    containerColor?: string,
-    style: ViewStyle,
-    icon: { type: IconType, name: string, size: number },
-    focusedColor: string
-}
-
 export type IconProps = {
     name: string;
     color?: string;
