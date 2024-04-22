@@ -18,10 +18,10 @@ import { Menu, Icon } from '@tra-tech/react-native-kitra';
 import { View } from 'react-native';
 
 const MenuData = [  
-{ label: 'Add',left: <Icon type="antdesign" name="addfolder" size={17} color="#D7D1E9" />,right: <Icon type="antdesign" name="addfile" size={17} color="#D7D1E9" />,onPress(){console.log('pressed')}},
-{ label: 'Delete', left: <Icon type="antdesign" name="delete" size={17} color="#D7D1E9" /> },
-{ label: 'Update', left: <Icon type="antdesign" name="upcircleo" size={17} color="#D7D1E9" /> },
-{ label: 'Skip', right: <Icon type="antdesign" name="fastforward" size={12} color="#D7D1E9" /> }];
+{ label: 'Add',left: <Icon type="ant-design" name="addfolder" size={17} color="#D7D1E9" />,right: <Icon type="ant-design" name="addfile" size={17} color="#D7D1E9" />,onPress(){console.log('pressed')}},
+{ label: 'Delete', left: <Icon type="ant-design" name="delete" size={17} color="#D7D1E9" /> },
+{ label: 'Update', left: <Icon type="ant-design" name="upcircleo" size={17} color="#D7D1E9" /> },
+{ label: 'Skip', right: <Icon type="ant-design" name="fastforward" size={12} color="#D7D1E9" /> }];
 
 const App = () => (
   <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
