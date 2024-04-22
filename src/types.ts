@@ -54,14 +54,7 @@ export type AccordionListProps = {
 }
 
 export type AvatarGroupProps = {
-    avatars: Array<{
-        source?: ImageSourcePropType,
-        variant?: 'circular' | 'rounded',
-        avatarIcon?: React.ReactNode,
-        containerStyle?: StyleProp<ViewStyle>,
-        label?: string,
-        labelStyle?: StyleProp<TextStyle>,
-    }>,
+    avatars: Array<Omit<AvatarProps, 'theme' | 'size'>>,
     avatarLimit?: number,
     limitContainerStyle?: { style: StyleProp<TextStyle>, backgroundColor: string }
     theme: DeepPartial<(ComponentThemeType['avatarGroup'])>
