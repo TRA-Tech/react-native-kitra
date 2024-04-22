@@ -14,7 +14,6 @@ export { default as CheckBox } from './components/CheckBox/CheckBox';
 export { default as Button } from './components/Button/Button';
 export { default as ProgressBar } from './components/ProgressBar/ProgressBar';
 export { default as Badge } from './components/Badge/Badge';
-export { default as IconButton } from './components/IconButton/IconButton';
 export { default as AccordionList } from './components/AccordionList/AccordionList';
 export { default as RadioButton } from './components/RadioButton/RadioButton';
 export { default as ToggleButton } from './components/ToggleButton/ToggleButton';

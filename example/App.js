@@ -12,7 +12,6 @@ import CheckBoxScreen from './src/screens/CheckBox';
 import ButtonScreen from './src/screens/Button';
 import ProgressBarScreen from './src/screens/ProgressBar';
 import BadgeScreen from './src/screens/Badge';
-import IconButtonScreen from './src/screens/IconButton';
 import AccordionListScreen from './src/screens/AccordionList';
 import RadioButtonScreen from './src/screens/RadioButton';
 import ToggleButtonScreen from './src/screens/ToggleButton';
@@ -90,7 +89,6 @@ export default function App() {
             <Stack.Screen name="Chip" component={ChipScreen} />
             <Stack.Screen name="Divider" component={DividerScreen} />
             <Stack.Screen name="Dropdown" component={DropdownScreen} />
-            <Stack.Screen name="IconButton" component={IconButtonScreen} />
             <Stack.Screen name="Icon" component={IconScreen} />
             <Stack.Screen name="Menu" component={MenuScreen} />
             <Stack.Screen name="Modal" component={ModalScreen} />
