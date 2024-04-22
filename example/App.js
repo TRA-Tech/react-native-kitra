@@ -26,7 +26,6 @@ import ChipScreen from './src/screens/Chip';
 import SearchBarScreen from './src/screens/SearchBar';
 import SwitchScreen from './src/screens/Switch';
 import SliderScreen from './src/screens/Slider';
-import ModalScreen from './src/screens/Modal';
 import PagerViewScreen from './src/screens/PagerView';
 import ActivityIndicatorScreen from './src/screens/ActivityIndicator';
 import IconScreen from './src/screens/Icon';
@@ -91,7 +90,6 @@ export default function App() {
             <Stack.Screen name="Dropdown" component={DropdownScreen} />
             <Stack.Screen name="Icon" component={IconScreen} />
             <Stack.Screen name="Menu" component={MenuScreen} />
-            <Stack.Screen name="Modal" component={ModalScreen} />
             <Stack.Screen name="PagerView" component={PagerViewScreen} />
             <Stack.Screen name="ProgressBar" component={ProgressBarScreen} />
             <Stack.Screen name="RadioButton" component={RadioButtonScreen} />

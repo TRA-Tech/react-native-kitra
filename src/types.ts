@@ -292,13 +292,6 @@ export type SpeedDialProps = {
     theme: DeepPartial<(ComponentThemeType['speedDial'])>
 };
 
-export type ModalProps = {
-    containerStyle?: StyleProp<ViewStyle>,
-    modalStyle?: StyleProp<ViewStyle>,
-    visible?: boolean,
-    children?: React.ReactNode,
-};
-
 export type NotificationProps = {
     items: [{ status: 'SUCCESS' | 'WARNING' | 'ERROR' | 'INFO', header?: string, message?: string, keyID?: number }],
     containerStyle?: StyleProp<ViewStyle>,

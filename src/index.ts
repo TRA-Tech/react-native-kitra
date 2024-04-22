@@ -28,7 +28,6 @@ export { default as Chip } from './components/Chip/Chip';
 export { default as SearchBar } from './components/SearchBar/SearchBar';
 export { default as Switch } from './components/Switch/Switch';
 export { default as Slider } from './components/Slider/index';
-export { default as Modal } from './components/Modal/Modal';
 export { default as PagerView } from './components/PagerView/PagerView';
 export { default as ActivityIndicator } from './components/ActivityIndicator/ActivityIndicator';
 export { default as Icon } from './components/Icons/Icon';

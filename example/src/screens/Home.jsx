@@ -13,7 +13,6 @@ const components = [
   'Divider',
   'Dropdown',
   'Menu',
-  'Modal',
   'PagerView',
   'ProgressBar',
   'RadioButton',
