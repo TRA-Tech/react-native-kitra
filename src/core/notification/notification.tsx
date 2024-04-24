@@ -1,19 +1,18 @@
-// @ts-nocheck
-import { LinearGradient } from 'expo-linear-gradient';
 import React, { useMemo, useState } from 'react';
 import { StyleProp, StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
+
 import Animated, { FadeOut, Layout, LightSpeedInLeft } from 'react-native-reanimated';
 
-import IoniconsIcon from '../../components/Icons/Ionicons';
+import { TaskQueue } from '../../utilities';
 import useTheme from '../hooks/useTheme';
 import useTypograpghy from '../hooks/useTypography';
 
-const messageTypes: any = {
-  SUCCESS: { backgroundColor: '#09CE63', icon: 'checkmark' },
-  WARNING: { backgroundColor: '#FFD234', icon: 'alert' },
-  ERROR: { backgroundColor: '#FF3434', icon: 'close' },
-  INFO: { backgroundColor: '#67A7C1', icon: 'information' },
-};
+const messageTypes = (theme:any) => ({
+  SUCCESS: { backgroundColor: theme.colors.status.successLight },
+  INFO: { backgroundColor: theme.colors.system.primary15 },
+  DANGER: { backgroundColor: theme.colors.status.errorLight },
+  WARNING: { backgroundColor: theme.colors.status.warningLight },
+});
  type NotificationContextType= {
   showNotification: (props: showNotificationProps) => void
 }
@@ -25,34 +24,33 @@ type showNotificationProps = {
 type NotificationProviderType= {
   children?:any,
   limit?:number,
-  messageType?:any,
-  containerStyle?:StyleProp<ViewStyle>
-  linearMessageType?: (theme?:any, colorScheme?:'dark' | 'light') => {[key:string]: {
-    backgroundColor:{
-      color:string [],
-      location:number [],
-      bottomColor:string [],
-      bottomLocation:number []
-    }
-    icon:React.ReactNode
-    onPress:()=>void
-  }}
+  messageType?:(theme?:any) => {[key:string]: {
+      backgroundColor:string,
+    icon?:React.ReactNode
+    onPress?:()=>void
+  }},
+  notificationCcontainerStyle?:StyleProp<ViewStyle>
 }
 const NotificationContext = React.createContext<NotificationContextType>({} as NotificationContextType);
 
-const NotificationProvider = ({ children, limit = 3, messageType = messageTypes, linearMessageType, containerStyle }:NotificationProviderType) => {
-  const [queue, setQueue] = useState([{ type: '', message: '', header: '' }]);
-  const { theme, colorScheme } = useTheme();
+const NotificationProvider = ({ children, limit = 3, messageType, notificationCcontainerStyle }:NotificationProviderType) => {
+  const [queue, setQueue] = useState<Array<{ type:string, message: string, header: string}>>([]);
+  const { theme } = useTheme();
   const { typography } = useTypograpghy();
-  const showNotification = (item:showNotificationProps) => {
-    pushQueue(item);
-  };
+  // @ts-ignore
+  const TaskManager = new TaskQueue({ sleepBetweenTasks: 1000, concurrency: 1 });
 
+  const showNotification = (item:showNotificationProps) => {
+    TaskManager.createTask(() => {
+      pushQueue(item);
+    });
+  };
   const pushQueue = (item:any) => {
     setTimeout(() => {
       setQueue(prev => {
-        limit <= prev.length ? popQueue(1) : popQueue();
-        if (prev.length > 0) popQueue();
+        limit <= prev.length ?
+          popQueue(1)
+          : popQueue();
         return [{ ...item, keyID: Math.random() }, ...prev];
       });
     }, 100);
@@ -77,6 +75,7 @@ const NotificationProvider = ({ children, limit = 3, messageType = messageTypes,
     queueTemp.splice(index, 1);
     setQueue(queueTemp);
   }
+
   return (
     // @ts-ignore
     <NotificationContext.Provider value={contextValue}>
@@ -87,44 +86,18 @@ const NotificationProvider = ({ children, limit = 3, messageType = messageTypes,
           entering={LightSpeedInLeft}
           exiting={FadeOut}
           layout={Layout.springify()}
-          style={[styles.itemContainer, { alignSelf: 'center',
-            top: 150 }, containerStyle, { position: 'absolute',
-            backgroundColor: !linearMessageType ? messageType[item?.type]?.backgroundColor : 'transparent',
-            marginTop: 110 * (index - 1) }]}
+          style={[styles.itemContainer, notificationCcontainerStyle, { marginTop: 110 * (index - 1) }]}
         >
-          <TouchableOpacity style={{ flexDirection: 'row', flex: 1 }} onPress={() => onPress(index)}>
-            {linearMessageType && item.type && (
-            <>
-              <LinearGradient
-                colors={linearMessageType(theme, colorScheme)[item?.type]?.backgroundColor.color || []}
-                locations={linearMessageType(theme, colorScheme)[item?.type]?.backgroundColor.location}
-                start={{ x: 0.3, y: 0.7 }}
-                end={{ x: 1, y: 0 }}
-                style={[styles.linearConteiner]}
-              />
-              <LinearGradient
-                colors={linearMessageType(theme, colorScheme)[item?.type]?.backgroundColor.bottomColor || []}
-                locations={linearMessageType(theme, colorScheme)[item?.type]?.backgroundColor.bottomLocation}
-                start={{ x: 0.3, y: 0.7 }}
-                end={{ x: 1, y: 0 }}
-                style={[styles.linearConteiner, { height: 102, zIndex: 10 }]}
-              />
-            </>
-            )}
-            { linearMessageType ? (
-              <View style={styles.iconContainer}>
-                {linearMessageType(theme, colorScheme)[item?.type]?.icon}
-              </View>
-            ) : (
-              <View style={[styles.iconContainer, { backgroundColor: theme?.white }]}>
-                <IoniconsIcon name={messageType[item?.type]?.icon} size={15} />
-              </View>
-            )}
-            <View style={{ flex: 1, zIndex: 100 }}>
-              <Text ellipsizeMode="middle" numberOfLines={3} style={[styles.headerText, { color: theme.white }]}>
+          <TouchableOpacity style={styles.buttonContainer} onPress={() => onPress(index)}>
+            <View style={[styles.innerContainer, { backgroundColor: messageType?.(theme)[item?.type]?.backgroundColor || 'transparent' }]} />
+            <View style={[styles.iconContainer]}>
+              {messageType?.(theme)[item?.type]?.icon}
+            </View>
+            <View style={styles.textsContainer}>
+              <Text ellipsizeMode="middle" numberOfLines={3} style={[styles.headerText, { ...typography.body.medium, color: theme.colors.neutral.lightBlack }]}>
                 {item?.header || item?.type }
               </Text>
-              <Text ellipsizeMode="middle" numberOfLines={3} style={[styles.descText, { color: theme.white }]}>
+              <Text ellipsizeMode="middle" numberOfLines={3} style={[styles.descText, { ...typography.body.sregular, color: theme.colors.neutral.lightBlack }]}>
                 {item?.message}
               </Text>
             </View>
@@ -141,13 +114,14 @@ const styles = StyleSheet.create({
   itemContainer: {
     alignItems: 'center',
     width: '100%',
-    paddingHorizontal: 24,
     zIndex: 100,
     height: 100,
     borderRadius: 10,
-
+    alignSelf: 'center',
+    top: 150,
+    position: 'absolute',
   },
-  linearConteiner: {
+  innerContainer: {
     alignItems: 'center',
     position: 'absolute',
     width: '100%',
@@ -157,23 +131,21 @@ const styles = StyleSheet.create({
   },
   iconContainer: {
     zIndex: 100,
-    marginTop: 21,
     marginLeft: 18,
     width: 28,
     height: 28,
-    borderRadius: 100,
     alignItems: 'center',
     justifyContent: 'center',
   },
+  buttonContainer: {
+    flexDirection: 'row', flex: 1, paddingVertical: 16,
+  },
   headerText: {
-    fontWeight: '500',
-    marginTop: 17,
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
   },
   descText: {
-    fontWeight: '400',
-    marginTop: 6,
-    paddingHorizontal: 20,
+    marginTop: 10,
+    paddingHorizontal: 10,
   },
-
+  textsContainer: { flex: 1, zIndex: 100 },
 });
