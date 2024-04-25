@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import { TextInput as RNTextInput, View, TextInputProps as RNTextInputProps, TouchableOpacity, StyleSheet, Text } from 'react-native';
-import Animated, { interpolate, interpolateColor, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
+import { TextInput as RNTextInput,
+  View, TextInputProps as RNTextInputProps, TouchableOpacity, StyleSheet, Text } from 'react-native';
+import Animated,
+{ interpolate, interpolateColor, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { FCCWD, TextInputProps } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
@@ -34,7 +36,11 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
   const [counts, setCounts] = useState(0);
   const [labelLayout, setLabelLayout] = useState({ width: 0, height: 0 });
   const textInputOffset = useSharedValue(props.defaultValue || props.placeholder || props.value ? 0 : 1);
-  const { statusTheme, componentTheme } = useComponentTheme(theme, 'textInput', error ? 'error' : isFocused ? 'focused' : 'default');
+  const { statusTheme, componentTheme } = useComponentTheme(
+    theme,
+    'textInput',
+    editable ? (error ? 'error' : isFocused ? 'focused' : 'default') : 'disabled',
+  );
   const { value: statusValue } = statusTheme;
 
   const fontStyles =
@@ -98,7 +104,8 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
     const topInterpolate = interpolateColor(
       textInputOffset.value,
       [0, 1],
-      [componentTheme.focused?.border || '', error ? componentTheme.error?.border || '' : componentTheme.default?.border || ''],
+      [componentTheme.focused?.border || '',
+        error ? componentTheme.error?.border || '' : componentTheme.default?.border || ''],
     );
 
     return {
@@ -126,7 +133,8 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
     const topInterpolate = interpolate(
       textInputOffset.value,
       [0, 1],
-      [variant === 'filled' ? 2 : -labelStyles[size].focused.lineHeight + labelStyles[size].focused.lineHeight / 2, sizeStyles[size].paddingHorizontal],
+      [variant === 'filled' ? 2 : -labelStyles[size].focused.lineHeight + labelStyles[size].focused.lineHeight / 2,
+        sizeStyles[size].paddingHorizontal],
     );
     return {
       fontSize,
@@ -164,7 +172,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
       <Animated.View style={[{
         opacity: editable ? 1 : 0.5,
         borderRadius: 5,
-        borderWidth: 1,
+        borderWidth: editable ? 1 : 0,
         height: sizeStyles[size].height,
       },
       // @ts-ignore
@@ -176,7 +184,13 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
           </View>
 
           <View style={{ flex: 1, flexDirection: 'row' }}>
-            {variant === 'outlined' && <Animated.View style={[{ position: 'absolute', width: labelLayout.width + 8, height: 1, zIndex: 100 }, labelPositionAnimation, { backgroundColor: statusTheme.background }]} />}
+            {variant === 'outlined' && (
+            <Animated.View style={[{ position: 'absolute',
+              width: labelLayout.width + 8,
+              height: 1,
+              zIndex: 100 }, labelPositionAnimation, { backgroundColor: statusTheme.background }]}
+            />
+            )}
             <AnimatedTextInput
               ref={inputRef}
               editable={editable}
@@ -206,9 +220,12 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
                 <TouchableOpacity
                   onPress={() => inputRef.current?.focus()}
                   activeOpacity={0.9}
-                  onLayout={event => setLabelLayout({ width: event.nativeEvent.layout.width, height: event.nativeEvent.layout.height })}
+                  onLayout={event => setLabelLayout({ width: event.nativeEvent.layout.width,
+                    height: event.nativeEvent.layout.height })}
                 >
-                  <Animated.Text style={[{ fontFamily: labelStyles[size].default.fontFamily }, labelStyle, labelFontAnimation, { color: statusTheme.label }]}>
+                  <Animated.Text style={[{ fontFamily: labelStyles[size].default.fontFamily },
+                    labelStyle, labelFontAnimation, { color: statusTheme.label }]}
+                  >
                     {label}
                   </Animated.Text>
                 </TouchableOpacity>
@@ -222,11 +239,24 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
         </View>
       </Animated.View>
 
-      <View style={[styles.helperContainer, { flexDirection: 'row', display: (error || !!bottomLabel || count) ? 'flex' : 'none', alignSelf: 'stretch' }]}>
+      <View style={[styles.helperContainer, { flexDirection: 'row',
+        display: (error || !!bottomLabel || count) ? 'flex' : 'none',
+        alignSelf: 'stretch' }]}
+      >
         {/* @ts-ignore */}
-        <Text style={[labelStyles[size].default, bottomLabelStyle, { color: statusTheme.bottomLabel }]}>{bottomLabel}</Text>
+        <Text style={[labelStyles[size].default, bottomLabelStyle,
+          { color: statusTheme.bottomLabel }]}
+        >
+          {bottomLabel}
+        </Text>
         {/* @ts-ignore */}
-        {count ? <Text style={[labelStyles[size].default, bottomLabelStyle, { color: statusTheme.countLabel }]}>{`${counts}/${props.maxLength}`}</Text> : null}
+        {count ? (
+          <Text style={[labelStyles[size].default, bottomLabelStyle,
+            { color: statusTheme.countLabel }]}
+          >
+            {`${counts}/${props.maxLength}`}
+          </Text>
+        ) : null}
       </View>
     </View>
   );
