@@ -2,43 +2,45 @@ import type { ComponentType, ForwardedRef } from 'react';
 import React from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import Animated from 'react-native-reanimated';
+import { StyleProp, ViewStyle } from 'react-native';
+
 import { ThemeContext, ThemeProvider } from './theme/theme';
 import { TypographyContext, TypographyProvider } from './typography/typography';
 import { NotificationProvider } from './notification/notification';
 
-Animated.addWhitelistedNativeProps({ text: true });
+const Feather = require('react-native-vector-icons/Feather').default;
+const Ionicons = require('react-native-vector-icons/Ionicons').default;
+const AntDesign = require('react-native-vector-icons/AntDesign').default;
 
-type KitraProviderType = {
-  children?: any,
-  limit?: number,
-  messageType?: {
-    [key: string]: {
-      backgroundColor: string,
-      icon: React.ReactNode
-    }
-  },
-  linearMessageType?: (theme?:any, colorScheme?:'dark' | 'light') => {[key:string]: {
-    backgroundColor:{
-      color:string [],
-      location:number [],
-      bottomColor:string [],
-      bottomLocation:number []
-    }
-    icon:React.ReactNode
-  }}
+Animated.addWhitelistedNativeProps({ text: true });
+const messageTypes = (theme:any) => ({
+  SUCCESS: { backgroundColor: theme.colors.status.successLight, icon: <Feather name="check" size={25} color={theme.colors.status.success} /> },
+  INFO: { backgroundColor: theme.colors.system.primary15, icon: <Ionicons name="information-circle-outline" size={25} color={theme.colors.system.primary} /> },
+  DANGER: { backgroundColor: theme.colors.status.errorLight, icon: <AntDesign name="warning" size={25} color={theme.colors.status.error} /> },
+  WARNING: { backgroundColor: theme.colors.status.warningLight, icon: <AntDesign name="warning" size={25} color={theme.colors.status.warning} /> },
+});
+type KitraProviderType= {
+  children?:any,
+  limit?:number,
+  messageType?:(theme?:any, colorScheme?:'dark' | 'light') => {[key:string]: {
+      backgroundColor:string,
+    icon?:React.ReactNode
+    onPress?:()=>void
+  }},
+  notificationCcontainerStyle?:StyleProp<ViewStyle>
 }
-export const KitraProvider = ({ children, messageType, linearMessageType, limit }: KitraProviderType) => (
+export const KitraProvider = ({ children, messageType = messageTypes, notificationCcontainerStyle, limit }: KitraProviderType) => (
   <GestureHandlerRootView style={{ flex: 1 }}>
     <ThemeProvider>
-      <NotificationProvider
-        linearMessageType={(theme, colorScheme) => (linearMessageType ? linearMessageType(theme, colorScheme) : theme)}
-        messageType={messageType}
-        limit={limit}
-      >
-        <TypographyProvider>
+      <TypographyProvider>
+        <NotificationProvider
+          messageType={theme => (messageType ? messageType(theme) : theme)}
+          notificationCcontainerStyle={notificationCcontainerStyle}
+          limit={limit}
+        >
           {children}
-        </TypographyProvider>
-      </NotificationProvider>
+        </NotificationProvider>
+      </TypographyProvider>
     </ThemeProvider>
   </GestureHandlerRootView>
 );

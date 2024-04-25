@@ -1,5 +1,6 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-bitwise */
-
+// @ts-nocheck
 import type React from 'react';
 import type { IconType } from './types';
 import { x11Colors } from './core/theme/x11';
@@ -87,5 +88,107 @@ export const getIconProperties = (node: React.ReactElement) => {
     name,
     size,
     color,
+  };
+};
+
+export const TaskQueue = function (options: {sleepBetweenTasks:number, concurrency:number}) {
+  const self = this;
+  self.options = options;
+  const _queue: any[] = [];
+  let _currentConcurrentTasks = 0;
+  let _threadBusyVector = [0];
+  let _lastTaskId = 0;
+  const _taskToThreadMap = {};
+  if (!self.options) {
+    self.options = {};
+  }
+  if (self.options.concurrency) {
+    if (self.options.concurrency !== parseInt(self.options.concurrency, 10) || self.options.concurrency < 1) {
+      throw new Error('concurrency must be a positive integer');
+    }
+  } else {
+    self.options.concurrency = 1;
+  }
+  if (self.options.sleepBetweenTasks) {
+    if (self.options.sleepBetweenTasks !== parseInt(self.options.sleepBetweenTasks, 10) || self.options.sleepBetweenTasks < 0) {
+      throw new Error('sleepBetweenTasks must be a non-negative integer');
+    }
+  } else {
+    self.options.sleepBetweenTasks = 0;
+  }
+  _threadBusyVector = new Array(self.options.concurrency);
+
+  self.addTask = function (taskFunction: any) {
+    // eslint-disable-next-line no-plusplus, no-undef
+    _queue.push(new Task(_lastTaskId++, taskFunction, self));
+    setTimeout(scheduleTasks, 0);
+  };
+
+  self.wrapCallback = function (task: { _task: { taskId: string | number; }; }, taskCallback: { apply: (arg0: any, arg1: IArguments) => void; }) {
+    return function () {
+      // eslint-disable-next-line prefer-rest-params
+      taskCallback.apply(this, arguments);
+
+      // free up 'resources'
+      const threadId = _taskToThreadMap[task._task.taskId];
+      setTimeout(() => {
+        _threadBusyVector[threadId] = 0;
+        // eslint-disable-next-line no-plusplus
+        _currentConcurrentTasks--;
+        setTimeout(scheduleTasks, 0);
+      }, self.options.sleepBetweenTasks);
+    };
+  };
+
+  // Bizim yaptığımız fonksiyon
+  self.createTask = function (callback: any) {
+    // eslint-disable-next-line no-plusplus, no-undef
+    _queue.push(new Task(_lastTaskId++, function () {
+      setTimeout(this.wrapCallback(callback), 0);
+    }, self));
+    setTimeout(scheduleTasks, 0);
+  };
+  self.length = function () {
+    return _queue.length;
+  };
+
+  // eslint-disable-next-line vars-on-top, no-var
+  var scheduleTasks = function () {
+    if (_queue.length) { // we have tasks to schedule
+      if (_currentConcurrentTasks < self.options.concurrency) { // we got free 'threads' to schedule a task for
+        let threadId = -1;
+
+        // find a free thread
+        // eslint-disable-next-line no-plusplus
+        for (let i = 0; i < _threadBusyVector.length; i++) {
+          if (!_threadBusyVector[i]) {
+            threadId = i;
+            break;
+          }
+        }
+        if (threadId > -1) {
+          const task = _queue.shift();
+          _threadBusyVector[threadId] = 1;
+          _taskToThreadMap[task._task.taskId] = threadId;
+          // eslint-disable-next-line no-plusplus
+          _currentConcurrentTasks++;
+          setTimeout(() => {
+            task.run();
+          }, 0);
+        }
+      }
+    }
+  };
+};
+
+// eslint-disable-next-line vars-on-top, no-var
+var Task = function (taskId: number, actionFunc: () => void, taskQueue: { wrapCallback: (arg0: any, arg1: any) => any; }) {
+  this._task = {
+    taskId,
+    taskQueue,
+  };
+  this.run = actionFunc;
+  this.wrapCallback = function (taskCallback: any) {
+    return taskQueue.wrapCallback(this, taskCallback);
   };
 };
