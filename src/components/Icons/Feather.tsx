@@ -1,7 +1,7 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 import { StyleSheet, Text, Platform } from 'react-native';
-import type { IconComponentProps, IconComponentType } from '../../types';
+import type { IconComponentProps } from '../../types';
 
 let Feather: React.ComponentType<IconComponentProps>;
 
