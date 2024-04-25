@@ -22,7 +22,7 @@
         "react-hooks"
     ],
     "rules": {
-        "max-len": 0,
+        "max-len": ["warn", { "code": 120 }],
         "arrow-parens": [
             "error",
             "as-needed"

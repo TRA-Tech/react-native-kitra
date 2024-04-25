@@ -1,6 +1,6 @@
 import type { FC, PropsWithChildren } from 'react';
 import type React from 'react';
-import type { Animated, ImageSourcePropType, StyleProp, TextProps, TextStyle, ViewProps, ViewStyle } from 'react-native';
+import type { Animated, FlatList, ImageSourcePropType, StyleProp, TextProps, TextStyle, ViewProps, ViewStyle } from 'react-native';
 import { Swipeable } from 'react-native-gesture-handler';
 import type Icon from './components/Icons/Icon';
 import type { defaultTypography } from './core/typography/typography';
@@ -291,14 +291,14 @@ export type NotificationProps = {
     limit?: number
 }
 export type PagerViewProps = {
+    ref: React.RefObject<FlatList>,
     children: React.ReactNode
+    customHeader?: React.ReactNode[]
     containerStyle?: StyleProp<ViewStyle>
     pageContainerStyle?: StyleProp<ViewStyle>
-    injectPagerRef?: boolean,
     headerSliderStyle?: StyleProp<ViewStyle>,
     headerContainerStyle?: StyleProp<ViewStyle>,
     headerLabelStyle?: StyleProp<TextStyle>,
-    icons?: React.ReactElement<typeof Icon>[],
     theme: DeepPartial<(ComponentThemeType['pagerView'])>
 }
 export type ActivityIndicatorProps = {
