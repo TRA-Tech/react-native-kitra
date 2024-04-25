@@ -130,6 +130,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
         )}
       </TouchableOpacity>
       {visible && (
+
         <Animated.View
           testID="dropdown-list"
           entering={FadeIn}
@@ -138,9 +139,12 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
             {
               width: cord?.width,
               left: 0,
+
             },
             listContainerStyle,
-            windowsHeight - (cord?.y + (38 * 4) || 0) <= windowsHeight / 3 ? { bottom: cord?.height || 0 + 5 } : { top: cord?.height || 0 + 5 }, { backgroundColor: statusTheme.collapseBackground }]}
+            windowsHeight - (cord?.y + (38 * 4) || 0) <= windowsHeight / 3 ?
+              { bottom: cord?.height || 0 + 5 } : { top: cord?.height || 0 + 5 },
+            { backgroundColor: statusTheme.collapseBackground }]}
         >
           <FlashList
             extraData={selectedObjects}
