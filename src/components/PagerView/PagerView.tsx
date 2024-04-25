@@ -1,131 +1,180 @@
-import React, { Dispatch, FC, PropsWithChildren, ReactNode, SetStateAction, useRef, useState } from 'react';
-import Animated, { FadeIn, SharedValue, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
-import { StyleProp, StyleSheet, TextStyle, TouchableOpacity, View } from 'react-native';
-import { default as PagerViewComponent, PagerViewOnPageScrollEvent, PagerViewProps as PWProps } from 'react-native-pager-view';
-import useComponentTheme from '../../core/hooks/useComponentTheme';
-import type { ComponentThemeType, DeepPartial, DefaultProps, FCCWD, PagerViewProps } from '../../types';
+import { FlatList, StyleProp, StyleSheet, TouchableOpacity, View, ViewStyle } from 'react-native';
+import {
+  ReactElement,
+  cloneElement, forwardRef, useImperativeHandle, useRef, useState,
+} from 'react';
+import { DefaultProps, PagerViewProps } from 'src/types';
+import Animated,
+{
+  SharedValue,
+  interpolate,
+  interpolateColor,
+  useAnimatedStyle,
+  useDerivedValue,
+  useSharedValue,
+} from 'react-native-reanimated';
+
 import { applyDefaults } from '../../core/KitraProvider';
-import type Icon from '../Icons/Icon';
+import useComponentTheme from '../../core/hooks/useComponentTheme';
 
-const style = StyleSheet.create({
-  container: { flex: 1 },
-  headersContainer: { flexDirection: 'row', padding: 5, borderRadius: 10, marginLeft: 'auto', marginRight: 'auto', width: 315, height: 50 },
-  headerContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', zIndex: 101 },
-  headerText: { margin: 10, textAlign: 'center', fontSize: 12, fontWeight: '500', flexDirection: 'row' },
-  slider: { position: 'absolute', borderRadius: 8, margin: 5, alignItems: 'center' },
-  pageContainer: { height: '100%', width: '100%', flex: 1 },
-  divider: { position: 'absolute', bottom: 0, height: 4, margin: 5 },
-});
+const AnimatedTouchableOpacity = Animated.createAnimatedComponent(TouchableOpacity);
+const HeaderItem = forwardRef<FlatList,
+  {
+    item: ReactElement,
+    index: number,
+    headerScroll: SharedValue<number>,
+    componentTheme: any,
+    labelStyle: StyleProp<ViewStyle>
+  }>((
+    {
+      item,
+      index,
+      headerScroll,
+      componentTheme,
+      labelStyle,
+    },
+    ref,
+  ) => {
+    const textColorStyle = useAnimatedStyle(() => {
+      const textColorInterpolation = interpolateColor(
+        headerScroll.value,
+        [index - 1, index],
+        [componentTheme.default.headerLabel, componentTheme.active.headerLabel],
+      );
+      const textColorInterpolation2 = interpolateColor(
+        headerScroll.value,
+        [index, index + 1],
+        [componentTheme.active.headerLabel, componentTheme.default.headerLabel],
+      );
 
-export type TabItemProps = {
-  item: ReactNode,
-  index: number,
-  theme: DeepPartial<ComponentThemeType['pagerView']>
-  refPager: React.RefObject<PagerViewComponent>,
-  setSize: Dispatch<SetStateAction<{ height: number, width: number }>>,
-  slideValue: SharedValue<number>
-  headerLabelStyle?:StyleProp<TextStyle>,
-  icons?: React.ReactElement<typeof Icon>[],
-  selectPage:number
-}
-const TabItem: FC<PropsWithChildren<TabItemProps&DefaultProps>> = ({ theme, icons, selectPage, typography, item, index, refPager, setSize, slideValue, headerLabelStyle }) => {
-  const { componentTheme, statusTheme } = useComponentTheme(theme, 'pagerView', selectPage === index ? 'active' : 'default');
+      if ((index < headerScroll.value + 1)) {
+        if (index < headerScroll.value) { return { color: textColorInterpolation2 }; }
+        return { color: textColorInterpolation };
+      }
+      return { color: componentTheme.default.headerLabel };
+    });
 
-  const textColorStyle = useAnimatedStyle(() => {
-    if (index - slideValue.value < 0.3 && index - slideValue.value > -0.5) { return { color: componentTheme.active?.headerLabel }; }
-    return { color: componentTheme.default?.headerLabel };
+    return (
+      <AnimatedTouchableOpacity
+        // @ts-ignore
+        onPress={() => ref?.current?.scrollToIndex({ index })}
+        activeOpacity={0.7}
+        style={{ flex: 1, alignItems: 'center', justifyContent: 'center', alignSelf: 'stretch' }}
+      >
+        <Animated.Text
+          key={item.key}
+          ellipsizeMode="tail"
+          numberOfLines={1}
+          style={[style.headerLabel, textColorStyle, labelStyle]}
+        >
+          {item.key}
+        </Animated.Text>
+      </AnimatedTouchableOpacity>
+    );
   });
 
-  return (
-    <TouchableOpacity
-      key={index}
-      testID={`tab_button_${index}`}
-      onLayout={({ nativeEvent }) =>
-        setSize({ height: nativeEvent.layout.height, width: nativeEvent.layout.width })}
-      style={[style.headerContainer]}
-      onPress={() => { refPager.current?.setPage(index); }}
-    >
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        {/* @ts-ignore */}
-        {icons && icons[index] && React.cloneElement(icons[index], { color: selectPage === index ? statusTheme.headerLabel : componentTheme.default.headerLabel })}
-        {/* @ts-ignore */}
-        <Animated.Text style={[{ fontSize: typography?.body.medium.fontSize, lineHeight: typography?.body.medium.lineHeight }, style.headerText, textColorStyle, headerLabelStyle]}>{item.key}</Animated.Text>
-      </View>
-    </TouchableOpacity>
-  );
-};
+const PagerView = forwardRef<FlatList, PagerViewProps & { children: ReactElement[] } & DefaultProps>(
+  ({ children, theme, typography, ...props }, externalRef) => {
+    const { length } = children;
+    const internalRef = useRef<FlatList>(null);
+    // @ts-ignore
+    useImperativeHandle(externalRef, () => ({
+      ...internalRef.current,
+      scrollToIndex: index => {
+        // @ts-ignore
+        internalRef.current?.scrollToIndex({ index, animated: true });
+      },
+    }));
+    const { componentTheme } = useComponentTheme(theme, 'pagerView');
+    const [contentSize, setContentSize] = useState(0);
+    const [headerSize, setHeaderSize] = useState(0);
+    const [windowWidth, setWindowWidth] = useState(0);
+    const scroll = useSharedValue(0);
+    const pagerScroll = useDerivedValue(() => interpolate(scroll.value, [0, contentSize], [0, headerSize]).toFixed(2));
+    const headerScroll = useDerivedValue(() =>
+      Number((interpolate(Number(pagerScroll.value), [0, contentSize], [0, length]).toFixed(2))) * length);
 
-const AnimatedPager = Animated.createAnimatedComponent(PagerViewComponent);
+    const moveSelect = useAnimatedStyle(() => ({
+      left: Number(pagerScroll.value),
+    }));
 
-const PagerView:FCCWD<PagerViewProps&PWProps> =
-({ children,
-  containerStyle,
-  pageContainerStyle,
-  headerLabelStyle,
-  injectPagerRef = false,
-  headerSliderStyle,
-  headerContainerStyle,
-  icons,
-  theme,
-  typography, ...props }) => {
-  const refPager = useRef<PagerViewComponent>(null);
-  const slideValue = useSharedValue(0);
-  const [size, setSize] = useState<{ height: number, width: number }>({ height: 0, width: 0 });
-  const [selectPage, setSelectPage] = useState(0);
-  const { componentTheme } = useComponentTheme(theme, 'pagerView');
-  const headerSliderAnimated = useAnimatedStyle(() => (
-    { left: (slideValue.value * (size?.width ? size.width : 0)) ? (slideValue.value * (size?.width ? size.width : 0)) : 0 }
-  ));
-
-  const onPageScroll = (e: PagerViewOnPageScrollEvent) => {
-    if (e.nativeEvent.offset < 1) { slideValue.value = +e.nativeEvent.offset + e.nativeEvent.position; }
-  };
-
-  return (
-    <View style={[style.container, containerStyle]}>
-      <View style={[{ backgroundColor: componentTheme.default?.headerBackground }, style.headersContainer, headerContainerStyle]}>
-        {React.Children.map(children, (item, index) => (
-          <TabItem
-            selectPage={selectPage}
-            item={item}
-            icons={icons}
-            index={index}
-            refPager={refPager}
-            setSize={setSize}
-            slideValue={slideValue}
-            typography={typography}
-            headerLabelStyle={headerLabelStyle}
-            theme={theme}
+    return (
+      <View style={[{ alignSelf: 'baseline' }, props.containerStyle]}>
+        <View
+          onLayout={x => setHeaderSize(x.nativeEvent.layout.width)}
+          style={[{
+            backgroundColor: componentTheme.default?.headerBackground,
+          }, style.headerContainer, props.headerContainerStyle]}
+        >
+          <Animated.View style={
+            [moveSelect,
+              style.headerSlider,
+              {
+                width: (headerSize / length),
+                backgroundColor: componentTheme.active?.headerBackground,
+              }, props.headerSliderStyle]}
           />
-        ))
-        }
-        <Animated.View style={[style.slider, { backgroundColor: componentTheme.active?.headerBackground, height: size?.height, width: size?.width, zIndex: 100 }, headerSliderAnimated, headerSliderStyle]} />
+
+          {children.map((item, index) => (
+            <HeaderItem
+              key={item.key}
+              item={item}
+              ref={internalRef}
+              index={index}
+              headerScroll={headerScroll}
+              componentTheme={componentTheme}
+              labelStyle={props.headerLabelStyle}
+            />
+          ))}
+        </View>
+
+        <FlatList
+          ref={internalRef}
+          data={children}
+          showsHorizontalScrollIndicator={false}
+          onScroll={x => { scroll.value = x.nativeEvent.contentOffset.x; }}
+          onContentSizeChange={x => setContentSize(x)}
+          scrollEventThrottle={16}
+          contentContainerStyle={props.pageContainerStyle}
+          keyExtractor={(item, index) => item.key || index.toString()}
+          pagingEnabled
+          onLayout={x => setWindowWidth(x.nativeEvent.layout.width)}
+          renderItem={({ item }) => cloneElement(
+            item,
+            {
+              style: {
+                ...item.props.style,
+                width: windowWidth,
+              },
+              ref: internalRef,
+            },
+          )}
+          bounces={false}
+          horizontal
+        />
       </View>
+    );
+  },
+);
 
-      <AnimatedPager
-        ref={refPager}
-        entering={FadeIn}
-        onPageScroll={onPageScroll}
-        overScrollMode="never"
-        overdrag={false}
-        style={[{ flex: 1 }, pageContainerStyle]}
-        initialPage={0}
-        onPageSelected={e => setSelectPage(e.nativeEvent.position)}
-        {...props}
-      >
+const style = StyleSheet.create({
+  headerContainer: {
+    borderRadius: 10,
+    height: 44,
+    width: '100%',
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginBottom: 10,
+    justifyContent: 'space-around',
+  },
+  headerLabel: {
+    includeFontPadding: false,
+  },
+  headerSlider: {
+    position: 'absolute',
+    borderRadius: 10,
+    height: '100%',
+  },
+});
 
-        {React.Children.map(children, (item, index) => {
-          if (React.isValidElement(item)) {
-            return (
-              <View style={[style.pageContainer]} key={index + 1}>
-                {injectPagerRef ? React.cloneElement(item.props.children, { ref: refPager }) : item}
-              </View>
-            );
-          }
-          return null;
-        })}
-      </AnimatedPager>
-    </View>
-  );
-};
 export default applyDefaults(PagerView);
