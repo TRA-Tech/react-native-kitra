@@ -88,7 +88,7 @@ export type AccordionListProps = {
     /**
         *The theme to use for the component
     */
-    theme: DeepPartial<(ComponentThemeType['accordionList'])>
+    theme?: DeepPartial<(ComponentThemeType['accordionList'])>
     /**
         *Used to locate this view in end-to-end tests
     */
@@ -111,7 +111,7 @@ export type AvatarGroupProps = {
     /**
         *The theme to use for the component
     */
-    theme: DeepPartial<(ComponentThemeType['avatarGroup'])>
+    theme?: DeepPartial<(ComponentThemeType['avatarGroup'])>
 }
 
 export type AvatarProps = {
@@ -146,7 +146,7 @@ export type AvatarProps = {
      /**
         *The theme to use for the component
     */
-    theme: DeepPartial<(ComponentThemeType['avatar'])>
+    theme?: DeepPartial<(ComponentThemeType['avatar'])>
 }
 
 export type BadgeProps = {
@@ -189,7 +189,7 @@ export type BadgeProps = {
     /**
         *The theme to use for the component
     */
-    theme: DeepPartial<(ComponentThemeType['badge'])>
+    theme?: DeepPartial<(ComponentThemeType['badge'])>
 }
 
 export type ButtonProps = {
@@ -224,7 +224,7 @@ export type ButtonProps = {
     /**
         *The theme to use for the component
     */
-    theme: DeepPartial<(ComponentThemeType['button'])>
+    theme?: DeepPartial<(ComponentThemeType['button'])>
 }
 
 export type CheckBoxProps = {
@@ -251,7 +251,7 @@ export type CheckBoxProps = {
     /**
         *The theme to use for the component
     */
-    theme: DeepPartial<(ComponentThemeType['checkbox'])>
+    theme?: DeepPartial<(ComponentThemeType['checkbox'])>
 }
 
 export type ChipProps = {
@@ -294,7 +294,7 @@ export type ChipProps = {
     /**
         *The theme to use for the component
     */
-    theme: DeepPartial<(ComponentThemeType['chip'])>
+    theme?: DeepPartial<(ComponentThemeType['chip'])>
 }
 
 export type DividerProps = {
@@ -313,7 +313,7 @@ export type DividerProps = {
     /**
         *The theme to use for the component
     */
-    theme: DeepPartial<DeepPartial<(ComponentThemeType['divider'])>>
+    theme?: DeepPartial<DeepPartial<(ComponentThemeType['divider'])>>
 }
 
 export type DrowdownProps = {
@@ -396,7 +396,7 @@ export type DrowdownProps = {
     /**
         *The theme to use for the component
     */
-    theme: DeepPartial<(ComponentThemeType['dropdown'])>
+    theme?: DeepPartial<(ComponentThemeType['dropdown'])>
     /**
         *Used to locate this view in end-to-end tests
     */
@@ -407,7 +407,7 @@ export type MultipleDropdownProps = DrowdownProps & {
     /**
         *The theme to use for the component
     */
-     theme: DeepPartial<(ComponentThemeType['multipleDropdown'])>
+     theme?: DeepPartial<(ComponentThemeType['multipleDropdown'])>
      }
 export type DrowdownRouteProps= MultipleDropdownProps& {
     /**
@@ -470,7 +470,7 @@ export type SwitchProps={
     /**
         *The theme to use for the component
     */
-        theme: DeepPartial<(ComponentThemeType['switch'])>
+        theme?: DeepPartial<(ComponentThemeType['switch'])>
     }
 
 export type MenuProps = {
@@ -511,7 +511,7 @@ export type MenuProps = {
     /**
         *The theme to use for the component
     */
-    theme: DeepPartial<(ComponentThemeType['menu'])>
+    theme?: DeepPartial<(ComponentThemeType['menu'])>
 }
 export type ProgressBarProps = {
     /**
@@ -533,7 +533,7 @@ export type ProgressBarProps = {
     /**
         *The theme to use for the component
     */
-    theme: DeepPartial<(ComponentThemeType['progressBar'])>
+    theme?: DeepPartial<(ComponentThemeType['progressBar'])>
 }
 
 export type RadioButtonProps = {
@@ -552,7 +552,7 @@ export type RadioButtonProps = {
     /**
         *The theme to use for the component
     */
-    theme: DeepPartial<(ComponentThemeType['radioButton'])>
+    theme?: DeepPartial<(ComponentThemeType['radioButton'])>
 }
 
 export type SearchBarProps = {
@@ -591,7 +591,7 @@ export type SliderProps = {
     /**
         *The theme to use for the component
      */
-    theme: DeepPartial<(ComponentThemeType['slider'])>
+    theme?: DeepPartial<(ComponentThemeType['slider'])>
 }
 
 export type ActionProps = {
@@ -711,7 +711,7 @@ export type TextInputProps = {
     /**
         *The theme to use for the component
     */
-    theme: DeepPartial<(ComponentThemeType['textInput'])>
+    theme?: DeepPartial<(ComponentThemeType['textInput'])>
 }
 
 export type ToggleButtonProps = {
@@ -734,7 +734,7 @@ export type ToggleButtonProps = {
     /**
         *The theme to use for the component
     */
-    theme: DeepPartial<(ComponentThemeType['toggleButton'])>
+    theme?: DeepPartial<(ComponentThemeType['toggleButton'])>
 }
 
 export type SpeedDialProps = {
@@ -764,7 +764,7 @@ export type SpeedDialProps = {
     /**
         *The theme to use for the component
     */
-    theme: DeepPartial<(ComponentThemeType['speedDial'])>
+    theme?: DeepPartial<(ComponentThemeType['speedDial'])>
 };
 
 export type PagerViewProps = {
@@ -776,7 +776,7 @@ export type PagerViewProps = {
     headerSliderStyle?: StyleProp<ViewStyle>,
     headerContainerStyle?: StyleProp<ViewStyle>,
     headerLabelStyle?: StyleProp<TextStyle>,
-    theme: DeepPartial<(ComponentThemeType['pagerView'])>
+    theme?: DeepPartial<(ComponentThemeType['pagerView'])>
 }
 export type ActivityIndicatorProps = {
     /**
@@ -786,7 +786,7 @@ export type ActivityIndicatorProps = {
     /**
         *The theme to use for the component
     */
-    theme: DeepPartial<(ComponentThemeType['activityIndicator'])>
+    theme?: DeepPartial<(ComponentThemeType['activityIndicator'])>
 }
 
 export type IconType =
