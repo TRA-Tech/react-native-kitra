@@ -1,8 +1,8 @@
 import type { FC, PropsWithChildren } from 'react';
 import type React from 'react';
-import type { Animated, FlatList, ImageSourcePropType, StyleProp, TextProps, TextStyle, ViewProps, ViewStyle } from 'react-native';
+import type { Animated, FlatList, ImageSourcePropType,
+  StyleProp, TextProps, TextStyle, ViewProps, ViewStyle } from 'react-native';
 import { Swipeable } from 'react-native-gesture-handler';
-import type Icon from './components/Icons/Icon';
 import type { defaultTypography } from './core/typography/typography';
 import { DEFAULT_THEME } from './core/theme/colors';
 
@@ -44,11 +44,11 @@ export type AccordionListProps = {
     /**
         *Renders the given React element to the left side
     */
-    left?: (expanded: boolean) => React.ReactElement,
+    left?: (event: boolean) => React.ReactElement,
     /**
         *Renders the given React element to the right side
     */
-    right?: (expanded: boolean) => React.ReactElement,
+    right?: (event: boolean) => React.ReactElement,
     /**
         *Callback called when accordion list is opened
     */
@@ -68,11 +68,11 @@ export type AccordionListProps = {
     /**
         *A callback function that will be called when a row is selected
     */
-    onSelect: (params: any) => void,
+    onSelect: (event: any) => void,
     /**
         *A function that returns a string or JSX element to display for each row
     */
-    itemDisplay: (params: any) => any,
+    itemDisplay: (event: any) => any,
     /**
         *Additional styles to apply to the label
     */
@@ -231,11 +231,11 @@ export type CheckBoxProps = {
     /**
         *Callback function to be called when the value of a check box component changes
     */
-    onChange?: (prop: boolean) => void
+    onChange?: (event: boolean) => void
     /**
         *Callback function to be called when the checkbox component is pressed
     */
-    onPress?: (prop: boolean) => void
+    onPress?: (event: boolean) => void
     /**
         *Additional styles to apply to the check box
     */
@@ -380,11 +380,11 @@ export type DrowdownProps = {
     /**
         *Renders the given React element to the left side
     */
-    left?: (isVisible: boolean) => React.ReactNode,
+    left?: (event: boolean) => React.ReactNode,
     /**
         *Renders the given React element to the right side
     */
-    right?: (isVisible: boolean) => React.ReactNode,
+    right?: (event: boolean) => React.ReactNode,
     /**
         *Function to be called whenever submit button pressed
     */
@@ -458,8 +458,10 @@ export type IconComponentProps =
      *
      * - `"auto"`: The default value. The behavior is determined by the parent component's pointerEvents property.
      * - `"none"`: The icon does not respond to pointer events.
-     * - `"box-only"`: The icon only responds to pointer events on the box surrounding it. The icon itself does not respond to pointer events.
-     * - `"box-none"`: The icon does not respond to pointer events on the box surrounding it, but its children can respond to pointer events.
+     * - `"box-only"`: The icon only responds to pointer events on the
+     * box surrounding it. The icon itself does not respond to pointer events.
+     * - `"box-none"`: The icon does not respond to pointer events on
+     * the box surrounding it, but its children can respond to pointer events.
      */
         pointerEvents?: ViewProps['pointerEvents'];
     };
@@ -497,7 +499,7 @@ export type MenuProps = {
     /**
         *Used to open or close the menu
     */
-    button?: (isOpen: boolean) => React.ReactNode,
+    button?: (event: boolean) => React.ReactNode,
     /**
         *Additional styles to apply to each row container
     */
@@ -745,7 +747,8 @@ export type SpeedDialProps = {
         * - `"backgroundColor"`:  The background color of the speed dial item
         * - `"onPress"`: Callback function to be called when the speed dial item is pressed
     */
-    items: Array<{ icon?: React.ReactNode, title?: string, titleColor?: string, backgroundColor?: string, onPress?: () => void }>,
+    items: Array<{ icon?: React.ReactNode, title?: string,
+         titleColor?: string, backgroundColor?: string, onPress?: () => void }>,
     /**
         *Represents the opening animation. Defaults to 'flat'
     */
