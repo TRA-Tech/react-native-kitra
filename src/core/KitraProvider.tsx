@@ -4,7 +4,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import Animated from 'react-native-reanimated';
 import { StyleProp, ViewStyle } from 'react-native';
 
-import { ThemeContext, ThemeProvider } from './theme/theme';
+import { ThemeProvider } from './theme/theme';
 import { TypographyContext, TypographyProvider } from './typography/typography';
 import { NotificationProvider } from './notification/notification';
 
@@ -47,15 +47,10 @@ export const KitraProvider = ({ children, messageType = messageTypes, notificati
 
 export function applyDefaults<T>(Component: ComponentType<T>) {
   return React.forwardRef((props: T, ref: ForwardedRef<any>) => (
-
-    <ThemeContext.Consumer>
-      {theme => (
-        <TypographyContext.Consumer>
-          {typography =>
-            <Component ref={ref} typography={typography?.typography} {...props} />
+    <TypographyContext.Consumer>
+      {typography =>
+        <Component ref={ref} typography={typography?.typography} {...props} />
           }
-        </TypographyContext.Consumer>
-      )}
-    </ThemeContext.Consumer>
+    </TypographyContext.Consumer>
   ));
 }
