@@ -340,7 +340,7 @@ export const COLOR_COMPONENTS_LIGHT = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_
     },
     toggleButton: {
       default: {
-        background: COLOR_SYSTEM.colors.system.filled,
+        background: COLOR_SYSTEM.colors.system.primary5,
         label: COLOR_SYSTEM.colors.system.primary,
         border: COLOR_SYSTEM.colors.system.primary,
       },
@@ -646,7 +646,7 @@ export const COLOR_COMPONENTS_DARK = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_D
   },
   toggleButton: {
     default: {
-      background: COLOR_SYSTEM.colors.system.filled,
+      background: COLOR_SYSTEM.colors.system.primary5,
       label: COLOR_SYSTEM.colors.system.primary,
       border: COLOR_SYSTEM.colors.system.primary,
     },
