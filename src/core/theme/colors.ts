@@ -380,14 +380,14 @@ export const COLOR_COMPONENTS_LIGHT = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_
         countLabel: COLOR_SYSTEM.colors.neutral.lightBlack,
 
       },
-      // disabled: {
-      //   background: COLOR_SYSTEM.colors.input.lightDefault,
-      //   border: COLOR_SYSTEM.colors.input.lightDefault,
-      //   label: COLOR_SYSTEM.colors.neutral.grey,
-      //   value: COLOR_SYSTEM.colors.neutral.black,
-      //   bottomLabel: COLOR_SYSTEM.colors.neutral.grey,
-      //   countLabel: COLOR_SYSTEM.colors.neutral.grey,
-      // },
+      disabled: {
+        background: COLOR_SYSTEM.colors.input.lightDefault,
+        border: COLOR_SYSTEM.colors.input.lightDefault,
+        label: COLOR_SYSTEM.colors.neutral.grey,
+        value: COLOR_SYSTEM.colors.neutral.black,
+        bottomLabel: COLOR_SYSTEM.colors.neutral.grey,
+        countLabel: COLOR_SYSTEM.colors.neutral.grey,
+      },
       error: {
         background: COLOR_SYSTEM.colors.input.fill,
         border: COLOR_SYSTEM.colors.status.error,
@@ -686,14 +686,14 @@ export const COLOR_COMPONENTS_DARK = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_D
       bottomLabel: COLOR_SYSTEM.colors.neutral.lightBlack,
       countLabel: COLOR_SYSTEM.colors.neutral.lightBlack,
     },
-    // disabled: {
-    //   background: COLOR_SYSTEM.colors.input.lightDefault,
-    //   border: COLOR_SYSTEM.colors.input.lightDefault,
-    //   label: COLOR_SYSTEM.colors.neutral.grey,
-    //   value: COLOR_SYSTEM.colors.neutral.black,
-    //   bottomLabel: COLOR_SYSTEM.colors.neutral.grey,
-    //   countLabel: COLOR_SYSTEM.colors.neutral.grey,
-    // },
+    disabled: {
+      background: COLOR_SYSTEM.colors.input.lightDefault,
+      border: COLOR_SYSTEM.colors.input.lightDefault,
+      label: COLOR_SYSTEM.colors.neutral.grey,
+      value: COLOR_SYSTEM.colors.neutral.black,
+      bottomLabel: COLOR_SYSTEM.colors.neutral.grey,
+      countLabel: COLOR_SYSTEM.colors.neutral.grey,
+    },
 
     error: {
       background: COLOR_SYSTEM.colors.input.fill,
