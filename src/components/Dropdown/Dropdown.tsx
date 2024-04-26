@@ -32,11 +32,15 @@ const Dropdown: FCCWD<DrowdownProps> = (
   const [visible, setVisible] = useState(false);
   const [selectedObject, setSelectedObject] = useState(defaultValue);
   const [cord, setCord] = useState({ x: 0, y: 0, height: 0, width: 0 });
-  const { statusTheme, componentTheme } = useComponentTheme(theme, 'dropdown', Object.keys(selectedObject).length ? 'selected' : visible ? 'active' : 'default');
+  const { statusTheme, componentTheme } = useComponentTheme(
+    theme,
+    'dropdown',
+    Object.keys(selectedObject).length ? 'selected' : visible ? 'active' : 'default',
+  );
 
   const isObjectSelected = (Object.keys(selectedObject).length !== 0);
   const isSelectedObject = (value: any) => displayedButtonValue(selectedObject) === displayedButtonValue(value);
-  const componenetStatus = visible ? 'active' : 'default';
+  const componentStatus = visible ? 'active' : 'default';
 
   const openAnimation = useSharedValue(0);
   const dropdown = useRef<TouchableOpacity>(null);
@@ -80,7 +84,7 @@ const Dropdown: FCCWD<DrowdownProps> = (
               marginLeft: 12,
             },
             typography?.body.medium, buttonTextStyle, {
-              color: componentTheme[isObjectSelected ? 'selected' : componenetStatus]?.label,
+              color: componentTheme[isObjectSelected ? 'selected' : componentStatus]?.label,
             }]}
         >
           {isObjectSelected ? displayedButtonValue(selectedObject) : (buttonTitle || 'Please Select')}
@@ -108,7 +112,10 @@ const Dropdown: FCCWD<DrowdownProps> = (
               width: cord?.width,
               left: 0,
             }, listContainerStyle,
-            autoPosition ? (windowsHeight - cord?.y <= windowsHeight / 3 ? { bottom: cord?.height + 5 } : { top: cord?.height + 5 }) : { top: cord?.height + 5 }, { backgroundColor: statusTheme.collapseBackground }]}
+            autoPosition ?
+              (windowsHeight - cord?.y <= windowsHeight / 3 ? { bottom: cord?.height + 5 } : { top: cord?.height + 5 })
+              : { top: cord?.height + 5 },
+            { backgroundColor: statusTheme.collapseBackground }]}
         >
 
           <ScrollView nestedScrollEnabled>
@@ -126,11 +133,11 @@ const Dropdown: FCCWD<DrowdownProps> = (
                   index === data.length - 1 ? { borderBottomLeftRadius: 5, borderBottomRightRadius: 5 } : null,
                   rowStyle,
                   {
-                    backgroundColor: componentTheme[isSelectedObject(value) ? 'selected' : componenetStatus]?.itemBackground,
+                    backgroundColor: componentTheme[isSelectedObject(value) ? 'selected' : componentStatus]?.itemBackground,
                   },
                 ]}
               >
-                <Text style={[typography?.body.smedium, { marginVertical: 10, marginHorizontal: 10 }, rowTextStyle, { color: componentTheme[isSelectedObject(value) ? 'selected' : componenetStatus]?.itemLabel }]}>{displayedRowValue(value)}</Text>
+                <Text style={[typography?.body.smedium, { marginVertical: 10, marginHorizontal: 10 }, rowTextStyle, { color: componentTheme[isSelectedObject(value) ? 'selected' : componentStatus]?.itemLabel }]}>{displayedRowValue(value)}</Text>
               </TouchableOpacity>
             ))}
           </ScrollView>
@@ -156,7 +163,7 @@ export const Style = StyleSheet.create({
   listContainer: {
     zIndex: 100,
     padding: 10,
-    height: 36 * 4.5,
+    maxHeight: 36 * 4.5,
     width: '100%',
     position: 'absolute',
     borderTopWidth: 0,
