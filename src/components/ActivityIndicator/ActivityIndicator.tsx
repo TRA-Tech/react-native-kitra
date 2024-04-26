@@ -1,4 +1,5 @@
 import { StyleSheet, View, ActivityIndicator as RNActivityIndicator } from 'react-native';
+import React from 'react';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { ActivityIndicatorProps, FCCWD } from '../../types';
 import { opacity } from '../../utilities';

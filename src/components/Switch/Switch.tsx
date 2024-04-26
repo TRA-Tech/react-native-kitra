@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 import { Switch as RNSwitch, SwitchProps as RNSwithProps } from 'react-native';
+import React from 'react';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { FCCWD, SwitchProps } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';

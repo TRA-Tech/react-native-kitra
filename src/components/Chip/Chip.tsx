@@ -4,7 +4,6 @@ import Animated, { interpolateColor, useAnimatedStyle, useSharedValue, withTimin
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { ChipProps, FCCWD } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
-import Icon from '../Icons/Icon';
 
 const AnimatedTouchableOpacity = Animated.createAnimatedComponent(TouchableOpacity);
 

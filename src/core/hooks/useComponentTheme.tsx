@@ -1,4 +1,5 @@
 import merge from 'lodash.merge';
+import React from 'react';
 import { ComponentThemeType, Components, DeepPartial } from '../../types';
 import useTheme from './useTheme';
 import { COLOR_COMPONENTS_LIGHT } from '../theme/colors';

@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import { useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React from 'react';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { FCCWD, ToggleButtonProps } from '../../types';
 import { opacity } from '../../utilities';

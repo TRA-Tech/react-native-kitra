@@ -1,3 +1,4 @@
+import React from 'react';
 import { getIconType } from '../../utilities';
 import { applyDefaults } from '../../core/KitraProvider';
 import type { FCCWD, IconComponentProps, IconType } from '../../types';

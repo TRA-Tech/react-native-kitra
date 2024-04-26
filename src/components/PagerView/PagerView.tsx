@@ -1,8 +1,9 @@
 import { FlatList, StyleProp, StyleSheet, TouchableOpacity, View, ViewStyle } from 'react-native';
-import {
+import React, {
   ReactElement,
   cloneElement, forwardRef, useImperativeHandle, useRef, useState,
 } from 'react';
+
 import { DefaultProps, PagerViewProps } from 'src/types';
 import Animated,
 {

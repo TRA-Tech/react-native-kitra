@@ -1,6 +1,6 @@
 import { Text, StyleSheet, View } from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
-import { useState } from 'react';
+import React from 'react';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { BadgeProps, FCCWD } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
@@ -52,6 +52,7 @@ const Badge: FCCWD<BadgeProps> = (
       borderRadius: 3,
     },
   };
+
   return (
     <View style={[containerStyle, { backgroundColor: 'transparent', alignSelf: 'baseline' }]}>
       {visible ? (

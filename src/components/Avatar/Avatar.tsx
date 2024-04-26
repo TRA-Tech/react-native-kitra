@@ -1,4 +1,5 @@
 import { Image, View, Text } from 'react-native';
+import React from 'react';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { AvatarProps, FCCWD } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';

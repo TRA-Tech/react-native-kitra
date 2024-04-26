@@ -1,3 +1,4 @@
+import React from 'react';
 import type { DrowdownRouteProps, FCCWD } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
 import MultipleDropdown from './MultipleSelectDropdown';

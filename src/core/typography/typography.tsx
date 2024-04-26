@@ -1,4 +1,4 @@
-import { createContext, useMemo, useState } from 'react';
+import React, { createContext, useMemo, useState } from 'react';
 import type { FCC, TypographyType } from 'src/types';
 
 type TypographyContextType = {

@@ -1,5 +1,6 @@
 import { View, TextInput, TextInputProps, StyleSheet } from 'react-native';
 import Animated, { interpolateColor, useAnimatedProps, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
+import React from 'react';
 import type { FCCWD, SearchBarProps } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
 import FeatherIcon from '../Icons/Feather';

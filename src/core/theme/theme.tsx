@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, createContext, useLayoutEffect, useMemo, useState } from 'react';
+import React, { Dispatch, SetStateAction, createContext, useLayoutEffect, useMemo, useState } from 'react';
 import merge from 'lodash.merge';
 import { ColorSchemeName, useColorScheme } from 'react-native';
 import type { DeepPartial, FCC, ThemeType } from '../../types';

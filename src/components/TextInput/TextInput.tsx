@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { TextInput as RNTextInput,
   View, TextInputProps as RNTextInputProps, TouchableOpacity, StyleSheet, Text } from 'react-native';
 import Animated,

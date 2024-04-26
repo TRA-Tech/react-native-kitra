@@ -1,4 +1,4 @@
-import { cloneElement, useState } from 'react';
+import React, { cloneElement, useState } from 'react';
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Animated, { FadeInUp, FadeOut, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import useComponentTheme from '../../core/hooks/useComponentTheme';

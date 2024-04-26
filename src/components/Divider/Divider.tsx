@@ -1,4 +1,5 @@
 import { StyleSheet, View, ViewProps } from 'react-native';
+import React from 'react';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { DividerProps, FCCWD } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
