@@ -1,6 +1,6 @@
 {
   "name": "@tra-tech/react-native-kitra",
-  "version": "1.0.6",
+  "version": "2.0.0-rc.0",
   "description": "UI kit for React Native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
