@@ -41,7 +41,11 @@ const Menu: FCCWD<MenuProps> = (
   }, [closeOnPress]);
   return (
     <View style={[styles.container, containerStyle]} ref={menu}>
-      <TouchableOpacity testID="open_button" onPress={() => setOpen(!open)} style={styles.openButton}>
+      <TouchableOpacity
+        testID="open_button"
+        onPress={() => setOpen(!open)}
+        style={styles.openButton}
+      >
         {button(open)}
       </TouchableOpacity>
       {open ? (
@@ -49,8 +53,8 @@ const Menu: FCCWD<MenuProps> = (
           testID="menu_container"
           style={[
             styles.menuContainer,
-            { right: 0 },
-            HEIGHT - (size.y + menuHeight.height + size.height) >= 0 ? { top: size.height + 10 } : { bottom: 30 }, menuStyle,
+            HEIGHT - (size.y + menuHeight.height + size.height) >= 0 ? { top: size.height + 10 } : { bottom: 30 },
+            menuStyle,
             { backgroundColor: statusTheme.itemBackground },
           ]}
           entering={FadeIn.duration(300)}
@@ -104,7 +108,6 @@ const Menu: FCCWD<MenuProps> = (
         null
       }
     </View>
-
   );
 };
 
@@ -113,11 +116,9 @@ export default applyDefaults(Menu);
 const styles = StyleSheet.create({
   container: {
     zIndex: 1,
-  },
-  openButton: {
     alignItems: 'flex-end',
-    marginRight: 10,
   },
+  openButton: { alignSelf: 'baseline' },
   menuContainer: {
     borderRadius: 5,
     position: 'absolute',
