@@ -39,7 +39,7 @@ const Dropdown: FCCWD<DrowdownProps> = (
   );
 
   const isObjectSelected = (Object.keys(selectedObject).length !== 0);
-  const isSelectedObject = (value: any) => displayedButtonValue(selectedObject) === displayedButtonValue(value);
+  const isSelectedObject = (value: any) => displayedButtonValue?.(selectedObject) === displayedButtonValue?.(value);
   const componentStatus = visible ? 'active' : 'default';
 
   const openAnimation = useSharedValue(0);
@@ -70,12 +70,13 @@ const Dropdown: FCCWD<DrowdownProps> = (
         activeOpacity={0.9}
         onLayout={event => setCord(event.nativeEvent.layout)}
         onPress={() => { setVisible(!visible); }}
-        style={[Style.button, buttonStyle, { borderColor: statusTheme.border, backgroundColor: statusTheme.background }]}
+        style={[Style.button, buttonStyle,
+          { borderColor: statusTheme.border, backgroundColor: statusTheme.background }]}
       >
         {leftElement}
         <Animated.Text
           numberOfLines={1}
-          key={displayedButtonValue(selectedObject)}
+          key={displayedButtonValue?.(selectedObject)}
           entering={FadeIn.delay(100)}
           exiting={FadeOut}
           style={[
@@ -87,7 +88,7 @@ const Dropdown: FCCWD<DrowdownProps> = (
               color: componentTheme[isObjectSelected ? 'selected' : componentStatus]?.label,
             }]}
         >
-          {isObjectSelected ? displayedButtonValue(selectedObject) : (buttonTitle || 'Please Select')}
+          {isObjectSelected ? displayedButtonValue?.(selectedObject) : (buttonTitle || 'Please Select')}
         </Animated.Text>
         {rightElement || (
           <View style={[Style.rightIcon]}>
@@ -102,7 +103,7 @@ const Dropdown: FCCWD<DrowdownProps> = (
         )}
       </TouchableOpacity>
 
-      {visible && cord.x >= 0 && cord.y >= 0 && (
+      {visible && cord.x >= 0 && cord.y >= 0 && data?.length > 0 && (
         <Animated.View
           entering={FadeIn}
           exiting={FadeOut}
@@ -133,11 +134,16 @@ const Dropdown: FCCWD<DrowdownProps> = (
                   index === data.length - 1 ? { borderBottomLeftRadius: 5, borderBottomRightRadius: 5 } : null,
                   rowStyle,
                   {
-                    backgroundColor: componentTheme[isSelectedObject(value) ? 'selected' : componentStatus]?.itemBackground,
+                    backgroundColor: componentTheme[isSelectedObject(value) ?
+                      'selected' : componentStatus]?.itemBackground,
                   },
                 ]}
               >
-                <Text style={[typography?.body.smedium, { marginVertical: 10, marginHorizontal: 10 }, rowTextStyle, { color: componentTheme[isSelectedObject(value) ? 'selected' : componentStatus]?.itemLabel }]}>{displayedRowValue(value)}</Text>
+                <Text style={[typography?.body.smedium, { marginVertical: 10, marginHorizontal: 10 }, rowTextStyle,
+                  { color: componentTheme[isSelectedObject(value) ? 'selected' : componentStatus]?.itemLabel }]}
+                >
+                  {displayedRowValue?.(value)}
+                </Text>
               </TouchableOpacity>
             ))}
           </ScrollView>
