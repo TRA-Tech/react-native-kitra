@@ -93,7 +93,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
     dataWithID.current = tempData?.map((x: (string | { [key: string]: any })):
     // @ts-ignore
      (string | { keyID: number, [key: string]: any }) => { x.keyID = Math.random(); return (x); });
-  }, []);
+  }, [data]);
   return (
     <View testID={testID} style={[containerStyle, { zIndex: visible ? 1000 : 0 }]}>
       <TouchableOpacity
@@ -257,7 +257,7 @@ export const Style = StyleSheet.create({
 
   listContainer: {
     zIndex: 100,
-    height: 38 * 4 + 78,
+    maxHeight: 38 * 4 + 78,
     position: 'absolute',
     padding: 10,
     paddingBottom: 14,
