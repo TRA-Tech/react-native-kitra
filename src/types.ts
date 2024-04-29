@@ -746,6 +746,10 @@ export type ToggleButtonProps = {
 }
 
 export type SpeedDialProps = {
+     /**
+        *Additional styles to apply to the container
+    */
+        containerStyle?: StyleProp<ViewStyle>,
     /**
         *Items to be listed in the speed dial.
         *
