@@ -15,7 +15,10 @@ const AvatarGroup: FCCWD<AvatarGroupProps> = (
   const { statusTheme } = useComponentTheme(theme, 'avatarGroup', 'default');
   const limit = (avatars?.length || 0) - avatarLimit;
   const avatarIcon = (
-    <Text style={[{ fontSize: typography?.body.smedium.fontSize, lineHeight: typography?.body.smedium.lineHeight, fontWeight: '500' }, limitContainerStyle?.style, { color: statusTheme.morelabel }]}>
+    <Text style={[{ fontSize: typography?.body.smedium.fontSize,
+      lineHeight: typography?.body.smedium.lineHeight,
+      fontWeight: '500' }, limitContainerStyle?.style, { color: statusTheme.morelabel }]}
+    >
       +
       {limit}
     </Text>
@@ -38,7 +41,7 @@ const AvatarGroup: FCCWD<AvatarGroupProps> = (
 
         </View>
       ))}
-      {(avatars.length || 0) > avatarLimit ? (
+      {(avatars?.length || 0) > avatarLimit ? (
         <Avatar
           typography={typography}
           variant="circular"
