@@ -31,3 +31,6 @@ export { default as Slider } from './components/Slider/index';
 export { default as PagerView } from './components/PagerView/PagerView';
 export { default as ActivityIndicator } from './components/ActivityIndicator/ActivityIndicator';
 export { default as Icon } from './components/Icons/Icon';
+
+/* ----FUNCTION---- */
+export { opacity } from './utilities';
