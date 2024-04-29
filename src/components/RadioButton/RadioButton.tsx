@@ -13,19 +13,30 @@ const RadioButton: FCCWD<RadioButtonProps> = ({ theme, onChange, testID, style }
       activeOpacity={0.5}
       onPress={() => {
         setValue(prev => !prev);
-        onChange(!value);
+        onChange?.(!value);
       }}
       testID={testID}
       style={[
         styles.container, style, { borderColor: statusTheme.border, backgroundColor: statusTheme.background }]}
     >
-      {value && <Animated.View entering={FadeIn} exiting={FadeOut} style={[styles.innerCircle, { backgroundColor: statusTheme.dot }]} />}
+      {value && (
+      <Animated.View
+        entering={FadeIn}
+        exiting={FadeOut}
+        style={[styles.innerCircle, { backgroundColor: statusTheme.dot }]}
+      />
+      )}
     </TouchableOpacity>
   );
 };
 export default applyDefaults(RadioButton);
 
 const styles = StyleSheet.create({
-  container: { height: 20, width: 20, borderWidth: 1, alignItems: 'center', justifyContent: 'center', borderRadius: 10 },
+  container: { height: 20,
+    width: 20,
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 10 },
   innerCircle: { height: 12, width: 12, borderRadius: 10 },
 });

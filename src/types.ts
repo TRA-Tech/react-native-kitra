@@ -556,7 +556,7 @@ export type RadioButtonProps = {
     /**
         *Used to locate this view in end-to-end tests
     */
-    testID: string,
+    testID?: string,
     /**
         *The theme to use for the component
     */
