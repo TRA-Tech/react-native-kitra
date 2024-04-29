@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-expressions */
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React from 'react';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { FCCWD, ToggleButtonProps } from '../../types';
 import { opacity } from '../../utilities';
@@ -44,9 +43,10 @@ const ToggleButton: FCCWD<ToggleButtonProps> = (
             },
             styles.containerStyle,
             index < buttonList.length - 1 ? { borderRightWidth: 0 } : { borderRightWidth: 1 },
+            !buttonList[index + 1]?.active && item.active && { borderRightWidth: 1 },
+            buttonList[index - 1]?.active && !item.active && { borderLeftWidth: 0 },
             index === 0 ? { borderTopLeftRadius: 5, borderBottomLeftRadius: 5 } : null,
             index === buttonList.length - 1 ? { borderTopRightRadius: 5, borderBottomRightRadius: 5 } : null,
-
           ]}
         >
           <Text style={
