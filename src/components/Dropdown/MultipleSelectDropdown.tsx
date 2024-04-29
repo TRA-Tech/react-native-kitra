@@ -1,4 +1,3 @@
-import { FlashList } from '@shopify/flash-list';
 import React, { forwardRef, RefAttributes, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Dimensions, ScrollViewProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { NativeViewGestureHandlerProps, ScrollView } from 'react-native-gesture-handler';
@@ -154,17 +153,10 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
               { bottom: cord?.height || 0 + 5 } : { top: cord?.height || 0 + 5 },
             { backgroundColor: statusTheme.collapseBackground }]}
         >
-          <FlashList
-            extraData={selectedObjects}
-            renderScrollComponent={GScrollView}
-            data={dataWithID.current}
-            keyExtractor={(item: string |
-              // @ts-expect-error
-               { keyID: number, [key: string]: any }) => item.keyID || displayedRowValue?.(item)}
-            estimatedItemSize={38}
-            renderItem={({ item, index }: any) => {
+          <ScrollView>
+            {/* @ts-ignore */}
+            {dataWithID?.current?.map((item, index) => {
               const isSelected = isItemSelected(item || {});
-
               return (
                 <TouchableOpacity
                   activeOpacity={0.8}
@@ -181,7 +173,6 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
                     },
                   ]}
                 >
-                  {}
                   <TouchableOpacity
                     disabled
                     style={[Style.checkBox, {
@@ -190,11 +181,11 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
                     }]}
                   >
                     {isSelected && (
-                      <OcticonsIcon
-                        color={componentTheme[isSelected ? 'selected' : componenetStatus]?.checkIcon}
-                        name="check"
-                        size={12}
-                      />
+                    <OcticonsIcon
+                      color={componentTheme[isSelected ? 'selected' : componenetStatus]?.checkIcon}
+                      name="check"
+                      size={12}
+                    />
                     )}
                   </TouchableOpacity>
                   <Text
@@ -206,8 +197,9 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
                   </Text>
                 </TouchableOpacity>
               );
-            }}
-          />
+            })}
+
+          </ScrollView>
           {selectall && (
             <TouchableOpacity
               activeOpacity={0.8}
