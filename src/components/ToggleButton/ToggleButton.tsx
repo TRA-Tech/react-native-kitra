@@ -15,10 +15,10 @@ const ToggleButton: FCCWD<ToggleButtonProps> = (
   },
 ) => {
   const { componentTheme } = useComponentTheme(theme, 'toggleButton');
-  const [buttonList, setButtonList] = useState(buttons.map((item, index) => ({ ...item, id: index, active: false })));
+  const [buttonList, setButtonList] = useState(buttons?.map((item, index) => ({ ...item, id: index, active: false })));
 
   useEffect(() => {
-    setButtonList(buttons.map((item, index) => ({ ...item, id: index, active: false })));
+    setButtonList(buttons?.map((item, index) => ({ ...item, id: index, active: false })));
   }, [buttons]);
 
   return (
