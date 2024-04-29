@@ -132,7 +132,7 @@ const SpeedDial: FCCWD<SpeedDialProps> = (
   };
 
   useEffect(() => {
-    if (variant === 'spread') { items = items.slice(0, 3); }
+    if (variant === 'spread') { items = items?.slice(0, 3); }
   }, [variant]);
 
   const onPress = () => {
@@ -147,19 +147,17 @@ const SpeedDial: FCCWD<SpeedDialProps> = (
   return (
     <View style={[styles.container, containerStyle]}>
       <View style={styles.innerContainer}>
-        <>
-          {items.map((item, index) => (
-            <ChildItem
-              typography={typography}
-              key={index}
-              item={item}
-              index={index}
-              offset={offset}
-              variant={variant}
-              onPress={item.onPress}
-            />
-          ))}
-        </>
+        {items?.map((item, index) => (
+          <ChildItem
+            typography={typography}
+            key={index}
+            item={item}
+            index={index}
+            offset={offset}
+            variant={variant}
+            onPress={item.onPress}
+          />
+        ))}
         <Animated.View
           style={[baseItemIcon === (<Icon type="material-community" name="close" size={25} color={statusTheme.icon} />)
             ? rotate
