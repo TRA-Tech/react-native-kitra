@@ -76,7 +76,7 @@ const HeaderItem = forwardRef<FlatList,
 
 const PagerView = forwardRef<FlatList, PagerViewProps & { children: ReactElement[] } & DefaultProps>(
   ({ children, theme, typography, ...props }, externalRef) => {
-    const { length } = children;
+    const length = children?.length || 1;
     const internalRef = useRef<FlatList>(null);
     // @ts-ignore
     useImperativeHandle(externalRef, () => ({
@@ -116,7 +116,7 @@ const PagerView = forwardRef<FlatList, PagerViewProps & { children: ReactElement
               }, props.headerSliderStyle]}
           />
 
-          {children.map((item, index) => (
+          {children?.map((item, index) => (
             <HeaderItem
               key={item.key}
               item={item}
@@ -129,6 +129,7 @@ const PagerView = forwardRef<FlatList, PagerViewProps & { children: ReactElement
           ))}
         </View>
 
+        {children?.length > 0 && (
         <FlatList
           ref={internalRef}
           data={children}
@@ -153,6 +154,7 @@ const PagerView = forwardRef<FlatList, PagerViewProps & { children: ReactElement
           bounces={false}
           horizontal
         />
+        )}
       </View>
     );
   },
