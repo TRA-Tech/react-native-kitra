@@ -568,6 +568,10 @@ export type SearchBarProps = {
 }
 
 export type SliderProps = {
+     /**
+        *Additional styles to apply to the slider container
+    */
+        containerStyle?: StyleProp<ViewStyle>,
     /**
         *Determines whether to show the percentage indicator above the slider button
      */
