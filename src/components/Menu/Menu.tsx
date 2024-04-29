@@ -61,7 +61,7 @@ const Menu: FCCWD<MenuProps> = (
           exiting={FadeOut.duration(300)}
           onLayout={e => setMenuHeight({ height: e.nativeEvent.layout.height })}
         >
-          {items.map((item, index) => (
+          {items?.map((item, index) => (
             <View key={index} style={rowStyle}>
               <TouchableOpacity
                 testID={`item_button_${index}`}
