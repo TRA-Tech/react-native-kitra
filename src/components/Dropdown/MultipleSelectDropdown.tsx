@@ -13,7 +13,8 @@ import OcticonsIcon from '../Icons/Octicons';
 const windowsHeight = Dimensions.get('window').height;
 
 // eslint-disable-next-line no-undef
-const GScrollView = forwardRef((props: JSX.IntrinsicAttributes & ScrollViewProps & NativeViewGestureHandlerProps & RefAttributes<ScrollView>, ref) => <ScrollView {...props} />);
+const GScrollView = forwardRef((props: JSX.IntrinsicAttributes &
+   ScrollViewProps & NativeViewGestureHandlerProps & RefAttributes<ScrollView>, ref) => <ScrollView {...props} />);
 
 const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
   { typography,
@@ -42,7 +43,11 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
   const [cord, setCord] = useState({ x: 0, y: 0, height: 0, width: 0 });
   const openAnimation = useSharedValue(0);
   const dataWithID = useRef();
-  const { statusTheme, componentTheme } = useComponentTheme(theme, 'multipleDropdown', selectedObjects.length ? 'selected' : visible ? 'active' : 'default');
+  const { statusTheme, componentTheme } = useComponentTheme(
+    theme,
+    'multipleDropdown',
+    selectedObjects.length ? 'selected' : visible ? 'active' : 'default',
+  );
   const componenetStatus = visible ? 'active' : 'default';
   const dropdown = useRef<TouchableOpacity>(null);
   const dropdownAnimation = useAnimatedStyle(() => ({
@@ -67,7 +72,8 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
   };
 
   const isItemSelected = (item: string | { [key: string]: any; }) => {
-    const result = selectedObjects?.find((x: any) => (x ? displayedButtonValue(x) === displayedButtonValue(item) : false));
+    const result = selectedObjects?.find((x: any) =>
+      (x ? displayedButtonValue?.(x) === displayedButtonValue?.(item) : false));
     return result;
   };
 
@@ -84,10 +90,10 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
   }, [visible]);
 
   useEffect(() => {
-    const tempData = JSON.parse(JSON.stringify(data));
-
+    const tempData = JSON.parse(JSON.stringify(data || []));
+    dataWithID.current = tempData?.map((x: (string | { [key: string]: any })):
     // @ts-ignore
-    dataWithID.current = tempData?.map((x: (string | { [key: string]: any })): (string | { keyID: number, [key: string]: any }) => { x.keyID = Math.random(); return (x); });
+     (string | { keyID: number, [key: string]: any }) => { x.keyID = Math.random(); return (x); });
   }, []);
   return (
     <View testID={testID} style={[containerStyle, { zIndex: visible ? 1000 : 0 }]}>
@@ -109,12 +115,14 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
           exiting={FadeOut}
           style={[buttonTextStyle,
             typography?.body.medium,
-            { flex: 1, marginLeft: 12, color: componentTheme[isObjectSelected ? 'selected' : componenetStatus]?.label }]}
+            { flex: 1,
+              marginLeft: 12,
+              color: componentTheme[isObjectSelected ? 'selected' : componenetStatus]?.label }]}
         >
           {!isObjectSelected ?
             (buttonTitle || 'Please Select')
             : selectedObjects.length <= displayLength ?
-              `${selectedObjects.map(item => displayedButtonValue(item))}` :
+              `${selectedObjects.map(item => displayedButtonValue?.(item))}` :
               `${selectedObjects?.length} Selected`}
         </Animated.Text>
         {rightElement || (
@@ -129,7 +137,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
           </View>
         )}
       </TouchableOpacity>
-      {visible && (
+      {visible && data?.length > 0 && (
 
         <Animated.View
           testID="dropdown-list"
@@ -150,8 +158,9 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
             extraData={selectedObjects}
             renderScrollComponent={GScrollView}
             data={dataWithID.current}
-            // @ts-expect-error
-            keyExtractor={(item: string | { keyID: number, [key: string]: any }) => item.keyID || displayedRowValue(item)}
+            keyExtractor={(item: string |
+              // @ts-expect-error
+               { keyID: number, [key: string]: any }) => item.keyID || displayedRowValue?.(item)}
             estimatedItemSize={38}
             renderItem={({ item, index }: any) => {
               const isSelected = isItemSelected(item || {});
@@ -193,7 +202,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
                       { marginHorizontal: 10 },
                       rowTextStyle, { color: componentTheme[isSelected ? 'selected' : componenetStatus]?.itemLabel }]}
                   >
-                    {displayedRowValue(item)}
+                    {displayedRowValue?.(item)}
                   </Text>
                 </TouchableOpacity>
               );
@@ -235,7 +244,6 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
             label="Complete Selection"
             labelStyle={{ textAlign: 'center' }}
             style={Style.completeSelection}
-            iconPosition="left"
           />
         </Animated.View>
       )}
