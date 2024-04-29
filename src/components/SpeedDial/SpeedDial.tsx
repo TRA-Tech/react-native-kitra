@@ -34,7 +34,8 @@ const styles = StyleSheet.create({
   container: {
     width: 40,
     position: 'absolute',
-    bottom: '5%',
+    right: 30,
+    bottom: 30,
   },
   innerContainer: {
     justifyContent: 'center',
@@ -53,7 +54,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-const ChildItem = ({ item, index, offset, onPress, variant, typography }:{item:any, typography:any, index:number, offset:any, onPress:any, variant:'flat'|'spread'}) => {
+const ChildItem = ({ item, index, offset, onPress,
+  variant, typography }:{item:any, typography:any, index:number, offset:any, onPress:any, variant:'flat'|'spread'}) => {
   const childRotate = useAnimatedStyle(() => ({
     transform: [{ translateY: -offset.value * ((index + 1) * 65) }],
     opacity: offset.value,
@@ -110,10 +112,10 @@ const SpeedDial: FCCWD<SpeedDialProps> = (
     variant = 'flat',
     baseItemIcon,
     theme,
-    typography },
+    typography,
+    containerStyle },
 ) => {
   const { statusTheme } = useComponentTheme(theme, 'speedDial', 'default');
-
   const offset = useSharedValue(0);
   const rotate = useAnimatedStyle(() => ({
     transform: [{ rotateZ: `${(offset.value - 1) * 45}deg` }],
@@ -143,11 +145,19 @@ const SpeedDial: FCCWD<SpeedDialProps> = (
     }
   };
   return (
-    <View style={[{ right: '7%' }, { alignSelf: 'flex-end' }, styles.container]}>
+    <View style={[styles.container, containerStyle]}>
       <View style={styles.innerContainer}>
         <>
           {items.map((item, index) => (
-            <ChildItem typography={typography} key={index} item={item} index={index} offset={offset} variant={variant} onPress={item.onPress} />
+            <ChildItem
+              typography={typography}
+              key={index}
+              item={item}
+              index={index}
+              offset={offset}
+              variant={variant}
+              onPress={item.onPress}
+            />
           ))}
         </>
         <Animated.View
