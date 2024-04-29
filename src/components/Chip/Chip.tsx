@@ -13,10 +13,10 @@ const Chip:FCCWD<ChipProps> = (
     value,
     labelStyle,
     style,
-    icon,
-    iconPosition = 'right',
     size = 'small',
     onChange,
+    left,
+    right,
     disabled = false,
     theme },
 ) => {
@@ -59,18 +59,32 @@ const Chip:FCCWD<ChipProps> = (
       activeOpacity={1}
       style={[animated, { justifyContent: 'center',
         alignItems: 'center',
+        alignSelf: 'baseline',
         height: sizes[size].height,
         borderWidth: 1,
         borderRadius: 30,
-        opacity: disabled ? 0.7 : 1,
-        width: icon ? sizes[size].iconwithWidth : sizes[size].width }, style, { borderColor: statusTheme.border }]}
+        opacity: disabled ? 0.7 : 1 }, style, { borderColor: statusTheme.border }]}
     >
-      <View style={{ flexDirection: iconPosition === 'right' ? 'row' : 'row-reverse', alignItems: 'center' }}>
-        <Animated.Text style={[{ fontSize: typographySize[size]?.fontSize, lineHeight: typographySize[size]?.lineHeight, fontWeight: '500' }, labelStyle, { color: statusTheme.label }]}>{label}</Animated.Text>
-        {icon && React.cloneElement(icon, {
+      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        {left && React.cloneElement(left, {
           size: sizes[size].iconSize,
           color: statusTheme.icon,
-          style: [(iconPosition === 'right' ? { marginLeft: 6 } : { marginRight: 6 })],
+          style: [(left ? { marginLeft: 6 } : null)],
+        })}
+        <Animated.Text
+          style={[
+            { fontSize: typographySize[size]?.fontSize,
+              lineHeight: typographySize[size]?.lineHeight,
+              marginLeft: left ? 0 : 15,
+              marginRight: right ? 0 : 15,
+              fontWeight: '500' }, labelStyle, { color: statusTheme.label }]}
+        >
+          {label}
+        </Animated.Text>
+        {right && React.cloneElement(right, {
+          size: sizes[size].iconSize,
+          color: statusTheme.icon,
+          style: [(right ? { marginRight: 6 } : null)],
         })}
       </View>
     </AnimatedTouchableOpacity>
@@ -81,22 +95,16 @@ export default applyDefaults(Chip);
 
 const sizes = {
   small: {
-    width: 57,
     height: 24,
     iconSize: 12,
-    iconwithWidth: 71.54,
   },
   medium: {
-    width: 65,
     height: 30,
     iconSize: 15,
-    iconwithWidth: 82.39,
   },
   large: {
-    width: 73,
     height: 33,
     iconSize: 17,
-    iconwithWidth: 93.24,
 
   },
 };
