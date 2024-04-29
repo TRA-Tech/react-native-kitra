@@ -72,17 +72,19 @@ const AccordionList: FCCWD<AccordionListProps> = ({
       <Animated.View style={[animatedStyle, { overflow: 'hidden' }]}>
         <FlatList
           bounces={false}
-          data={data}
+          data={data || []}
           onContentSizeChange={(w, h) => { if (h > 0 && h !== contentHeight) setContentHeight(h); }}
           renderItem={({ item }) => (
-            <TouchableOpacity activeOpacity={0.9} onPress={() => onSelect(item)}>
+            <TouchableOpacity activeOpacity={0.9} onPress={() => onSelect?.(item)}>
               <Animated.View
                 entering={FadeInUp}
                 exiting={FadeOut}
                 style={[styles.itemContainer, rowStyle, { backgroundColor: statusTheme.itemBackground }]}
               >
-                <Text style={[{ textAlign: 'center' }, typography?.body.smedium, rowTextStyle, { color: statusTheme.itemLabel }]}>
-                  {itemDisplay(item)}
+                <Text style={[{ textAlign: 'center' },
+                  typography?.body.smedium, rowTextStyle, { color: statusTheme.itemLabel }]}
+                >
+                  {itemDisplay?.(item)}
                 </Text>
               </Animated.View>
             </TouchableOpacity>
