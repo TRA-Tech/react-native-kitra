@@ -208,11 +208,11 @@ export type ButtonProps = {
     /**
         *Additional element to apply to left side of the button
     */
-    left: React.ReactElement,
+    left?: React.ReactElement,
      /**
         *Additional element to apply to right side of the button
     */
-    right: React.ReactElement,
+    right?: React.ReactElement,
     /**
         *The position of the icon in relation to the label. Defaults to 'left'
     */
