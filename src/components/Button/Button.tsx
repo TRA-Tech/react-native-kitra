@@ -9,10 +9,10 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
     size = 'medium',
     disabled = false,
     label = '',
-    iconPosition = 'left',
     style,
     labelStyle,
-    icon,
+    left,
+    right,
     theme,
     ...props },
 ) => {
@@ -32,7 +32,7 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
       style={({ pressed }) =>
         [
           styles.container,
-          { flexDirection: iconPosition === 'left' ? 'row' : 'row-reverse' },
+
           label ?
             { paddingVertical: 15, paddingHorizontal: 30 }
             :
@@ -44,14 +44,23 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
       {...props}
     >
 
-      {icon && React.cloneElement(icon, {
-        size: icon.props.size || fontStyles[size].fontSize,
-        color: statusTheme.icon || icon.props.color,
-        style: [label.length ? (iconPosition === 'left' ? { marginRight: 10 } : { marginLeft: 10 }) : null, icon.props?.style],
+      {left && React.cloneElement(left, {
+        size: left.props.size || fontStyles[size].fontSize,
+        color: statusTheme.icon || left.props.color,
+        style: [label.length ? { marginRight: 10 } : null, left.props?.style],
       })}
-      <Text testID="button_text" style={[{ fontWeight: '500' }, fontStyles[size], labelStyle, { color: statusTheme.label }]}>
+
+      <Text
+        testID="button_text"
+        style={[{ fontWeight: '500' }, fontStyles[size], labelStyle, { color: statusTheme.label }]}
+      >
         {label}
       </Text>
+      {right && React.cloneElement(right, {
+        size: right.props.size || fontStyles[size].fontSize,
+        color: statusTheme.icon || right.props.color,
+        style: [label.length ? { marginLeft: 10 } : null, right.props?.style],
+      })}
     </Pressable>
   );
 };
@@ -61,6 +70,7 @@ export default applyDefaults(Button);
 const styles = StyleSheet.create({
   container: {
     width: '100%',
+    flexDirection: 'row',
     borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
