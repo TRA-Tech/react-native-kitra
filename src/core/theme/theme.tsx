@@ -11,23 +11,34 @@ type ThemeContextType = {
   colorScheme?: ColorSchemeName,
 }
 
-export const getTheme = (prevTheme: ThemeType, newTheme: { dark: DeepPartial<ThemeType['dark']>, light: DeepPartial<ThemeType['light']> }) => {
-  const { dark = { colors: {} } } = newTheme;
-  const { light = { colors: {} } } = newTheme;
+export const getTheme = (
+  prevTheme: ThemeType,
+  newTheme:
+    {
+      dark: DeepPartial<ThemeType['dark']>,
+      light: DeepPartial<ThemeType['light']>
+    },
+) => {
+  const { dark = { colors: {}, components: {} } } = newTheme;
+  const { light = { colors: {}, components: {} } } = newTheme;
 
   const {
     colors: colorsDark = {},
+    components: componentsDark = {},
   } = dark;
   const {
     colors: colorsLight = {},
+    components: componentsLight = {},
   } = light;
 
   const colorSystemDark = merge(prevTheme.dark.colors, colorsDark);
   const colorSystemLight = merge(prevTheme.light.colors, colorsLight);
+  const colorSystemDarkComponent = merge(COLOR_COMPONENTS_DARK({ colors: colorSystemDark }), componentsDark);
+  const colorSystemLightComponent = merge(COLOR_COMPONENTS_LIGHT({ colors: colorSystemLight }), componentsLight);
 
   return ({
-    dark: { colors: colorSystemDark, components: COLOR_COMPONENTS_DARK({ colors: colorSystemDark }) },
-    light: { colors: colorSystemLight, components: COLOR_COMPONENTS_LIGHT({ colors: colorSystemLight }) },
+    dark: { colors: colorSystemDark, components: colorSystemDarkComponent },
+    light: { colors: colorSystemLight, components: colorSystemLightComponent },
   });
 };
 const ThemeContext = createContext<ThemeContextType>({} as ThemeContextType);
@@ -56,7 +67,11 @@ const ThemeProvider: FCC = ({ children }) => {
     return theme[colorScheme];
   };
 
-  const contextValue = useMemo(() => ({ theme: getCurrentTheme(), updateTheme, setColorScheme, colorScheme }), [theme, colorScheme]);
+  const contextValue = useMemo(() =>
+    ({ theme: getCurrentTheme(),
+      updateTheme,
+      setColorScheme,
+      colorScheme }), [theme, colorScheme]);
 
   return (
     <ThemeContext.Provider value={contextValue}>
