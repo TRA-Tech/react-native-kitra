@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleSheet, TouchableOpacity, TouchableOpacityProps } from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { FCCWD, RadioButtonProps } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
 
-const RadioButton: FCCWD<RadioButtonProps> = ({ theme, onChange, testID, style }) => {
+const RadioButton: FCCWD<RadioButtonProps&TouchableOpacityProps> = ({ theme, onChange, testID, style, ...props }) => {
   const [value, setValue] = useState(false);
   const { statusTheme } = useComponentTheme(theme, 'radioButton', value ? 'active' : 'default');
   return (
@@ -18,6 +18,7 @@ const RadioButton: FCCWD<RadioButtonProps> = ({ theme, onChange, testID, style }
       testID={testID}
       style={[
         styles.container, style, { borderColor: statusTheme.border, backgroundColor: statusTheme.background }]}
+      {...props}
     >
       {value && (
       <Animated.View
