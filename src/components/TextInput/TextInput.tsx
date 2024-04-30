@@ -180,9 +180,8 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
       >
         <View style={{ flex: 1, flexDirection: 'row', height: sizeStyles[size].height }}>
           <View style={{ alignSelf: 'center', marginLeft: sizeStyles[size].paddingVertical, marginRight: 5 }}>
-            {left && left}
+            {left && left(isFocused)}
           </View>
-
           <View style={{ flex: 1, flexDirection: 'row' }}>
             {variant === 'outlined' && (
             <Animated.View style={[{ position: 'absolute',
@@ -234,7 +233,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
             }
           </View>
           <View style={{ alignSelf: 'center', marginRight: sizeStyles[size].paddingVertical, marginLeft: 5 }}>
-            {right && right}
+            {right && right(isFocused)}
           </View>
         </View>
       </Animated.View>
