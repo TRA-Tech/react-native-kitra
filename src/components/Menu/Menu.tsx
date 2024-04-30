@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
-import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
+import Animated, { FadeIn, FadeOut, interpolate, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { FCCWD, MenuProps } from '../../types';
@@ -16,7 +16,7 @@ const Menu: FCCWD<MenuProps> = (
     containerStyle,
     rowStyle,
     closeOnPress,
-    button,
+    button = () => <Text style={{ color: 'red', fontSize: 20, bottom: 5 }}>...</Text>,
     typography,
     theme },
 ) => {
@@ -25,8 +25,7 @@ const Menu: FCCWD<MenuProps> = (
   const [menuHeight, setMenuHeight] = useState({ height: 0 });
   const { statusTheme } = useComponentTheme(theme, 'menu', open ? 'active' : 'default');
   const menu = useRef<View>(null);
-
-  button = () => <Text style={{ color: statusTheme.icon, fontSize: 20, bottom: 5 }}>...</Text>;
+  const offset = useSharedValue(0);
 
   useEffect(() => {
     menu.current?.measure((x, y, width, height, pageX, pageY) => {
@@ -36,14 +35,47 @@ const Menu: FCCWD<MenuProps> = (
 
   const closeMenu = useCallback(() => {
     if (closeOnPress) {
+      offset.value = 0;
       setOpen(false);
     }
   }, [closeOnPress]);
+
+  const pressButton = () => {
+    if (open) {
+      setOpen(false);
+      offset.value = 0;
+    } else {
+      setOpen(true);
+      offset.value = 1;
+    }
+  };
+
+  const animatedStyleTop = useAnimatedStyle(() => {
+    const top = interpolate(
+      offset.value,
+      [0, 1],
+      [0, size.height + 10],
+    );
+    return {
+      top: withTiming(top, { duration: 300 }),
+    };
+  });
+  const animatedStyleBottom = useAnimatedStyle(() => {
+    const bottom = interpolate(
+      offset.value,
+      [0, 1],
+      [0, size.height + 10],
+    );
+    return {
+      bottom: withTiming(bottom, { duration: 300 }),
+    };
+  });
+
   return (
     <View style={[styles.container, containerStyle]} ref={menu}>
       <TouchableOpacity
         testID="open_button"
-        onPress={() => setOpen(!open)}
+        onPress={pressButton}
         style={styles.openButton}
       >
         {button(open)}
@@ -53,12 +85,11 @@ const Menu: FCCWD<MenuProps> = (
           testID="menu_container"
           style={[
             styles.menuContainer,
-            HEIGHT - (size.y + menuHeight.height + size.height) >= 0 ? { top: size.height + 10 } : { bottom: 30 },
+
             menuStyle,
             { backgroundColor: statusTheme.itemBackground },
+            HEIGHT - (size.y + menuHeight.height + size.height) >= 0 ? animatedStyleTop : animatedStyleBottom,
           ]}
-          entering={FadeIn.duration(300)}
-          exiting={FadeOut.duration(300)}
           onLayout={e => setMenuHeight({ height: e.nativeEvent.layout.height })}
         >
           {items?.map((item, index) => (
