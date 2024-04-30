@@ -103,13 +103,10 @@ const Dropdown: FCCWD<DrowdownProps> = (
         )}
       </TouchableOpacity>
 
-      {visible && cord.x >= 0 && cord.y >= 0 && data?.length > 0 && (
-        <Animated.View
-          entering={FadeIn}
-          exiting={FadeOut}
+      {visible && cord?.x >= 0 && cord.y >= 0 && data?.length > 0 && (
+        <View
           style={[Style.listContainer,
             {
-
               width: cord?.width,
               left: 0,
             }, listContainerStyle,
@@ -118,37 +115,41 @@ const Dropdown: FCCWD<DrowdownProps> = (
               : { top: cord?.height + 5 },
             { backgroundColor: statusTheme.collapseBackground }]}
         >
-
-          <ScrollView nestedScrollEnabled>
-            {data?.map((value, index) => (
-              <TouchableOpacity
-                activeOpacity={0.8}
-                key={index}
-                onPress={() => {
-                  setSelectedObject(value);
-                  setVisible(false);
-                  onSelect?.(value);
-                }}
-                style={[
-                  Style.row,
-                  index === data.length - 1 ? { borderBottomLeftRadius: 5, borderBottomRightRadius: 5 } : null,
-                  rowStyle,
-                  {
-                    backgroundColor: componentTheme[isSelectedObject(value) ?
-                      'selected' : componentStatus]?.itemBackground,
-                  },
-                ]}
-              >
-                <Text style={[typography?.body.smedium, { marginVertical: 10, marginHorizontal: 10 }, rowTextStyle,
-                  { color: componentTheme[isSelectedObject(value) ? 'selected' : componentStatus]?.itemLabel }]}
+          <Animated.View
+            entering={FadeIn.duration(300)}
+            exiting={FadeOut}
+          >
+            <ScrollView nestedScrollEnabled>
+              {data?.map((value, index) => (
+                <TouchableOpacity
+                  activeOpacity={0.8}
+                  key={index}
+                  onPress={() => {
+                    setSelectedObject(value);
+                    setVisible(false);
+                    onSelect?.(value);
+                  }}
+                  style={[
+                    Style.row,
+                    index === data.length - 1 ? { borderBottomLeftRadius: 5, borderBottomRightRadius: 5 } : null,
+                    rowStyle,
+                    {
+                      backgroundColor: componentTheme[isSelectedObject(value) ?
+                        'selected' : componentStatus]?.itemBackground,
+                    },
+                  ]}
                 >
-                  {displayedRowValue?.(value)}
-                </Text>
-              </TouchableOpacity>
-            ))}
-          </ScrollView>
+                  <Text style={[typography?.body.smedium, { marginVertical: 10, marginHorizontal: 10 }, rowTextStyle,
+                    { color: componentTheme[isSelectedObject(value) ? 'selected' : componentStatus]?.itemLabel }]}
+                  >
+                    {displayedRowValue?.(value)}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+          </Animated.View>
 
-        </Animated.View>
+        </View>
       )}
     </View>
   );
