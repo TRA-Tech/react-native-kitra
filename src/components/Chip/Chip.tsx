@@ -66,25 +66,25 @@ const Chip:FCCWD<ChipProps> = (
         opacity: disabled ? 0.7 : 1 }, style, { borderColor: statusTheme.border }]}
     >
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        {left && React.cloneElement(left, {
+        {typeof left === 'function' && React.cloneElement(left(select), {
           size: sizes[size].iconSize,
           color: statusTheme.icon,
-          style: [(left ? { marginLeft: 6 } : null)],
+          style: [(left(select) ? { marginLeft: 6 } : null)],
         })}
         <Animated.Text
           style={[
             { fontSize: typographySize[size]?.fontSize,
               lineHeight: typographySize[size]?.lineHeight,
-              marginLeft: left ? 0 : 15,
-              marginRight: right ? 0 : 15,
+              marginLeft: typeof left === 'function' ? 0 : 15,
+              marginRight: typeof left === 'function' ? 0 : 15,
               fontWeight: '500' }, labelStyle, { color: statusTheme.label }]}
         >
           {label}
         </Animated.Text>
-        {right && React.cloneElement(right, {
+        {typeof right === 'function' && React.cloneElement(right(select), {
           size: sizes[size].iconSize,
           color: statusTheme.icon,
-          style: [(right ? { marginRight: 6 } : null)],
+          style: [(right(select) ? { marginRight: 6 } : null)],
         })}
       </View>
     </AnimatedTouchableOpacity>
