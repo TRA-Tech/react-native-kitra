@@ -137,11 +137,12 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
         )}
       </TouchableOpacity>
       {visible && data?.length > 0 && (
-
-        <Animated.View
+      <Animated.View
+        entering={FadeIn}
+        exiting={FadeOut}
+      >
+        <View
           testID="dropdown-list"
-          entering={FadeIn}
-          exiting={FadeOut}
           style={[Style.listContainer,
             {
               width: cord?.width,
@@ -153,6 +154,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
               { bottom: cord?.height || 0 + 5 } : { top: cord?.height || 0 + 5 },
             { backgroundColor: statusTheme.collapseBackground }]}
         >
+
           <ScrollView>
             {/* @ts-ignore */}
             {dataWithID?.current?.map((item, index) => {
@@ -166,7 +168,9 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
                   }}
                   style={[
                     Style.row,
-                    index === data?.length || 0 - 1 ? { borderBottomLeftRadius: 5, borderBottomRightRadius: 5 } : null,
+                    index === data?.length || 0 - 1 ?
+                      { borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }
+                      : null,
                     rowStyle,
                     {
                       backgroundColor: componentTheme[isSelected ? 'selected' : componenetStatus]?.background,
@@ -201,25 +205,25 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
 
           </ScrollView>
           {selectall && (
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={() => {
-                data?.length === selectedObjects.length ? setSelectedObjects([]) : setSelectedObjects(data);
-              }}
-              style={{ flexDirection: 'row', justifyContent: 'flex-end' }}
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => {
+              data?.length === selectedObjects.length ? setSelectedObjects([]) : setSelectedObjects(data);
+            }}
+            style={{ flexDirection: 'row', justifyContent: 'flex-end' }}
+          >
+            <Text
+              style={[typography?.body.smedium, { textAlign: 'right', color: statusTheme.selectAllLabel }]}
             >
-              <Text
-                style={[typography?.body.smedium, { textAlign: 'right', color: statusTheme.selectAllLabel }]}
-              >
-                Select All
-              </Text>
-              <IoniconsIcon
-                name="checkmark-done-outline"
-                size={16}
-                style={{ marginLeft: 5 }}
-                color={statusTheme.selectAllLabel}
-              />
-            </TouchableOpacity>
+              Select All
+            </Text>
+            <IoniconsIcon
+              name="checkmark-done-outline"
+              size={16}
+              style={{ marginLeft: 5 }}
+              color={statusTheme.selectAllLabel}
+            />
+          </TouchableOpacity>
           )}
           <Button
             testID="dropdown-complete-button"
@@ -237,7 +241,8 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
             labelStyle={{ textAlign: 'center' }}
             style={Style.completeSelection}
           />
-        </Animated.View>
+        </View>
+      </Animated.View>
       )}
     </View>
   );
