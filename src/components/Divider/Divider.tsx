@@ -18,9 +18,13 @@ const Divider: FCCWD<DividerProps & ViewProps> = (
 ) => {
   const { statusTheme } = useComponentTheme(theme, 'divider', 'default');
   return (
-    <View style={[styles.container, { width }, style]} {...props}>
-      <View style={{ width, borderWidth: StyleSheet.hairlineWidth, borderColor: statusTheme.background, borderStyle: variant }} />
-    </View>
+    <View
+      style={[styles.container, { width,
+        borderWidth: 1,
+        borderColor: statusTheme.background,
+        borderStyle: variant }, style]}
+      {...props}
+    />
   );
 };
 
