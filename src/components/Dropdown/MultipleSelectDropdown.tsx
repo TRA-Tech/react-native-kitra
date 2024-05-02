@@ -107,7 +107,11 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
             borderColor: componentTheme[isObjectSelected ? 'selected' : componenetStatus]?.border,
           }]}
       >
-        {leftElement}
+        {leftElement && (
+          <View style={Style.leftItem}>
+            {leftElement}
+          </View>
+        )}
         <Animated.Text
           numberOfLines={1}
           entering={FadeIn.delay(100)}
@@ -124,17 +128,17 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
               `${selectedObjects.map(item => displayedButtonValue?.(item))}` :
               `${selectedObjects?.length} Selected`}
         </Animated.Text>
-        {rightElement || (
-          <View style={[Style.rightIcon]}>
-            <Animated.View style={dropdownAnimation}>
-              <FeatherIcon
-                name="chevron-down"
-                size={14}
-                color={statusTheme.collapseIcon}
-              />
-            </Animated.View>
-          </View>
-        )}
+        <View style={[Style.rightItem]}>
+          {rightElement || (
+          <Animated.View style={dropdownAnimation}>
+            <FeatherIcon
+              name="chevron-down"
+              size={14}
+              color={statusTheme.collapseIcon}
+            />
+          </Animated.View>
+          )}
+        </View>
       </TouchableOpacity>
       {visible && data?.length > 0 && (
       <Animated.View
@@ -161,6 +165,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
               const isSelected = isItemSelected(item || {});
               return (
                 <TouchableOpacity
+                  key={item.keyID}
                   activeOpacity={0.8}
                   onPress={() => {
                     setSelectedObjects(item);
@@ -293,11 +298,13 @@ export const Style = StyleSheet.create({
     marginTop: 10,
   },
 
-  rightIcon: {
+  rightItem: {
     borderRadius: 3,
     paddingVertical: 2,
-    paddingHorizontal: 6,
-    marginRight: 12,
+    marginRight: 15,
+  },
+  leftItem: {
+    marginLeft: 15,
   },
   checkBox: {
     height: 20,
