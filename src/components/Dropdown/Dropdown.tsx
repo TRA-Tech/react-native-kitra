@@ -73,7 +73,12 @@ const Dropdown: FCCWD<DrowdownProps> = (
         style={[Style.button, buttonStyle,
           { borderColor: statusTheme.border, backgroundColor: statusTheme.background }]}
       >
-        {leftElement}
+        {leftElement && (
+        <View style={Style.leftItem}>
+          {leftElement}
+        </View>
+        )}
+
         <Animated.Text
           numberOfLines={1}
           key={displayedButtonValue?.(selectedObject)}
@@ -90,17 +95,18 @@ const Dropdown: FCCWD<DrowdownProps> = (
         >
           {isObjectSelected ? displayedButtonValue?.(selectedObject) : (buttonTitle || 'Please Select')}
         </Animated.Text>
-        {rightElement || (
-          <View style={[Style.rightIcon]}>
-            <Animated.View style={dropdownAnimation}>
-              <FeatherIcon
-                name="chevron-down"
-                size={14}
-                color={statusTheme.collapseIcon}
-              />
-            </Animated.View>
-          </View>
-        )}
+
+        <View style={[Style.rightItem]}>
+          {rightElement || (
+          <Animated.View style={dropdownAnimation}>
+            <FeatherIcon
+              name="chevron-down"
+              size={14}
+              color={statusTheme.collapseIcon}
+            />
+          </Animated.View>
+          )}
+        </View>
       </TouchableOpacity>
 
       {visible && cord?.x >= 0 && cord.y >= 0 && data?.length > 0 && (
@@ -191,10 +197,13 @@ export const Style = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  rightIcon: {
+  rightItem: {
     borderRadius: 3,
     paddingVertical: 2,
-    paddingHorizontal: 6,
-    marginRight: 12,
+    marginRight: 15,
+  },
+
+  leftItem: {
+    marginLeft: 15,
   },
 });
