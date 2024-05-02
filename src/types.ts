@@ -715,11 +715,11 @@ export type TextInputProps = {
     /**
         *Renders the given React element to the left side
     */
-    left?: React.ReactNode,
+    left?:(event:boolean)=> React.ReactNode,
     /**
         *Renders the given React element to the right side
     */
-    right?: React.ReactNode,
+    right?:(event:boolean)=> React.ReactNode,
     /**
         *The theme to use for the component
     */
