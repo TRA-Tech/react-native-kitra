@@ -278,11 +278,11 @@ export type ChipProps = {
     /**
         *Additional element to apply to left side of the chip
     */
-    left: React.ReactElement,
+    left:(event:boolean)=> React.ReactElement,
     /**
         *Additional element to apply to right side of the chip
     */
-    right: React.ReactElement,
+    right:(event:boolean)=> React.ReactElement,
     /**
         *The position of the icon in relation to the label. Defaults to 'right'
     */
