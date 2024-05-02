@@ -12,11 +12,18 @@ const SliderScreen = () => {
       <Slider onChangeEnd={x => console.log(x)} />
       <Divider label="With percentage indicator" />
       <Slider showPercentage />
-      <Divider label="Customized" />
+      <Divider label="Custom Theme" />
       <Slider
-        barStyle={{ backgroundColor: 'black' }}
-        progressStyle={{ backgroundColor: 'orange' }}
-        buttonStyle={{ backgroundColor: 'orange', height: 40, width: 40 }}
+        containerStyle={{ marginTop: 50 }}
+        theme={{
+          default: { bar: 'orange',
+            percentageBackground: 'green',
+            percentageLabel: 'white',
+            progress: 'pink',
+            thumb: 'brown' },
+        }}
+        showPercentage
+        buttonStyle={{ height: 40, width: 40 }}
       />
     </Layout>
   );

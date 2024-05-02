@@ -23,7 +23,6 @@ import SpeedDialScreen from './src/screens/SpeedDial';
 import AvatarScreen from './src/screens/Avatar';
 import AvatarGroupScreen from './src/screens/AvatarGroup';
 import ChipScreen from './src/screens/Chip';
-import SearchBarScreen from './src/screens/SearchBar';
 import SwitchScreen from './src/screens/Switch';
 import SliderScreen from './src/screens/Slider';
 import PagerViewScreen from './src/screens/PagerView';
@@ -93,7 +92,6 @@ export default function App() {
             <Stack.Screen name="PagerView" component={PagerViewScreen} />
             <Stack.Screen name="ProgressBar" component={ProgressBarScreen} />
             <Stack.Screen name="RadioButton" component={RadioButtonScreen} />
-            <Stack.Screen name="SearchBar" component={SearchBarScreen} />
             <Stack.Screen name="Slider" component={SliderScreen} />
             <Stack.Screen name="SpeedDial" component={SpeedDialScreen} />
             <Stack.Screen name="Swipe" component={SwipeScreen} />

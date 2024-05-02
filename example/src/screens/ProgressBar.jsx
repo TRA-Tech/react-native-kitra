@@ -14,10 +14,16 @@ const ProgressBarScreen = () => (
 
     <Divider label="Customized" />
     <View style={{ rowGap: 10 }}>
-      <ProgressBar progress={50} barColor="black" progressColor="red" />
-      <ProgressBar progress={20} barColor="black" progressColor="white" progressStyle={{ height: 10, borderRadius: 10, borderWidth: 2, borderColor: 'black' }} />
+      <ProgressBar progress={50} />
+      <ProgressBar
+        progress={20}
+        progressStyle={{ height: 10, borderRadius: 10, borderWidth: 2, borderColor: 'black' }}
+      />
     </View>
-
+    <Divider label="Custom Theme" />
+    <View style={{ rowGap: 10 }}>
+      <ProgressBar progress={50} theme={{ default: { bar: 'purple', progress: 'orange' } }} />
+    </View>
   </Layout>
 );
 

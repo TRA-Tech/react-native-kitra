@@ -43,64 +43,128 @@ const data = [
 ];
 
 const DropdownScreen = () => (
-  <Layout>
-    <Dropdown
-      data={data}
-      displayedButtonValue={x => x.name}
-      displayedRowValue={x => `${x.name} ${x.activeYears}`}
-      onSelect={x => console.log(x)}
-    />
-    <Divider label="Disabled" />
-    <Dropdown
-      disabled
-      data={data}
-      displayedButtonValue={x => x.name}
-      displayedRowValue={x => `${x.name} ${x.activeYears}`}
-      onSelect={x => console.log(x)}
-    />
-    <Divider label="Left - Right Elements" />
-    <View style={{ rowGap: 10, zIndex: 2 }}>
+  <Layout scroll>
+    <Divider label="Default" />
+    <View style={{ zIndex: 10 }}>
       <Dropdown
         data={data}
         displayedButtonValue={x => x.name}
         displayedRowValue={x => `${x.name} ${x.activeYears}`}
         onSelect={x => console.log(x)}
-        left={<Icon type="font-awesome-5" color="black" name="guitar" size={18} />}
-      />
-      <Dropdown
-        data={data}
-        displayedButtonValue={x => x.name}
-        displayedRowValue={x => `${x.name} ${x.activeYears}`}
-        onSelect={x => console.log(x)}
-        right={<Icon type="ant-design" style={{ marginRight: 15 }} color="black" name="down" size={10} />}
-      />
-      <Dropdown
-        data={data}
-        displayedButtonValue={x => x.name}
-        displayedRowValue={x => `${x.name} ${x.activeYears}`}
-        onSelect={x => console.log(x)}
-        left={<Icon type="font-awesome-5" color="black" name="guitar" size={18} />}
-        right={<Icon type="ant-design" style={{ marginRight: 15 }} color="black" name="down" size={10} />}
       />
     </View>
-    <Divider label="Customized" />
+
+    <View style={{ zIndex: 9 }}>
+      <Divider label="Disabled" />
+      <Dropdown
+        disabled
+        data={data}
+        displayedButtonValue={x => x.name}
+        displayedRowValue={x => `${x.name} ${x.activeYears}`}
+        onSelect={x => console.log(x)}
+      />
+    </View>
+
+    <View style={{ rowGap: 20, zIndex: 8 }}>
+      <View style={{ zIndex: 8 }}>
+        <Divider label="Left - Right Elements" />
+        <Dropdown
+          data={data}
+          displayedButtonValue={x => x.name}
+          displayedRowValue={x => `${x.name} ${x.activeYears}`}
+          onSelect={x => console.log(x)}
+          right={<Icon type="font-awesome-5" color="black" name="guitar" size={18} />}
+        />
+      </View>
+      <View style={{ zIndex: 7 }}>
+        <Dropdown
+          data={data}
+          displayedButtonValue={x => x.name}
+          displayedRowValue={x => `${x.name} ${x.activeYears}`}
+          onSelect={x => console.log(x)}
+          right={<Icon type="ant-design" color="black" name="down" size={10} />}
+        />
+      </View>
+      <View style={{ zIndex: 6 }}>
+        <Dropdown
+          data={data}
+          displayedButtonValue={x => x.name}
+          displayedRowValue={x => `${x.name} ${x.activeYears}`}
+          onSelect={x => console.log(x)}
+          left={<Icon type="font-awesome-5" color="black" name="guitar" size={18} />}
+          right={<Icon type="ant-design" color="black" name="down" size={10} />}
+        />
+      </View>
+    </View>
+
+    <Divider label="Custom Theme" />
     <Dropdown
+      theme={{
+        default: {
+          background: 'red',
+          border: 'orange',
+          checkBackground: 'pink',
+          checkBorder: 'yellow',
+          checkIcon: 'purple',
+          collapseBackground: 'yellow',
+          collapseIcon: 'red',
+          completeBackground: 'red',
+          completeLabel: 'red',
+          itemBackground: 'red',
+          itemLabel: 'red',
+          label: 'red',
+          selectAllLabel: 'red',
+        },
+        selected: {
+          background: 'red',
+          border: 'orange',
+          checkBackground: 'pink',
+          checkBorder: 'yellow',
+          checkIcon: 'purple',
+          collapseBackground: 'yellow',
+          collapseIcon: 'red',
+          completeBackground: 'red',
+          completeLabel: 'red',
+          itemBackground: 'red',
+          itemLabel: 'orange',
+          label: 'orange',
+          selectAllLabel: 'red',
+        },
+        active: {
+          background: 'red',
+          border: 'orange',
+          checkBackground: 'pink',
+          checkBorder: 'yellow',
+          checkIcon: 'purple',
+          collapseBackground: 'yellow',
+          collapseIcon: 'red',
+          completeBackground: 'red',
+          completeLabel: 'red',
+          itemBackground: 'red',
+          itemLabel: 'orange',
+          label: 'orange',
+          selectAllLabel: 'red',
+        },
+      }}
       data={data}
       defaultValue={data[1]}
       onSelect={x => console.log(x)}
-      rowStyle={{ backgroundColor: 'white' }}
-      listContainerStyle={{ backgroundColor: 'black' }}
       displayedButtonValue={x => x.name}
-      iconStyle={{ color: 'white' }}
-      buttonBackgrounColor={{ focusBackground: 'black', defaultBackground: 'black' }}
       displayedRowValue={x => `${x.name} ${x.activeYears}`}
       buttonTitle="Select a band"
       left={<Icon type="font-awesome-5" color="white" name="guitar" size={18} />}
-      buttonTextStyle={{ color: 'white' }}
-      rowTextStyle={{ color: 'purple' }}
     />
+
     <Divider label="Multiple Select" />
-    <View style={{ rowGap: 10 }}>
+    <View style={{ rowGap: 10, zIndex: 100 }}>
+      <Dropdown
+        data={data}
+        displayedButtonValue={x => x.name}
+        displayedRowValue={x => `${x.name} ${x.activeYears}`}
+        multiple
+      />
+
+      <Divider label="Multiple Select All" />
       <Dropdown
         data={data}
         onSelect={x => console.log(x)}
@@ -111,19 +175,18 @@ const DropdownScreen = () => (
         multiple
         selectall
         onComplete={x => console.log(x)}
+        left={<Icon type="font-awesome-5" color="black" name="guitar" size={18} />}
+
       />
       <Dropdown
         data={data}
-        onSelect={x => console.log(x)}
         displayedButtonValue={x => x.name}
         displayedRowValue={x => `${x.name} ${x.activeYears}`}
-        buttonTitle="Select a band"
-        displayLength={3}
-        multiple
-        selectall
-        onComplete={x => console.log(x)}
+        onSelect={x => console.log(x)}
+        left={<Icon type="font-awesome-5" color="black" name="guitar" size={18} />}
       />
     </View>
+
   </Layout>
 );
 

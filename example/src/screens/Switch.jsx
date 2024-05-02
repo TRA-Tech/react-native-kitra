@@ -14,8 +14,10 @@ const SwitchScreen = () => {
       <Switch
         value={isEnabled}
         onValueChange={setIsEnabled}
-        trackColor={{ false: 'white', true: 'orange' }}
-        thumbColor="black"
+        theme={{
+          active: { thumb: 'blue', track: 'orange' },
+          default: { thumb: 'yellow', track: 'black' },
+        }}
       />
     </Layout>
   );

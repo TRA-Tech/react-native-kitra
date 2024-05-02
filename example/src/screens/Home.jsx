@@ -16,7 +16,6 @@ const components = [
   'PagerView',
   'ProgressBar',
   'RadioButton',
-  'SearchBar',
   'Slider',
   'SpeedDial',
   'Switch',
