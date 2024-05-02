@@ -44,22 +44,21 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
       {...props}
     >
 
-      {left && React.cloneElement(left, {
-        size: left.props.size || fontStyles[size].fontSize,
-        color: statusTheme.icon || left.props.color,
-        style: [label.length ? { marginRight: 10 } : null, left.props?.style],
+      {typeof left === 'function' && React.cloneElement(left(isPressed), {
+        size: left(isPressed).props.size || fontStyles[size].fontSize,
+        color: statusTheme.icon || left(isPressed).props.color,
+        style: [label.length ? { marginRight: 10 } : null, left(isPressed).props?.style],
       })}
-
       <Text
         testID="button_text"
         style={[{ fontWeight: '500' }, fontStyles[size], labelStyle, { color: statusTheme.label }]}
       >
         {label}
       </Text>
-      {right && React.cloneElement(right, {
-        size: right.props.size || fontStyles[size].fontSize,
-        color: statusTheme.icon || right.props.color,
-        style: [label.length ? { marginLeft: 10 } : null, right.props?.style],
+      {typeof right === 'function' && React.cloneElement(right(isPressed), {
+        size: right(isPressed).props.size || fontStyles[size].fontSize,
+        color: statusTheme.icon || right(isPressed).props.color,
+        style: [label.length ? { marginLeft: 10 } : null, right(isPressed).props?.style],
       })}
     </Pressable>
   );
