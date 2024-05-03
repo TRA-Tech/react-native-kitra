@@ -17,7 +17,7 @@ const AvatarGroup: FCCWD<AvatarGroupProps> = (
   const avatarIcon = (
     <Text style={[{ fontSize: typography?.body.smedium.fontSize,
       lineHeight: typography?.body.smedium.lineHeight,
-      fontWeight: '500' }, limitContainerStyle?.style, { color: statusTheme.morelabel }]}
+      fontWeight: '500' }, limitContainerStyle, { color: statusTheme.morelabel }]}
     >
       +
       {limit}
