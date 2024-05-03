@@ -68,7 +68,6 @@ const Chip:FCCWD<ChipProps> = (
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         {typeof left === 'function' && React.cloneElement(left(select), {
           size: sizes[size].iconSize,
-          color: statusTheme.icon,
           style: [(left(select) ? { marginLeft: 6 } : null)],
         })}
         <Animated.Text
@@ -83,7 +82,6 @@ const Chip:FCCWD<ChipProps> = (
         </Animated.Text>
         {typeof right === 'function' && React.cloneElement(right(select), {
           size: sizes[size].iconSize,
-          color: statusTheme.icon,
           style: [(right(select) ? { marginRight: 6 } : null)],
         })}
       </View>
