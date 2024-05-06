@@ -8,9 +8,11 @@ const ActivityIndicatorScreen = () => (
     <Divider label="Default" />
     <ActivityIndicator />
     <Divider label="Custom Indicator" />
-    <ActivityIndicator theme={{ default: { background: 'red' } }}>
+    <ActivityIndicator>
       <View style={{ backgroundColor: 'black', height: 40, width: 40, borderRadius: 20 }} />
     </ActivityIndicator>
+    <Divider label="Custom theme" />
+    <ActivityIndicator theme={{ default: { background: 'orange', indicator: 'purple' } }} />
   </Layout>
 );
 
