@@ -54,11 +54,11 @@ const AccordionList: FCCWD<AccordionListProps> = ({
     <>
       <TouchableOpacity activeOpacity={0.8} onPress={handleListOpen} testID={testID}>
         <View style={[styles.labelContianer, labelContainerStyle, { backgroundColor: statusTheme.background }]}>
-          {left && cloneElement(left(expanded), { expanded, color: statusTheme.icon })}
+          {left && left(expanded)}
           <Text style={[typography?.body.medium, styles.labelText, labelStyle, { color: statusTheme.label }]}>
             {label}
           </Text>
-          {right && cloneElement(right(expanded), { expanded, color: statusTheme.icon })}
+          {right && right(expanded)}
           <View style={[styles.iconContainer, { backgroundColor: statusTheme.collapseIconBackground }]}>
             <AnimatedIcon
               color={statusTheme.collapseIcon}

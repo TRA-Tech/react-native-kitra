@@ -104,7 +104,6 @@ export const COLOR_COMPONENTS_LIGHT = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_
         collapseIconBackground: COLOR_SYSTEM.colors.system.primary5,
         collapseIcon: COLOR_SYSTEM.colors.neutral.lightBlack,
         itemLabel: COLOR_SYSTEM.colors.neutral.grey,
-        icon: COLOR_SYSTEM.colors.neutral.lightBlack,
       },
       active: {
         background: COLOR_SYSTEM.colors.system.primary5,
@@ -113,7 +112,6 @@ export const COLOR_COMPONENTS_LIGHT = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_
         collapseIconBackground: COLOR_SYSTEM.colors.system.primary15,
         collapseIcon: COLOR_SYSTEM.colors.system.primary,
         itemLabel: COLOR_SYSTEM.colors.neutral.grey,
-        icon: COLOR_SYSTEM.colors.system.primary,
       },
     },
     activityIndicator: {
@@ -407,7 +405,6 @@ export const COLOR_COMPONENTS_DARK = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_D
       collapseIconBackground: COLOR_SYSTEM.colors.system.primary5,
       collapseIcon: COLOR_SYSTEM.colors.neutral.lightBlack,
       itemLabel: COLOR_SYSTEM.colors.neutral.grey,
-      icon: COLOR_SYSTEM.colors.neutral.lightBlack,
     },
     active: {
       background: COLOR_SYSTEM.colors.system.primary5,
@@ -416,7 +413,6 @@ export const COLOR_COMPONENTS_DARK = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_D
       collapseIconBackground: COLOR_SYSTEM.colors.system.primary15,
       collapseIcon: COLOR_SYSTEM.colors.system.primary,
       itemLabel: COLOR_SYSTEM.colors.neutral.grey,
-      icon: COLOR_SYSTEM.colors.system.primary,
     },
   },
   activityIndicator: {
