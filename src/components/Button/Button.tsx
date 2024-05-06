@@ -14,6 +14,7 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
     left,
     right,
     theme,
+    activeOpacity = 1,
     ...props },
 ) => {
   const [isPressed, setIsPressed] = useState(false);
@@ -39,6 +40,7 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
             { padding: (fontStyles[size].lineHeight - fontStyles[size].fontSize) / 2 + 10 },
           style,
           { backgroundColor: statusTheme.background },
+          { opacity: pressed ? activeOpacity : 1 },
         ]}
       disabled={disabled}
       {...props}
@@ -68,7 +70,6 @@ export default applyDefaults(Button);
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
     flexDirection: 'row',
     borderRadius: 5,
     alignItems: 'center',

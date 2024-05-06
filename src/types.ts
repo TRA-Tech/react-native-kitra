@@ -226,9 +226,14 @@ export type ButtonProps = {
     */
     labelStyle?: StyleProp<TextStyle>,
     /**
+        *Determines what the opacity of the wrapped view should be when touch is active. Defaults to 1.
+    */
+        activeOpacity?:number,
+    /**
         *The theme to use for the component
     */
     theme?: DeepPartial<(ComponentThemeType['button'])>
+
 }
 
 export type CheckBoxProps = {
