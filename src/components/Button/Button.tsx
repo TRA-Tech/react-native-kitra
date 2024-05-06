@@ -46,7 +46,6 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
 
       {typeof left === 'function' && React.cloneElement(left(isPressed), {
         size: left(isPressed).props.size || fontStyles[size].fontSize,
-        color: statusTheme.icon || left(isPressed).props.color,
         style: [label.length ? { marginRight: 10 } : null, left(isPressed).props?.style],
       })}
       <Text
@@ -57,7 +56,6 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
       </Text>
       {typeof right === 'function' && React.cloneElement(right(isPressed), {
         size: right(isPressed).props.size || fontStyles[size].fontSize,
-        color: statusTheme.icon || right(isPressed).props.color,
         style: [label.length ? { marginLeft: 10 } : null, right(isPressed).props?.style],
       })}
     </Pressable>
