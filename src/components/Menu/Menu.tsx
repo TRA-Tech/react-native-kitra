@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
-import Animated, { FadeIn, FadeOut, interpolate, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
+import Animated, { FadeIn, FadeOut, interpolate,
+  useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { FCCWD, MenuProps } from '../../types';
@@ -50,27 +51,6 @@ const Menu: FCCWD<MenuProps> = (
     }
   };
 
-  const animatedStyleTop = useAnimatedStyle(() => {
-    const top = interpolate(
-      offset.value,
-      [0, 1],
-      [0, size.height + 10],
-    );
-    return {
-      top: withTiming(top, { duration: 300 }),
-    };
-  });
-  const animatedStyleBottom = useAnimatedStyle(() => {
-    const bottom = interpolate(
-      offset.value,
-      [0, 1],
-      [0, size.height + 10],
-    );
-    return {
-      bottom: withTiming(bottom, { duration: 300 }),
-    };
-  });
-
   return (
     <View style={[styles.container, containerStyle]} ref={menu}>
       <TouchableOpacity
@@ -78,62 +58,67 @@ const Menu: FCCWD<MenuProps> = (
         onPress={pressButton}
         style={styles.openButton}
       >
-        {button(open)}
+        {typeof button === 'function' && button?.(open)}
       </TouchableOpacity>
       {open ? (
-        <Animated.View
+        <View
           testID="menu_container"
+          onLayout={e => setMenuHeight({ height: e.nativeEvent.layout.height })}
           style={[
             styles.menuContainer,
-
             menuStyle,
             { backgroundColor: statusTheme.itemBackground },
-            HEIGHT - (size.y + menuHeight.height + size.height) >= 0 ? animatedStyleTop : animatedStyleBottom,
+            HEIGHT - (size.y + menuHeight.height + size.height) >= 0 ?
+              { top: size.height + 10 } : { bottom: 30 },
           ]}
-          onLayout={e => setMenuHeight({ height: e.nativeEvent.layout.height })}
         >
-          {items?.map((item, index) => (
-            <View key={index} style={rowStyle}>
-              <TouchableOpacity
-                testID={`item_button_${index}`}
-                onPress={() => { item.onPress && item.onPress(); closeMenu(); }}
-                style={styles.menuButton}
-              >
-                {item.left && item.left}
-                <View style={styles.buttonContainer}>
-                  <Text style={[
-                    {
-                      fontSize: typography?.body.smedium.fontSize,
-                      fontWeight: '500',
-                      lineHeight: typography?.body.smedium.lineHeight,
-                      paddingHorizontal: item.left ? 5 : 0,
-                    }, rowTextStyle, {
-                      color: statusTheme.itemLabel,
-                    }]}
-                  >
-                    {item.label}
-                  </Text>
-                  {item.right && item.right}
-                </View>
-              </TouchableOpacity>
-              {items.length - 1 !== index ? (
-                <Divider
-                  typography={typography}
-                  theme={{
-                    default: {
-                      background: statusTheme.divider,
-                    },
-                  }}
-                  style={{ paddingHorizontal: 10 }}
-                />
-              )
-                :
-                null
+          <Animated.View
+            entering={FadeIn.duration(300)}
+            exiting={FadeOut}
+          >
+            {items?.map((item, index) => (
+              <View key={index} style={rowStyle}>
+                <TouchableOpacity
+                  testID={`item_button_${index}`}
+                  onPress={() => { item.onPress && item.onPress(); closeMenu(); }}
+                  style={styles.menuButton}
+                >
+                  {item.left && item.left}
+                  <View style={styles.buttonContainer}>
+                    <Text style={[
+                      {
+                        fontSize: typography?.body.smedium.fontSize,
+                        fontWeight: '500',
+                        lineHeight: typography?.body.smedium.lineHeight,
+                        paddingHorizontal: item.left ? 5 : 0,
+                      }, rowTextStyle, {
+                        color: statusTheme.itemLabel,
+                      }]}
+                    >
+                      {item.label}
+                    </Text>
+                    {item.right && item.right}
+                  </View>
+                </TouchableOpacity>
+                {items.length - 1 !== index ? (
+                  <Divider
+                    typography={typography}
+                    theme={{
+                      default: {
+                        background: statusTheme.divider,
+                      },
+                    }}
+                    style={{ paddingHorizontal: 10 }}
+                  />
+                )
+                  :
+                  null
               }
 
-            </View>
-          ))}
-        </Animated.View>
+              </View>
+            ))}
+          </Animated.View>
+        </View>
       )
         :
         null
