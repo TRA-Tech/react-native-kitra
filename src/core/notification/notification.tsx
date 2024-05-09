@@ -30,10 +30,15 @@ type NotificationProviderType= {
     onPress?:()=>void
   }},
   notificationCcontainerStyle?:StyleProp<ViewStyle>
+  customView?:({ header, type, message, theme }:
+    {header:string, type:string, message:string, theme:any})=>React.ReactNode
 }
 const NotificationContext = React.createContext<NotificationContextType>({} as NotificationContextType);
 
-const NotificationProvider = ({ children, limit = 3, messageType, notificationCcontainerStyle }:NotificationProviderType) => {
+const NotificationProvider = ({ children, limit = 3,
+  messageType,
+  notificationCcontainerStyle,
+  customView }:NotificationProviderType) => {
   const [queue, setQueue] = useState<Array<{ type:string, message: string, header: string}>>([]);
   const { theme } = useTheme();
   const { typography } = useTypograpghy();
@@ -89,18 +94,32 @@ const NotificationProvider = ({ children, limit = 3, messageType, notificationCc
           style={[styles.itemContainer, notificationCcontainerStyle, { marginTop: 110 * (index - 1) }]}
         >
           <TouchableOpacity style={styles.buttonContainer} onPress={() => onPress(index)}>
-            <View style={[styles.innerContainer, { backgroundColor: messageType?.(theme)[item?.type]?.backgroundColor || 'transparent' }]} />
-            <View style={[styles.iconContainer]}>
-              {messageType?.(theme)[item?.type]?.icon}
-            </View>
-            <View style={styles.textsContainer}>
-              <Text ellipsizeMode="middle" numberOfLines={3} style={[styles.headerText, { ...typography.body.medium, color: theme.colors.neutral.lightBlack }]}>
-                {item?.header || item?.type }
-              </Text>
-              <Text ellipsizeMode="middle" numberOfLines={3} style={[styles.descText, { ...typography.body.sregular, color: theme.colors.neutral.lightBlack }]}>
-                {item?.message}
-              </Text>
-            </View>
+            {customView?.({ type: item.type, header: item.header, message: item.message, theme }) || (
+            <>
+              <View style={[styles.innerContainer,
+                { backgroundColor: messageType?.(theme)[item?.type]?.backgroundColor || 'transparent' }]}
+              />
+              <View style={[styles.iconContainer]}>
+                {messageType?.(theme)[item?.type]?.icon}
+              </View>
+              <View style={styles.textsContainer}>
+                <Text
+                  ellipsizeMode="middle"
+                  numberOfLines={3}
+                  style={[styles.headerText, { ...typography.body.medium, color: theme.colors.neutral.lightBlack }]}
+                >
+                  {item?.header || item?.type}
+                </Text>
+                <Text
+                  ellipsizeMode="middle"
+                  numberOfLines={3}
+                  style={[styles.descText, { ...typography.body.sregular, color: theme.colors.neutral.lightBlack }]}
+                >
+                  {item?.message}
+                </Text>
+              </View>
+            </>
+            )}
           </TouchableOpacity>
         </Animated.View>
       ))}
