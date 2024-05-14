@@ -105,7 +105,8 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
       textInputOffset.value,
       [0, 1],
       [componentTheme.focused?.border || '',
-        error ? componentTheme.error?.border || '' : componentTheme.default?.border || ''],
+        editable ? (error ? componentTheme.error?.border || '' : componentTheme.default?.border || '')
+          : componentTheme.disabled?.border || ''],
     );
 
     return {
@@ -172,7 +173,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
       <Animated.View style={[{
         opacity: editable ? 1 : 0.5,
         borderRadius: 5,
-        borderWidth: editable ? 1 : 0,
+        borderWidth: 1,
         height: sizeStyles[size].height,
       },
       // @ts-ignore
