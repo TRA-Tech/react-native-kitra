@@ -46,7 +46,7 @@ npm install react-native-reanimated
 </TabItem>
 </Tabs>
 
-[Click for react-native-reanimated installation instructions.](https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation)
+[Click for react-native-reanimated installation instructions.](https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/getting-started/#installation)
 
 
 **react-native-gesture-handler**
@@ -66,7 +66,7 @@ npm install react-native-gesture-handler
 </TabItem>
 </Tabs>
 
-[Click for react-native-gesture-handler installation instructions.](https://docs.swmansion.com/react-native-gesture-handler/docs/installation)
+[Click for react-native-gesture-handler installation instructions.](https://docs.swmansion.com/react-native-gesture-handler/docs/fundamentals/installation#bare-react-native)
 
  **react-native-vector-icons**
 
@@ -87,24 +87,6 @@ npm install react-native-vector-icons
 
 [Click for react-native-vector-icons installation instructions.](https://github.com/oblador/react-native-vector-icons#installation)
 
- **react-native-pager-view**
-
-<Tabs groupId="operating-systems">
-  <TabItem value="yarn" label="yarn">
-
-```bash npm2yarn
-yarn add react-native-pager-view
-```
-</TabItem>
-  <TabItem value="npm" label="npm">
-
-```bash npm2yarn
-npm install react-native-pager-view
-```
-</TabItem>
-</Tabs>
-
-[Click for react-native-pager-view installation instructions.](https://github.com/callstack/react-native-pager-view#getting-started)
 
 </TabItem>
 
@@ -138,11 +120,6 @@ Add this import to the top of your app entry file, such as App.js:
 ```js
 import 'react-native-gesture-handler';
 ```
-**react-native-pager-view**
-
-```bash npm2yarn
-npx expo install react-native-pager-view
-```
 
 </TabItem>
 </Tabs>
@@ -153,7 +130,6 @@ Wrap your root component in **KitraProvider** from react-native-kitra.
 
 ```jsx
 import { KitraProvider } from '@tra-tech/react-native-kitra';
-import App from './src/App';
 
 export default function Main() {
   return (
@@ -164,3 +140,5 @@ export default function Main() {
 }
 
 ```
+
+
