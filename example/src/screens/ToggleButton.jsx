@@ -1,6 +1,5 @@
-import { View } from 'react-native';
-import { ToggleButton, opacity } from '@tra-tech/react-native-kitra';
-import Divider from '../components/Divider';
+import { StyleSheet, Text, View } from 'react-native';
+import { ToggleButton } from '@tra-tech/react-native-kitra';
 import Layout from '../components/Layout';
 
 const buttons = [
@@ -18,25 +17,30 @@ const buttons = [
   },
 ];
 const ToggleButtonScreen = () => (
-  <Layout>
+  <Layout style={{ rowGap: 15 }}>
+    <Text style={styles.headerText}>Default</Text>
     <ToggleButton buttons={buttons} />
-    <Divider label="Sizes S-M" />
+
+    <Text style={styles.headerText}>Sizes M-S</Text>
     <View style={{ rowGap: 10 }}>
       <ToggleButton size="medium" buttons={buttons} />
       <ToggleButton size="small" buttons={buttons} />
     </View>
-    <Divider label="Custom Theme" />
-    <View style={{ rowGap: 10 }}>
-      <ToggleButton
-        theme={{
-          active: { background: opacity('#07FA80', 100), border: 'red', label: 'yellow' },
-          default: { background: 'blue', border: 'orange', label: 'purple' },
-        }}
-        size="medium"
-        buttons={buttons}
-      />
-    </View>
+
+    <Text style={styles.headerText}>Custom Theme</Text>
+    <ToggleButton
+      theme={{
+        active: { background: '#195CEF', border: 'white', label: '#F6F9FF' },
+        default: { background: 'white', border: '#195CEF', label: '#195CEF' },
+      }}
+      size="medium"
+      buttons={buttons}
+    />
   </Layout>
 );
 
 export default ToggleButtonScreen;
+
+const styles = StyleSheet.create({
+  headerText: { fontSize: 15, fontWeight: '400' },
+});

@@ -1,31 +1,36 @@
 import { Badge, Icon, Avatar } from '@tra-tech/react-native-kitra';
+import { StyleSheet, Text, View } from 'react-native';
 import Layout from '../components/Layout';
 import AppDivider from '../components/Divider';
 
 const BadgeScreen = () => (
-  <Layout>
-    <AppDivider label="Badge with Icon" />
+  <Layout style={{ rowGap: 15 }}>
+    <Text style={styles.headerText}>Default</Text>
+    <Badge />
+
+    <Text style={[styles.headerText, { marginTop: 20 }]}>Badge with Icon</Text>
     <Badge icon={<Icon type="ant-design" name="minus" />}>
       <Avatar />
     </Badge>
-    <AppDivider label="Badge with Label" />
 
-    <Badge label="kitra" containerStyle={{ marginTop: 20 }}>
+    <Text style={styles.headerText}>Badge with Label</Text>
+    <Badge label="kitra">
       <Avatar />
     </Badge>
-    <AppDivider label="Default" />
 
-    <Badge />
-    <AppDivider label="Badge custom theme" />
-
+    <Text style={styles.headerText}>Badge custom theme</Text>
     <Badge
       label="Kitra"
-      containerStyle={{ marginTop: 20 }}
-      theme={{ default: { background: 'pink', border: 'green', label: 'red' } }}
+      theme={{ default: { background: '#E6EEFF', border: '#195CEF', label: '#195CEF' } }}
     >
       <Avatar />
     </Badge>
   </Layout>
+
 );
 
 export default BadgeScreen;
+
+const styles = StyleSheet.create({
+  headerText: { fontSize: 15, fontWeight: '400' },
+});

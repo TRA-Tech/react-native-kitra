@@ -1,32 +1,34 @@
-import { View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { CheckBox } from '@tra-tech/react-native-kitra';
 import Layout from '../components/Layout';
-import Divider from '../components/Divider';
 
 const CheckBoxScreen = () => (
-  <Layout>
-    <Divider label="Default" />
-
+  <Layout style={{ rowGap: 15 }}>
+    <Text style={styles.headerText}>Default</Text>
     <CheckBox onChange={e => console.log(e)} />
 
-    <Divider label="Disabled" />
+    <Text style={styles.headerText}>Disabled</Text>
     <CheckBox disabled value={false} />
 
-    <Divider label="Custom Theme" />
+    <Text style={styles.headerText}>Custom Theme</Text>
     <CheckBox theme={{
-      default: { background: 'yellow', border: 'blue', icon: 'darkblue' },
-      filled: { background: 'orange', border: 'purple', icon: 'white' },
+      default: { background: '#F6F9FF', border: 'blue', icon: 'darkblue' },
+      filled: { background: '#195CEF', border: '#195CEF', icon: 'white' },
     }}
     />
-    <Divider label="Custom Theme Disabled" />
+
+    <Text style={styles.headerText}>Custom Theme Disabled</Text>
     <CheckBox
-      style={{ marginTop: 10 }}
       disabled
       theme={{
-        disabled: { background: 'red', border: 'black', icon: 'darkblue' },
+        disabled: { background: 'grey', border: '#195CEF', icon: 'darkblue' },
       }}
     />
   </Layout>
 );
 
 export default CheckBoxScreen;
+
+const styles = StyleSheet.create({
+  headerText: { fontSize: 15, fontWeight: '400' },
+});

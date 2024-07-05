@@ -1,17 +1,16 @@
-import { View } from 'react-native';
-import { Button, Icon, Menu } from '@tra-tech/react-native-kitra';
+import { StyleSheet, Text } from 'react-native';
+import { Icon, Menu } from '@tra-tech/react-native-kitra';
 import Layout from '../components/Layout';
-import Divider from '../components/Divider';
 
 const data = [
   {
-    left: <Icon type="material" name="share" />,
+    left: <Icon type="material" name="share" color="white" />,
     label: 'Share',
     onPress: () => console.log('Share'),
   },
   {
-    left: <Icon type="material" name="delete" />,
-    right: <Icon type="material" name="delete" />,
+    left: <Icon type="material" name="delete" color="white" />,
+    right: <Icon type="material" name="delete" color="white" />,
     label: 'Delete',
     onPress: () => console.log('Delete'),
   },
@@ -19,19 +18,19 @@ const data = [
 
 const MenuIconButton = () => (<Icon type="material" size={20} name="more-vert" />);
 const MenuScreen = () => (
-  <Layout>
-    <Divider label="Default" />
+  <Layout style={{ rowGap: 15 }}>
+    <Text style={styles.headerText}>Default</Text>
     <Menu
       button={MenuIconButton}
       items={data}
     />
-    <Divider label="Custom Theme" />
+    <Text style={styles.headerText}>Custom Theme</Text>
     <Menu
       containerStyle={{ alignItems: 'flex-start' }}
       items={data}
       theme={{
-        active: { divider: 'brown', icon: 'red', itemBackground: 'orange', itemLabel: 'blue' },
-        default: { divider: 'red', icon: 'brown', itemBackground: 'blue', itemLabel: 'orange' },
+        active: { divider: 'white', itemBackground: '#195CEF', itemLabel: 'white' },
+        default: { divider: '#195CEF', itemBackground: 'white', itemLabel: '#195CEF' },
       }}
       closeOnPress
       button={MenuIconButton}
@@ -41,3 +40,7 @@ const MenuScreen = () => (
 );
 
 export default MenuScreen;
+
+const styles = StyleSheet.create({
+  headerText: { fontSize: 15, fontWeight: '400' },
+});
