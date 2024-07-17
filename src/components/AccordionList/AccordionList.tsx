@@ -14,6 +14,7 @@ const AccordionList: FCCWD<AccordionListProps> = ({
   left,
   right,
   labelContainerStyle,
+  containerStyle,
   labelStyle,
   rowTextStyle,
   rowStyle,
@@ -51,7 +52,7 @@ const AccordionList: FCCWD<AccordionListProps> = ({
   };
 
   return (
-    <>
+    <View style={containerStyle}>
       <TouchableOpacity activeOpacity={0.8} onPress={handleListOpen} testID={testID}>
         <View style={[styles.labelContianer, labelContainerStyle, { backgroundColor: statusTheme.background }]}>
           {typeof left === 'function' && left?.(expanded)}
@@ -91,7 +92,7 @@ const AccordionList: FCCWD<AccordionListProps> = ({
           )}
         />
       </Animated.View>
-    </>
+    </View>
   );
 };
 
