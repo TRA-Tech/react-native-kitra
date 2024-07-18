@@ -34,3 +34,4 @@ export { default as Icon } from './components/Icons/Icon';
 
 /* ----FUNCTION---- */
 export { opacity } from './utilities';
+export { showNotification } from './core/KitraProvider';
