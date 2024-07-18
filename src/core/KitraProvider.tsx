@@ -6,7 +6,7 @@ import { StyleProp, ViewStyle } from 'react-native';
 
 import { ThemeProvider } from './theme/theme';
 import { TypographyContext, TypographyProvider } from './typography/typography';
-import { NotificationProvider } from './notification/notification';
+import { NotificationContextType, NotificationProvider } from './notification/notification';
 
 const Feather = require('react-native-vector-icons/Feather').default;
 const Ionicons = require('react-native-vector-icons/Ionicons').default;
@@ -35,6 +35,7 @@ const messageTypes = (theme:any) => ({
 type KitraProviderType= {
   children?:any,
   limit?:number,
+  notificationRef?:React.Ref<NotificationContextType>,
   messageType?:(theme?:any, colorScheme?:'dark' | 'light') => {[key:string]: {
       backgroundColor:string,
     icon?:React.ReactNode
@@ -45,21 +46,23 @@ type KitraProviderType= {
     {header:string, type:string, message:string, theme:any})=>React.ReactNode}
 
 export const KitraProvider =
-({ children, messageType = messageTypes, notificationCcontainerStyle, limit, customView }: KitraProviderType) => (
-  <GestureHandlerRootView style={{ flex: 1 }}>
-    <ThemeProvider>
-      <TypographyProvider>
-        <NotificationProvider
-          messageType={theme => (messageType ? messageType(theme) : theme)}
-          notificationCcontainerStyle={notificationCcontainerStyle}
-          limit={limit}
-          customView={item => customView?.(item)}
-        >
-          {children}
-        </NotificationProvider>
-      </TypographyProvider>
-    </ThemeProvider>
-  </GestureHandlerRootView>
+({ children, messageType = messageTypes, notificationCcontainerStyle, limit, customView,
+  notificationRef }: KitraProviderType) => (
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <ThemeProvider>
+        <TypographyProvider>
+          <NotificationProvider
+            messageType={theme => (messageType ? messageType(theme) : theme)}
+            notificationCcontainerStyle={notificationCcontainerStyle}
+            limit={limit}
+            customView={item => customView?.(item)}
+            ref={notificationRef}
+          >
+            {children}
+          </NotificationProvider>
+        </TypographyProvider>
+      </ThemeProvider>
+    </GestureHandlerRootView>
 );
 
 export function applyDefaults<T>(Component: ComponentType<T>) {
