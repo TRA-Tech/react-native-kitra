@@ -89,10 +89,9 @@ const Dropdown: FCCWD<DrowdownProps> = (
         activeOpacity={0.9}
         onLayout={event => setCord(event.nativeEvent.layout)}
         onPress={() => { setVisible(!visible); }}
-        style={[Style.button, buttonStyle,
+        style={[Style.button, { height: sizes[size].buttonHeight }, buttonStyle,
           { borderColor: statusTheme.border,
-            backgroundColor: statusTheme.background,
-            height: sizes[size].buttonHeight }]}
+            backgroundColor: statusTheme.background }]}
       >
         {leftElement && (
         <View style={Style.leftItem}>
@@ -136,13 +135,16 @@ const Dropdown: FCCWD<DrowdownProps> = (
             {
               width: cord?.width,
               left: 0,
-            }, listContainerStyle,
+            },
             { maxHeight: sizes[size].rowHeight * 4.5 },
+            listContainerStyle,
             autoPosition ?
-              (windowsHeight - cord?.y <= windowsHeight / 3 ? { bottom: cord?.height + 5 } : { top: cord?.height + 5 })
+              (cord?.y + (sizes[size].rowHeight * 4.5) + 10 + sizes[size].buttonHeight || 0) >= windowsHeight ?
+                { bottom: cord?.height } : { top: cord?.height }
               : { top: cord?.height + 5 },
             { backgroundColor: statusTheme.collapseBackground }]}
         >
+            {console.log(cord, windowsHeight, cord?.y + (sizes[size].rowHeight * 4.5))}
           <Animated.View
             entering={FadeIn.duration(300)}
             exiting={FadeOut}
@@ -160,12 +162,12 @@ const Dropdown: FCCWD<DrowdownProps> = (
                   style={[
                     Style.row,
                     index === data.length - 1 ? { borderBottomLeftRadius: 5, borderBottomRightRadius: 5 } : null,
+                    { height: sizes[size].rowHeight },
                     rowStyle,
                     {
                       backgroundColor: componentTheme[isSelectedObject(value) ?
                         'selected' : componentStatus]?.itemBackground,
                     },
-                    { height: sizes[size].rowHeight },
                   ]}
                 >
                   <Text style={[sizes[size].typography, { marginVertical: 10, marginHorizontal: 10 }, rowTextStyle,
@@ -198,7 +200,6 @@ export const Style = StyleSheet.create({
   listContainer: {
     zIndex: 100,
     padding: 10,
-    maxHeight: 36 * 4.5,
     width: '100%',
     position: 'absolute',
     borderTopWidth: 0,
