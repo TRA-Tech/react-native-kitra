@@ -26,6 +26,7 @@ const Dropdown: FCCWD<DrowdownProps> = (
     rowTextStyle,
     containerStyle,
     autoPosition = true,
+    size = 'medium',
     testID,
     theme },
 ) => {
@@ -37,6 +38,24 @@ const Dropdown: FCCWD<DrowdownProps> = (
     'dropdown',
     Object.keys(selectedObject).length ? 'selected' : visible ? 'active' : 'default',
   );
+
+  const sizes = {
+    small: {
+      buttonHeight: 36,
+      typography: typography.body.xsmedium,
+      rowHeight: 35,
+    },
+    medium: {
+      buttonHeight: 42,
+      typography: typography.body.smedium,
+      rowHeight: 38,
+    },
+    large: {
+      buttonHeight: 51,
+      typography: typography.body.medium,
+      rowHeight: 41,
+    },
+  };
 
   const isObjectSelected = (Object.keys(selectedObject).length !== 0);
   const isSelectedObject = (value: any) => displayedButtonValue?.(selectedObject) === displayedButtonValue?.(value);
@@ -71,7 +90,9 @@ const Dropdown: FCCWD<DrowdownProps> = (
         onLayout={event => setCord(event.nativeEvent.layout)}
         onPress={() => { setVisible(!visible); }}
         style={[Style.button, buttonStyle,
-          { borderColor: statusTheme.border, backgroundColor: statusTheme.background }]}
+          { borderColor: statusTheme.border,
+            backgroundColor: statusTheme.background,
+            height: sizes[size].buttonHeight }]}
       >
         {leftElement && (
         <View style={Style.leftItem}>
@@ -89,7 +110,7 @@ const Dropdown: FCCWD<DrowdownProps> = (
               flex: 1,
               marginLeft: 12,
             },
-            typography?.body.medium, buttonTextStyle, {
+            sizes[size].typography, buttonTextStyle, {
               color: componentTheme[isObjectSelected ? 'selected' : componentStatus]?.label,
             }]}
         >
@@ -116,6 +137,7 @@ const Dropdown: FCCWD<DrowdownProps> = (
               width: cord?.width,
               left: 0,
             }, listContainerStyle,
+            { maxHeight: sizes[size].rowHeight * 4.5 },
             autoPosition ?
               (windowsHeight - cord?.y <= windowsHeight / 3 ? { bottom: cord?.height + 5 } : { top: cord?.height + 5 })
               : { top: cord?.height + 5 },
@@ -143,9 +165,10 @@ const Dropdown: FCCWD<DrowdownProps> = (
                       backgroundColor: componentTheme[isSelectedObject(value) ?
                         'selected' : componentStatus]?.itemBackground,
                     },
+                    { height: sizes[size].rowHeight },
                   ]}
                 >
-                  <Text style={[typography?.body.smedium, { marginVertical: 10, marginHorizontal: 10 }, rowTextStyle,
+                  <Text style={[sizes[size].typography, { marginVertical: 10, marginHorizontal: 10 }, rowTextStyle,
                     { color: componentTheme[isSelectedObject(value) ? 'selected' : componentStatus]?.itemLabel }]}
                   >
                     {displayedRowValue?.(value)}
@@ -165,11 +188,10 @@ export default Dropdown;
 
 export const Style = StyleSheet.create({
   button: {
-    height: 42,
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
-    borderRadius: 5,
+    borderRadius: 8,
     borderWidth: 1,
   },
 
@@ -191,7 +213,6 @@ export const Style = StyleSheet.create({
   },
 
   row: {
-    height: 38,
     borderRadius: 3,
     borderWidth: 0,
     justifyContent: 'center',
