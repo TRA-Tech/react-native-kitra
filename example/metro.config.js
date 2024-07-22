@@ -1,14 +1,12 @@
 const { getDefaultConfig } = require('@expo/metro-config');
 const escape = require('escape-string-regexp');
-const blacklist = require('metro-config/src/defaults/exclusionList');
+const exclusionList = require('metro-config/src/defaults/exclusionList');
 const path = require('path');
-
 const pak = require('../package.json');
 
 const root = path.resolve(__dirname, '..');
 
 const defaultConfig = getDefaultConfig(__dirname);
-
 const modules = [
   '@expo/vector-icons',
   'expo-modules-core',
@@ -20,13 +18,12 @@ module.exports = {
 
   projectRoot: __dirname,
   watchFolders: [root],
-
   resolver: {
     ...defaultConfig.resolver,
-    blacklistRE: blacklist(
+    enableGlobalPackages: true,
+    blockList: exclusionList(
       modules.map(
-        m =>
-          new RegExp(`^${escape(path.join(root, 'node_modules', m))}\\/.*$`),
+        m => new RegExp(`^${escape(path.join(root, 'node_modules', m))}\\/.*$`),
       ),
     ),
 
@@ -35,5 +32,4 @@ module.exports = {
       return acc;
     }, {}),
   },
-
 };

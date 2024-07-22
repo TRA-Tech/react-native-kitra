@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { ActivityIndicator } from '@tra-tech/react-native-kitra';
 import Layout from '../components/Layout';
-import Divider from '../components/Divider';
 
 const ActivityIndicatorScreen = () => (
   <Layout style={{ rowGap: 15 }}>

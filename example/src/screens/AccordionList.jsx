@@ -17,7 +17,7 @@ const AccordionListScreen = () => (
       <Text style={styles.headerText}>Default</Text>
       <AccordionList
         data={Data}
-        onExpand={() => console.log('Acordion list open')}
+        onExpand={() => console.log('Accordion list open')}
         itemDisplay={x => x.name}
         label="Grey Daze"
         left={AccordionListLeftIcon}
@@ -26,7 +26,7 @@ const AccordionListScreen = () => (
       <AccordionList
         data={Data}
         displayedItem={x => x.name}
-        onExpand={() => console.log('Acordion list open')}
+        onExpand={() => console.log('Accordion list open')}
         itemDisplay={x => x.name}
         onSelect={x => console.log(x)}
         label="Grey Daze"

@@ -2,11 +2,11 @@ import type { ComponentType, ForwardedRef } from 'react';
 import React from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import Animated from 'react-native-reanimated';
-import { StyleProp, ViewStyle } from 'react-native';
-
+import { StyleProp, View, ViewStyle } from 'react-native';
 import { ThemeProvider } from './theme/theme';
 import { TypographyContext, TypographyProvider } from './typography/typography';
 import { NotificationProvider } from './notification/notification';
+import Button from 'src/components/Button/Button';
 
 const Feather = require('react-native-vector-icons/Feather').default;
 const Ionicons = require('react-native-vector-icons/Ionicons').default;

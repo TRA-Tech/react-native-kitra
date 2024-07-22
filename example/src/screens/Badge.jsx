@@ -1,7 +1,6 @@
 import { Badge, Icon, Avatar } from '@tra-tech/react-native-kitra';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import Layout from '../components/Layout';
-import AppDivider from '../components/Divider';
 
 const BadgeScreen = () => (
   <Layout style={{ rowGap: 15 }}>
