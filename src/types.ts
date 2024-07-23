@@ -406,6 +406,10 @@ export type DrowdownProps = {
         *The theme to use for the component
     */
     theme?: DeepPartial<(ComponentThemeType['dropdown'])>
+     /**
+        *The value of the dropdown.
+    */
+    value?:any
     /**
         *Used to locate this view in end-to-end tests
     */

@@ -32,9 +32,11 @@ export { default as PagerView } from './components/PagerView/PagerView';
 export { default as ActivityIndicator } from './components/ActivityIndicator/ActivityIndicator';
 export { default as Icon } from './components/Icons/Icon';
 
-/* ----FUNCTION---- */
+/* ----FUNCTIONS---- */
 export { opacity } from './utilities';
+export { showNotification } from './core/KitraProvider';
 
+/* ----TYPES---- */
 export { AccordionListProps,
   ActionProps,
   ActivityIndicatorProps,
@@ -67,3 +69,5 @@ export { AccordionListProps,
   RenderRightActionProps,
   Components,
   DrowdownRouteProps } from './types';
+
+

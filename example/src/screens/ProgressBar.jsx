@@ -1,18 +1,17 @@
-import { View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { ProgressBar } from '@tra-tech/react-native-kitra';
 import Layout from '../components/Layout';
-import Divider from '../components/Divider';
 
 const ProgressBarScreen = () => (
-  <Layout>
-    <Divider label="%0" />
+  <Layout style={{ rowGap: 15 }}>
+    <Text style={styles.headerText}>%0</Text>
     <ProgressBar progress={0} />
-    <Divider label="%50" />
+    <Text style={styles.headerText}>%50</Text>
     <ProgressBar progress={50} />
-    <Divider label="%100" />
+    <Text style={styles.headerText}>%100</Text>
     <ProgressBar progress={100} />
 
-    <Divider label="Customized" />
+    <Text style={styles.headerText}>Customized</Text>
     <View style={{ rowGap: 10 }}>
       <ProgressBar progress={50} />
       <ProgressBar
@@ -20,11 +19,16 @@ const ProgressBarScreen = () => (
         progressStyle={{ height: 10, borderRadius: 10, borderWidth: 2, borderColor: 'black' }}
       />
     </View>
-    <Divider label="Custom Theme" />
+
+    <Text style={styles.headerText}>Custom Theme</Text>
     <View style={{ rowGap: 10 }}>
-      <ProgressBar progress={50} theme={{ default: { bar: 'purple', progress: 'orange' } }} />
+      <ProgressBar progress={50} theme={{ default: { bar: '#3B79FF', progress: '#21273E' } }} />
     </View>
   </Layout>
 );
 
 export default ProgressBarScreen;
+
+const styles = StyleSheet.create({
+  headerText: { fontSize: 15, fontWeight: '400' },
+});

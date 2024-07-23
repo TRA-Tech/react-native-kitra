@@ -1,22 +1,22 @@
-import { View } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import { Switch } from '@tra-tech/react-native-kitra';
 import { useState } from 'react';
 import Layout from '../components/Layout';
-import Divider from '../components/Divider';
 
 const SwitchScreen = () => {
   const [isEnabled, setIsEnabled] = useState(false);
   return (
-    <Layout>
-      <Divider label="Default" />
+    <Layout style={{ rowGap: 15 }}>
+      <Text style={styles.headerText}>Default</Text>
       <Switch value={isEnabled} onValueChange={setIsEnabled} />
-      <Divider label="Customized" />
+
+      <Text style={styles.headerText}>Customized</Text>
       <Switch
         value={isEnabled}
         onValueChange={setIsEnabled}
         theme={{
-          active: { thumb: 'blue', track: 'orange' },
-          default: { thumb: 'yellow', track: 'black' },
+          active: { thumb: 'blue', track: '#F6F9FF' },
+          default: { thumb: 'white', track: '#124CCA' },
         }}
       />
     </Layout>
@@ -24,3 +24,7 @@ const SwitchScreen = () => {
 };
 
 export default SwitchScreen;
+
+const styles = StyleSheet.create({
+  headerText: { fontSize: 15, fontWeight: '400' },
+});

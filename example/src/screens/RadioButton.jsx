@@ -1,17 +1,16 @@
-import { View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { RadioButton } from '@tra-tech/react-native-kitra';
 import Layout from '../components/Layout';
-import Divider from '../components/Divider';
 
 const RadioButtonScreen = () => (
-  <Layout>
-    <Divider label="Default" />
+  <Layout style={{ rowGap: 15 }}>
+    <Text style={styles.headerText}>Default</Text>
     <RadioButton />
-    <Divider label="Custom Theme" />
+    <Text style={styles.headerText}>Custom Theme</Text>
     <RadioButton
       theme={{
-        active: { background: 'orange', border: 'purple', dot: 'blue' },
-        default: { background: 'green', border: 'red', dot: 'white' },
+        active: { background: '#F6F9FF', border: '#195CEF', dot: 'blue' },
+        default: { background: 'white', border: '#195CEF', dot: '#195CEF' },
       }}
       onChange={x => console.log(x)}
     />
@@ -19,3 +18,7 @@ const RadioButtonScreen = () => (
 );
 
 export default RadioButtonScreen;
+
+const styles = StyleSheet.create({
+  headerText: { fontSize: 15, fontWeight: '400' },
+});
