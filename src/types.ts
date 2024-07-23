@@ -320,6 +320,10 @@ export type DividerProps = {
     */
     style?: StyleProp<ViewStyle>
     /**
+        *Border width to be apply to the divider
+    */
+    borderWidth?:number,
+    /**
         *The theme to use for the component
     */
     theme?: DeepPartial<DeepPartial<(ComponentThemeType['divider'])>>
