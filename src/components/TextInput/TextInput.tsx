@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { TextInput as RNTextInput,
-  View, TextInputProps as RNTextInputProps, TouchableOpacity, StyleSheet, Text } from 'react-native';
+  View, TextInputProps as RNTextInputProps, TouchableOpacity, StyleSheet, Text,
+  TextStyle } from 'react-native';
 import Animated,
 { interpolate, interpolateColor, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
@@ -75,16 +76,40 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
   const labelStyles =
   {
     large: {
-      focused: typography?.body.regular,
-      default: typography?.body.sregular,
+      focused: {
+        fontSize: 14,
+        lineHeight: 16,
+        fontFamily: 'Poppins-Regular',
+      },
+      default: {
+        fontSize: 12,
+        lineHeight: 16,
+        fontFamily: 'Poppins-Regular',
+      },
     },
     medium: {
-      focused: typography?.body.sregular,
-      default: typography?.body.xsregular,
+      focused: {
+        fontSize: 12,
+        lineHeight: 16,
+        fontFamily: 'Poppins-Regular',
+      },
+      default: {
+        fontSize: 10,
+        lineHeight: 14,
+        fontFamily: 'Poppins-Regular',
+      },
     },
     small: {
-      focused: typography?.body.xsregular,
-      default: typography?.body.xxsregular,
+      focused: {
+        fontSize: 10,
+        lineHeight: 14,
+        fontFamily: 'Poppins-Regular',
+      },
+      default: {
+        fontSize: 8,
+        lineHeight: 12,
+        fontFamily: 'Poppins-Regular',
+      },
     },
   };
 
@@ -118,12 +143,14 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
     const fontSize = interpolate(
       textInputOffset.value,
       [0, 1],
-      [labelStyles[size].default.fontSize, labelStyles[size].focused.fontSize],
+      [labelStyles[size].default.fontSize,
+        (labelStyle as TextStyle)?.fontSize || labelStyles[size].focused.fontSize],
     );
     const lineHeight = interpolate(
       textInputOffset.value,
       [0, 1],
-      [labelStyles[size].default.lineHeight, labelStyles[size].focused.lineHeight],
+      [labelStyles[size].default.lineHeight,
+        (labelStyle as TextStyle)?.lineHeight || labelStyles[size].focused.lineHeight],
     );
     const color = interpolateColor(
       textInputOffset.value,

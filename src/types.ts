@@ -283,11 +283,11 @@ export type ChipProps = {
     /**
         *Additional element to apply to left side of the chip
     */
-    left:(event:boolean)=> React.ReactElement,
+    left?:(event:boolean)=> React.ReactElement,
     /**
         *Additional element to apply to right side of the chip
     */
-    right:(event:boolean)=> React.ReactElement,
+    right?:(event:boolean)=> React.ReactElement,
     /**
         *The size of the chip. Defaults to 'small'
     */
@@ -295,7 +295,7 @@ export type ChipProps = {
     /**
         *Callback function to be called when the value of a chip component changes
     */
-    onChange: (event: boolean) => void,
+    onChange?: (event: boolean) => void,
     /**
         *Whether the press behavior is disabled
     */
@@ -410,6 +410,10 @@ export type DrowdownProps = {
         *The theme to use for the component
     */
     theme?: DeepPartial<(ComponentThemeType['dropdown'])>
+     /**
+        *The value of the dropdown.
+    */
+    value?:any
     /**
         *Used to locate this view in end-to-end tests
     */

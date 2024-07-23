@@ -36,7 +36,7 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [isReady, setIsReady] = React.useState(false);
-
+  const { theme } = useTheme();
   useEffect(() => {
     const prepareResources = async () => {
       try {
@@ -70,12 +70,18 @@ export default function App() {
   if (!isReady) {
     return null;
   }
-
   return (
     <SafeAreaView edges={['bottom']} style={{ flex: 1 }}>
       <KitraProvider>
         <NavigationContainer>
-          <Stack.Navigator>
+          <Stack.Navigator
+            screenOptions={{
+              headerStyle: { backgroundColor: '#F6F9FF' },
+              headerBackTitleVisible: false,
+              headerTitleStyle: { color: '#195CEF', fontSize: 20, fontWeight: '500' },
+              headerShadowVisible: false,
+            }}
+          >
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="AccordionList" component={AccordionListScreen} />
             <Stack.Screen name="ActivityIndicator" component={ActivityIndicatorScreen} />

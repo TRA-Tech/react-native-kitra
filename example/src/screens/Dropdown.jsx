@@ -1,6 +1,5 @@
-import { View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { Dropdown, Icon } from '@tra-tech/react-native-kitra';
-import Divider from '../components/Divider';
 import Layout from '../components/Layout';
 
 const data = [
@@ -44,150 +43,153 @@ const data = [
 
 const DropdownScreen = () => (
   <Layout scroll>
-    <Divider label="Default" />
-    <View style={{ zIndex: 10 }}>
-      <Dropdown
-        data={data}
-        displayedButtonValue={x => x.name}
-        displayedRowValue={x => `${x.name} ${x.activeYears}`}
-        onSelect={x => console.log(x)}
-      />
-    </View>
-
-    <View style={{ zIndex: 9 }}>
-      <Divider label="Disabled" />
-      <Dropdown
-        disabled
-        data={data}
-        displayedButtonValue={x => x.name}
-        displayedRowValue={x => `${x.name} ${x.activeYears}`}
-        onSelect={x => console.log(x)}
-      />
-    </View>
-
-    <View style={{ rowGap: 20, zIndex: 8 }}>
-      <View style={{ zIndex: 8 }}>
-        <Divider label="Left - Right Elements" />
+    <View style={{ rowGap: 15 }}>
+      <Text style={styles.headerText}>Default</Text>
+      <View style={{ zIndex: 10 }}>
         <Dropdown
           data={data}
           displayedButtonValue={x => x.name}
           displayedRowValue={x => `${x.name} ${x.activeYears}`}
           onSelect={x => console.log(x)}
-          right={<Icon type="font-awesome-5" color="black" name="guitar" size={18} />}
         />
       </View>
-      <View style={{ zIndex: 7 }}>
+
+      <View style={{ zIndex: 9, rowGap: 15 }}>
+        <Text style={styles.headerText}>Disabled</Text>
         <Dropdown
+          disabled
           data={data}
           displayedButtonValue={x => x.name}
           displayedRowValue={x => `${x.name} ${x.activeYears}`}
           onSelect={x => console.log(x)}
-          right={<Icon type="ant-design" color="black" name="down" size={10} />}
         />
       </View>
-      <View style={{ zIndex: 6 }}>
+
+      <View style={{ rowGap: 15, zIndex: 8 }}>
+        <View style={{ zIndex: 8, rowGap: 15 }}>
+          <Text style={styles.headerText}>Left - Right Elements</Text>
+          <Dropdown
+            data={data}
+            displayedButtonValue={x => x.name}
+            displayedRowValue={x => `${x.name} ${x.activeYears}`}
+            onSelect={x => console.log(x)}
+            right={<Icon type="font-awesome-5" color="black" name="guitar" size={18} />}
+          />
+        </View>
+        <View style={{ zIndex: 7 }}>
+          <Dropdown
+            data={data}
+            displayedButtonValue={x => x.name}
+            displayedRowValue={x => `${x.name} ${x.activeYears}`}
+            onSelect={x => console.log(x)}
+            right={<Icon type="ant-design" color="black" name="down" size={10} />}
+          />
+        </View>
+        <View style={{ zIndex: 6 }}>
+          <Dropdown
+            data={data}
+            displayedButtonValue={x => x.name}
+            displayedRowValue={x => `${x.name} ${x.activeYears}`}
+            onSelect={x => console.log(x)}
+            left={<Icon type="font-awesome-5" color="black" name="guitar" size={18} />}
+            right={<Icon type="ant-design" color="black" name="down" size={10} />}
+          />
+        </View>
+      </View>
+      <Text style={styles.headerText}>Custom Theme</Text>
+      <Dropdown
+        theme={{
+          default: {
+            background: '#124CCA',
+            border: '#F6F9FF',
+            checkBackground: '#F6F9FF',
+            checkBorder: '#F6F9FF',
+            checkIcon: '#F6F9FF',
+            collapseBackground: '#F6F9FF',
+            collapseIcon: 'white',
+            completeBackground: '#F6F9FF',
+            completeLabel: '#F6F9FF',
+            itemBackground: '#F6F9FF',
+            itemLabel: '#F6F9FF',
+            label: 'white',
+            selectAllLabel: 'white',
+          },
+          selected: {
+            background: '#195CEF',
+            border: '#F6F9FF',
+            checkBackground: 'white',
+            checkBorder: '#F6F9FF',
+            checkIcon: '#F6F9FF',
+            collapseBackground: '#124CCA',
+            collapseIcon: 'white',
+            completeBackground: '#F6F9FF',
+            completeLabel: '#F6F9FF',
+            itemBackground: '#124CCA',
+            itemLabel: 'white',
+            label: '#F6F9FF',
+            selectAllLabel: '#F6F9FF',
+          },
+          active: {
+            background: '#F6F9FF',
+            border: '#195CEF',
+            checkBackground: '#195CEF',
+            checkBorder: '#195CEF',
+            checkIcon: '#195CEF',
+            collapseBackground: '#195CEF',
+            collapseIcon: '#195CEF',
+            completeBackground: '#195CEF',
+            completeLabel: '#195CEF',
+            itemBackground: '#195CEF',
+            itemLabel: 'white',
+            label: '#195CEF',
+            selectAllLabel: '#195CEF',
+          },
+        }}
+        data={data}
+        onSelect={x => console.log(x)}
+        displayedButtonValue={x => x.name}
+        displayedRowValue={x => `${x.name} ${x.activeYears}`}
+        buttonTitle="Select a band"
+        left={<Icon type="font-awesome-5" color="blue" name="guitar" size={18} />}
+      />
+
+      <Text style={styles.headerText}>Multiple Select</Text>
+      <View style={{ rowGap: 10, zIndex: 100 }}>
+        <Dropdown
+          data={data}
+          displayedButtonValue={x => x.name}
+          displayedRowValue={x => `${x.name} ${x.activeYears}`}
+          multiple
+        />
+
+        <Text style={styles.headerText}>Multiple Select All</Text>
+        <Dropdown
+          data={data}
+          onSelect={x => console.log(x)}
+          displayedButtonValue={x => x.name}
+          displayedRowValue={x => `${x.name} ${x.activeYears}`}
+          buttonTitle="Select a band"
+          displayLength={3}
+          multiple
+          selectall
+          onComplete={x => console.log(x)}
+          left={<Icon type="font-awesome-5" color="black" name="guitar" size={18} />}
+        />
         <Dropdown
           data={data}
           displayedButtonValue={x => x.name}
           displayedRowValue={x => `${x.name} ${x.activeYears}`}
           onSelect={x => console.log(x)}
           left={<Icon type="font-awesome-5" color="black" name="guitar" size={18} />}
-          right={<Icon type="ant-design" color="black" name="down" size={10} />}
         />
       </View>
-    </View>
-
-    <Divider label="Custom Theme" />
-    <Dropdown
-      theme={{
-        default: {
-          background: 'red',
-          border: 'orange',
-          checkBackground: 'pink',
-          checkBorder: 'yellow',
-          checkIcon: 'purple',
-          collapseBackground: 'yellow',
-          collapseIcon: 'red',
-          completeBackground: 'red',
-          completeLabel: 'red',
-          itemBackground: 'red',
-          itemLabel: 'red',
-          label: 'red',
-          selectAllLabel: 'red',
-        },
-        selected: {
-          background: 'red',
-          border: 'orange',
-          checkBackground: 'pink',
-          checkBorder: 'yellow',
-          checkIcon: 'purple',
-          collapseBackground: 'yellow',
-          collapseIcon: 'red',
-          completeBackground: 'red',
-          completeLabel: 'red',
-          itemBackground: 'red',
-          itemLabel: 'orange',
-          label: 'orange',
-          selectAllLabel: 'red',
-        },
-        active: {
-          background: 'red',
-          border: 'orange',
-          checkBackground: 'pink',
-          checkBorder: 'yellow',
-          checkIcon: 'purple',
-          collapseBackground: 'yellow',
-          collapseIcon: 'red',
-          completeBackground: 'red',
-          completeLabel: 'red',
-          itemBackground: 'red',
-          itemLabel: 'orange',
-          label: 'orange',
-          selectAllLabel: 'red',
-        },
-      }}
-      data={data}
-      defaultValue={data[1]}
-      onSelect={x => console.log(x)}
-      displayedButtonValue={x => x.name}
-      displayedRowValue={x => `${x.name} ${x.activeYears}`}
-      buttonTitle="Select a band"
-      left={<Icon type="font-awesome-5" color="white" name="guitar" size={18} />}
-    />
-
-    <Divider label="Multiple Select" />
-    <View style={{ rowGap: 10, zIndex: 100 }}>
-      <Dropdown
-        data={data}
-        displayedButtonValue={x => x.name}
-        displayedRowValue={x => `${x.name} ${x.activeYears}`}
-        multiple
-      />
-
-      <Divider label="Multiple Select All" />
-      <Dropdown
-        data={data}
-        onSelect={x => console.log(x)}
-        displayedButtonValue={x => x.name}
-        displayedRowValue={x => `${x.name} ${x.activeYears}`}
-        buttonTitle="Select a band"
-        displayLength={3}
-        multiple
-        selectall
-        onComplete={x => console.log(x)}
-        left={<Icon type="font-awesome-5" color="black" name="guitar" size={18} />}
-
-      />
-      <Dropdown
-        data={data}
-        displayedButtonValue={x => x.name}
-        displayedRowValue={x => `${x.name} ${x.activeYears}`}
-        onSelect={x => console.log(x)}
-        left={<Icon type="font-awesome-5" color="black" name="guitar" size={18} />}
-      />
     </View>
 
   </Layout>
 );
 
 export default DropdownScreen;
+
+const styles = StyleSheet.create({
+  headerText: { fontSize: 15, fontWeight: '400' },
+});
