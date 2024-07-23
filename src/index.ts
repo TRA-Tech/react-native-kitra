@@ -32,6 +32,42 @@ export { default as PagerView } from './components/PagerView/PagerView';
 export { default as ActivityIndicator } from './components/ActivityIndicator/ActivityIndicator';
 export { default as Icon } from './components/Icons/Icon';
 
-/* ----FUNCTION---- */
+/* ----FUNCTIONS---- */
 export { opacity } from './utilities';
 export { showNotification } from './core/KitraProvider';
+
+/* ----TYPES---- */
+export { AccordionListProps,
+  ActionProps,
+  ActivityIndicatorProps,
+  AvatarGroupProps,
+  AvatarProps,
+  BadgeProps,
+  ButtonProps,
+  CheckBoxProps,
+  ChipProps,
+  ComponentThemeType,
+  CoreThemeType,
+  DividerProps,
+  DrowdownProps,
+  IconComponentProps,
+  IconProps,
+  IconType,
+  MenuProps,
+  MultipleDropdownProps,
+  PagerViewProps,
+  ProgressBarProps,
+  RadioButtonProps,
+  SliderProps,
+  SpeedDialProps,
+  SwipeProps,
+  SwitchProps,
+  ToggleButtonProps,
+  ThemeType,
+  TextInputProps,
+  TypographyType,
+  RenderRightActionProps,
+  Components,
+  DrowdownRouteProps } from './types';
+
+
