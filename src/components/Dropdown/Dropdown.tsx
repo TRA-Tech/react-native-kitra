@@ -151,7 +151,6 @@ const Dropdown: FCCWD<DrowdownProps> = (
               : { top: cord?.height + 5 },
             { backgroundColor: statusTheme.collapseBackground }]}
         >
-            {console.log(cord, windowsHeight, cord?.y + (sizes[size].rowHeight * 4.5))}
           <Animated.View
             entering={FadeIn.duration(300)}
             exiting={FadeOut}

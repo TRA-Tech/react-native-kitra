@@ -6,22 +6,10 @@ import Animated, { FadeOut, Layout, LightSpeedInLeft } from 'react-native-reanim
 import { TaskQueue } from '../../utilities';
 import useTheme from '../hooks/useTheme';
 import useTypograpghy from '../hooks/useTypography';
-
-const messageTypes = (theme:any) => ({
-  SUCCESS: { backgroundColor: theme.colors.status.successLight },
-  INFO: { backgroundColor: theme.colors.system.primary15 },
-  DANGER: { backgroundColor: theme.colors.status.errorLight },
-  WARNING: { backgroundColor: theme.colors.status.warningLight },
-});
+import { showNotificationProps } from '../KitraProvider';
 
 export type NotificationContextType = {
   showNotification: (props: showNotificationProps) => void;
-}
-
-export type showNotificationProps = {
-  header?: string;
-  message?: string;
-  type: keyof typeof messageTypes;
 }
 
 type NotificationProviderType = {
