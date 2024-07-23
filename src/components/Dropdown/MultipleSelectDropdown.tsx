@@ -35,7 +35,8 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
     rowTextStyle,
     containerStyle,
     testID,
-    theme },
+    theme,
+    size = 'medium' },
 ) => {
   const [visible, setVisible] = useState(false);
   const [selectedObjects, setSelectedObjects] = useState(defaultValue || []);
@@ -52,6 +53,24 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
   const dropdownAnimation = useAnimatedStyle(() => ({
     transform: [{ rotate: `${openAnimation.value * 180}deg` }],
   }), []);
+
+  const sizes = {
+    small: {
+      buttonHeight: 36,
+      typography: typography.body.xsmedium,
+      rowHeight: 35,
+    },
+    medium: {
+      buttonHeight: 42,
+      typography: typography.body.smedium,
+      rowHeight: 38,
+    },
+    large: {
+      buttonHeight: 51,
+      typography: typography.body.medium,
+      rowHeight: 41,
+    },
+  };
 
   const rightElement = useMemo(() => (typeof right === 'function' ? right(visible) : right), [visible, right]);
 
@@ -101,7 +120,9 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
         ref={dropdown}
         activeOpacity={0.9}
         onPress={() => { setVisible(!visible); }}
-        style={[Style.button, buttonStyle,
+        style={[Style.button,
+          { height: sizes[size].buttonHeight },
+          buttonStyle,
           {
             backgroundColor: componentTheme[isObjectSelected ? 'selected' : componenetStatus]?.background,
             borderColor: componentTheme[isObjectSelected ? 'selected' : componenetStatus]?.border,
@@ -116,8 +137,9 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
           numberOfLines={1}
           entering={FadeIn.delay(100)}
           exiting={FadeOut}
-          style={[buttonTextStyle,
-            typography?.body.medium,
+          style={[
+            sizes[size].typography,
+            buttonTextStyle,
             { flex: 1,
               marginLeft: 12,
               color: componentTheme[isObjectSelected ? 'selected' : componenetStatus]?.label }]}
@@ -151,14 +173,13 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
             {
               width: cord?.width,
               left: 0,
-
+              maxHeight: selectall ? sizes[size].rowHeight * 6.5 : sizes[size].rowHeight * 6,
             },
             listContainerStyle,
-            windowsHeight - (cord?.y + (38 * 4) || 0) <= windowsHeight / 3 ?
-              { bottom: cord?.height || 0 + 5 } : { top: cord?.height || 0 + 5 },
+            (cord?.y + (sizes[size].rowHeight * 6.5) || 0) >= windowsHeight ?
+              { bottom: cord?.height || 0 } : { top: 0 },
             { backgroundColor: statusTheme.collapseBackground }]}
         >
-
           <ScrollView>
             {/* @ts-ignore */}
             {dataWithID?.current?.map((item, index) => {
@@ -174,7 +195,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
                   style={[
                     Style.row,
                     index === data?.length || 0 - 1 ?
-                      { borderBottomLeftRadius: 5, borderBottomRightRadius: 5 }
+                      { borderBottomLeftRadius: 5, borderBottomRightRadius: 5, height: sizes[size].rowHeight }
                       : null,
                     rowStyle,
                     {
@@ -198,7 +219,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
                     )}
                   </TouchableOpacity>
                   <Text
-                    style={[typography?.body.smedium,
+                    style={[sizes[size].typography,
                       { marginHorizontal: 10 },
                       rowTextStyle, { color: componentTheme[isSelected ? 'selected' : componenetStatus]?.itemLabel }]}
                   >
@@ -235,7 +256,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
             onPress={() => {
               if (onComplete) onComplete(selectedObjects); setVisible(false);
             }}
-            size="large"
+            size={size}
             theme={{
               default: {
                 background: statusTheme.completeBackground,
@@ -257,7 +278,6 @@ export default MultipleDropdown;
 
 export const Style = StyleSheet.create({
   button: {
-    height: 42,
     width: '100%',
     borderWidth: 1,
     flexDirection: 'row',
@@ -267,7 +287,6 @@ export const Style = StyleSheet.create({
 
   listContainer: {
     zIndex: 100,
-    maxHeight: 38 * 4 + 78,
     position: 'absolute',
     padding: 10,
     paddingBottom: 14,
@@ -287,11 +306,9 @@ export const Style = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
     paddingHorizontal: 10,
-    height: 38,
     borderRadius: 3,
   },
   completeSelection: {
-    height: 42,
     width: '100%',
     paddingVertical: 12,
     paddingHorizontal: 30.5,

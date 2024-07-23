@@ -327,6 +327,10 @@ export type DividerProps = {
 
 export type DrowdownProps = {
     /**
+        *The size of the dropdown. Defaults to 'medium'
+    */
+        size?: 'large' | 'medium' | 'small',
+    /**
         *Whether to include a "Select All" option in the dropdown. Defaults to false
     */
     selectall?: boolean,
