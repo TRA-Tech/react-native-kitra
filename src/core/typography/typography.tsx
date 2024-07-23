@@ -2,7 +2,16 @@ import React, { createContext, useMemo, useState } from 'react';
 import type { FCC, TypographyType } from 'src/types';
 
 type TypographyContextType = {
+    /**
+   * This includes all typography-related styles and configurations.
+   */
   typography: TypographyType
+    /**
+   *   - `body` (optional): Partial updates for the body typography styles.
+   *   - `heading` (optional): Partial updates for the heading typography styles.
+   *   - Other keys (optional): Additional properties to be merged into the typography settings.
+   * This function will merge the provided updates with the current typography settings.
+   */
   updateTypography: (theme: {
     [key: string]: any,
     body?: { [key: string]: any },
@@ -15,7 +24,8 @@ const TypographyContext = createContext<TypographyContextType>({} as TypographyC
 const TypographyProvider: FCC = ({ children }) => {
   const [typography, setTypography] = useState<TypographyType>(defaultTypography);
 
-  function updateTypography(newTypography: { [key: string]: any, body?: { [key: string]: any }, heading?: { [key: string]: any } }) {
+  function updateTypography(newTypography: { [key: string]: any,
+    body?: { [key: string]: any }, heading?: { [key: string]: any } }) {
     const otherProperties = Object.keys(newTypography)
       .filter(key => !key.includes('body') && !key.includes('heading'))
       .reduce((cur, key) => Object.assign(cur, { [key]: newTypography?.[key] }), {});

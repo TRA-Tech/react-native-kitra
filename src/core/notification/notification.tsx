@@ -9,12 +9,29 @@ import useTypograpghy from '../hooks/useTypography';
 import { showNotificationProps } from '../KitraProvider';
 
 export type NotificationContextType = {
+  /**
+   * Function to show a notification.
+   */
   showNotification: (props: showNotificationProps) => void;
 }
 
 type NotificationProviderType = {
+  /**
+   * The child elements to be rendered inside the provider.
+   */
   children?: React.ReactNode;
+  /**
+   * The maximum number of notifications to show in the queue. Defaults to 3.
+   */
   limit?: number;
+   /**
+     * A function that returns the styles for different message types based on the theme and optional color scheme.
+     * - `theme`: The current theme object.
+     * - `colorScheme`: Optional color scheme, which can be 'dark' or 'light'.
+     * - `backgroundColor`: Background color for the notification.
+     * - `icon` (optional): An optional icon to be displayed.
+     * - `onPress` (optional): A function to be called when the notification is pressed.
+     */
   messageType?: (theme?: any) => {
     [key: string]: {
       backgroundColor: string;
@@ -22,7 +39,18 @@ type NotificationProviderType = {
       onPress?: () => void;
     }
   };
+    /**
+     * Custom styles for the container holding the notifications.
+     */
   notificationContainerStyle?: StyleProp<ViewStyle>;
+   /**
+     * A custom view function to render the notification.
+     * Returns a React node to be used as the custom notification view.
+     * - `header`: The header text of the notification.
+     * - `type`: The type of the notification (e.g., 'SUCCESS', 'INFO').
+     * - `message`: The message text of the notification.
+     * - `theme`: The current theme object.
+     */
   customView?: ({ header, type, message, theme }:
      { header: string; type: string; message: string; theme: any }) => React.ReactNode;
 }
