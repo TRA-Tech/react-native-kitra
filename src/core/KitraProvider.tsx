@@ -2,10 +2,10 @@ import type { ComponentType, ForwardedRef } from 'react';
 import React, { createRef } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import Animated from 'react-native-reanimated';
-import { StyleProp, ViewStyle } from 'react-native';
-
+import { StyleProp, View, ViewStyle } from 'react-native';
 import { ThemeProvider } from './theme/theme';
 import { TypographyContext, TypographyProvider } from './typography/typography';
+
 import { NotificationContextType, NotificationProvider, showNotificationProps } from './notification/notification';
 
 const Feather = require('react-native-vector-icons/Feather').default;

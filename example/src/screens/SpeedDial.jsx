@@ -1,16 +1,16 @@
-import { View } from 'react-native';
 import { SpeedDial } from '@tra-tech/react-native-kitra';
 import Layout from '../components/Layout';
-import AppDivider from '../components/Divider';
 
 const SpeedDialScreen = () => (
   <Layout>
     <SpeedDial
       theme={{
-        default: { background: 'red', icon: 'white' },
+        default: { background: '#195CEF', icon: 'white' },
       }}
       variant="flat"
-      items={[{ title: 'fsd', onPress: () => console.log('a') }, { title: 'fsd' }, { title: 'fsd' }, { title: 'fsd' }, { title: 'fsd' }, { title: 'fsd' }]}
+      items={[{ title: 'Item 1', onPress: () => console.log('a') },
+        { title: 'Item 2' }, { title: 'Item 3' },
+        { title: 'Item 4' }, { title: 'Item 5' }, { title: 'Item 6' }]}
     />
 
   </Layout>

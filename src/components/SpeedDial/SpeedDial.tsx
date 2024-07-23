@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { FCCWD, SpeedDialProps } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';

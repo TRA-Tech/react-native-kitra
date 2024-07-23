@@ -1,16 +1,14 @@
 /* eslint-disable react/no-unstable-nested-components */
 import { Chip, Icon } from '@tra-tech/react-native-kitra';
-import { useState } from 'react';
-import { View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import Layout from '../components/Layout';
-import Divider from '../components/Divider';
 
 const ChipScreen = () => (
-  <Layout>
-    <Divider label="Default" />
+  <Layout style={{ rowGap: 15 }}>
+    <Text style={styles.headerText}>Default</Text>
     <Chip label="Press Me!" />
 
-    <Divider label="Size S-M-L" />
+    <Text style={styles.headerText}>Size S-M-L</Text>
     <View style={{ rowGap: 20 }}>
       <Chip label="Press Me!" size="small" />
       <Chip label="Press Me!" size="medium" />
@@ -21,26 +19,25 @@ const ChipScreen = () => (
       />
     </View>
 
-    <Divider label="Disabled" />
+    <Text style={styles.headerText}>Disabled</Text>
     <Chip disabled label="Press Me!" />
 
-    <Divider label="Custom Theme" />
+    <Text style={styles.headerText}>Custom Theme</Text>
     <Chip
       size="large"
       theme={{
-        active: { background: 'orange', border: 'red', icon: 'blue', label: 'purple' },
-        default: { background: 'yellow', border: 'orange', icon: 'red', label: 'blue' },
+        active: { background: '#195CEF', border: 'white', label: 'white' },
+        default: { background: '#E6EEFF', border: '#195CEF', label: 'blue' },
       }}
       label="Press Me!"
     />
-    <Divider label="Custom Disabled Theme" />
 
+    <Text style={styles.headerText}>Custom Disabled Theme</Text>
     <Chip
-      style={{ marginTop: 10 }}
       size="large"
       disabled
       theme={{
-        disabled: { background: 'black', border: 'red', icon: 'red', label: 'blue' },
+        disabled: { background: 'grey', border: '#195CEF', label: '#195CEF' },
       }}
       label="Disabled!"
     />
@@ -48,3 +45,7 @@ const ChipScreen = () => (
 );
 
 export default ChipScreen;
+
+const styles = StyleSheet.create({
+  headerText: { fontSize: 15, fontWeight: '400' },
+});
