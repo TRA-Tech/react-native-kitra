@@ -3,9 +3,9 @@ import React, { createRef } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import Animated from 'react-native-reanimated';
 import { StyleProp, ViewStyle } from 'react-native';
+import { initialWindowMetrics, SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider } from './theme/theme';
 import { TypographyContext, TypographyProvider } from './typography/typography';
-
 import { NotificationContextType, NotificationProvider } from './notification/notification';
 
 const Feather = require('react-native-vector-icons/Feather').default;
@@ -65,16 +65,19 @@ export const KitraProvider =
   <GestureHandlerRootView style={{ flex: 1 }}>
     <ThemeProvider>
       <TypographyProvider>
-        <NotificationProvider
-          messageType={theme => (notificationProps?.messageType ?
-            notificationProps?.messageType(theme) : messageTypes(theme))}
-          notificationContainerStyle={notificationProps?.notificationContainerStyle}
-          limit={notificationProps?.limit}
-          customView={item => notificationProps?.customView?.(item)}
-          ref={showNotificationRef}
-        >
-          {children}
-        </NotificationProvider>
+        <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+          <NotificationProvider
+            messageType={theme => (notificationProps?.messageType ?
+              notificationProps?.messageType(theme) : messageTypes(theme))}
+            notificationContainerStyle={notificationProps?.notificationContainerStyle}
+            limit={notificationProps?.limit}
+            customView={item => notificationProps?.customView?.(item)}
+            ref={showNotificationRef}
+          >
+            {children}
+          </NotificationProvider>
+        </SafeAreaProvider>
+
       </TypographyProvider>
     </ThemeProvider>
   </GestureHandlerRootView>

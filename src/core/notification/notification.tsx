@@ -1,8 +1,7 @@
 import React, { forwardRef, useImperativeHandle, useMemo, useState } from 'react';
 import { StyleProp, StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
-
-import Animated, { FadeOut, Layout, LightSpeedInLeft } from 'react-native-reanimated';
-
+import Animated, { FadeOut, LightSpeedInLeft, LinearTransition } from 'react-native-reanimated';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TaskQueue } from '../../utilities';
 import useTheme from '../hooks/useTheme';
 import useTypograpghy from '../hooks/useTypography';
@@ -34,6 +33,7 @@ const NotificationProvider = forwardRef<NotificationContextType, NotificationPro
     const [queue, setQueue] = useState<Array<{ type: string, message: string, header: string }>>([]);
     const { theme } = useTheme();
     const { typography } = useTypograpghy();
+    const { top } = useSafeAreaInsets();
     // @ts-ignore
     const TaskManager = new TaskQueue({ sleepBetweenTasks: 1000, concurrency: 1 });
 
@@ -81,44 +81,57 @@ const NotificationProvider = forwardRef<NotificationContextType, NotificationPro
     // @ts-ignore
       <NotificationContext.Provider value={contextValue}>
         {children}
-        {queue.map((item: any, index) => (
-          <Animated.View
-            key={item.keyID || index}
-            entering={LightSpeedInLeft}
-            exiting={FadeOut}
-            layout={Layout.springify()}
-            style={[styles.itemContainer, notificationContainerStyle, { marginTop: 110 * (index - 1) }]}
-          >
-            <TouchableOpacity style={styles.buttonContainer} onPress={() => onPress(index)}>
-              {customView?.({ type: item.type, header: item.header, message: item.message, theme }) || (
-              <>
-                <View style={[styles.innerContainer,
-                  { backgroundColor: messageType?.(theme)[item?.type]?.backgroundColor || 'transparent' }]}
-                />
-                <View style={[styles.iconContainer]}>
-                  {messageType?.(theme)[item?.type]?.icon}
-                </View>
-                <View style={styles.textsContainer}>
-                  <Text
-                    ellipsizeMode="middle"
-                    numberOfLines={3}
-                    style={[styles.headerText, { ...typography.body.medium, color: theme.colors.neutral.lightBlack }]}
-                  >
-                    {item?.header || item?.type}
-                  </Text>
-                  <Text
-                    ellipsizeMode="middle"
-                    numberOfLines={3}
-                    style={[styles.descText, { ...typography.body.sregular, color: theme.colors.neutral.lightBlack }]}
-                  >
-                    {item?.message}
-                  </Text>
-                </View>
-              </>
-              )}
-            </TouchableOpacity>
-          </Animated.View>
-        ))}
+        {queue.length > 0 && (
+        <View style={[notificationContainerStyle, {
+          width: '100%',
+          zIndex: 100,
+          position: 'absolute',
+          alignItems: 'center',
+        }]}
+        >
+          { queue.map((item: any, index) => (
+            <Animated.View
+              key={item.keyID || index}
+              entering={LightSpeedInLeft}
+              exiting={FadeOut}
+              layout={LinearTransition.springify()}
+              style={[styles.itemContainer,
+                { marginTop: top + 110 * (index) }]}
+            >
+              <TouchableOpacity style={styles.buttonContainer} onPress={() => onPress(index)}>
+                {customView?.({ type: item.type, header: item.header, message: item.message, theme }) || (
+                <>
+                  <View style={[styles.innerContainer,
+                    { backgroundColor: messageType?.(theme)[item?.type]?.backgroundColor || 'transparent' }]}
+                  />
+                  <View style={[styles.iconContainer]}>
+                    {messageType?.(theme)[item?.type]?.icon}
+                  </View>
+                  <View style={styles.textsContainer}>
+                    <Text
+                      ellipsizeMode="middle"
+                      numberOfLines={3}
+                      style={[styles.headerText,
+                        { ...typography.body.medium, color: theme.colors.neutral.lightBlack }]}
+                    >
+                      {item?.header || item?.type}
+                    </Text>
+                    <Text
+                      ellipsizeMode="middle"
+                      numberOfLines={3}
+                      style={[styles.descText,
+                        { ...typography.body.sregular, color: theme.colors.neutral.lightBlack }]}
+                    >
+                      {item?.message}
+                    </Text>
+                  </View>
+                </>
+                )}
+              </TouchableOpacity>
+            </Animated.View>
+          ))}
+        </View>
+        )}
       </NotificationContext.Provider>
     );
   },
@@ -128,13 +141,11 @@ export { NotificationProvider, NotificationContext };
 
 const styles = StyleSheet.create({
   itemContainer: {
-    alignItems: 'center',
     width: '100%',
     zIndex: 100,
     height: 100,
     borderRadius: 10,
-    alignSelf: 'center',
-    top: 150,
+    alignItems: 'center',
     position: 'absolute',
   },
   innerContainer: {
