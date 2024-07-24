@@ -14,6 +14,7 @@ const Divider: FCCWD<DividerProps & ViewProps> = (
     width = '100%',
     style,
     theme,
+    borderWidth,
     ...props },
 ) => {
   const { statusTheme } = useComponentTheme(theme, 'divider', 'default');
@@ -21,7 +22,7 @@ const Divider: FCCWD<DividerProps & ViewProps> = (
     <View style={[styles.container, { width }, style]} {...props}>
       <View
         style={[styles.container, { width,
-          borderWidth: 1,
+          borderWidth: borderWidth || 1,
           borderColor: statusTheme.background,
           borderStyle: variant }]}
       />
