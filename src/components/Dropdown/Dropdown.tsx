@@ -45,16 +45,19 @@ const Dropdown: FCCWD<DrowdownProps> = (
       buttonHeight: 36,
       typography: typography.body.xsmedium,
       rowHeight: 35,
+      paddingHorizontal: 10,
     },
     medium: {
       buttonHeight: 42,
       typography: typography.body.smedium,
       rowHeight: 38,
+      paddingHorizontal: 12,
     },
     large: {
       buttonHeight: 51,
       typography: typography.body.medium,
       rowHeight: 41,
+      paddingHorizontal: 15,
     },
   };
 
@@ -114,7 +117,7 @@ const Dropdown: FCCWD<DrowdownProps> = (
           style={[
             {
               flex: 1,
-              marginLeft: 12,
+              paddingHorizontal: sizes[size].paddingHorizontal,
             },
             sizes[size].typography, buttonTextStyle, {
               color: componentTheme[isObjectSelected ? 'selected' : componentStatus]?.label,
