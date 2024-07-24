@@ -827,7 +827,8 @@ export type IconType =
     | 'evilicon'
     | 'entypo'
     | 'ant-design'
-    | 'font-awesome-5';
+    | 'font-awesome-5'
+    | 'font-awesome-6';
 
 export type DeepPartial<T> = T extends object ? {
         [P in keyof T]?: DeepPartial<T[P]>;
