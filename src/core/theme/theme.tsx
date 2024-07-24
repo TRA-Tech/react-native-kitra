@@ -4,10 +4,22 @@ import { ColorSchemeName, useColorScheme } from 'react-native';
 import type { DeepPartial, FCC, ThemeType } from '../../types';
 import { COLOR_COMPONENTS_DARK, COLOR_COMPONENTS_LIGHT, DEFAULT_THEME } from './colors';
 
-type ThemeContextType = {
+ type ThemeContextType = {
+  /**
+   * This will be either the dark or light theme from the `ThemeType` based on the current color scheme.
+   */
   theme: ThemeType['dark'] | ThemeType['light'],
+   /**
+   * This function will merge the provided updates with the current theme.
+   */
   updateTheme: (theme: { dark: DeepPartial<ThemeType['dark']>, light: DeepPartial<ThemeType['light']> }) => void,
+    /**
+   * Function to set the color scheme.
+   */
   setColorScheme: Dispatch<SetStateAction<ColorSchemeName>>,
+   /**
+   * The current color scheme ('dark' or 'light').
+   */
   colorScheme?: ColorSchemeName,
 }
 
