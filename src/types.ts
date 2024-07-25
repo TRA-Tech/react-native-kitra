@@ -349,7 +349,7 @@ export type DrowdownProps = {
     /**
         *An array of objects or strings to be used as options in the dropdown
     */
-    data: Array<object | string>,
+    data: Array<any>,
     /**
         *Additional styles to apply to the dropdown button
     */
@@ -357,11 +357,11 @@ export type DrowdownProps = {
     /**
         *A function that takes an item from the data array and returns a value to be displayed in the dropdown
     */
-    displayedRowValue: (item: string | object) => any,
+    displayedRowValue: (item: any) => any,
     /**
         *A function that takes an item from the data array and returns a value to be displayed on the dropdown button
     */
-    displayedButtonValue: (item: string | object) => any,
+    displayedButtonValue: (item: any) => any,
     /**
         *Additional styles to be applied to the dropdown container
     */
@@ -377,11 +377,11 @@ export type DrowdownProps = {
     /**
         *Function to be called whenever an item is selected in the dropdown
     */
-    onSelect?: (item: Array<string> | Array<object> | object | string) => void,
+    onSelect?: (item: any) => void,
     /**
         *Default value to be pre-selected in the dropdown
     */
-    defaultValue?: Array<object | string>,
+    defaultValue?: any,
     /**
         *Additional styles to apply to the text inside each item in the dropdown
     */
@@ -405,7 +405,7 @@ export type DrowdownProps = {
     /**
         *Function to be called whenever submit button pressed
     */
-    onComplete?: (item: string | object) => void,
+    onComplete?: (item: any) => void,
     /**
         *Controls whether the dropdown component's dropdown menu is positioned automatically. Defaults to true
     */
