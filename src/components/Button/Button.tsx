@@ -25,7 +25,20 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
     medium: typography?.body.smedium,
     small: typography?.body.xsmedium,
   };
-
+  const sizes = {
+    large: {
+      paddingHorizontal: 30,
+      paddingVertical: 15,
+    },
+    medium: {
+      paddingHorizontal: 24,
+      paddingVertical: 12,
+    },
+    small: {
+      paddingHorizontal: 20,
+      paddingVertical: 10.5,
+    },
+  };
   return (
     <Pressable
       onPressIn={() => setIsPressed(true)}
@@ -35,7 +48,7 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
           styles.container,
 
           label ?
-            { paddingVertical: 15, paddingHorizontal: 30 }
+            sizes[size]
             :
             { padding: (fontStyles[size].lineHeight - fontStyles[size].fontSize) / 2 + 10 },
           style,
