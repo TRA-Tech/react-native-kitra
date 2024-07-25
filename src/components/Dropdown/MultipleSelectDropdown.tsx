@@ -147,7 +147,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
           {!isObjectSelected ?
             (buttonTitle || 'Please Select')
             : selectedObjects.length <= displayLength ?
-              `${selectedObjects.map(item => displayedButtonValue?.(item))}` :
+              `${selectedObjects.map((item:any) => displayedButtonValue?.(item))}` :
               `${selectedObjects?.length} Selected`}
         </Animated.Text>
         <View style={[Style.rightItem]}>
