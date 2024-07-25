@@ -54,16 +54,16 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
   const sizeStyles =
   {
     large: {
-      paddingHorizontal: 18,
+      paddingHorizontal: 15,
       height: 51,
-      paddingVertical: 15,
-      lineHeight: 20,
+      paddingVertical: 17,
+      lineHeight: 21,
     },
     medium: {
       paddingHorizontal: 12,
       height: 42,
       paddingVertical: 12,
-      lineHeight: 17,
+      lineHeight: 18,
     },
     small: {
       paddingHorizontal: 10,
@@ -117,7 +117,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
     const topInterpolate = interpolate(
       textInputOffset.value,
       [0, 1],
-      [-1, sizeStyles[size].paddingHorizontal],
+      [-1, sizeStyles[size].paddingVertical],
     );
 
     return {
@@ -162,28 +162,29 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
       textInputOffset.value,
       [0, 1],
       [variant === 'filled' ? 2 : -labelStyles[size].focused.lineHeight + labelStyles[size].focused.lineHeight / 2,
-        sizeStyles[size].paddingHorizontal],
+        sizeStyles[size].paddingVertical],
+    );
+    const leftInterpolate = interpolate(
+      textInputOffset.value,
+      [0, 1],
+      [variant === 'outlined' ? 4 : 0, 0],
     );
     return {
       fontSize,
       lineHeight,
       color,
       top: topInterpolate,
+      left: leftInterpolate,
     };
   });
 
   useEffect(() => {
-    if (props.value) {
-      setCounts(props.value?.length ? props.value?.length : 0);
-      textInputOffset.value = props.value?.length || props.defaultValue?.length ? withTiming(0) : withTiming(1);
-    } else if (!props.defaultValue?.length) {
-      textInputOffset.value = withTiming(1);
+    if (props.value?.length) {
+      setCounts(props.value.length);
+    } else if (props.defaultValue?.length) {
+      setCounts(props.defaultValue?.length);
     }
-  }, [props.value]);
-
-  useEffect(() => {
-    setCounts(props.defaultValue ? props.defaultValue.length : 0);
-  }, []);
+  }, [props.value, props.defaultValue]);
 
   const onFocusInput = () => {
     textInputOffset.value = withTiming(0);
@@ -191,7 +192,9 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
   };
 
   const onEndEditingInput = () => {
-    textInputOffset.value = (counts === 0) ? withTiming(1) : withTiming(0);
+    if (counts === 0 && !props.placeholder) {
+      textInputOffset.value = (counts === 0) ? withTiming(1) : withTiming(0);
+    }
     setIsFocused(false);
   };
 
@@ -206,15 +209,24 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
       // @ts-ignore
       borderAnimation, inputContainerStyle, { backgroundColor: statusTheme.background }]}
       >
-        <View style={{ flex: 1, flexDirection: 'row', height: sizeStyles[size].height }}>
-          <View style={{ alignSelf: 'center', marginLeft: sizeStyles[size].paddingVertical, marginRight: 5 }}>
-            {typeof left === 'function' && left?.(isFocused)}
-          </View>
+        <View style={{ flex: 1,
+          flexDirection: 'row',
+          height: sizeStyles[size].height,
+          paddingHorizontal: sizeStyles[size].paddingHorizontal }}
+        >
+          {typeof left === 'function' && (
+            <View style={{ alignSelf: 'center',
+              marginRight: 5 }}
+            >
+              { left?.(isFocused)}
+            </View>
+          )}
+
           <View style={{ flex: 1, flexDirection: 'row' }}>
             {variant === 'outlined' && (
             <Animated.View style={[{ position: 'absolute',
               width: labelLayout.width + 8,
-              height: 1,
+              height: 2,
               zIndex: 100 }, labelPositionAnimation, { backgroundColor: statusTheme.background }]}
             />
             )}
@@ -239,7 +251,6 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
                 {
                   position: 'absolute',
                   zIndex: 101,
-                  paddingHorizontal: 4,
                 },
                 labelContainerStyle,
               ]}
@@ -260,9 +271,12 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
             ) : null
             }
           </View>
-          <View style={{ alignSelf: 'center', marginRight: sizeStyles[size].paddingVertical, marginLeft: 5 }}>
-            {typeof right === 'function' && right?.(isFocused)}
+          {typeof right === 'function' && (
+          <View style={{ alignSelf: 'center' }}>
+            {right?.(isFocused)}
           </View>
+          )}
+
         </View>
       </Animated.View>
 
