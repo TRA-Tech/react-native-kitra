@@ -27,6 +27,7 @@ const Dropdown: FCCWD<DrowdownProps> = (
     containerStyle,
     autoPosition = true,
     size = 'medium',
+    disabled,
     value,
     testID,
     theme },
@@ -37,9 +38,8 @@ const Dropdown: FCCWD<DrowdownProps> = (
   const { statusTheme, componentTheme } = useComponentTheme(
     theme,
     'dropdown',
-    Object.keys(selectedObject).length ? 'selected' : visible ? 'active' : 'default',
+    Object.keys(selectedObject).length ? 'selected' : (disabled ? 'disabled' : (visible ? 'active' : 'default')),
   );
-
   const sizes = {
     small: {
       buttonHeight: 36,
@@ -63,7 +63,7 @@ const Dropdown: FCCWD<DrowdownProps> = (
 
   const isObjectSelected = (Object.keys(selectedObject).length !== 0);
   const isSelectedObject = (value: any) => displayedButtonValue?.(selectedObject) === displayedButtonValue?.(value);
-  const componentStatus = visible ? 'active' : 'default';
+  const componentStatus = disabled ? 'disabled' : (visible ? 'active' : 'default');
 
   const openAnimation = useSharedValue(0);
   const dropdown = useRef<TouchableOpacity>(null);
@@ -97,9 +97,10 @@ const Dropdown: FCCWD<DrowdownProps> = (
       <TouchableOpacity
         ref={dropdown}
         activeOpacity={0.9}
+        disabled={disabled}
         onLayout={event => setCord(event.nativeEvent.layout)}
         onPress={() => { setVisible(!visible); }}
-        style={[Style.button, { height: sizes[size].buttonHeight }, buttonStyle,
+        style={[Style.button, { borderWidth: disabled ? 0 : 1, height: sizes[size].buttonHeight }, buttonStyle,
           { borderColor: statusTheme.border,
             backgroundColor: statusTheme.background }]}
       >
@@ -203,7 +204,6 @@ export const Style = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderRadius: 8,
-    borderWidth: 1,
   },
 
   listContainer: {

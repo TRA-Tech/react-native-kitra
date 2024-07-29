@@ -34,6 +34,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
     onComplete,
     rowTextStyle,
     containerStyle,
+    disabled,
     testID,
     theme,
     size = 'medium' },
@@ -46,9 +47,9 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
   const { statusTheme, componentTheme } = useComponentTheme(
     theme,
     'multipleDropdown',
-    selectedObjects.length ? 'selected' : visible ? 'active' : 'default',
+    selectedObjects.length ? 'selected' : (disabled ? 'disabled' : (visible ? 'active' : 'default')),
   );
-  const componenetStatus = visible ? 'active' : 'default';
+  const componenetStatus = disabled ? 'disabled' : (visible ? 'active' : 'default');
   const dropdown = useRef<TouchableOpacity>(null);
   const dropdownAnimation = useAnimatedStyle(() => ({
     transform: [{ rotate: `${openAnimation.value * 180}deg` }],
@@ -119,9 +120,10 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
         testID="dropdown-button"
         ref={dropdown}
         activeOpacity={0.9}
+        disabled={disabled}
         onPress={() => { setVisible(!visible); }}
         style={[Style.button,
-          { height: sizes[size].buttonHeight },
+          { borderWidth: disabled ? 0 : 1, height: sizes[size].buttonHeight },
           buttonStyle,
           {
             backgroundColor: componentTheme[isObjectSelected ? 'selected' : componenetStatus]?.background,
@@ -279,7 +281,6 @@ export default MultipleDropdown;
 export const Style = StyleSheet.create({
   button: {
     width: '100%',
-    borderWidth: 1,
     flexDirection: 'row',
     alignItems: 'center',
     borderRadius: 5,

@@ -222,6 +222,15 @@ export const COLOR_COMPONENTS_LIGHT = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_
         itemBackground: COLOR_SYSTEM.colors.system.primary5,
         itemLabel: COLOR_SYSTEM.colors.system.primary,
       },
+      disabled: {
+        collapseBackground: COLOR_SYSTEM.colors.system.background,
+        border: COLOR_SYSTEM.colors.system.background,
+        background: COLOR_SYSTEM.colors.neutral.lightGrey,
+        label: COLOR_SYSTEM.colors.neutral.grey,
+        collapseIcon: COLOR_SYSTEM.colors.neutral.grey,
+        itemBackground: COLOR_SYSTEM.colors.neutral.lightGrey,
+        itemLabel: COLOR_SYSTEM.colors.neutral.lightGrey,
+      },
 
     },
     multipleDropdown: {
@@ -272,7 +281,22 @@ export const COLOR_COMPONENTS_LIGHT = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_
         checkBorder: COLOR_SYSTEM.colors.system.primary,
 
       },
+      disabled: {
+        collapseBackground: COLOR_SYSTEM.colors.system.background,
+        background: COLOR_SYSTEM.colors.input.lightDefault,
+        border: COLOR_SYSTEM.colors.neutral.default,
+        label: COLOR_SYSTEM.colors.neutral.grey,
+        collapseIcon: COLOR_SYSTEM.colors.neutral.grey,
+        itemBackground: COLOR_SYSTEM.colors.system.background,
+        itemLabel: COLOR_SYSTEM.colors.neutral.lightBlack,
+        selectAllLabel: COLOR_SYSTEM.colors.system.primary,
+        completeBackground: COLOR_SYSTEM.colors.system.primary,
+        completeLabel: COLOR_SYSTEM.colors.button.text,
+        checkIcon: COLOR_SYSTEM.colors.button.text,
+        checkBackground: COLOR_SYSTEM.colors.system.primary,
+        checkBorder: COLOR_SYSTEM.colors.system.primary,
 
+      },
     },
     menu: {
       default: {
@@ -520,6 +544,15 @@ export const COLOR_COMPONENTS_DARK = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_D
       itemBackground: COLOR_SYSTEM.colors.system.primary5,
       itemLabel: COLOR_SYSTEM.colors.system.primary,
     },
+    disabled: {
+      collapseBackground: COLOR_SYSTEM.colors.system.background,
+      border: COLOR_SYSTEM.colors.system.background,
+      background: COLOR_SYSTEM.colors.input.lightDefault,
+      label: COLOR_SYSTEM.colors.neutral.grey,
+      collapseIcon: COLOR_SYSTEM.colors.neutral.grey,
+      itemBackground: COLOR_SYSTEM.colors.neutral.lightGrey,
+      itemLabel: COLOR_SYSTEM.colors.neutral.lightGrey,
+    },
 
   },
   multipleDropdown: {
@@ -568,7 +601,21 @@ export const COLOR_COMPONENTS_DARK = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_D
       checkIcon: COLOR_SYSTEM.colors.button.text,
       checkBackground: COLOR_SYSTEM.colors.system.primary,
       checkBorder: COLOR_SYSTEM.colors.system.primary,
-
+    },
+    disabled: {
+      background: COLOR_SYSTEM.colors.input.lightDefault,
+      border: COLOR_SYSTEM.colors.neutral.default,
+      label: COLOR_SYSTEM.colors.neutral.grey,
+      collapseIcon: COLOR_SYSTEM.colors.neutral.grey,
+      collapseBackground: COLOR_SYSTEM.colors.system.background,
+      itemBackground: COLOR_SYSTEM.colors.system.background,
+      itemLabel: COLOR_SYSTEM.colors.neutral.lightBlack,
+      selectAllLabel: COLOR_SYSTEM.colors.system.primary,
+      completeBackground: COLOR_SYSTEM.colors.system.primary,
+      completeLabel: COLOR_SYSTEM.colors.button.text,
+      checkIcon: COLOR_SYSTEM.colors.button.text,
+      checkBackground: COLOR_SYSTEM.colors.system.primary,
+      checkBorder: COLOR_SYSTEM.colors.system.primary,
     },
 
   },
