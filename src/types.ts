@@ -426,6 +426,10 @@ export type DrowdownProps = {
 
 export type MultipleDropdownProps = DrowdownProps & {
     /**
+        *Additional styles to apply to complete selection button label
+    */
+    completeButtonLabelStyle?:StyleProp<TextStyle>,
+    /**
         *The theme to use for the component
     */
      theme?: DeepPartial<(ComponentThemeType['multipleDropdown'])>

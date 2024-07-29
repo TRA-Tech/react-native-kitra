@@ -37,7 +37,8 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
     disabled,
     testID,
     theme,
-    size = 'medium' },
+    size = 'medium',
+    completeButtonLabelStyle },
 ) => {
   const [visible, setVisible] = useState(false);
   const [selectedObjects, setSelectedObjects] = useState(defaultValue || []);
@@ -266,7 +267,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
               },
             }}
             label="Complete Selection"
-            labelStyle={{ textAlign: 'center' }}
+            labelStyle={[{ textAlign: 'center' }, completeButtonLabelStyle]}
             style={Style.completeSelection}
           />
         </View>
