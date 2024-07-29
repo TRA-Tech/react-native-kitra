@@ -196,12 +196,13 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
   };
 
   return (
-    <View style={[{ flexGrow: 1, maxHeight: sizeStyles[size].height }, containerStyle]}>
+    <View style={[{ flexGrow: 1 }, containerStyle]}>
       <Animated.View style={[{
         opacity: editable ? 1 : 0.5,
         borderRadius: 5,
         borderWidth: 1,
         height: sizeStyles[size].height,
+        maxHeight: sizeStyles[size].height,
       },
       // @ts-ignore
       borderAnimation, inputContainerStyle, { backgroundColor: statusTheme.background }]}
@@ -270,13 +271,11 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
         display: (error || !!bottomLabel || count) ? 'flex' : 'none',
         alignSelf: 'stretch' }]}
       >
-        {/* @ts-ignore */}
         <Text style={[labelStyles[size].default, bottomLabelStyle,
           { color: statusTheme.bottomLabel }]}
         >
           {bottomLabel}
         </Text>
-        {/* @ts-ignore */}
         {count ? (
           <Text style={[labelStyles[size].default, bottomLabelStyle,
             { color: statusTheme.countLabel }]}
