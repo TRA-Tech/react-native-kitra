@@ -434,7 +434,7 @@ export type DrowdownRouteProps= MultipleDropdownProps& {
     /**
         * Determines whether the dropdown should allow multiple selections. Defaults to false
     */
-    multiple: boolean
+    multiple?: boolean
 }
 
 export type IconProps = {

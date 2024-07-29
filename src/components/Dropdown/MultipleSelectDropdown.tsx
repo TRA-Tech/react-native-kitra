@@ -49,6 +49,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
     'multipleDropdown',
     selectedObjects.length ? 'selected' : (disabled ? 'disabled' : (visible ? 'active' : 'default')),
   );
+
   const componenetStatus = disabled ? 'disabled' : (visible ? 'active' : 'default');
   const dropdown = useRef<TouchableOpacity>(null);
   const dropdownAnimation = useAnimatedStyle(() => ({
@@ -86,7 +87,6 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
       selectedObjectsTemp.push(value);
     }
     onSelect?.(selectedObjectsTemp);
-
     setSelectedObjects(selectedObjectsTemp);
   };
 
@@ -114,6 +114,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
     // @ts-ignore
      (string | { keyID: number, [key: string]: any }) => { x.keyID = Math.random(); return (x); });
   }, [data]);
+
   return (
     <View testID={testID} style={[containerStyle, { zIndex: visible ? 1000 : 0 }]}>
       <TouchableOpacity
@@ -191,7 +192,6 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
                   key={item.keyID}
                   activeOpacity={0.8}
                   onPress={() => {
-                    setSelectedObjects(item);
                     toggleCheckBox(item);
                   }}
                   style={[
@@ -236,7 +236,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={() => {
-              data?.length === selectedObjects.length ? setSelectedObjects([]) : setSelectedObjects(data);
+              data?.length === selectedObjects.length ? setSelectedObjects([]) : setSelectedObjects(dataWithID.current);
             }}
             style={{ flexDirection: 'row', justifyContent: 'flex-end' }}
           >
