@@ -110,11 +110,9 @@ const Dropdown: FCCWD<DrowdownProps> = (
         </View>
         )}
 
-        <Animated.Text
+        <Text
           numberOfLines={1}
           key={displayedButtonValue?.(selectedObject)}
-          entering={FadeIn.delay(100)}
-          exiting={FadeOut}
           style={[
             {
               flex: 1,
@@ -125,7 +123,7 @@ const Dropdown: FCCWD<DrowdownProps> = (
             }]}
         >
           {isObjectSelected ? displayedButtonValue?.(selectedObject) : (buttonTitle || 'Please Select')}
-        </Animated.Text>
+        </Text>
 
         <View style={[Style.rightItem]}>
           {rightElement || (
