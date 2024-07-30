@@ -189,7 +189,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
               const isSelected = isItemSelected(item || {});
               return (
                 <TouchableOpacity
-                  key={item.keyID}
+                  key={item.keyID || index}
                   activeOpacity={0.8}
                   onPress={() => {
                     toggleCheckBox(item);
