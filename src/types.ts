@@ -333,7 +333,7 @@ export type DrowdownProps = {
     /**
         *The size of the dropdown. Defaults to 'medium'
     */
-        size?: 'large' | 'medium' | 'small',
+    size?: 'large' | 'medium' | 'small',
     /**
         *Whether to include a "Select All" option in the dropdown. Defaults to false
     */
@@ -429,6 +429,10 @@ export type MultipleDropdownProps = DrowdownProps & {
         *Additional styles to apply to complete selection button label
     */
     completeButtonLabelStyle?:StyleProp<TextStyle>,
+    /**
+        *Text to be displayed in the complete button
+    */
+    completeButtonLabel?:string,
     /**
         *The theme to use for the component
     */
