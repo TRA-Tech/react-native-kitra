@@ -109,7 +109,6 @@ const Dropdown: FCCWD<DrowdownProps> = (
           {leftElement}
         </View>
         )}
-
         <Text
           numberOfLines={1}
           key={displayedButtonValue?.(selectedObject)}
@@ -139,8 +138,11 @@ const Dropdown: FCCWD<DrowdownProps> = (
       </TouchableOpacity>
 
       {visible && cord?.x >= 0 && cord.y >= 0 && data?.length > 0 && (
-        <View
-          style={[Style.listContainer,
+        <Animated.View
+          entering={FadeIn.duration(300)}
+          exiting={FadeOut}
+        >
+          <View style={[Style.listContainer,
             {
               width: cord?.width,
               left: 0,
@@ -149,13 +151,9 @@ const Dropdown: FCCWD<DrowdownProps> = (
             listContainerStyle,
             autoPosition ?
               (cord?.y + (sizes[size].rowHeight * 4.5) + 10 + sizes[size].buttonHeight || 0) >= windowsHeight ?
-                { bottom: cord?.height } : { top: cord?.height }
+                { bottom: cord?.height } : { top: 0 }
               : { top: cord?.height + 5 },
             { backgroundColor: statusTheme.collapseBackground }]}
-        >
-          <Animated.View
-            entering={FadeIn.duration(300)}
-            exiting={FadeOut}
           >
             <ScrollView nestedScrollEnabled>
               {data?.map((value, index) => (
@@ -186,9 +184,9 @@ const Dropdown: FCCWD<DrowdownProps> = (
                 </TouchableOpacity>
               ))}
             </ScrollView>
-          </Animated.View>
+          </View>
 
-        </View>
+        </Animated.View>
       )}
     </View>
   );
