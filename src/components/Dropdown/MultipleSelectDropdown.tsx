@@ -166,11 +166,9 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
         </View>
       </TouchableOpacity>
       {visible && data?.length > 0 && (
-      <Animated.View
-        entering={FadeIn}
-        exiting={FadeOut}
-      >
-        <View
+        <Animated.View
+          entering={FadeIn}
+          exiting={FadeOut}
           testID="dropdown-list"
           style={[Style.listContainer,
             {
@@ -275,8 +273,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
             labelStyle={[{ textAlign: 'center' }, completeButtonLabelStyle]}
             style={Style.completeSelection}
           />
-        </View>
-      </Animated.View>
+        </Animated.View>
       )}
     </View>
   );

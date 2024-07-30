@@ -139,7 +139,9 @@ const Dropdown: FCCWD<DrowdownProps> = (
       </TouchableOpacity>
 
       {visible && cord?.x >= 0 && cord.y >= 0 && data?.length > 0 && (
-        <View
+        <Animated.View
+          entering={FadeIn.duration(300)}
+          exiting={FadeOut.duration(300)}
           style={[Style.listContainer,
             {
               width: cord?.width,
@@ -153,42 +155,36 @@ const Dropdown: FCCWD<DrowdownProps> = (
               : { top: cord?.height + 5 },
             { backgroundColor: statusTheme.collapseBackground }]}
         >
-          <Animated.View
-            entering={FadeIn.duration(300)}
-            exiting={FadeOut}
-          >
-            <ScrollView nestedScrollEnabled>
-              {data?.map((value, index) => (
-                <TouchableOpacity
-                  activeOpacity={0.8}
-                  key={index}
-                  onPress={() => {
-                    setSelectedObject(value);
-                    setVisible(false);
-                    onSelect?.(value);
-                  }}
-                  style={[
-                    Style.row,
-                    index === data.length - 1 ? { borderBottomLeftRadius: 5, borderBottomRightRadius: 5 } : null,
-                    { height: sizes[size].rowHeight },
-                    rowStyle,
-                    {
-                      backgroundColor: componentTheme[isSelectedObject(value) ?
-                        'selected' : componentStatus]?.itemBackground,
-                    },
-                  ]}
+          <ScrollView nestedScrollEnabled>
+            {data?.map((value, index) => (
+              <TouchableOpacity
+                activeOpacity={0.8}
+                key={index}
+                onPress={() => {
+                  setSelectedObject(value);
+                  setVisible(false);
+                  onSelect?.(value);
+                }}
+                style={[
+                  Style.row,
+                  index === data.length - 1 ? { borderBottomLeftRadius: 5, borderBottomRightRadius: 5 } : null,
+                  { height: sizes[size].rowHeight },
+                  rowStyle,
+                  {
+                    backgroundColor: componentTheme[isSelectedObject(value) ?
+                      'selected' : componentStatus]?.itemBackground,
+                  },
+                ]}
+              >
+                <Text style={[sizes[size].typography, { marginVertical: 10, marginHorizontal: 10 }, rowTextStyle,
+                  { color: componentTheme[isSelectedObject(value) ? 'selected' : componentStatus]?.itemLabel }]}
                 >
-                  <Text style={[sizes[size].typography, { marginVertical: 10, marginHorizontal: 10 }, rowTextStyle,
-                    { color: componentTheme[isSelectedObject(value) ? 'selected' : componentStatus]?.itemLabel }]}
-                  >
-                    {displayedRowValue?.(value)}
-                  </Text>
-                </TouchableOpacity>
-              ))}
-            </ScrollView>
-          </Animated.View>
-
-        </View>
+                  {displayedRowValue?.(value)}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+        </Animated.View>
       )}
     </View>
   );
