@@ -109,7 +109,6 @@ const Dropdown: FCCWD<DrowdownProps> = (
           {leftElement}
         </View>
         )}
-
         <Text
           numberOfLines={1}
           key={displayedButtonValue?.(selectedObject)}
@@ -141,8 +140,9 @@ const Dropdown: FCCWD<DrowdownProps> = (
       {visible && cord?.x >= 0 && cord.y >= 0 && data?.length > 0 && (
         <Animated.View
           entering={FadeIn.duration(300)}
-          exiting={FadeOut.duration(300)}
-          style={[Style.listContainer,
+          exiting={FadeOut}
+        >
+          <View style={[Style.listContainer,
             {
               width: cord?.width,
               left: 0,
@@ -151,39 +151,41 @@ const Dropdown: FCCWD<DrowdownProps> = (
             listContainerStyle,
             autoPosition ?
               (cord?.y + (sizes[size].rowHeight * 4.5) + 10 + sizes[size].buttonHeight || 0) >= windowsHeight ?
-                { bottom: cord?.height } : { top: cord?.height }
+                { bottom: cord?.height } : { top: 0 }
               : { top: cord?.height + 5 },
             { backgroundColor: statusTheme.collapseBackground }]}
-        >
-          <ScrollView nestedScrollEnabled>
-            {data?.map((value, index) => (
-              <TouchableOpacity
-                activeOpacity={0.8}
-                key={index}
-                onPress={() => {
-                  setSelectedObject(value);
-                  setVisible(false);
-                  onSelect?.(value);
-                }}
-                style={[
-                  Style.row,
-                  index === data.length - 1 ? { borderBottomLeftRadius: 5, borderBottomRightRadius: 5 } : null,
-                  { height: sizes[size].rowHeight },
-                  rowStyle,
-                  {
-                    backgroundColor: componentTheme[isSelectedObject(value) ?
-                      'selected' : componentStatus]?.itemBackground,
-                  },
-                ]}
-              >
-                <Text style={[sizes[size].typography, { marginVertical: 10, marginHorizontal: 10 }, rowTextStyle,
-                  { color: componentTheme[isSelectedObject(value) ? 'selected' : componentStatus]?.itemLabel }]}
+          >
+            <ScrollView nestedScrollEnabled>
+              {data?.map((value, index) => (
+                <TouchableOpacity
+                  activeOpacity={0.8}
+                  key={index}
+                  onPress={() => {
+                    setSelectedObject(value);
+                    setVisible(false);
+                    onSelect?.(value);
+                  }}
+                  style={[
+                    Style.row,
+                    index === data.length - 1 ? { borderBottomLeftRadius: 5, borderBottomRightRadius: 5 } : null,
+                    { height: sizes[size].rowHeight },
+                    rowStyle,
+                    {
+                      backgroundColor: componentTheme[isSelectedObject(value) ?
+                        'selected' : componentStatus]?.itemBackground,
+                    },
+                  ]}
                 >
-                  {displayedRowValue?.(value)}
-                </Text>
-              </TouchableOpacity>
-            ))}
-          </ScrollView>
+                  <Text style={[sizes[size].typography, { marginVertical: 10, marginHorizontal: 10 }, rowTextStyle,
+                    { color: componentTheme[isSelectedObject(value) ? 'selected' : componentStatus]?.itemLabel }]}
+                  >
+                    {displayedRowValue?.(value)}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+          </View>
+
         </Animated.View>
       )}
     </View>
