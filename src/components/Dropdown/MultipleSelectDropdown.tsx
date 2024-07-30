@@ -138,10 +138,8 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
             {leftElement}
           </View>
         )}
-        <Animated.Text
+        <Text
           numberOfLines={1}
-          entering={FadeIn.delay(100)}
-          exiting={FadeOut}
           style={[
             sizes[size].typography,
             buttonTextStyle,
@@ -154,7 +152,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
             : selectedObjects.length <= displayLength ?
               `${selectedObjects.map((item:any) => displayedButtonValue?.(item))}` :
               `${selectedObjects?.length} Selected`}
-        </Animated.Text>
+        </Text>
         <View style={[Style.rightItem]}>
           {rightElement || (
           <Animated.View style={dropdownAnimation}>
@@ -191,7 +189,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
               const isSelected = isItemSelected(item || {});
               return (
                 <TouchableOpacity
-                  key={item.keyID}
+                  key={item.keyID || item}
                   activeOpacity={0.8}
                   onPress={() => {
                     toggleCheckBox(item);
@@ -238,7 +236,13 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={() => {
-              data?.length === selectedObjects.length ? setSelectedObjects([]) : setSelectedObjects(dataWithID.current);
+              if (data?.length === selectedObjects.length) {
+                setSelectedObjects([]);
+                onSelect?.([]);
+              } else {
+                onSelect?.(dataWithID.current);
+                setSelectedObjects(dataWithID.current);
+              }
             }}
             style={{ flexDirection: 'row', justifyContent: 'flex-end' }}
           >
