@@ -199,7 +199,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
   };
 
   return (
-    <View style={[{ flexGrow: 1 }, containerStyle]}>
+    <View style={[containerStyle]}>
       <Animated.View style={[{
         opacity: editable ? 1 : 0.5,
         borderRadius: 5,
