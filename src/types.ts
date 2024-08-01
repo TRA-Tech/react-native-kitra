@@ -379,10 +379,6 @@ export type DrowdownProps = {
     */
     onSelect?: (item: any) => void,
     /**
-        *Default value to be pre-selected in the dropdown
-    */
-    defaultValue?: any,
-    /**
         *Additional styles to apply to the text inside each item in the dropdown
     */
     rowTextStyle?: StyleProp<TextStyle>,

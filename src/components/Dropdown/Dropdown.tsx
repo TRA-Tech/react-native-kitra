@@ -17,7 +17,6 @@ const Dropdown: FCCWD<DrowdownProps> = (
     displayedRowValue,
     displayedButtonValue,
     listContainerStyle,
-    defaultValue = {},
     buttonTitle,
     rowStyle,
     buttonStyle,
@@ -33,7 +32,7 @@ const Dropdown: FCCWD<DrowdownProps> = (
     theme },
 ) => {
   const [visible, setVisible] = useState(false);
-  const [selectedObject, setSelectedObject] = useState(value || defaultValue);
+  const [selectedObject, setSelectedObject] = useState(value || {});
   const [cord, setCord] = useState({ x: 0, y: 0, height: 0, width: 0 });
   const { statusTheme, componentTheme } = useComponentTheme(
     theme,
@@ -62,7 +61,7 @@ const Dropdown: FCCWD<DrowdownProps> = (
   };
 
   const isObjectSelected = (Object.keys(selectedObject).length !== 0);
-  const isSelectedObject = (value: any) => displayedButtonValue?.(selectedObject) === displayedButtonValue?.(value);
+  const isSelectedObject = (x: any) => displayedButtonValue?.(selectedObject) === displayedButtonValue?.(x);
   const componentStatus = disabled ? 'disabled' : (visible ? 'active' : 'default');
 
   const openAnimation = useSharedValue(0);
@@ -156,14 +155,14 @@ const Dropdown: FCCWD<DrowdownProps> = (
             { backgroundColor: statusTheme.collapseBackground }]}
           >
             <ScrollView nestedScrollEnabled>
-              {data?.map((value, index) => (
+              {data?.map((x, index) => (
                 <TouchableOpacity
                   activeOpacity={0.8}
                   key={index}
                   onPress={() => {
-                    setSelectedObject(value);
+                    setSelectedObject(x);
                     setVisible(false);
-                    onSelect?.(value);
+                    onSelect?.(x);
                   }}
                   style={[
                     Style.row,
@@ -171,15 +170,15 @@ const Dropdown: FCCWD<DrowdownProps> = (
                     { height: sizes[size].rowHeight },
                     rowStyle,
                     {
-                      backgroundColor: componentTheme[isSelectedObject(value) ?
+                      backgroundColor: componentTheme[isSelectedObject(x) ?
                         'selected' : componentStatus]?.itemBackground,
                     },
                   ]}
                 >
                   <Text style={[sizes[size].typography, { marginVertical: 10, marginHorizontal: 10 }, rowTextStyle,
-                    { color: componentTheme[isSelectedObject(value) ? 'selected' : componentStatus]?.itemLabel }]}
+                    { color: componentTheme[isSelectedObject(x) ? 'selected' : componentStatus]?.itemLabel }]}
                   >
-                    {displayedRowValue?.(value)}
+                    {displayedRowValue?.(x)}
                   </Text>
                 </TouchableOpacity>
               ))}
