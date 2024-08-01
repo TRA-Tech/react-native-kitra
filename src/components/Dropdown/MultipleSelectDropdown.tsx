@@ -23,7 +23,6 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
     displayedRowValue,
     displayedButtonValue,
     listContainerStyle,
-    defaultValue = [],
     displayLength = 4,
     buttonTitle,
     rowStyle,
@@ -37,12 +36,13 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
     disabled,
     testID,
     theme,
+    value,
     size = 'medium',
     completeButtonLabelStyle,
     completeButtonLabel },
 ) => {
   const [visible, setVisible] = useState(false);
-  const [selectedObjects, setSelectedObjects] = useState(defaultValue || []);
+  const [selectedObjects, setSelectedObjects] = useState(value || []);
   const [cord, setCord] = useState({ x: 0, y: 0, height: 0, width: 0 });
   const openAnimation = useSharedValue(0);
   const dataWithID = useRef();
@@ -82,7 +82,9 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
 
   const toggleCheckBox = (value: string | { [key: string]: any; }) => {
     const selectedObjectsTemp = [...selectedObjects];
-    const valueIndex = selectedObjectsTemp.indexOf(value);
+
+    const valueIndex = selectedObjectsTemp.findIndex(obj => displayedRowValue(obj) === displayedRowValue(value));
+
     if (valueIndex > -1) {
       selectedObjectsTemp.splice(valueIndex, 1);
     } else {
@@ -116,6 +118,12 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
     // @ts-ignore
      (string | { keyID: number, [key: string]: any }) => { x.keyID = Math.random(); return (x); });
   }, [data]);
+
+  useEffect(() => {
+    if (value) {
+      setSelectedObjects(value);
+    }
+  }, [value]);
 
   return (
     <View testID={testID} style={[containerStyle, { zIndex: visible ? 1000 : 0 }]}>
@@ -179,6 +187,8 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
               maxHeight: selectall ? sizes[size].rowHeight * 6.5 : sizes[size].rowHeight * 6,
             },
             listContainerStyle,
+
+            // eslint-disable-next-line no-unsafe-optional-chaining
             (cord?.y + (sizes[size].rowHeight * 6.5) || 0) >= windowsHeight ?
               { bottom: cord?.height || 0 } : { top: 0 },
             { backgroundColor: statusTheme.collapseBackground }]}
