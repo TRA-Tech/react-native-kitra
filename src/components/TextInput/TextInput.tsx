@@ -201,9 +201,8 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
   return (
     <View style={[containerStyle]}>
       <Animated.View style={[{
-        opacity: editable ? 1 : 0.5,
         borderRadius: 5,
-        borderWidth: 1,
+        borderWidth: editable ? 1 : 0,
         height: sizeStyles[size].height,
         maxHeight: sizeStyles[size].height,
       },
@@ -231,6 +230,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
               zIndex: 100 }, labelPositionAnimation, { backgroundColor: statusTheme.background }]}
             />
             )}
+
             <AnimatedTextInput
               ref={inputRef}
               editable={editable}
