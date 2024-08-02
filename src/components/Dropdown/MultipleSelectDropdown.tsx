@@ -36,13 +36,13 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
     disabled,
     testID,
     theme,
-    value,
+    defaultValue = [],
     size = 'medium',
     completeButtonLabelStyle,
     completeButtonLabel },
 ) => {
   const [visible, setVisible] = useState(false);
-  const [selectedObjects, setSelectedObjects] = useState(value || []);
+  const [selectedObjects, setSelectedObjects] = useState(defaultValue);
   const [cord, setCord] = useState({ x: 0, y: 0, height: 0, width: 0 });
   const openAnimation = useSharedValue(0);
   const dataWithID = useRef();
@@ -84,6 +84,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
     const selectedObjectsTemp = [...selectedObjects];
 
     const valueIndex = selectedObjectsTemp.findIndex(obj => displayedRowValue(obj) === displayedRowValue(value));
+    console.log(valueIndex);
 
     if (valueIndex > -1) {
       selectedObjectsTemp.splice(valueIndex, 1);
@@ -120,10 +121,10 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
   }, [data]);
 
   useEffect(() => {
-    if (value) {
-      setSelectedObjects(value);
+    if (defaultValue.length > 0) {
+      setSelectedObjects(defaultValue);
     }
-  }, [value]);
+  }, []);
 
   return (
     <View testID={testID} style={[containerStyle, { zIndex: visible ? 1000 : 0 }]}>
