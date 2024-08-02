@@ -37,7 +37,8 @@ const Dropdown: FCCWD<DrowdownProps> = (
   const { statusTheme, componentTheme } = useComponentTheme(
     theme,
     'dropdown',
-    Object.keys(selectedObject).length ? 'selected' : (disabled ? 'disabled' : (visible ? 'active' : 'default')),
+    disabled ? 'disabled' : (Object.keys(selectedObject).length ? 'selected' : (visible ? 'active' : 'default')),
+
   );
   const sizes = {
     small: {
@@ -99,7 +100,7 @@ const Dropdown: FCCWD<DrowdownProps> = (
         disabled={disabled}
         onLayout={event => setCord(event.nativeEvent.layout)}
         onPress={() => { setVisible(!visible); }}
-        style={[Style.button, { borderWidth: disabled ? 0 : 1, height: sizes[size].buttonHeight }, buttonStyle,
+        style={[Style.button, { borderWidth: 1, height: sizes[size].buttonHeight }, buttonStyle,
           { borderColor: statusTheme.border,
             backgroundColor: statusTheme.background }]}
       >
@@ -117,7 +118,7 @@ const Dropdown: FCCWD<DrowdownProps> = (
               paddingHorizontal: sizes[size].paddingHorizontal,
             },
             sizes[size].typography, buttonTextStyle, {
-              color: componentTheme[isObjectSelected ? 'selected' : componentStatus]?.label,
+              color: componentTheme[disabled ? componentStatus : isObjectSelected ? 'selected' : componentStatus]?.label,
             }]}
         >
           {isObjectSelected ? displayedButtonValue?.(selectedObject) : (buttonTitle || 'Please Select')}

@@ -49,10 +49,10 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
   const { statusTheme, componentTheme } = useComponentTheme(
     theme,
     'multipleDropdown',
-    selectedObjects.length ? 'selected' : (disabled ? 'disabled' : (visible ? 'active' : 'default')),
+    disabled ? 'disabled' : (Object.keys(selectedObjects).length ? 'selected' : (visible ? 'active' : 'default')),
   );
 
-  const componenetStatus = disabled ? 'disabled' : (visible ? 'active' : 'default');
+  const componentStatus = disabled ? 'disabled' : (visible ? 'active' : 'default');
   const dropdown = useRef<TouchableOpacity>(null);
   const dropdownAnimation = useAnimatedStyle(() => ({
     transform: [{ rotate: `${openAnimation.value * 180}deg` }],
@@ -134,11 +134,13 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
         disabled={disabled}
         onPress={() => { setVisible(!visible); }}
         style={[Style.button,
-          { borderWidth: disabled ? 0 : 1, height: sizes[size].buttonHeight },
+          { borderWidth: 1, height: sizes[size].buttonHeight },
           buttonStyle,
           {
-            backgroundColor: componentTheme[isObjectSelected ? 'selected' : componenetStatus]?.background,
-            borderColor: componentTheme[isObjectSelected ? 'selected' : componenetStatus]?.border,
+            backgroundColor: componentTheme[disabled ?
+              componentStatus : isObjectSelected ? 'selected' : componentStatus]?.background,
+            borderColor: componentTheme[disabled ?
+              componentStatus : isObjectSelected ? 'selected' : componentStatus]?.border,
           }]}
       >
         {leftElement && (
@@ -153,7 +155,8 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
             buttonTextStyle,
             { flex: 1,
               marginLeft: 12,
-              color: componentTheme[isObjectSelected ? 'selected' : componenetStatus]?.label }]}
+              color: componentTheme[disabled ?
+                componentStatus : isObjectSelected ? 'selected' : componentStatus]?.label }]}
         >
           {!isObjectSelected ?
             (buttonTitle || 'Please Select')
@@ -211,20 +214,20 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
                       : null,
                     rowStyle,
                     {
-                      backgroundColor: componentTheme[isSelected ? 'selected' : componenetStatus]?.background,
+                      backgroundColor: componentTheme[isSelected ? 'selected' : componentStatus]?.background,
                     },
                   ]}
                 >
                   <TouchableOpacity
                     disabled
                     style={[Style.checkBox, {
-                      borderColor: componentTheme[isSelected ? 'selected' : componenetStatus]?.checkBorder,
-                      backgroundColor: componentTheme[isSelected ? 'selected' : componenetStatus]?.checkBackground,
+                      borderColor: componentTheme[isSelected ? 'selected' : componentStatus]?.checkBorder,
+                      backgroundColor: componentTheme[isSelected ? 'selected' : componentStatus]?.checkBackground,
                     }]}
                   >
                     {isSelected && (
                     <OcticonsIcon
-                      color={componentTheme[isSelected ? 'selected' : componenetStatus]?.checkIcon}
+                      color={componentTheme[isSelected ? 'selected' : componentStatus]?.checkIcon}
                       name="check"
                       size={12}
                     />
@@ -233,7 +236,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
                   <Text
                     style={[sizes[size].typography,
                       { marginHorizontal: 10 },
-                      rowTextStyle, { color: componentTheme[isSelected ? 'selected' : componenetStatus]?.itemLabel }]}
+                      rowTextStyle, { color: componentTheme[isSelected ? 'selected' : componentStatus]?.itemLabel }]}
                   >
                     {displayedRowValue?.(item)}
                   </Text>
