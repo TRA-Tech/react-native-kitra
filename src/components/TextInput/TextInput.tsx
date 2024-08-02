@@ -198,6 +198,17 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
     setIsFocused(false);
   };
 
+  useEffect(() => {
+    if (!props?.value && !isFocused) {
+      textInputOffset.value = withTiming(1);
+      setIsFocused(false);
+      setCounts(0);
+    } else {
+      textInputOffset.value = withTiming(0);
+      setIsFocused(true);
+    }
+  }, [props?.value]);
+
   return (
     <View style={[containerStyle]}>
       <Animated.View style={[{
