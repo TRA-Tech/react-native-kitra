@@ -27,12 +27,12 @@ const Dropdown: FCCWD<DrowdownProps> = (
     autoPosition = true,
     size = 'medium',
     disabled,
-    value,
+    defaultValue = {},
     testID,
     theme },
 ) => {
   const [visible, setVisible] = useState(false);
-  const [selectedObject, setSelectedObject] = useState(value || {});
+  const [selectedObject, setSelectedObject] = useState(defaultValue);
   const [cord, setCord] = useState({ x: 0, y: 0, height: 0, width: 0 });
   const { statusTheme, componentTheme } = useComponentTheme(
     theme,
@@ -85,12 +85,6 @@ const Dropdown: FCCWD<DrowdownProps> = (
   useEffect(() => {
     openAnimation.value = withSpring(visible ? 1 : 0);
   }, [visible]);
-
-  useEffect(() => {
-    if (value) {
-      setSelectedObject(value);
-    }
-  }, [value]);
 
   return (
     <View testID={testID} style={[containerStyle, { zIndex: visible ? 1000 : 0 }]}>
