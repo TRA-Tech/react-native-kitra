@@ -106,7 +106,6 @@ const NotificationProvider = forwardRef<NotificationContextType, NotificationPro
     }
 
     return (
-    // @ts-ignore
       <NotificationContext.Provider value={contextValue}>
         {children}
         {queue.length > 0 && (
@@ -115,6 +114,7 @@ const NotificationProvider = forwardRef<NotificationContextType, NotificationPro
           zIndex: 100,
           position: 'absolute',
           alignItems: 'center',
+          marginTop: top,
         }]}
         >
           { queue.map((item: any, index) => (
@@ -124,36 +124,32 @@ const NotificationProvider = forwardRef<NotificationContextType, NotificationPro
               exiting={FadeOut}
               layout={LinearTransition.springify()}
               style={[styles.itemContainer,
-                { marginTop: top + 110 * (index) }]}
+                { marginTop: 10 }]}
             >
               <TouchableOpacity style={styles.buttonContainer} onPress={() => onPress(index)}>
                 {customView?.({ type: item.type, header: item.header, message: item.message, theme }) || (
-                <>
-                  <View style={[styles.innerContainer,
-                    { backgroundColor: messageType?.(theme)[item?.type]?.backgroundColor || 'transparent' }]}
-                  />
+                <View style={[styles.innerContainer,
+                  { backgroundColor: messageType?.(theme)[item?.type]?.backgroundColor || 'transparent' },
+                ]}
+                >
                   <View style={[styles.iconContainer]}>
                     {messageType?.(theme)[item?.type]?.icon}
                   </View>
                   <View style={styles.textsContainer}>
                     <Text
-                      ellipsizeMode="middle"
-                      numberOfLines={3}
                       style={[styles.headerText,
                         { ...typography.body.medium, color: theme.colors.neutral.lightBlack }]}
                     >
                       {item?.header || item?.type}
                     </Text>
                     <Text
-                      ellipsizeMode="middle"
-                      numberOfLines={3}
                       style={[styles.descText,
                         { ...typography.body.sregular, color: theme.colors.neutral.lightBlack }]}
                     >
                       {item?.message}
                     </Text>
                   </View>
-                </>
+                </View>
                 )}
               </TouchableOpacity>
             </Animated.View>
@@ -171,36 +167,35 @@ const styles = StyleSheet.create({
   itemContainer: {
     width: '100%',
     zIndex: 100,
-    height: 100,
+    flex: 1,
     borderRadius: 10,
     alignItems: 'center',
-    position: 'absolute',
   },
   innerContainer: {
-    alignItems: 'center',
-    position: 'absolute',
     width: '100%',
-    height: 100,
     borderRadius: 10,
     zIndex: 20,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingHorizontal: 18,
+    paddingVertical: 16,
+    columnGap: 10,
+    minHeight: 100,
   },
   iconContainer: {
     zIndex: 100,
-    marginLeft: 18,
-    width: 28,
-    height: 28,
+    width: 25,
+    height: 25,
     alignItems: 'center',
     justifyContent: 'center',
   },
   buttonContainer: {
-    flexDirection: 'row', flex: 1, paddingVertical: 16,
+    flexDirection: 'row',
   },
   headerText: {
-    paddingHorizontal: 10,
   },
   descText: {
     marginTop: 10,
-    paddingHorizontal: 10,
   },
-  textsContainer: { flex: 1, zIndex: 100 },
+  textsContainer: { zIndex: 100, flex: 1 },
 });
