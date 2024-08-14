@@ -124,7 +124,7 @@
     ]
   },
   "dependencies": {
-    "expo-linear-gradient": "^12.3.0",
+    "expo-linear-gradient": "^13.0.2",
     "lodash.merge": "^4.6.2",
     "react-native-vector-icons": "^10.1.0"
   },
