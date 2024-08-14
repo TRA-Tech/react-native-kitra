@@ -2162,9 +2162,9 @@
     redent "^3.0.0"
 
 "@testing-library/react-native@^12.2.2":
-  version "12.5.1"
-  resolved "https://registry.yarnpkg.com/@testing-library/react-native/-/react-native-12.5.1.tgz#8ff67e87589d7d3307fce8ec41131c898c9dbd98"
-  integrity sha512-PApr3f6DmSJF/EIiWYZfcBzuy6w7fK8TW4a6KfQHTeAcfZ6lADtRO7R0QM5WI+b7tJ33JvIPgzCg1MiuRz4v0g==
+  version "12.5.3"
+  resolved "https://registry.yarnpkg.com/@testing-library/react-native/-/react-native-12.5.3.tgz#0ea753efed505698a79ba4a0d42d4b79cd272abc"
+  integrity sha512-wSaplzjx51OVJI7MU8Mi2kxwfW0dYETn3jqSVHxtIXmEnmlWXk6f69sEaBbzdp6iDzhFB5E6rDWveqf5V/ap2A==
   dependencies:
     jest-matcher-utils "^29.7.0"
     pretty-format "^29.7.0"
