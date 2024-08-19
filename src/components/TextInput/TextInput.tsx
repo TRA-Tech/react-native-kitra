@@ -200,7 +200,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
   };
 
   useEffect(() => {
-    if (!props?.value && !isFocused) {
+    if (!props.defaultValue && !props.placeholder && !props.value && !isFocused) {
       textInputOffset.value = withTiming(1);
       setIsFocused(false);
       setCounts(0);
