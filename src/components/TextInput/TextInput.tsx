@@ -161,13 +161,14 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
     const topInterpolate = interpolate(
       textInputOffset.value,
       [0, 1],
-      [variant === 'filled' ? 2 : -labelStyles[size].focused.lineHeight + labelStyles[size].focused.lineHeight / 2,
-        sizeStyles[size].paddingVertical],
+      [(variant === 'filled' && label)
+        ? 2 : -labelStyles[size].focused.lineHeight + labelStyles[size].focused.lineHeight / 2,
+      sizeStyles[size].paddingVertical],
     );
     const leftInterpolate = interpolate(
       textInputOffset.value,
       [0, 1],
-      [variant === 'outlined' ? 4 : 0, 0],
+      [(variant === 'outlined' && label) ? 4 : 0, 0],
     );
     return {
       fontSize,
@@ -234,7 +235,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
           )}
 
           <View style={{ flex: 1, flexDirection: 'row' }}>
-            {variant === 'outlined' && (
+            {(variant === 'outlined' && label) && (
             <Animated.View style={[{ position: 'absolute',
               width: labelLayout.width + 8,
               height: 2,
@@ -246,7 +247,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
               ref={inputRef}
               editable={editable}
               style={[{
-                marginTop: variant === 'filled' ? fontStyles[size].lineHeight / 2 : 0,
+                marginTop: (variant === 'filled' && label) ? fontStyles[size].lineHeight / 2 : 0,
                 fontSize: fontStyles[size].fontSize,
                 fontFamily: labelStyles[size].default.fontFamily,
                 lineHeight: sizeStyles[size].lineHeight,
