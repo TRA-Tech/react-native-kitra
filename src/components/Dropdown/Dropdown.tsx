@@ -66,7 +66,7 @@ const Dropdown: FCCWD<DrowdownProps> = (
   const componentStatus = disabled ? 'disabled' : (visible ? 'active' : 'default');
 
   const openAnimation = useSharedValue(0);
-  const dropdown = useRef<TouchableOpacity>(null);
+  const dropdown = useRef<View>(null);
 
   const rightElement = useMemo(() => (typeof right === 'function' ? right(visible) : right), [visible, right]);
 
@@ -112,7 +112,8 @@ const Dropdown: FCCWD<DrowdownProps> = (
               paddingHorizontal: sizes[size].paddingHorizontal,
             },
             sizes[size].typography, buttonTextStyle, {
-              color: componentTheme[disabled ? componentStatus : isObjectSelected ? 'selected' : componentStatus]?.label,
+              color: componentTheme[disabled ? componentStatus :
+                isObjectSelected ? 'selected' : componentStatus]?.label,
             }]}
         >
           {isObjectSelected ? displayedButtonValue?.(selectedObject) : (buttonTitle || 'Please Select')}
