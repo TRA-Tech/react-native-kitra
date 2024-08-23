@@ -53,7 +53,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
   );
 
   const componentStatus = disabled ? 'disabled' : (visible ? 'active' : 'default');
-  const dropdown = useRef<TouchableOpacity>(null);
+  const dropdown = useRef<View>(null);
   const dropdownAnimation = useAnimatedStyle(() => ({
     transform: [{ rotate: `${openAnimation.value * 180}deg` }],
   }), []);
@@ -84,7 +84,6 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
     const selectedObjectsTemp = [...selectedObjects];
 
     const valueIndex = selectedObjectsTemp.findIndex(obj => displayedRowValue(obj) === displayedRowValue(value));
-    console.log(valueIndex);
 
     if (valueIndex > -1) {
       selectedObjectsTemp.splice(valueIndex, 1);

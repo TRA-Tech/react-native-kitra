@@ -1,6 +1,6 @@
 import type { FC, PropsWithChildren } from 'react';
 import type React from 'react';
-import type { Animated, FlatList, ImageSourcePropType,
+import type { Animated, DimensionValue, FlatList, ImageSourcePropType,
   StyleProp, TextProps, TextStyle, ViewProps, ViewStyle } from 'react-native';
 import { Swipeable } from 'react-native-gesture-handler';
 import type { defaultTypography } from './core/typography/typography';
@@ -314,7 +314,7 @@ export type DividerProps = {
     /**
         *Width of divider
     */
-    width?: number,
+    width?: DimensionValue,
     /**
         *Additional styles to apply to the divider.
     */
@@ -437,7 +437,7 @@ export type MultipleDropdownProps = DrowdownProps & {
         *The theme to use for the component
     */
      theme?: DeepPartial<(ComponentThemeType['multipleDropdown'])>
-     }
+}
 export type DrowdownRouteProps= MultipleDropdownProps& {
     /**
         * Determines whether the dropdown should allow multiple selections. Defaults to false
