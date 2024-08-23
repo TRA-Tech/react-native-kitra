@@ -1,6 +1,6 @@
 {
   "name": "@tra-tech/react-native-kitra",
-  "version": "2.0.0-rc.8",
+  "version": "2.0.0-rc.9",
   "description": "UI kit for React Native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -54,8 +54,8 @@
     "@testing-library/react-native": "^12.2.2",
     "@types/lodash.merge": "^4.6.9",
     "@types/react": "~18.3.3",
-    "@types/react-dom": "^18.3.3",
-    "@types/react-native": "^0.75.1",
+    "@types/react-dom": "^18.3.0",
+    "@types/react-native": "^0.73.0",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
     "commitlint": "^17.0.2",
