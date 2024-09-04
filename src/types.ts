@@ -434,9 +434,13 @@ export type MultipleDropdownProps = DrowdownProps & {
     */
     completeButtonLabel?:string,
     /**
+        *Text to be displayed in the selectall button
+    */
+   selectallButtonLabel?:string,
+       /**
         *The theme to use for the component
     */
-     theme?: DeepPartial<(ComponentThemeType['multipleDropdown'])>
+    theme?: DeepPartial<(ComponentThemeType['multipleDropdown'])>
 }
 export type DrowdownRouteProps= MultipleDropdownProps& {
     /**
