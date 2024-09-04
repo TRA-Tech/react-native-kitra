@@ -136,15 +136,15 @@ const NotificationProvider = forwardRef<NotificationContextType, NotificationPro
                     {messageType?.(theme)[item?.type]?.icon}
                   </View>
                   <View style={styles.textsContainer}>
+                    {item?.header && (
                     <Text
-                      style={[styles.headerText,
-                        { ...typography.body.medium, color: theme.colors.neutral.lightBlack }]}
+                      style={{ ...typography.body.medium, color: theme.colors.neutral.lightBlack }}
                     >
-                      {item?.header || item?.type}
+                      {item.header}
                     </Text>
+                    )}
                     <Text
-                      style={[styles.descText,
-                        { ...typography.body.sregular, color: theme.colors.neutral.lightBlack }]}
+                      style={{ ...typography.body.sregular, color: theme.colors.neutral.lightBlack }}
                     >
                       {item?.message}
                     </Text>
@@ -192,10 +192,5 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
   },
-  headerText: {
-  },
-  descText: {
-    marginTop: 10,
-  },
-  textsContainer: { zIndex: 100, flex: 1 },
+  textsContainer: { zIndex: 100, flex: 1, rowGap: 10 },
 });
