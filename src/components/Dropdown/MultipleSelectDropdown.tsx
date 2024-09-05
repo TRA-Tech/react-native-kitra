@@ -39,7 +39,8 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
     defaultValue = [],
     size = 'medium',
     completeButtonLabelStyle,
-    completeButtonLabel },
+    completeButtonLabel,
+    selectallButtonLabel },
 ) => {
   const [visible, setVisible] = useState(false);
   const [selectedObjects, setSelectedObjects] = useState(defaultValue);
@@ -262,7 +263,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
             <Text
               style={[typography?.body.smedium, { textAlign: 'right', color: statusTheme.selectAllLabel }]}
             >
-              Select All
+              {selectallButtonLabel || 'Select All'}
             </Text>
             <IoniconsIcon
               name="checkmark-done-outline"
