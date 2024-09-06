@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { TextInput as RNTextInput,
   View, TextInputProps as RNTextInputProps, TouchableOpacity, StyleSheet, Text,
-  TextStyle } from 'react-native';
+  TextStyle,
+  ViewStyle } from 'react-native';
 import Animated,
 { interpolate, interpolateColor, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
@@ -36,7 +37,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
   const inputRef = useRef<RNTextInput>(null);
   const [counts, setCounts] = useState(0);
   const [labelLayout, setLabelLayout] = useState({ width: 0, height: 0 });
-  const textInputOffset = useSharedValue(props.defaultValue || props.placeholder || props.value ? 0 : 1);
+  const textInputOffset = useSharedValue(props.defaultValue || props.value ? 0 : 1);
   const { statusTheme, componentTheme } = useComponentTheme(
     theme,
     'textInput',
@@ -193,14 +194,14 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
   };
 
   const onEndEditingInput = () => {
-    if (counts === 0 && !props.placeholder) {
+    if (counts === 0) {
       textInputOffset.value = (counts === 0) ? withTiming(1) : withTiming(0);
     }
     setIsFocused(false);
   };
 
   useEffect(() => {
-    if (!props.defaultValue && !props.placeholder && !props.value && !isFocused) {
+    if (!props.defaultValue && !props.value && !isFocused) {
       textInputOffset.value = withTiming(1);
       setIsFocused(false);
       setCounts(0);
@@ -252,12 +253,16 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
                 fontFamily: labelStyles[size].default.fontFamily,
                 lineHeight: sizeStyles[size].lineHeight,
                 flexDirection: 'row',
+                borderRadius: Array.isArray(inputContainerStyle)
+                  ? (inputContainerStyle.find(f => (f as ViewStyle)?.borderRadius) as ViewStyle)?.borderRadius || 5
+                  : (inputContainerStyle as ViewStyle)?.borderRadius || 5,
                 flexGrow: 1,
               }, inputStyle, { backgroundColor: statusTheme.background, color: statusValue }]}
               onChangeText={event => { setCounts(event?.length || 0); onChangeText && onChangeText(event); }}
               onFocus={x => { onFocusInput(); onFocus?.(x); }}
               onEndEditing={x => { onEndEditingInput(); onEndEditing?.(x); }}
               {...props}
+              placeholder={label ? undefined : props.placeholder}
             />
             {label ? (
               <View style={[
