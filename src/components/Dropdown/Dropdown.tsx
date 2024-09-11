@@ -43,19 +43,19 @@ const Dropdown: FCCWD<DrowdownProps> = (
   const sizes = {
     small: {
       buttonHeight: 36,
-      typography: typography.body.xsmedium,
+      typography: typography.body.xsregular,
       rowHeight: 35,
       paddingHorizontal: 10,
     },
     medium: {
       buttonHeight: 42,
-      typography: typography.body.smedium,
+      typography: typography.body.sregular,
       rowHeight: 38,
       paddingHorizontal: 12,
     },
     large: {
       buttonHeight: 51,
-      typography: typography.body.medium,
+      typography: typography.body.regular,
       rowHeight: 41,
       paddingHorizontal: 15,
     },
