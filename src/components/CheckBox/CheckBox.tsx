@@ -4,7 +4,7 @@ import Animated, { interpolateColor, useAnimatedStyle, useSharedValue, withTimin
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { CheckBoxProps, FCCWD } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
-import Octicons from '../Icons/Octicons';
+import Icon from '../Icons/Icon';
 
 const AnimatedTouchableOpacity = Animated.createAnimatedComponent(TouchableOpacity);
 
@@ -15,6 +15,7 @@ export const CheckBox: FCCWD<CheckBoxProps & TouchableOpacityProps> = (
     style,
     disabled,
     theme,
+    variant = 'circular',
     ...props },
 ) => {
   const [status, setStatus] = useState(value || false);
@@ -69,18 +70,28 @@ export const CheckBox: FCCWD<CheckBoxProps & TouchableOpacityProps> = (
       activeOpacity={1}
       onPress={toggle}
       disabled={disabled}
-      style={[styles.checkBox, style, animatedStyle]}
+      style={[styles.checkBox, style, { borderRadius: variant === 'circular' ? 10 : 4 }, animatedStyle]}
       {...props}
     >
-      {(value || (value === undefined && status)) && (
-        <Animated.View>
-          <Octicons
+      {disabled ? (
+        <Icon
+          type="ant-design"
+          color={statusTheme.icon}
+          name="minus"
+          size={12}
+        />
+      )
+        :
+        (value || (value === undefined && status)) && (
+          <Icon
+            type="octicon"
             color={statusTheme.icon}
             name="check"
             size={12}
           />
-        </Animated.View>
-      )}
+        )
+      }
+
     </AnimatedTouchableOpacity>
   );
 };
