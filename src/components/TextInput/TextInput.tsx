@@ -118,11 +118,20 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
     const topInterpolate = interpolate(
       textInputOffset.value,
       [0, 1],
-      [-1, sizeStyles[size].paddingVertical],
+      [
+        Array.isArray(inputContainerStyle)
+          ? -Number((inputContainerStyle.find(f => (f as ViewStyle)?.borderWidth) as ViewStyle)?.borderWidth) || -1
+          : -Number((inputContainerStyle as ViewStyle)?.borderWidth) || -1,
+        sizeStyles[size].paddingVertical],
     );
-
+    const leftInterpolate = interpolate(
+      textInputOffset.value,
+      [0, 1],
+      [(variant === 'outlined' && label) ? (left ? -(sizeStyles[size].paddingHorizontal + 6) : 2) : 0, 0],
+    );
     return {
       top: topInterpolate,
+      left: leftInterpolate,
     };
   });
 
@@ -169,7 +178,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
     const leftInterpolate = interpolate(
       textInputOffset.value,
       [0, 1],
-      [(variant === 'outlined' && label) ? 4 : 0, 0],
+      [(variant === 'outlined' && label) ? (left ? -(sizeStyles[size].paddingHorizontal + 5) : 3) : 0, 0],
     );
     return {
       fontSize,
@@ -236,11 +245,30 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
           )}
 
           <View style={{ flex: 1, flexDirection: 'row' }}>
-            {(variant === 'outlined' && label) && (
-            <Animated.View style={[{ position: 'absolute',
-              width: labelLayout.width + 8,
-              height: 2,
-              zIndex: 100 }, labelPositionAnimation, { backgroundColor: statusTheme.background }]}
+            {(variant === 'outlined' && label && (() => {
+              if (Array.isArray(inputContainerStyle)) {
+                const foundStyle = inputContainerStyle.find(f => (f as ViewStyle)?.borderWidth);
+                if (!foundStyle && editable === false) {
+                  return false;
+                }
+                return foundStyle ? Number((foundStyle as ViewStyle)?.borderWidth) > 0 : true;
+              }
+              const borderWidth = (inputContainerStyle as ViewStyle)?.borderWidth;
+              if (borderWidth === undefined && editable === false) {
+                return false;
+              }
+              return borderWidth !== undefined ? borderWidth > 0 : true;
+            })()) && (
+            <Animated.View style={[
+              {
+                position: 'absolute',
+                width: labelLayout.width + 2,
+                height: 5,
+                zIndex: 100,
+                backgroundColor: statusTheme.background,
+              },
+              labelPositionAnimation,
+            ]}
             />
             )}
 
