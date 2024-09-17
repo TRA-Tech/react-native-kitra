@@ -18,7 +18,8 @@ export const CheckBox: FCCWD<CheckBoxProps & TouchableOpacityProps> = (
     ...props },
 ) => {
   const [status, setStatus] = useState(value || false);
-  const componentStatus = disabled ? 'disabled' : (status ? 'filled' : 'default');
+  const componentStatus = disabled ? 'disabled' : ((value || (value === undefined && status)) ? 'filled' : 'default');
+
   const { statusTheme } = useComponentTheme(theme, 'checkbox', componentStatus);
 
   const animatedValue = useSharedValue(0);
@@ -45,17 +46,22 @@ export const CheckBox: FCCWD<CheckBoxProps & TouchableOpacityProps> = (
   );
 
   const toggle = () => {
-    onPress?.(!status);
-    setStatus(prev => !prev);
+    if (value === undefined) {
+      animatedValue.value = withTiming(Number(!status));
+      setStatus(prev => !prev);
+      onPress?.(!status);
+      onChange?.(!status);
+    } else {
+      onPress?.(!value);
+      onChange?.(!value);
+    }
   };
 
   useEffect(() => {
-    animatedValue.value = withTiming(Number(!!status));
-    if (onChange) onChange(status);
-  }, [status]);
-
-  useEffect(() => {
-    setStatus(!!value);
+    if (value !== undefined) {
+      animatedValue.value = withTiming(Number(value));
+      setStatus(value);
+    }
   }, [value]);
 
   return (
@@ -66,7 +72,7 @@ export const CheckBox: FCCWD<CheckBoxProps & TouchableOpacityProps> = (
       style={[styles.checkBox, style, animatedStyle]}
       {...props}
     >
-      {status && (
+      {(value || (value === undefined && status)) && (
         <Animated.View>
           <Octicons
             color={statusTheme.icon}
