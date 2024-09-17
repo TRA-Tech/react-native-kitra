@@ -25,7 +25,6 @@ export { default as SpeedDial } from './components/SpeedDial/SpeedDial';
 export { default as Avatar } from './components/Avatar/Avatar';
 export { default as AvatarGroup } from './components/Avatar/AvatarGroup';
 export { default as Chip } from './components/Chip/Chip';
-export { default as SearchBar } from './components/SearchBar/SearchBar';
 export { default as Switch } from './components/Switch/Switch';
 export { default as Slider } from './components/Slider/index';
 export { default as PagerView } from './components/PagerView/PagerView';
@@ -69,5 +68,3 @@ export { AccordionListProps,
   RenderRightActionProps,
   Components,
   DrowdownRouteProps } from './types';
-
-
