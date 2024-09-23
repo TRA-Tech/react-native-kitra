@@ -257,6 +257,10 @@ export type CheckBoxProps = {
         *Whether the press behavior is disabled
     */
     disabled?: boolean,
+     /**
+        *Variant of the text input. Defaults to 'circular'
+    */
+        variant?:'circular' |'rectangular'
     /**
         *The theme to use for the component
     */
