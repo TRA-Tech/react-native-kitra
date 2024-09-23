@@ -588,14 +588,6 @@ export type RadioButtonProps = {
     theme?: DeepPartial<(ComponentThemeType['radioButton'])>
 }
 
-export type SearchBarProps = {
-    size?: 'small' | 'medium' | 'large',
-    style?: StyleProp<ViewStyle>,
-    value?: string
-    filterPattern: (text: string) => Array<any>,
-    filterOnChange: (event: any) => any;
-}
-
 export type SliderProps = {
      /**
         *Additional styles to apply to the slider container
