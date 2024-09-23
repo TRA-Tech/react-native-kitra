@@ -339,10 +339,6 @@ export type DrowdownProps = {
     */
     size?: 'large' | 'medium' | 'small',
     /**
-        *Whether to include a "Select All" option in the dropdown. Defaults to false
-    */
-    selectall?: boolean,
-    /**
         *Whether the press behavior is disabled
     */
     disabled?: boolean | undefined,
@@ -441,6 +437,10 @@ export type MultipleDropdownProps = DrowdownProps & {
         *Text to be displayed in the selectall button
     */
    selectallButtonLabel?:string,
+   /**
+        *Whether to include a "Select All" option in the dropdown. Defaults to false
+    */
+    selectall?: boolean,
        /**
         *The theme to use for the component
     */
