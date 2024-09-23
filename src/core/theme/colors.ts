@@ -116,8 +116,8 @@ export const COLOR_COMPONENTS_LIGHT = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_
     },
     activityIndicator: {
       default: {
-        background: COLOR_SYSTEM.colors.system.primary5,
-        indicator: COLOR_SYSTEM.colors.system.primary,
+        background: COLOR_SYSTEM.colors.system.primary,
+        indicator: COLOR_SYSTEM.colors.system.disabledLight,
       },
     },
     avatar: {
@@ -438,8 +438,8 @@ export const COLOR_COMPONENTS_DARK = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_D
   },
   activityIndicator: {
     default: {
-      background: COLOR_SYSTEM.colors.system.primary5,
-      indicator: COLOR_SYSTEM.colors.system.primary,
+      background: COLOR_SYSTEM.colors.system.primary,
+      indicator: COLOR_SYSTEM.colors.system.disabledLight,
     },
   },
   avatar: {

@@ -1,16 +1,44 @@
-import { StyleSheet, View, ActivityIndicator as RNActivityIndicator } from 'react-native';
-import React from 'react';
+import { StyleSheet, View, Platform } from 'react-native';
+import { useEffect } from 'react';
+import Animated, { useAnimatedStyle, useSharedValue, withRepeat, withSpring } from 'react-native-reanimated';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { ActivityIndicatorProps, FCCWD } from '../../types';
-import { opacity } from '../../utilities';
 import { applyDefaults } from '../../core/KitraProvider';
 
 const ActivityIndicator:FCCWD<ActivityIndicatorProps> = ({ theme, children }) => {
   const { componentTheme } = useComponentTheme(theme, 'activityIndicator', 'default');
+  const sv = useSharedValue(0);
+  useEffect(() => {
+    sv.value = withRepeat(
+      withSpring(1, {
+        stiffness: 20,
+        damping: 8,
+      }),
+      -1,
+      false,
+    );
+  }, []);
+
+  const animatedStyle = useAnimatedStyle(() => ({ transform: [
+    { translateX: 16 },
+    { translateY: 16 },
+    { rotate: `${sv.value * 360}deg` },
+    { translateX: -16 },
+    { translateY: -16 },
+  ] }));
   return (
-    <View style={[styles.centeredView, { backgroundColor: opacity(String(componentTheme.default?.background), 80) }]}>
-      <View style={[styles.modalView]}>
-        {children || <RNActivityIndicator size="large" color={componentTheme.default?.indicator} /> }
+    <View style={[styles.centeredView]}>
+      <View>
+        {children || (
+        <>
+          <View style={[{ borderColor: componentTheme.default?.background }, styles.circle]} />
+          <Animated.View style={[Platform.OS === 'android' ? styles.quarterCircleAndroid : styles.quarterCircleIOS,
+            { borderColor: componentTheme.default?.indicator },
+            animatedStyle,
+          ]}
+          />
+        </>
+        )}
       </View>
     </View>
   );
@@ -27,11 +55,31 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  modalView: {
-    borderRadius: 20,
-    width: 150,
-    height: 150,
-    alignItems: 'center',
-    justifyContent: 'center',
+  circle: {
+    width: 64,
+    height: 64,
+    backgroundColor: 'transparent',
+    borderRadius: 50,
+    borderWidth: 2,
+  },
+  quarterCircleAndroid: {
+    width: 32,
+    height: 32,
+    borderWidth: 3,
+    borderRightWidth: 0,
+    borderBottomWidth: 0,
+    borderTopLeftRadius: 32,
+    position: 'absolute',
+    backgroundColor: 'transparent',
+  },
+  quarterCircleIOS: {
+    width: 32,
+    height: 32,
+    borderWidth: 3,
+    borderRightColor: 'transparent',
+    borderBottomColor: 'transparent',
+    borderTopLeftRadius: 32,
+    position: 'absolute',
+    backgroundColor: 'transparent',
   },
 });
