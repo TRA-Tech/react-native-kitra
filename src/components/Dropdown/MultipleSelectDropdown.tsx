@@ -40,6 +40,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
     size = 'medium',
     completeButtonLabelStyle,
     completeButtonLabel,
+    overflowButtonLabel,
     selectallButtonLabel },
 ) => {
   const [visible, setVisible] = useState(false);
@@ -125,7 +126,6 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
       setSelectedObjects(defaultValue);
     }
   }, []);
-
   return (
     <View testID={testID} style={[containerStyle, { zIndex: visible ? 1000 : 0 }]}>
       <TouchableOpacity
@@ -163,7 +163,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
             (buttonTitle || 'Please Select')
             : selectedObjects.length <= displayLength ?
               `${selectedObjects.map((item:any) => displayedButtonValue?.(item))}` :
-              `${selectedObjects?.length} Selected`}
+              (overflowButtonLabel?.(selectedObjects.length) || `${selectedObjects?.length} Selected`)}
         </Text>
         <View style={[Style.rightItem]}>
           {rightElement || (

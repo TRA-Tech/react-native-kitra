@@ -441,7 +441,11 @@ export type MultipleDropdownProps = DrowdownProps & {
         *Whether to include a "Select All" option in the dropdown. Defaults to false
     */
     selectall?: boolean,
-       /**
+    /**
+        * Text to display when the selection exceeds the display length limit
+    */
+    overflowButtonLabel?:(event: number)=>void,
+    /**
         *The theme to use for the component
     */
     theme?: DeepPartial<(ComponentThemeType['multipleDropdown'])>
