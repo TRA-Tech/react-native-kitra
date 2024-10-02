@@ -27,13 +27,13 @@ const ActivityIndicator:FCCWD<ActivityIndicatorProps> = ({ theme, children }) =>
     { translateY: -16 },
   ] }));
   return (
-    <View style={[styles.centeredView]}>
+    <View style={[styles.centeredView, { backgroundColor: componentTheme.default?.background }]}>
       <View>
         {children || (
         <>
-          <View style={[{ borderColor: componentTheme.default?.background }, styles.circle]} />
+          <View style={[{ borderColor: componentTheme.default?.indicator }, styles.circle]} />
           <Animated.View style={[Platform.OS === 'android' ? styles.quarterCircleAndroid : styles.quarterCircleIOS,
-            { borderColor: componentTheme.default?.indicator },
+            { borderColor: componentTheme.default?.track },
             animatedStyle,
           ]}
           />
