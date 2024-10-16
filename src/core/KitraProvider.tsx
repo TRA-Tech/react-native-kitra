@@ -121,11 +121,15 @@ export const KitraProvider =
 );
 
 export function applyDefaults<T>(Component: ComponentType<T>) {
-  return React.forwardRef((props: T | any, ref: ForwardedRef<any>) => (
+  return React.forwardRef<any, T>((props, ref) => (
     <TypographyContext.Consumer>
-      {typography =>
-        <Component ref={ref} typography={typography?.typography} {...props} />
-          }
+      {typography => (
+        <Component
+          ref={ref}
+          typography={typography?.typography}
+          {...(props as T)}
+        />
+      )}
     </TypographyContext.Consumer>
   ));
 }
