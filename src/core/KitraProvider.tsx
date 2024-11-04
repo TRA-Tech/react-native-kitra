@@ -11,6 +11,7 @@ import { NotificationContextType, NotificationProvider } from './notification/no
 const Feather = require('react-native-vector-icons/Feather').default;
 const Ionicons = require('react-native-vector-icons/Ionicons').default;
 const AntDesign = require('react-native-vector-icons/AntDesign').default;
+const MaterialIcons = require('react-native-vector-icons/MaterialIcons').default;
 
 export const showNotificationRef = createRef<NotificationContextType>();
 
@@ -25,7 +26,7 @@ const messageTypes = (theme:any) => ({
   },
   DANGER: {
     backgroundColor: theme.colors.status.errorLight,
-    icon: <AntDesign name="warning" size={25} color={theme.colors.status.error} />,
+    icon: <MaterialIcons name="error-outline" size={25} color={theme.colors.status.error} />,
   },
   WARNING: {
     backgroundColor: theme.colors.status.warningLight,
