@@ -407,9 +407,11 @@ export type DrowdownProps = {
     */
     onComplete?: (item: any) => void,
     /**
-        *Controls whether the dropdown component's dropdown menu is positioned automatically. Defaults to true
-    */
-    autoPosition?: boolean,
+ * Controls the dropdown menu's opening direction.
+ * Accepts 'up' or 'down' for specific directions, or 'auto' to adjust direction automatically based on available space.
+ * Defaults to 'auto'.
+ */
+    direction?:'up'|'down'|'auto'
     /**
         *The theme to use for the component
     */
