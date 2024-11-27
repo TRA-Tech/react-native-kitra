@@ -69,7 +69,6 @@ const Slider: FCCWD<SliderProps> = (
     const translateX = e.x > measure.width - 20 ? measure.width - 20 : e.x;
     progress.value = withTiming(translateX);
   });
-
   return (
     <View style={containerStyle}>
       <GestureDetector gesture={tap}>
@@ -100,7 +99,7 @@ const Slider: FCCWD<SliderProps> = (
                     underlineColorAndroid="transparent"
                     editable={false}
                     style={{ textAlign: 'center', fontSize: 12, color: statusTheme.percentageLabel }}
-                    value={progress.value.toString()}
+                    value={`%${progress.value.toString()}`}
                     {...{ animatedProps }}
                   />
                 </View>
