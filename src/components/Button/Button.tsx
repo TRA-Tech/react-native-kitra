@@ -46,13 +46,12 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
       style={({ pressed }) =>
         [
           styles.container,
-
           label ?
             sizes[size]
             :
             { padding: (fontStyles[size].lineHeight - fontStyles[size].fontSize) / 2 + 10 },
           style,
-          { backgroundColor: statusTheme.background },
+          { backgroundColor: statusTheme.background, borderColor: statusTheme.border },
           { opacity: pressed ? activeOpacity : 1 },
         ]}
       disabled={disabled}

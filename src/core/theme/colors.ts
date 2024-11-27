@@ -146,14 +146,17 @@ export const COLOR_COMPONENTS_LIGHT = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_
       default: {
         background: COLOR_SYSTEM.colors.system.primary,
         label: COLOR_SYSTEM.colors.button.text,
+        border: COLOR_SYSTEM.colors.system.primary,
       },
       pressed: {
         background: COLOR_SYSTEM.colors.status.focused,
         label: COLOR_SYSTEM.colors.button.text,
+        border: COLOR_SYSTEM.colors.status.focused,
       },
       disabled: {
         background: COLOR_SYSTEM.colors.button.disabled,
         label: COLOR_SYSTEM.colors.button.disabledText,
+        border: COLOR_SYSTEM.colors.button.disabled,
       },
     },
     checkbox: {
@@ -469,14 +472,17 @@ export const COLOR_COMPONENTS_DARK = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_D
     default: {
       background: COLOR_SYSTEM.colors.system.primary,
       label: COLOR_SYSTEM.colors.button.text,
+      border: COLOR_SYSTEM.colors.system.primary,
     },
     pressed: {
       background: COLOR_SYSTEM.colors.status.focused,
       label: COLOR_SYSTEM.colors.button.text,
+      border: COLOR_SYSTEM.colors.status.focused,
     },
     disabled: {
       background: COLOR_SYSTEM.colors.button.disabled,
       label: COLOR_SYSTEM.colors.button.disabledText,
+      border: COLOR_SYSTEM.colors.button.disabled,
     },
   },
   checkbox: {
