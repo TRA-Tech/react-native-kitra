@@ -24,7 +24,7 @@ const Dropdown: FCCWD<DrowdownProps> = (
     onSelect,
     rowTextStyle,
     containerStyle,
-    autoPosition = true,
+    direction = 'auto',
     size = 'medium',
     disabled,
     defaultValue = {},
@@ -144,10 +144,10 @@ const Dropdown: FCCWD<DrowdownProps> = (
             },
             { maxHeight: sizes[size].rowHeight * 4.5 },
             listContainerStyle,
-            autoPosition ?
+            direction === 'auto' ?
               (cord?.y + (sizes[size].rowHeight * 4.5) + 10 + sizes[size].buttonHeight || 0) >= windowsHeight ?
                 { bottom: cord?.height } : { top: 0 }
-              : { top: cord?.height + 5 },
+              : (direction === 'down' ? { top: 0 } : { bottom: cord?.height }),
             { backgroundColor: statusTheme.collapseBackground }]}
           >
             <ScrollView nestedScrollEnabled>

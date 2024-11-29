@@ -41,6 +41,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
     completeButtonLabelStyle,
     completeButtonLabel,
     overflowButtonLabel,
+    direction = 'auto',
     selectallButtonLabel },
 ) => {
   const [visible, setVisible] = useState(false);
@@ -133,6 +134,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
         ref={dropdown}
         activeOpacity={0.9}
         disabled={disabled}
+        onLayout={event => setCord(event.nativeEvent.layout)}
         onPress={() => { setVisible(!visible); }}
         style={[Style.button,
           { borderWidth: 1, height: sizes[size].buttonHeight },
@@ -191,10 +193,10 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
               maxHeight: selectall ? sizes[size].rowHeight * 6.5 : sizes[size].rowHeight * 6,
             },
             listContainerStyle,
-
-            // eslint-disable-next-line no-unsafe-optional-chaining
-            (cord?.y + (sizes[size].rowHeight * 6.5) || 0) >= windowsHeight ?
-              { bottom: cord?.height || 0 } : { top: 0 },
+            direction === 'auto' ?
+              (cord.y + (sizes[size].rowHeight * 4.5) + 10 + sizes[size].buttonHeight || 0) >= windowsHeight ?
+                { bottom: cord?.height } : { top: 0 }
+              : (direction === 'down' ? { top: 0 } : { bottom: cord?.height }),
             { backgroundColor: statusTheme.collapseBackground }]}
         >
           <ScrollView>
