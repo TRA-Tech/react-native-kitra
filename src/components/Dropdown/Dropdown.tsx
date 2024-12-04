@@ -27,12 +27,13 @@ const Dropdown: FCCWD<DrowdownProps> = (
     autoPosition = true,
     size = 'medium',
     disabled,
+    value,
     defaultValue = {},
     testID,
     theme },
 ) => {
   const [visible, setVisible] = useState(false);
-  const [selectedObject, setSelectedObject] = useState(defaultValue);
+  const [selectedObject, setSelectedObject] = useState(value || defaultValue);
   const [cord, setCord] = useState({ x: 0, y: 0, height: 0, width: 0 });
   const { statusTheme, componentTheme } = useComponentTheme(
     theme,
@@ -86,6 +87,10 @@ const Dropdown: FCCWD<DrowdownProps> = (
     openAnimation.value = withSpring(visible ? 1 : 0);
   }, [visible]);
 
+  useEffect(() => {
+    if (value) setSelectedObject(value);
+  }, [value]);
+
   return (
     <View testID={testID} style={[containerStyle, { zIndex: visible ? 1000 : 0 }]}>
       <TouchableOpacity
@@ -95,13 +100,15 @@ const Dropdown: FCCWD<DrowdownProps> = (
         onLayout={event => setCord(event.nativeEvent.layout)}
         onPress={() => { setVisible(!visible); }}
         style={[Style.button, { borderWidth: 1, height: sizes[size].buttonHeight }, buttonStyle,
-          { borderColor: statusTheme.border,
-            backgroundColor: statusTheme.background }]}
+          {
+            borderColor: statusTheme.border,
+            backgroundColor: statusTheme.background,
+          }]}
       >
         {leftElement && (
-        <View style={Style.leftItem}>
-          {leftElement}
-        </View>
+          <View style={Style.leftItem}>
+            {leftElement}
+          </View>
         )}
         <Text
           numberOfLines={1}
@@ -121,13 +128,13 @@ const Dropdown: FCCWD<DrowdownProps> = (
 
         <View style={[Style.rightItem]}>
           {rightElement || (
-          <Animated.View style={dropdownAnimation}>
-            <FeatherIcon
-              name="chevron-down"
-              size={14}
-              color={statusTheme.collapseIcon}
-            />
-          </Animated.View>
+            <Animated.View style={dropdownAnimation}>
+              <FeatherIcon
+                name="chevron-down"
+                size={14}
+                color={statusTheme.collapseIcon}
+              />
+            </Animated.View>
           )}
         </View>
       </TouchableOpacity>
