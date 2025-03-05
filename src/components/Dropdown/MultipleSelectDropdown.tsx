@@ -1,19 +1,21 @@
 import React, { forwardRef, RefAttributes, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import { Dimensions, ScrollViewProps, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Dimensions, Modal, ScrollViewProps, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import { NativeViewGestureHandlerProps, ScrollView } from 'react-native-gesture-handler';
 import Animated, { FadeIn, FadeOut, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { FCCWD, MultipleDropdownProps } from '../../types';
 import Button from '../Button/Button';
 import FeatherIcon from '../Icons/Feather';
 import IoniconsIcon from '../Icons/Ionicons';
 import OcticonsIcon from '../Icons/Octicons';
+import { opacity } from '../../utilities';
 
 const windowsHeight = Dimensions.get('window').height;
 
 // eslint-disable-next-line no-undef
 const GScrollView = forwardRef((props: JSX.IntrinsicAttributes &
-   ScrollViewProps & NativeViewGestureHandlerProps & RefAttributes<ScrollView>, ref) => <ScrollView {...props} />);
+  ScrollViewProps & NativeViewGestureHandlerProps & RefAttributes<ScrollView>, ref) => <ScrollView {...props} />);
 
 const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
   { typography,
@@ -37,6 +39,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
     testID,
     theme,
     defaultValue = [],
+    value,
     size = 'medium',
     completeButtonLabelStyle,
     completeButtonLabel,
@@ -117,8 +120,8 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
   useEffect(() => {
     const tempData = JSON.parse(JSON.stringify(data || []));
     dataWithID.current = tempData?.map((x: (string | { [key: string]: any })):
-    // @ts-ignore
-     (string | { keyID: number, [key: string]: any }) => { x.keyID = Math.random(); return (x); });
+      // @ts-ignore
+      (string | { keyID: number, [key: string]: any }) => { x.keyID = Math.random(); return (x); });
   }, [data]);
 
   useEffect(() => {
@@ -126,8 +129,17 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
       setSelectedObjects(defaultValue);
     }
   }, []);
+
+  useEffect(
+    () => {
+      if (value) {
+        setSelectedObjects(value);
+      }
+    },
+    [value],
+  );
   return (
-    <View testID={testID} style={[containerStyle, { zIndex: visible ? 1000 : 0 }]}>
+    <View testID={testID} style={[containerStyle]}>
       <TouchableOpacity
         testID="dropdown-button"
         ref={dropdown}
@@ -154,143 +166,159 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
           style={[
             sizes[size].typography,
             buttonTextStyle,
-            { flex: 1,
+            {
+              flex: 1,
               marginLeft: 12,
               color: componentTheme[disabled ?
-                componentStatus : isObjectSelected ? 'selected' : componentStatus]?.label }]}
+                componentStatus : isObjectSelected ? 'selected' : componentStatus]?.label,
+            }]}
         >
           {!isObjectSelected ?
             (buttonTitle || 'Please Select')
             : selectedObjects.length <= displayLength ?
-              `${selectedObjects.map((item:any) => displayedButtonValue?.(item))}` :
+              `${selectedObjects.map((item: any) => displayedButtonValue?.(item))}` :
               (overflowButtonLabel?.(selectedObjects.length) || `${selectedObjects?.length} Selected`)}
         </Text>
         <View style={[Style.rightItem]}>
           {rightElement || (
-          <Animated.View style={dropdownAnimation}>
-            <FeatherIcon
-              name="chevron-down"
-              size={14}
-              color={statusTheme.collapseIcon}
-            />
-          </Animated.View>
+            <Animated.View style={dropdownAnimation}>
+              <FeatherIcon
+                name="chevron-down"
+                size={14}
+                color={statusTheme.collapseIcon}
+              />
+            </Animated.View>
           )}
         </View>
       </TouchableOpacity>
-      {visible && data?.length > 0 && (
-      <Animated.View
-        entering={FadeIn}
-        exiting={FadeOut}
-      >
-        <View
-          testID="dropdown-list"
-          style={[Style.listContainer,
-            {
-              width: cord?.width,
-              left: 0,
-              maxHeight: selectall ? sizes[size].rowHeight * 6.5 : sizes[size].rowHeight * 6,
-            },
-            listContainerStyle,
-
-            // eslint-disable-next-line no-unsafe-optional-chaining
-            (cord?.y + (sizes[size].rowHeight * 6.5) || 0) >= windowsHeight ?
-              { bottom: cord?.height || 0 } : { top: 0 },
-            { backgroundColor: statusTheme.collapseBackground }]}
+      {data?.length > 0 && (
+        <Modal
+          statusBarTranslucent
+          visible={visible}
+          transparent
         >
-          <ScrollView>
-            {/* @ts-ignore */}
-            {dataWithID?.current?.map((item, index) => {
-              const isSelected = isItemSelected(item || {});
-              return (
-                <TouchableOpacity
-                  key={item.keyID || item}
-                  activeOpacity={0.8}
-                  onPress={() => {
-                    toggleCheckBox(item);
-                  }}
-                  style={[
-                    Style.row,
-                    index === data?.length || 0 - 1 ?
-                      { borderBottomLeftRadius: 5, borderBottomRightRadius: 5, height: sizes[size].rowHeight }
-                      : null,
-                    rowStyle,
-                    {
-                      backgroundColor: componentTheme[isSelected ? 'selected' : componentStatus]?.background,
-                    },
-                  ]}
-                >
-                  <TouchableOpacity
-                    disabled
-                    style={[Style.checkBox, {
-                      borderColor: componentTheme[isSelected ? 'selected' : componentStatus]?.checkBorder,
-                      backgroundColor: componentTheme[isSelected ? 'selected' : componentStatus]?.checkBackground,
-                    }]}
-                  >
-                    {isSelected && (
-                    <OcticonsIcon
-                      color={componentTheme[isSelected ? 'selected' : componentStatus]?.checkIcon}
-                      name="check"
-                      size={12}
-                    />
-                    )}
-                  </TouchableOpacity>
-                  <Text
-                    style={[sizes[size].typography,
-                      { marginHorizontal: 10 },
-                      rowTextStyle, { color: componentTheme[isSelected ? 'selected' : componentStatus]?.itemLabel }]}
-                  >
-                    {displayedRowValue?.(item)}
-                  </Text>
-                </TouchableOpacity>
-              );
-            })}
 
-          </ScrollView>
-          {selectall && (
-          <TouchableOpacity
-            activeOpacity={0.8}
-            onPress={() => {
-              if (data?.length === selectedObjects.length) {
-                setSelectedObjects([]);
-                onSelect?.([]);
-              } else {
-                onSelect?.(dataWithID.current);
-                setSelectedObjects(dataWithID.current);
-              }
-            }}
-            style={{ flexDirection: 'row', justifyContent: 'flex-end' }}
-          >
-            <Text
-              style={[typography?.body.smedium, { textAlign: 'right', color: statusTheme.selectAllLabel }]}
-            >
-              {selectallButtonLabel || 'Select All'}
-            </Text>
-            <IoniconsIcon
-              name="checkmark-done-outline"
-              size={16}
-              style={{ marginLeft: 5 }}
-              color={statusTheme.selectAllLabel}
-            />
-          </TouchableOpacity>
-          )}
-          <Button
-            testID="dropdown-complete-button"
-            onPress={() => {
-              if (onComplete) onComplete(selectedObjects); setVisible(false);
-            }}
-            size={size}
-            theme={{
-              default: {
-                background: statusTheme.completeBackground,
-                label: statusTheme.completeLabel,
-              },
-            }}
-            label={completeButtonLabel || 'Complete Selection'}
-            labelStyle={[{ textAlign: 'center' }, completeButtonLabelStyle]}
-            style={Style.completeSelection}
-          />
-        </View>
-      </Animated.View>
+          <TouchableWithoutFeedback onPress={() => setVisible(false)}>
+            <View style={{ backgroundColor: opacity('black', 60), flex: 1 }}>
+              <Animated.View
+                style={{ flex: 1 }}
+                entering={FadeIn}
+                exiting={FadeOut}
+              >
+                <View
+                  testID="dropdown-list"
+                  style={[Style.listContainer,
+                    {
+                      width: cord?.width,
+                      left: 0,
+                      maxHeight: selectall ? sizes[size].rowHeight * 6.5 : sizes[size].rowHeight * 6,
+                    },
+                    listContainerStyle,
+
+                    // eslint-disable-next-line no-unsafe-optional-chaining
+
+                    ((cord?.y || 0) + (sizes[size].rowHeight * 4.5) + 10 + sizes[size].buttonHeight || 0)
+                    >= windowsHeight ?
+                      { bottom: windowsHeight - cord.y, left: cord.x } : { top: cord.y + cord.height, left: cord.x },
+                    { backgroundColor: statusTheme.collapseBackground }]}
+                >
+                  <ScrollView>
+                    {/* @ts-ignore */}
+                    {dataWithID?.current?.map((item, index) => {
+                      const isSelected = isItemSelected(item || {});
+                      return (
+                        <TouchableOpacity
+                          key={item.keyID || item}
+                          activeOpacity={0.8}
+                          onPress={() => {
+                            toggleCheckBox(item);
+                          }}
+                          style={[
+                            Style.row,
+                            index === data?.length || 0 - 1 ?
+                              { borderBottomLeftRadius: 5, borderBottomRightRadius: 5, height: sizes[size].rowHeight }
+                              : null,
+                            rowStyle,
+                            {
+                              backgroundColor: componentTheme[isSelected ? 'selected' : componentStatus]?.background,
+                            },
+                          ]}
+                        >
+                          <TouchableOpacity
+                            disabled
+                            style={[Style.checkBox, {
+                              borderColor: componentTheme[isSelected ? 'selected' : componentStatus]?.checkBorder,
+                              backgroundColor: componentTheme[isSelected ? 'selected' : componentStatus]?.checkBackground,
+                            }]}
+                          >
+                            {isSelected && (
+                              <OcticonsIcon
+                                color={componentTheme[isSelected ? 'selected' : componentStatus]?.checkIcon}
+                                name="check"
+                                size={12}
+                              />
+                            )}
+                          </TouchableOpacity>
+                          <Text
+                            style={[sizes[size].typography,
+                              { marginHorizontal: 10 },
+                              rowTextStyle, { color: componentTheme[isSelected ? 'selected' : componentStatus]?.itemLabel }]}
+                          >
+                            {displayedRowValue?.(item)}
+                          </Text>
+                        </TouchableOpacity>
+                      );
+                    })}
+
+                  </ScrollView>
+                  {selectall && (
+                    <TouchableOpacity
+                      activeOpacity={0.8}
+                      onPress={() => {
+                        if (data?.length === selectedObjects.length) {
+                          setSelectedObjects([]);
+                          onSelect?.([]);
+                        } else {
+                          onSelect?.(dataWithID.current);
+                          setSelectedObjects(dataWithID.current);
+                        }
+                      }}
+                      style={{ flexDirection: 'row', justifyContent: 'flex-end' }}
+                    >
+                      <Text
+                        style={[typography?.body.smedium, { textAlign: 'right', color: statusTheme.selectAllLabel }]}
+                      >
+                        {selectallButtonLabel || 'Select All'}
+                      </Text>
+                      <IoniconsIcon
+                        name="checkmark-done-outline"
+                        size={16}
+                        style={{ marginLeft: 5 }}
+                        color={statusTheme.selectAllLabel}
+                      />
+                    </TouchableOpacity>
+                  )}
+                  <Button
+                    testID="dropdown-complete-button"
+                    onPress={() => {
+                      if (onComplete) onComplete(selectedObjects); setVisible(false);
+                    }}
+                    size={size}
+                    theme={{
+                      default: {
+                        background: statusTheme.completeBackground,
+                        label: statusTheme.completeLabel,
+                      },
+                    }}
+                    label={completeButtonLabel || 'Complete Selection'}
+                    labelStyle={[{ textAlign: 'center' }, completeButtonLabelStyle]}
+                    style={Style.completeSelection}
+                  />
+                </View>
+              </Animated.View>
+            </View>
+          </TouchableWithoutFeedback>
+        </Modal>
       )}
     </View>
   );
@@ -307,7 +335,6 @@ export const Style = StyleSheet.create({
   },
 
   listContainer: {
-    zIndex: 100,
     position: 'absolute',
     padding: 10,
     paddingBottom: 14,
