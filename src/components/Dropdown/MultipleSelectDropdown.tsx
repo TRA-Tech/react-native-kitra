@@ -46,7 +46,8 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
     completeButtonLabelStyle,
     completeButtonLabel,
     overflowButtonLabel,
-    selectallButtonLabel },
+    selectallButtonLabel,
+    checkBoxVariant = 'rectangular' },
 ) => {
   const [visible, setVisible] = useState(false);
   const [selectedObjects, setSelectedObjects] = useState(defaultValue);
@@ -70,16 +71,26 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
       buttonHeight: 36,
       typography: typography.body.xsmedium,
       rowHeight: 35,
+      checkBoxWidth: 12,
+      checkBoxHeight: 12,
+      checkIconSize: 9,
     },
     medium: {
       buttonHeight: 42,
       typography: typography.body.smedium,
       rowHeight: 38,
+      checkBoxWidth: 14,
+      checkBoxHeight: 14,
+      checkIconSize: 10,
     },
     large: {
       buttonHeight: 51,
       typography: typography.body.medium,
       rowHeight: 41,
+      checkBoxWidth: 16,
+      checkBoxHeight: 16,
+      checkIconSize: 11,
+
     },
   };
 
@@ -249,6 +260,9 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
                           <TouchableOpacity
                             disabled
                             style={[Style.checkBox, {
+                              width: sizes[size].checkBoxWidth,
+                              height: sizes[size].checkBoxHeight,
+                              borderRadius: checkBoxVariant === 'circular' ? 24 : 3,
                               borderColor: componentTheme[isSelected ? 'selected' : componentStatus]?.checkBorder,
                               backgroundColor: componentTheme[isSelected ?
                                 'selected' : componentStatus]?.checkBackground,
@@ -258,7 +272,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
                               <OcticonsIcon
                                 color={componentTheme[isSelected ? 'selected' : componentStatus]?.checkIcon}
                                 name="check"
-                                size={12}
+                                size={sizes[size].checkIconSize}
                               />
                             )}
                           </TouchableOpacity>
@@ -376,11 +390,8 @@ export const Style = StyleSheet.create({
     marginLeft: 15,
   },
   checkBox: {
-    height: 20,
-    width: 20,
     borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 4,
   },
 });
