@@ -1,5 +1,6 @@
 import React, { forwardRef, RefAttributes, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import { Dimensions, Modal, ScrollViewProps, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
+import { Dimensions, Modal, ScrollViewProps,
+  StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import { NativeViewGestureHandlerProps, ScrollView } from 'react-native-gesture-handler';
 import Animated, { FadeIn, FadeOut, useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -12,6 +13,7 @@ import OcticonsIcon from '../Icons/Octicons';
 import { opacity } from '../../utilities';
 
 const windowsHeight = Dimensions.get('window').height;
+const windowsWidth = Dimensions.get('window').width;
 
 // eslint-disable-next-line no-undef
 const GScrollView = forwardRef((props: JSX.IntrinsicAttributes &
@@ -212,14 +214,14 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
                       width: cord?.width,
                       left: 0,
                       maxHeight: selectall ? sizes[size].rowHeight * 6.5 : sizes[size].rowHeight * 6,
+                      maxWidth: windowsWidth,
                     },
                     listContainerStyle,
 
-                    // eslint-disable-next-line no-unsafe-optional-chaining
-
-                    ((cord?.y || 0) + (sizes[size].rowHeight * 4.5) + 10 + sizes[size].buttonHeight || 0)
+                    ((cord?.y || 0) + (sizes[size].rowHeight * 4.5) + 10 + (sizes[size].buttonHeight || 0))
                     >= windowsHeight ?
-                      { bottom: windowsHeight - cord.y, left: cord.x } : { top: cord.y + cord.height, left: cord.x },
+                      { bottom: windowsHeight - (cord?.y || 0), left: cord?.x || 0 } :
+                      { top: (cord?.y || 0) + (cord?.height || 0), left: cord?.x || 0 },
                     { backgroundColor: statusTheme.collapseBackground }]}
                 >
                   <ScrollView>
@@ -248,7 +250,8 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
                             disabled
                             style={[Style.checkBox, {
                               borderColor: componentTheme[isSelected ? 'selected' : componentStatus]?.checkBorder,
-                              backgroundColor: componentTheme[isSelected ? 'selected' : componentStatus]?.checkBackground,
+                              backgroundColor: componentTheme[isSelected ?
+                                'selected' : componentStatus]?.checkBackground,
                             }]}
                           >
                             {isSelected && (
@@ -262,7 +265,8 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
                           <Text
                             style={[sizes[size].typography,
                               { marginHorizontal: 10 },
-                              rowTextStyle, { color: componentTheme[isSelected ? 'selected' : componentStatus]?.itemLabel }]}
+                              rowTextStyle, { color: componentTheme[isSelected ? 'selected'
+                                : componentStatus]?.itemLabel }]}
                           >
                             {displayedRowValue?.(item)}
                           </Text>
