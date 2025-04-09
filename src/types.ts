@@ -446,6 +446,11 @@ export type MultipleDropdownProps = DrowdownProps & {
     */
     overflowButtonLabel?:(event: number)=>void,
     /**
+    * The variant style of the checkbox.
+    * Can be either 'circular' for a circular checkbox, or 'rectangular' for a rectangular checkbox.
+    */
+    checkBoxVariant?:'circular'|'rectangular'
+    /**
         *The theme to use for the component
     */
     theme?: DeepPartial<(ComponentThemeType['multipleDropdown'])>
