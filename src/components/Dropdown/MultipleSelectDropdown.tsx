@@ -218,9 +218,6 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
                     },
                     listContainerStyle,
 
-                    // eslint-disable-next-line no-unsafe-optional-chaining
-
-                    // Replace lines 189-192 with:
                     ((cord?.y || 0) + (sizes[size].rowHeight * 4.5) + 10 + (sizes[size].buttonHeight || 0))
                     >= windowsHeight ?
                       { bottom: windowsHeight - (cord?.y || 0), left: cord?.x || 0 } :
