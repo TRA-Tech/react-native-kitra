@@ -9,6 +9,7 @@ import type { DrowdownProps, FCCWD } from '../../types';
 import FeatherIcon from '../Icons/Feather';
 
 const windowsHeight = Dimensions.get('window').height;
+const windowsWidth = Dimensions.get('window').width;
 
 const Dropdown: FCCWD<DrowdownProps> = (
   { left,
@@ -165,13 +166,16 @@ const Dropdown: FCCWD<DrowdownProps> = (
                   {
                     width: cord?.width,
                     left: 0,
+                    maxWidth: windowsWidth,
                   },
                   { maxHeight: sizes[size].rowHeight * 4.5 },
                   listContainerStyle,
                   autoPosition ?
-                    (cord?.y + (sizes[size].rowHeight * 4.5) + 10 + sizes[size].buttonHeight || 0) >= windowsHeight ?
-                      { bottom: windowsHeight - cord.y, left: cord.x } : { top: cord.y + cord.height, left: cord.x }
-                    : { top: cord?.height + 5 },
+                    ((cord?.y || 0) + (sizes[size].rowHeight * 4.5) + 10 +
+                    (sizes[size].buttonHeight || 0)) >= windowsHeight ?
+                      { bottom: windowsHeight - (cord?.y || 0), left: cord?.x || 0 } :
+                      { top: (cord?.y || 0) + (cord?.height || 0), left: cord?.x || 0 }
+                    : { top: (cord?.height || 0) + 5 },
                   { backgroundColor: statusTheme.collapseBackground }]}
                 >
                   <ScrollView nestedScrollEnabled>
