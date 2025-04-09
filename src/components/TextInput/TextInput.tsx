@@ -140,9 +140,11 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
       textInputOffset.value,
       [0, 1],
       [
-        error
-          ? (componentTheme.error?.border || '')
-          : (componentTheme.focused?.border || ''),
+        editable
+          ? (error
+            ? (componentTheme.error?.border || '')
+            : (componentTheme.focused?.border || ''))
+          : (componentTheme.disabled?.border || ''),
         editable
           ? (error
             ? (componentTheme.error?.border || '')
@@ -231,7 +233,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
     <View style={[containerStyle]}>
       <Animated.View style={[{
         borderRadius: 8,
-        borderWidth: editable ? 1 : 0,
+        borderWidth: (editable || props.defaultValue || props.value) ? 1 : 0,
         height: sizeStyles[size].height,
         maxHeight: sizeStyles[size].height,
       },
@@ -359,6 +361,7 @@ const styles = StyleSheet.create({
   },
   helperContainer: {
     flexDirection: 'row',
+    marginTop: 2,
     paddingHorizontal: 5,
     justifyContent: 'space-between',
   },
