@@ -414,7 +414,7 @@ export const COLOR_COMPONENTS_LIGHT = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_
         label: COLOR_SYSTEM.colors.neutral.lightBlack,
         value: COLOR_SYSTEM.colors.neutral.black,
         bottomLabel: COLOR_SYSTEM.colors.status.error,
-        countLabel: COLOR_SYSTEM.colors.neutral.lightBlack,
+        countLabel: COLOR_SYSTEM.colors.status.error,
 
       },
     },
@@ -740,7 +740,7 @@ export const COLOR_COMPONENTS_DARK = (COLOR_SYSTEM:{colors:typeof COLOR_SYSTEM_D
       label: COLOR_SYSTEM.colors.neutral.lightBlack,
       value: COLOR_SYSTEM.colors.neutral.black,
       bottomLabel: COLOR_SYSTEM.colors.status.error,
-      countLabel: COLOR_SYSTEM.colors.neutral.lightBlack,
+      countLabel: COLOR_SYSTEM.colors.status.error,
     },
   },
 });
