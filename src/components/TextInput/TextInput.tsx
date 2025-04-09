@@ -136,16 +136,23 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
   });
 
   const borderAnimation = useAnimatedStyle(() => {
-    const topInterpolate = interpolateColor(
+    const borderColor = interpolateColor(
       textInputOffset.value,
       [0, 1],
-      [componentTheme.focused?.border || '',
-        editable ? (error ? componentTheme.error?.border || '' : componentTheme.default?.border || '')
-          : componentTheme.disabled?.border || ''],
+      [
+        error
+          ? (componentTheme.error?.border || '')
+          : (componentTheme.focused?.border || ''),
+        editable
+          ? (error
+            ? (componentTheme.error?.border || '')
+            : (componentTheme.default?.border || ''))
+          : (componentTheme.disabled?.border || ''),
+      ],
     );
 
     return {
-      borderColor: topInterpolate,
+      borderColor,
     };
   });
 
