@@ -214,10 +214,6 @@ export type ButtonProps = {
     */
     right?:(event:boolean)=> React.ReactElement,
     /**
-        *The position of the icon in relation to the label. Defaults to 'left'
-    */
-    iconPosition?: 'left' | 'right',
-    /**
         *Additional styles to apply to the button
     */
     style?: StyleProp<ViewStyle>,
