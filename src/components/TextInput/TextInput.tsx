@@ -136,16 +136,25 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
   });
 
   const borderAnimation = useAnimatedStyle(() => {
-    const topInterpolate = interpolateColor(
+    const borderColor = interpolateColor(
       textInputOffset.value,
       [0, 1],
-      [componentTheme.focused?.border || '',
-        editable ? (error ? componentTheme.error?.border || '' : componentTheme.default?.border || '')
-          : componentTheme.disabled?.border || ''],
+      [
+        editable
+          ? (error
+            ? (componentTheme.error?.border || '')
+            : (componentTheme.focused?.border || ''))
+          : (componentTheme.disabled?.border || ''),
+        editable
+          ? (error
+            ? (componentTheme.error?.border || '')
+            : (componentTheme.default?.border || ''))
+          : (componentTheme.disabled?.border || ''),
+      ],
     );
 
     return {
-      borderColor: topInterpolate,
+      borderColor,
     };
   });
 
@@ -223,8 +232,8 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
   return (
     <View style={[containerStyle]}>
       <Animated.View style={[{
-        borderRadius: 5,
-        borderWidth: editable ? 1 : 0,
+        borderRadius: 8,
+        borderWidth: (editable || props.defaultValue || props.value) ? 1 : 0,
         height: sizeStyles[size].height,
         maxHeight: sizeStyles[size].height,
       },
@@ -282,8 +291,8 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
                 lineHeight: sizeStyles[size].lineHeight,
                 flexDirection: 'row',
                 borderRadius: Array.isArray(inputContainerStyle)
-                  ? (inputContainerStyle.find(f => (f as ViewStyle)?.borderRadius) as ViewStyle)?.borderRadius || 5
-                  : (inputContainerStyle as ViewStyle)?.borderRadius || 5,
+                  ? (inputContainerStyle.find(f => (f as ViewStyle)?.borderRadius) as ViewStyle)?.borderRadius || 8
+                  : (inputContainerStyle as ViewStyle)?.borderRadius || 8,
                 flexGrow: 1,
               }, inputStyle, { backgroundColor: statusTheme.background, color: statusValue }]}
               onChangeText={event => { setCounts(event?.length || 0); onChangeText && onChangeText(event); }}
@@ -352,6 +361,7 @@ const styles = StyleSheet.create({
   },
   helperContainer: {
     flexDirection: 'row',
+    marginTop: 2,
     paddingHorizontal: 5,
     justifyContent: 'space-between',
   },
