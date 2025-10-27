@@ -9,7 +9,7 @@ const SwipeScreen = () => (
       rightActions={[
         { label: 'Share',
           style: { backgroundColor: '#E2D029' },
-          onPress: ref => { console.log(ref.current.close()); },
+          onPress: ref => { ref.current?.close(); },
           labelStyle: { color: 'white' },
           icon: <Icon type="feather" name="share" size={15} color="white" /> },
         { label: 'More',

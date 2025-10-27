@@ -2,7 +2,7 @@ import type { FC, PropsWithChildren } from 'react';
 import type React from 'react';
 import type { Animated, DimensionValue, FlatList, ImageSourcePropType,
   StyleProp, TextProps, TextStyle, ViewProps, ViewStyle } from 'react-native';
-import { Swipeable } from 'react-native-gesture-handler';
+import type { SwipeableMethods } from 'react-native-gesture-handler/ReanimatedSwipeable';
 import type { defaultTypography } from './core/typography/typography';
 import { DEFAULT_THEME } from './core/theme/colors';
 
@@ -652,7 +652,7 @@ export type ActionProps = {
     /**
         *Callback function to be called when the swipe action button is pressed
     */
-    onPress?: (ref: React.RefObject<Swipeable>) => void
+    onPress?: (ref: React.RefObject<SwipeableMethods | null>) => void
 }
 
 export type SwipeProps = {

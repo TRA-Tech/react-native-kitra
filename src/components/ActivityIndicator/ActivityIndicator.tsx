@@ -1,43 +1,58 @@
 import { StyleSheet, View, Platform } from 'react-native';
 import { useEffect } from 'react';
-import Animated, { useAnimatedStyle, useSharedValue, withRepeat, withSpring } from 'react-native-reanimated';
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withRepeat,
+  withTiming,
+  Easing,
+  cancelAnimation,
+} from 'react-native-reanimated';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { ActivityIndicatorProps, FCCWD } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
 
-const ActivityIndicator:FCCWD<ActivityIndicatorProps> = ({ theme, children }) => {
+const ActivityIndicator: FCCWD<ActivityIndicatorProps> = ({ theme, children }) => {
   const { componentTheme } = useComponentTheme(theme, 'activityIndicator', 'default');
-  const sv = useSharedValue(0);
+  const rotation = useSharedValue(0);
+
   useEffect(() => {
-    sv.value = withRepeat(
-      withSpring(1, {
-        stiffness: 20,
-        damping: 8,
+    rotation.value = withRepeat(
+      withTiming(360000, {
+        duration: 1000000,
+        easing: Easing.linear,
       }),
       -1,
       false,
     );
-  }, []);
 
-  const animatedStyle = useAnimatedStyle(() => ({ transform: [
-    { translateX: 16 },
-    { translateY: 16 },
-    { rotate: `${sv.value * 360}deg` },
-    { translateX: -16 },
-    { translateY: -16 },
-  ] }));
+    return () => cancelAnimation(rotation);
+  }, [rotation]);
+
+  const animatedStyle = useAnimatedStyle(() => ({
+    transform: [
+      { translateX: 16 },
+      { translateY: 16 },
+      { rotate: `${rotation.value}deg` },
+      { translateX: -16 },
+      { translateY: -16 },
+    ],
+  }));
+ 
   return (
     <View style={[styles.centeredView, { backgroundColor: componentTheme.default?.background }]}>
       <View>
         {children || (
-        <>
-          <View style={[{ borderColor: componentTheme.default?.indicator }, styles.circle]} />
-          <Animated.View style={[Platform.OS === 'android' ? styles.quarterCircleAndroid : styles.quarterCircleIOS,
-            { borderColor: componentTheme.default?.track },
-            animatedStyle,
-          ]}
-          />
-        </>
+          <>
+            <View style={[styles.circle, { borderColor: componentTheme.default?.indicator }]} />
+            <Animated.View
+              style={[
+                Platform.OS === 'android' ? styles.quarterCircleAndroid : styles.quarterCircleIOS,
+                { borderColor: componentTheme.default?.track },
+                animatedStyle,
+              ]}
+            />
+          </>
         )}
       </View>
     </View>

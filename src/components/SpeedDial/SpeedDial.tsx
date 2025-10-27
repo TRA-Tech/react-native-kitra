@@ -122,7 +122,7 @@ const SpeedDial: FCCWD<SpeedDialProps> = (
   }));
 
   const animationStartConfig = {
-    damping: 10,
+    damping: 100,
     mass: 1,
 
   };

@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
-import { Pressable, PressableProps, StyleSheet, Text } from 'react-native';
+import { Pressable, PressableProps, StyleSheet, Text, StyleProp, ViewStyle } from 'react-native';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { ButtonProps, FCCWD } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
+
+interface IconProps {
+  size?: number;
+  style?: StyleProp<ViewStyle>;
+}
 
 export const Button: FCCWD<ButtonProps & PressableProps> = (
   { typography,
@@ -58,20 +63,28 @@ export const Button: FCCWD<ButtonProps & PressableProps> = (
       {...props}
     >
 
-      {typeof left === 'function' && React.cloneElement(left(isPressed), {
-        size: left(isPressed).props.size || fontStyles[size].fontSize,
-        style: [label.length ? { marginRight: 10 } : null, left(isPressed).props?.style],
-      })}
+      {typeof left === 'function' && (() => {
+        const leftElement = left(isPressed) as React.ReactElement<IconProps>;
+        const leftProps = leftElement.props;
+        return React.cloneElement(leftElement, {
+          size: leftProps.size || fontStyles[size].fontSize,
+          style: [label.length ? { marginRight: 10 } : null, leftProps.style],
+        });
+      })()}
       <Text
         testID="button_text"
         style={[{ fontWeight: '500' }, fontStyles[size], labelStyle, { color: statusTheme.label }]}
       >
         {label}
       </Text>
-      {typeof right === 'function' && React.cloneElement(right(isPressed), {
-        size: right(isPressed).props.size || fontStyles[size].fontSize,
-        style: [label.length ? { marginLeft: 10 } : null, right(isPressed).props?.style],
-      })}
+      {typeof right === 'function' && (() => {
+        const rightElement = right(isPressed) as React.ReactElement<IconProps>;
+        const rightProps = rightElement.props;
+        return React.cloneElement(rightElement, {
+          size: rightProps.size || fontStyles[size].fontSize,
+          style: [label.length ? { marginLeft: 10 } : null, rightProps.style],
+        });
+      })()}
     </Pressable>
   );
 };

@@ -20,13 +20,11 @@ const ToggleButtonScreen = () => (
   <Layout style={{ rowGap: 15 }}>
     <Text style={styles.headerText}>Default</Text>
     <ToggleButton buttons={buttons} />
-
     <Text style={styles.headerText}>Sizes M-S</Text>
     <View style={{ rowGap: 10 }}>
       <ToggleButton size="medium" buttons={buttons} />
       <ToggleButton size="small" buttons={buttons} />
     </View>
-
     <Text style={styles.headerText}>Custom Theme</Text>
     <ToggleButton
       theme={{

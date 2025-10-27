@@ -1,35 +1,42 @@
 const { getDefaultConfig } = require('@expo/metro-config');
-const escape = require('escape-string-regexp');
-const exclusionList = require('metro-config/src/defaults/exclusionList');
 const path = require('path');
+
+// eslint-disable-next-line import/no-unresolved
 const pak = require('../package.json');
 
 const root = path.resolve(__dirname, '..');
 
-const defaultConfig = getDefaultConfig(__dirname);
 const modules = [
   '@expo/vector-icons',
   'expo-modules-core',
-  ...Object.keys(pak.peerDependencies),
+  ...Object.keys(pak.peerDependencies || {}),
 ];
 
-module.exports = {
-  ...defaultConfig,
+const config = getDefaultConfig(__dirname);
 
-  projectRoot: __dirname,
-  watchFolders: [root],
-  resolver: {
-    ...defaultConfig.resolver,
-    enableGlobalPackages: true,
-    blockList: exclusionList(
-      modules.map(
-        m => new RegExp(`^${escape(path.join(root, 'node_modules', m))}\\/.*$`),
-      ),
-    ),
+config.watchFolders = [root];
 
-    extraNodeModules: modules.reduce((acc, name) => {
-      acc[name] = path.join(__dirname, 'node_modules', name);
-      return acc;
-    }, {}),
-  },
+// Create exclusion patterns for node_modules
+const exclusions = modules.map(
+  m => new RegExp(`^${path.join(root, 'node_modules', m).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\/.*$`),
+);
+
+if (config.resolver.blockList) {
+  config.resolver.blockList = config.resolver.blockList.concat(exclusions);
+} else {
+  config.resolver.blockList = exclusions;
+}
+
+// Map the package name to the local source
+config.resolver.extraNodeModules = {
+  ...modules.reduce((acc, name) => {
+    acc[name] = path.join(__dirname, 'node_modules', name);
+    return acc;
+  }, {}),
+  '@tra-tech/react-native-kitra': path.join(root, 'src'),
 };
+
+// Resolve extensions
+config.resolver.sourceExts = [...config.resolver.sourceExts, 'ts', 'tsx'];
+
+module.exports = config;

@@ -8,10 +8,10 @@ const ActivityIndicatorScreen = () => (
     <ActivityIndicator />
     <Text style={styles.headerText}>Custom Indicator</Text>
     <ActivityIndicator>
-      <View style={{ backgroundColor: '#195CEF', height: 40, width: 40, borderRadius: 20 }} />
+      <View style={{ backgroundColor: '#195CEF', height: 40, width: 40, borderRadius: 20  }} />
     </ActivityIndicator>
     <Text style={styles.headerText}>Custom theme</Text>
-    <ActivityIndicator theme={{ default: { background: '#195CEF', indicator: '#F6F9FF' } }} />
+    <ActivityIndicator theme={{ default: { background: '#195CEF', indicator: '#F6F9FF', track: 'gray' } }} />
   </Layout>
 );
 
