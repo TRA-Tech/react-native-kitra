@@ -104,6 +104,7 @@ export default function App() {
             <Stack.Screen name="Switch" component={SwitchScreen} />
             <Stack.Screen name="TextInput" component={TextInputScreen} />
             <Stack.Screen name="ToggleButton" component={ToggleButtonScreen} />
+
           </Stack.Navigator>
         </NavigationContainer>
       </KitraProvider>

@@ -75,7 +75,6 @@ export const CheckBox: FCCWD<CheckBoxProps & TouchableOpacityProps> = (
     >
       {disabled ? (
         <Icon
-          type="ant-design"
           color={statusTheme.icon}
           name="minus"
           size={12}
@@ -84,7 +83,6 @@ export const CheckBox: FCCWD<CheckBoxProps & TouchableOpacityProps> = (
         :
         (value || (value === undefined && status)) && (
           <Icon
-            type="octicon"
             color={statusTheme.icon}
             name="check"
             size={12}

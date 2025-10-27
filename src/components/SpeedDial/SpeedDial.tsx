@@ -159,7 +159,7 @@ const SpeedDial: FCCWD<SpeedDialProps> = (
           />
         ))}
         <Animated.View
-          style={[baseItemIcon === (<Icon type="material-community" name="close" size={25} color={statusTheme.icon} />)
+          style={[baseItemIcon === (<Icon name="close" size={25} color={statusTheme.icon} />)
             ? rotate
             : null, styles.nodeContainer, { backgroundColor: statusTheme.background }]}
         >
@@ -168,7 +168,7 @@ const SpeedDial: FCCWD<SpeedDialProps> = (
             style={styles.nodeButton}
             onPress={onPress}
           >
-            {baseItemIcon || <Icon type="material-community" name="close" size={25} color={statusTheme.icon} /> }
+            {baseItemIcon || <Icon name="close" size={25} color={statusTheme.icon} /> }
           </TouchableOpacity>
         </Animated.View>
 

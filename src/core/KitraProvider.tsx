@@ -7,30 +7,26 @@ import { initialWindowMetrics, SafeAreaProvider } from 'react-native-safe-area-c
 import { ThemeProvider } from './theme/theme';
 import { TypographyContext, TypographyProvider } from './typography/typography';
 import { NotificationContextType, NotificationProvider } from './notification/notification';
-
-const Feather = require('react-native-vector-icons/Feather').default;
-const Ionicons = require('react-native-vector-icons/Ionicons').default;
-const AntDesign = require('react-native-vector-icons/AntDesign').default;
-const MaterialIcons = require('react-native-vector-icons/MaterialIcons').default;
+import Icon from '../components/Icons/Icon';
 
 export const showNotificationRef = createRef<NotificationContextType>();
 
 const messageTypes = (theme:any) => ({
   SUCCESS: {
     backgroundColor: theme.colors.status.successLight,
-    icon: <Feather name="check" size={25} color={theme.colors.status.success} />,
+    icon: <Icon name="check" size={25} color={theme.colors.status.success} />,
   },
   INFO: {
     backgroundColor: theme.colors.system.primary15,
-    icon: <Ionicons name="information-circle-outline" size={25} color={theme.colors.system.primary} />,
+    icon: <Icon name="info" size={25} color={theme.colors.system.primary} />,
   },
   DANGER: {
     backgroundColor: theme.colors.status.errorLight,
-    icon: <MaterialIcons name="error-outline" size={25} color={theme.colors.status.error} />,
+    icon: <Icon name="warning-circle" size={25} color={theme.colors.status.error} />,
   },
   WARNING: {
     backgroundColor: theme.colors.status.warningLight,
-    icon: <AntDesign name="warning" size={25} color={theme.colors.status.warning} />,
+    icon: <Icon name="warning" size={25} color={theme.colors.status.warning} />,
   },
 });
 
