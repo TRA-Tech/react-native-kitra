@@ -3,7 +3,7 @@ import React from 'react';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { AvatarProps, FCCWD } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
-import OcticonsIcon from '../Icons/Octicons';
+import Icon from '../Icons/Icon';
 
 const Avatar: FCCWD<AvatarProps> = (
   { source,
@@ -56,7 +56,7 @@ const Avatar: FCCWD<AvatarProps> = (
         }
 
         return (
-          avatarIcon || <OcticonsIcon name="person" size={sizes[size].iconSize} color={statusTheme.label} />
+          avatarIcon || <Icon name="user" size={sizes[size].iconSize} color={statusTheme.label} />
         );
       })()}
 

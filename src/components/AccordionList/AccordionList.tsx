@@ -4,9 +4,9 @@ import Animated, { FadeInUp, FadeOut, useAnimatedStyle, useSharedValue, withTimi
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import { type AccordionListProps, type FCCWD } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
-import OcticonsIcon from '../Icons/Octicons';
+import Icon from '../Icons/Icon';
 
-const AnimatedIcon = Animated.createAnimatedComponent(OcticonsIcon);
+const AnimatedIcon = Animated.createAnimatedComponent(Icon);
 
 const AccordionList: FCCWD<AccordionListProps> = ({
   data,
@@ -63,7 +63,7 @@ const AccordionList: FCCWD<AccordionListProps> = ({
           <View style={[styles.iconContainer, { backgroundColor: statusTheme.collapseIconBackground }]}>
             <AnimatedIcon
               color={statusTheme.collapseIcon}
-              name="chevron-down"
+              name="short-down"
               style={iconStyle}
               size={20}
             />

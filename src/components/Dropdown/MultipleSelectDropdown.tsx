@@ -7,10 +7,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { FCCWD, MultipleDropdownProps } from '../../types';
 import Button from '../Button/Button';
-import FeatherIcon from '../Icons/Feather';
-import IoniconsIcon from '../Icons/Ionicons';
-import OcticonsIcon from '../Icons/Octicons';
 import { opacity } from '../../utilities';
+import Icon from '../Icons/Icon';
 
 const windowsHeight = Dimensions.get('window').height;
 const windowsWidth = Dimensions.get('window').width;
@@ -191,8 +189,8 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
         <View style={[Style.rightItem]}>
           {rightElement || (
             <Animated.View style={dropdownAnimation}>
-              <FeatherIcon
-                name="chevron-down"
+              <Icon
+                name="short-down"
                 size={14}
                 color={statusTheme.collapseIcon}
               />
@@ -265,7 +263,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
                             }]}
                           >
                             {isSelected && (
-                              <OcticonsIcon
+                              <Icon
                                 color={componentTheme[isSelected ? 'selected' : componentStatus]?.checkIcon}
                                 name="check"
                                 size={sizes[size].checkIconSize}
@@ -304,8 +302,8 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
                       >
                         {selectallButtonLabel || 'Select All'}
                       </Text>
-                      <IoniconsIcon
-                        name="checkmark-done-outline"
+                      <Icon
+                        name="double-check"
                         size={16}
                         style={{ marginLeft: 5 }}
                         color={statusTheme.selectAllLabel}

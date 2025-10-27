@@ -6,7 +6,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { opacity } from '../../utilities';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { DrowdownProps, FCCWD } from '../../types';
-import FeatherIcon from '../Icons/Feather';
+import Icon from '../Icons/Icon';
 
 const windowsHeight = Dimensions.get('window').height;
 const windowsWidth = Dimensions.get('window').width;
@@ -136,8 +136,8 @@ const Dropdown: FCCWD<DrowdownProps> = (
         <View style={[Style.rightItem]}>
           {rightElement || (
             <Animated.View style={dropdownAnimation}>
-              <FeatherIcon
-                name="chevron-down"
+              <Icon
+                name="short-down"
                 size={14}
                 color={statusTheme.collapseIcon}
               />

@@ -1,5 +1,6 @@
 import type { FC, PropsWithChildren } from 'react';
 import type React from 'react';
+import iconPaths from './components/Icons/iconPaths.json';
 import type { Animated, DimensionValue, FlatList, ImageSourcePropType,
   StyleProp, TextProps, TextStyle, ViewProps, ViewStyle } from 'react-native';
 import type { SwipeableMethods } from 'react-native-gesture-handler/ReanimatedSwipeable';
@@ -481,12 +482,14 @@ export type IconProps = {
     allowFontScaling?: boolean;
 };
 
+export type IconName = keyof typeof iconPaths;
+
 export type IconComponentProps =
     TextProps & {
     /**
         *Name of icon
     */
-        name: string;
+        name: IconName;
         /**
         *Color of icon
     */
@@ -825,23 +828,6 @@ export type ActivityIndicatorProps = {
     */
     theme?: DeepPartial<(ComponentThemeType['activityIndicator'])>
 }
-
-export type IconType =
-    | 'material'
-    | 'material-community'
-    | 'simple-line-icon'
-    | 'zocial'
-    | 'font-awesome'
-    | 'octicon'
-    | 'ionicon'
-    | 'foundation'
-    | 'feather'
-    | 'fontisto'
-    | 'evilicon'
-    | 'entypo'
-    | 'ant-design'
-    | 'font-awesome-5'
-    | 'font-awesome-6';
 
 export type DeepPartial<T> = T extends object ? {
         [P in keyof T]?: DeepPartial<T[P]>;
