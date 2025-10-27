@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View, StyleProp, ViewStyle } from 'react-native';
 import Animated, { interpolateColor, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { ChipProps, FCCWD } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
+
+interface IconProps {
+  size?: number;
+  style?: StyleProp<ViewStyle>;
+}
 
 const AnimatedTouchableOpacity = Animated.createAnimatedComponent(TouchableOpacity);
 
@@ -66,10 +71,13 @@ const Chip:FCCWD<ChipProps> = (
         opacity: disabled ? 0.7 : 1 }, style, { borderColor: statusTheme.border }]}
     >
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        {typeof left === 'function' && React.cloneElement(left(select), {
-          size: sizes[size].iconSize,
-          style: [(left(select) ? { marginLeft: 6 } : null)],
-        })}
+        {typeof left === 'function' && (() => {
+          const leftElement = left(select) as React.ReactElement<IconProps>;
+          return React.cloneElement(leftElement, {
+            size: sizes[size].iconSize,
+            style: [(leftElement ? { marginLeft: 6 } : null)],
+          });
+        })()}
         <Animated.Text
           style={[
             { fontSize: typographySize[size]?.fontSize,
@@ -80,10 +88,13 @@ const Chip:FCCWD<ChipProps> = (
         >
           {label}
         </Animated.Text>
-        {typeof right === 'function' && React.cloneElement(right(select), {
-          size: sizes[size].iconSize,
-          style: [(right(select) ? { marginRight: 6 } : null)],
-        })}
+        {typeof right === 'function' && (() => {
+          const rightElement = right(select) as React.ReactElement<IconProps>;
+          return React.cloneElement(rightElement, {
+            size: sizes[size].iconSize,
+            style: [(rightElement ? { marginRight: 6 } : null)],
+          });
+        })()}
       </View>
     </AnimatedTouchableOpacity>
   );

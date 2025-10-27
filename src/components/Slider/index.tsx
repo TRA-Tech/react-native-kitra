@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
-import { Gesture, GestureDetector, PanGestureHandler } from 'react-native-gesture-handler';
-import Animated, { runOnJS, useAnimatedGestureHandler,
+import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import Animated, { runOnJS,
   useAnimatedProps, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import type { FCCWD, SliderProps } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
@@ -25,6 +25,8 @@ const Slider: FCCWD<SliderProps> = (
   const progress = useSharedValue(0);
   const containerRef = useRef<View>(null);
   const [measure, setMeasure] = useState({ x: 0, y: 0, pageX: 0, pageY: 0, width: 0, height: 0 });
+  const startX = useSharedValue(0);
+  
   const onEndHandler = () => {
     onChangeEnd(Number(((progress.value / (measure.width - 20)) * 100).toFixed()));
   };
@@ -33,20 +35,21 @@ const Slider: FCCWD<SliderProps> = (
     text: `%${((progress.value / (measure.width - 20)) * 100).toFixed().toString()}`,
   } as any));
 
-  const handler = useAnimatedGestureHandler({
-    onStart: (_, ctx) => {
-      // @ts-ignore
-      ctx.offsetX = progress.value;
-    },
-    onActive: (event, ctx) => {
-      // @ts-ignore
-      let newTranslateX = event.translationX + ctx.offsetX;
+  const panGesture = Gesture.Pan()
+    .onStart(() => {
+      startX.value = progress.value;
+    })
+    .onUpdate(event => {
+      let newTranslateX = event.translationX + startX.value;
       if (newTranslateX < 0) { newTranslateX = 0; }
       if (newTranslateX > measure.width - 20) { newTranslateX = measure.width - 20; }
-      if (newTranslateX >= 0 && newTranslateX <= measure.width - 20) { progress.value = newTranslateX; }
-    },
-    onEnd: () => runOnJS(onEndHandler)(),
-  }, [measure]);
+      if (newTranslateX >= 0 && newTranslateX <= measure.width - 20) {
+        progress.value = newTranslateX;
+      }
+    })
+    .onEnd(() => {
+      runOnJS(onEndHandler)();
+    });
 
   useEffect(() => {
     if (defaultValue) {
@@ -69,6 +72,7 @@ const Slider: FCCWD<SliderProps> = (
     const translateX = e.x > measure.width - 20 ? measure.width - 20 : e.x;
     progress.value = withTiming(translateX);
   });
+  
   return (
     <View style={containerStyle}>
       <GestureDetector gesture={tap}>
@@ -85,7 +89,7 @@ const Slider: FCCWD<SliderProps> = (
             width: progress,
             height: 6 }, progressStyle, percentageStyle, { backgroundColor: statusTheme.progress }]}
           />
-          <PanGestureHandler onGestureEvent={handler}>
+          <GestureDetector gesture={panGesture}>
             <Animated.View
               hitSlop={{ top: 25,
                 bottom: 25,
@@ -105,7 +109,7 @@ const Slider: FCCWD<SliderProps> = (
                 </View>
               )}
             </Animated.View>
-          </PanGestureHandler>
+          </GestureDetector>
         </View>
       </GestureDetector>
     </View>

@@ -76,7 +76,7 @@ const ThemeProvider: FCC = ({ children }) => {
       throw new Error('Color scheme is not defined');
     }
 
-    return theme[colorScheme];
+    return theme[colorScheme as 'light' | 'dark'];
   };
 
   const contextValue = useMemo(() =>

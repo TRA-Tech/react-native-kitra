@@ -15,10 +15,6 @@ import { opacity } from '../../utilities';
 const windowsHeight = Dimensions.get('window').height;
 const windowsWidth = Dimensions.get('window').width;
 
-// eslint-disable-next-line no-undef
-const GScrollView = forwardRef((props: JSX.IntrinsicAttributes &
-  ScrollViewProps & NativeViewGestureHandlerProps & RefAttributes<ScrollView>, ref) => <ScrollView {...props} />);
-
 const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
   { typography,
     left,
@@ -53,7 +49,7 @@ const MultipleDropdown: FCCWD<MultipleDropdownProps> = (
   const [selectedObjects, setSelectedObjects] = useState(defaultValue);
   const [cord, setCord] = useState({ x: 0, y: 0, height: 0, width: 0 });
   const openAnimation = useSharedValue(0);
-  const dataWithID = useRef();
+  const dataWithID = useRef(null);
   const { statusTheme, componentTheme } = useComponentTheme(
     theme,
     'multipleDropdown',
