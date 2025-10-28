@@ -14,20 +14,20 @@ const ButtonScreen = () => (
 
       <Text style={styles.headerText}>Left-Right Elements</Text>
       <View style={{ rowGap: 5 }}>
-        <Button label="Press Me!" left={event => <Icon type="material-community" name={event ? 'penguin' : 'dog'} />} />
-        <Button label="Press Me!" right={() => <Icon type="material-community" name="penguin" />} />
+        <Button label="Press Me!" left={event => <Icon name={event ? 'user' : 'user-circle'} />} />
+        <Button label="Press Me!" right={() => <Icon name="user" />} />
         <Button
           label="Press Me!"
-          right={() => <Icon type="material-community" name="penguin" />}
-          left={() => <Icon type="material-community" name="penguin" />}
+          right={() => <Icon name="user" />}
+          left={() => <Icon name="user" />}
         />
       </View>
 
       <Text style={styles.headerText}>Size S-M-L</Text>
       <View style={{ rowGap: 5 }}>
-        <Button label="Press Me!" size="small" left={() => <Icon type="material-community" name="penguin" />} />
-        <Button label="Press Me!" size="medium" left={() => <Icon type="material-community" name="penguin" />} />
-        <Button label="Press Me!" size="large" left={() => <Icon type="material-community" name="penguin" />} />
+  <Button label="Press Me!" size="small" left={() => <Icon name="user" />} />
+  <Button label="Press Me!" size="medium" left={() => <Icon name="user" />} />
+  <Button label="Press Me!" size="large" left={() => <Icon name="user" />} />
       </View>
 
       <Text style={styles.headerText}>Custom Theme</Text>
@@ -39,7 +39,7 @@ const ButtonScreen = () => (
           }}
           label="Press Me!"
           size="small"
-          left={() => <Icon type="material-community" name="penguin" />}
+          left={() => <Icon name="user" />}
         />
 
         <Text style={styles.headerText}>Custom Disabled Theme</Text>
@@ -48,7 +48,7 @@ const ButtonScreen = () => (
           disabled
           label="Press Me!"
           size="medium"
-          left={() => <Icon type="material-community" name="penguin" />}
+          left={() => <Icon name="user" />}
         />
 
       </View>

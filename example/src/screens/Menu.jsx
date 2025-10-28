@@ -4,23 +4,24 @@ import Layout from '../components/Layout';
 
 const data = [
   {
-    left: <Icon type="material" name="share" color="white" />,
+    left: <Icon  name="paper-plane-tilt" color="white" />,
     label: 'Share',
     onPress: () => console.log('Share'),
   },
   {
-    left: <Icon type="material" name="delete" color="white" />,
-    right: <Icon type="material" name="delete" color="white" />,
+    left: <Icon name="trash" color="white" />,
+    right: <Icon  name="trash" color="white" />,
     label: 'Delete',
     onPress: () => console.log('Delete'),
   },
 ];
 
-const MenuIconButton = () => (<Icon type="material" size={20} name="more-vert" />);
+const MenuIconButton = () => (<Icon  size={20} name="dots-three-vertical" />);
 const MenuScreen = () => (
   <Layout style={{ rowGap: 15 }}>
     <Text style={styles.headerText}>Default</Text>
     <Menu
+          containerStyle={{ alignItems: 'flex-start' }}
       button={MenuIconButton}
       items={data}
     />

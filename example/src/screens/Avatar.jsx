@@ -19,13 +19,13 @@ const AvatarScreen = () => (
       <Avatar variant="rounded" />
 
       <Text style={styles.headerText}>With Icon</Text>
-      <Avatar avatarIcon={<Icon type="material-community" name="penguin" size={30} />} />
+  <Avatar avatarIcon={<Icon name="user" size={30} />} />
 
       <Text style={styles.headerText}>With Label</Text>
       <Avatar
         variant="rounded"
         label="John Doe"
-        avatarIcon={<Icon type="material-community" name="penguin" size={30} />}
+  avatarIcon={<Icon name="user" size={30} />}
       />
 
       <Text style={styles.headerText}>Sizes S-M</Text>
@@ -33,7 +33,7 @@ const AvatarScreen = () => (
         <Avatar
           size="small"
           label="John Doe"
-          avatarIcon={<Icon type="material-community" name="penguin" size={30} />}
+          avatarIcon={<Icon name="user" size={30} />}
         />
         <Avatar
           variant="rounded"
@@ -53,7 +53,7 @@ const AvatarScreen = () => (
         source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_75gFTnTdEo-gYx6kpjQ7bPkcUH_L4CUXMWRn1jPhBzjgXQp-Z_QGNZ7togU2K03bYwc&usqp=CAU' }}
         variant="rounded"
         label="John Doe"
-        avatarIcon={<Icon type="material-community" name="penguin" size={30} />}
+  avatarIcon={<Icon name="user" size={30} />}
       />
 
       <Text style={styles.headerText}>With Badge and Image</Text>
@@ -62,7 +62,7 @@ const AvatarScreen = () => (
           source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_75gFTnTdEo-gYx6kpjQ7bPkcUH_L4CUXMWRn1jPhBzjgXQp-Z_QGNZ7togU2K03bYwc&usqp=CAU' }}
           borderStyle="circular"
           label="John Doe"
-          avatarIcon={<Icon type="material-community" name="penguin" size={30} />}
+          avatarIcon={<Icon name="user" size={30} />}
         />
       </Badge>
     </View>

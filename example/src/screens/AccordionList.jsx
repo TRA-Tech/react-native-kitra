@@ -8,8 +8,8 @@ const Data = [
   { name: 'Sometimes you want to pack up and leave behind', points: '$3.45' },
   { name: 'All of them and their smiles', points: '$3.45' }];
 
-const AccordionListLeftIcon = () => (<Icon type="material-community" name="flower-tulip" size={24} color="white" />);
-const AccordionListRightIcon = () => (<Icon type="material-community" name="flower-tulip" size={24} color="white" style={{ marginRight: 10 }} />);
+const AccordionListLeftIcon = () => (<Icon name="star" size={24} color="white" />);
+const AccordionListRightIcon = () => (<Icon name="star" size={24} color="white" style={{ marginRight: 10 }} />);
 
 const AccordionListScreen = () => (
   <Layout>

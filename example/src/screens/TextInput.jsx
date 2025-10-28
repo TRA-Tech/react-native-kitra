@@ -18,7 +18,7 @@ const TextInputScreen = () => {
           variant="outlined"
           size="small"
           label="Label"
-          left={() => <Icon type="ant-design" color={theme.primary} name="plus" size={18} />}
+          left={() => <Icon color={theme.primary} name="plus" size={18} />}
         />
         <TextInput
           variant="outlined"

@@ -16,7 +16,7 @@ const ChipScreen = () => (
         label="Press Me!"
         size="large"
         style={{paddingHorizontal: 10}}
-        left={event => <Icon name={event ? 'cat' : 'dog'} type="font-awesome-5" size={20} />}
+  left={event => <Icon name={event ? 'user' : 'user-circle'} size={20} />}
       />
     </View>
 
