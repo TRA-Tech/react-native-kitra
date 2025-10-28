@@ -18,19 +18,19 @@ const TextInputScreen = () => {
           variant="outlined"
           size="small"
           label="Label"
-          left={() => <Icon type="ant-design" color={theme.primary} name="plus" size={18} />}
+          left={() => <Icon color={theme.primary} name="plus" size={18} />}
         />
         <TextInput
           variant="outlined"
           size="medium"
           label="Label"
-          left={() => <Icon type="ant-design" color={theme.primary} name="plus" size={18} />}
+          left={() => <Icon color={theme.primary} name="plus" size={18} />}
         />
         <TextInput
           variant="outlined"
           size="large"
           label="Label"
-          left={() => <Icon type="ant-design" color={theme.primary} name="plus" size={18} />}
+          left={() => <Icon color={theme.primary} name="plus" size={18} />}
         />
 
         <Text style={styles.headerText}>Left - Right Elements</Text>
@@ -38,22 +38,22 @@ const TextInputScreen = () => {
           <TextInput
             variant="outlined"
             label="Label"
-            left={() => <Icon type="ant-design" color={theme.primary} name="plus" size={18} />}
+            left={() => <Icon color={theme.primary} name="plus" size={18} />}
           />
           <TextInput
             variant="outlined"
             label="Label"
             right={() => (
               <TouchableOpacity>
-                <Icon type="ant-design" color={theme.primary} name="eye" size={18} />
+                <Icon color={theme.primary} name="eye" size={18} />
               </TouchableOpacity>
             )}
           />
           <TextInput
             variant="outlined"
             label="Label"
-            right={() => <Icon type="ant-design" color={theme.primary} name="plus" size={18} />}
-            left={() => <Icon type="ant-design" color={theme.primary} name="eye" size={18} />}
+            right={() => <Icon color={theme.primary} name="plus" size={18} />}
+            left={() => <Icon color={theme.primary} name="eye" size={18} />}
           />
         </View>
 
@@ -79,19 +79,19 @@ const TextInputScreen = () => {
           variant="filled"
           size="small"
           label="Label"
-          left={() => <Icon type="ant-design" color={theme.primary} name="plus" size={18} />}
+          left={() => <Icon color={theme.primary} name="plus" size={18} />}
         />
         <TextInput
           variant="filled"
           size="medium"
           label="Label"
-          left={() => <Icon type="ant-design" color={theme.primary} name="plus" size={18} />}
+          left={() => <Icon color={theme.primary} name="plus" size={18} />}
         />
         <TextInput
           variant="filled"
           size="large"
           label="Label"
-          left={() => <Icon type="ant-design" color={theme.primary} name="plus" size={18} />}
+          left={() => <Icon color={theme.primary} name="plus" size={18} />}
         />
 
         <Text style={styles.headerText}>Left - Right Elements</Text>
@@ -99,22 +99,22 @@ const TextInputScreen = () => {
           <TextInput
             variant="filled"
             label="Label"
-            left={() => <Icon type="ant-design" color={theme.primary} name="plus" size={18} />}
+            left={() => <Icon color={theme.primary} name="plus" size={18} />}
           />
           <TextInput
             variant="filled"
             label="Label"
             right={() => (
               <TouchableOpacity>
-                <Icon type="ant-design" color={theme.primary} name="eye" size={18} />
+                <Icon color={theme.primary} name="eye" size={18} />
               </TouchableOpacity>
             )}
           />
           <TextInput
             variant="filled"
             label="Label"
-            right={() => <Icon type="ant-design" color={theme.primary} name="plus" size={18} />}
-            left={() => <Icon type="ant-design" color={theme.primary} name="eye" size={18} />}
+            right={() => <Icon color={theme.primary} name="plus" size={18} />}
+            left={() => <Icon color={theme.primary} name="eye" size={18} />}
           />
         </View>
 
@@ -141,8 +141,8 @@ const TextInputScreen = () => {
           size="medium"
           label="Label"
           containerStyle={{ marginBottom: 10 }}
-        // eslint-disable-next-line react/no-unstable-nested-components
-          left={event => <Icon type="ant-design" color={event ? 'grey' : '#195CEF'} name="plus" size={18} />}
+          // eslint-disable-next-line react/no-unstable-nested-components
+          left={event => <Icon color={event ? 'grey' : '#195CEF'} name="plus" size={18} />}
         />
         <TextInput
           variant="outlined"
@@ -161,7 +161,7 @@ const TextInputScreen = () => {
           size="medium"
           label="Label"
           containerStyle={{ marginBottom: 10 }}
-          left={() => <Icon type="ant-design" color="red" name="plus" size={18} />}
+          left={() => <Icon color="red" name="plus" size={18} />}
         />
         <TextInput
           variant="outlined"
@@ -180,7 +180,7 @@ const TextInputScreen = () => {
           size="medium"
           label="Label"
           containerStyle={{ marginTop: 10 }}
-          left={() => <Icon type="ant-design" color={theme.primary} name="plus" size={18} />}
+          left={() => <Icon color={theme.primary} name="plus" size={18} />}
         />
       </View>
     </Layout>

@@ -8,7 +8,7 @@ const BadgeScreen = () => (
     <Badge />
 
     <Text style={[styles.headerText, { marginTop: 20 }]}>Badge with Icon</Text>
-    <Badge icon={<Icon type="ant-design" name="minus" />}>
+  <Badge icon={<Icon name="minus" />}>
       <Avatar />
     </Badge>
 

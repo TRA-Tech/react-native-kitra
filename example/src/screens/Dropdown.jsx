@@ -73,7 +73,7 @@ const DropdownScreen = () => (
             displayedButtonValue={x => x.name}
             displayedRowValue={x => `${x.name} ${x.activeYears}`}
             onSelect={x => console.log(x)}
-            right={<Icon type="font-awesome-5" color="black" name="guitar" size={18} />}
+            right={<Icon color="black" name="note" size={18} />}
           />
         </View>
         <View style={{ zIndex: 7 }}>
@@ -82,7 +82,7 @@ const DropdownScreen = () => (
             displayedButtonValue={x => x.name}
             displayedRowValue={x => `${x.name} ${x.activeYears}`}
             onSelect={x => console.log(x)}
-            right={<Icon type="ant-design" color="black" name="down" size={10} />}
+            right={<Icon color="black" name="arrow-down" size={10} />}
           />
         </View>
         <View style={{ zIndex: 6 }}>
@@ -91,8 +91,8 @@ const DropdownScreen = () => (
             displayedButtonValue={x => x.name}
             displayedRowValue={x => `${x.name} ${x.activeYears}`}
             onSelect={x => console.log(x)}
-            left={<Icon type="font-awesome-5" color="black" name="guitar" size={18} />}
-            right={<Icon type="ant-design" color="black" name="down" size={10} />}
+            left={<Icon color="black" name="note" size={18} />}
+            right={<Icon color="black" name="arrow-down" size={10} />}
           />
         </View>
       </View>
@@ -150,7 +150,7 @@ const DropdownScreen = () => (
         displayedButtonValue={x => x.name}
         displayedRowValue={x => `${x.name} ${x.activeYears}`}
         buttonTitle="Select a band"
-        left={<Icon type="font-awesome-5" color="blue" name="guitar" size={18} />}
+  left={<Icon color="blue" name="note" size={18} />}
       />
 
       <Text style={styles.headerText}>Multiple Select</Text>
@@ -173,14 +173,14 @@ const DropdownScreen = () => (
           multiple
           selectall
           onComplete={x => console.log(x)}
-          left={<Icon type="font-awesome-5" color="black" name="guitar" size={18} />}
+          left={<Icon color="black" name="note" size={18} />}
         />
         <Dropdown
           data={data}
           displayedButtonValue={x => x.name}
           displayedRowValue={x => `${x.name} ${x.activeYears}`}
           onSelect={x => console.log(x)}
-          left={<Icon type="font-awesome-5" color="black" name="guitar" size={18} />}
+          left={<Icon color="black" name="note" size={18} />}
         />
       </View>
     </View>
