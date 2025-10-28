@@ -41,8 +41,7 @@ const AvatarScreen = () => (
           label="John Doe"
           avatarIcon={(
             <Icon
-              type="material-community"
-              name="penguin"
+              name="user"
               size={30}
             />
 )}
