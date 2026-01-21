@@ -9,7 +9,31 @@ import useComponentTheme from '../../core/hooks/useComponentTheme';
 import type { FCCWD, TextInputProps } from '../../types';
 import { applyDefaults } from '../../core/KitraProvider';
 
-const AnimatedTextInput = Animated.createAnimatedComponent(RNTextInput);
+type BaseTextInputProps = RNTextInputProps & {
+  inputRef?: React.Ref<RNTextInput>;
+};
+
+const BaseTextInput = React.forwardRef<RNTextInput, BaseTextInputProps>(({ inputRef, ...props }, forwardedRef) => {
+  const setRefs = (node: RNTextInput | null) => {
+    if (typeof forwardedRef === 'function') {
+      forwardedRef(node);
+    } else if (forwardedRef) {
+      (forwardedRef as { current: RNTextInput | null }).current = node;
+    }
+
+    if (typeof inputRef === 'function') {
+      inputRef(node);
+    } else if (inputRef) {
+      (inputRef as { current: RNTextInput | null }).current = node;
+    }
+  };
+
+  return <RNTextInput ref={setRefs} {...props} />;
+});
+
+
+const AnimatedTextInput = Animated.createAnimatedComponent(BaseTextInput);
+
 const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
   { inputStyle,
     editable = true,
@@ -229,6 +253,9 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
     }
   }, [props?.value]);
 
+
+
+
   return (
     <View style={[containerStyle]}>
       <Animated.View style={[{
@@ -282,7 +309,7 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
             )}
 
             <AnimatedTextInput
-              ref={inputRef}
+              inputRef={inputRef}
               editable={editable}
               style={[{
                 marginTop: (variant === 'filled' && label) ? fontStyles[size].lineHeight / 2 : 0,
@@ -311,13 +338,15 @@ const TextInput: FCCWD<TextInputProps & RNTextInputProps> = (
               ]}
               >
                 <TouchableOpacity
-                  onPress={() => inputRef.current?.focus()}
+                  onPress={() => {
+                    inputRef.current?.focus();
+                  }}
                   activeOpacity={0.9}
                   onLayout={event => setLabelLayout({ width: event.nativeEvent.layout.width,
                     height: event.nativeEvent.layout.height })}
                 >
                   <Animated.Text style={[{ fontFamily: labelStyles[size].default.fontFamily },
-                    labelStyle, labelFontAnimation, { color: statusTheme.label }]}
+                    labelStyle, labelFontAnimation, { color: statusTheme.label }]}           
                   >
                     {label}
                   </Animated.Text>
